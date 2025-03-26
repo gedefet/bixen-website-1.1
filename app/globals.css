@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme colors with new teal palette */
+    --background: 190 100% 14%; /* #004953 - Midnight Green */
+    --foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Card colors */
+    --card: 190 100% 14%; /* #004953 - Midnight Green */
+    --card-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Popover colors */
+    --popover: 190 100% 14%; /* #004953 - Midnight Green */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Primary - Teal Blue */
+    --primary: 190 99% 32%; /* #008794 - Teal Blue */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Secondary - Bright Teal */
+    --secondary: 165 99% 49%; /* #01F9C6 - Bright Teal */
+    --secondary-foreground: 190 100% 14%; /* #004953 - Midnight Green */
+
+    /* Muted colors */
+    --muted: 190 100% 18%; /* #004953 - Slightly lighter than background */
+    --muted-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Accent - Aquamarine */
+    --accent: 160 100% 75%; /* #7FFFD4 - Aquamarine */
+    --accent-foreground: 190 100% 14%; /* #004953 - Midnight Green */
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%; /* Keep destructive as is */
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and input colors */
+    --border: 190 99% 32% / 30%; /* #008794 with opacity - Teal Blue */
+    --input: 190 99% 32% / 30%; /* #008794 with opacity - Teal Blue */
+    --ring: 190 99% 32%; /* #008794 - Teal Blue */
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-light tracking-tight;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Section transition styles */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth section transitions */
+.section-divider {
+  display: none; /* Remove section dividers since we're using a gradient */
+}
+
+.section-divider-top {
+  top: -60px;
+  background: linear-gradient(to bottom, transparent 0%, var(--section-color) 100%);
+}
+
+.section-divider-bottom {
+  bottom: -60px;
+  background: linear-gradient(to bottom, var(--section-color) 0%, transparent 100%);
+}
+
+/* Add smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transition animations */
+.section-transition {
+  transition: background-color 0.8s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .section-divider {
+    height: 80px;
+  }
+
+  .section-divider-top {
+    top: -40px;
+  }
+
+  .section-divider-bottom {
+    bottom: -40px;
+  }
+}
+
+@layer utilities {
+  /* Compass animation */
+  @keyframes spin-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  @keyframes compass-appear {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-compass {
+    animation: compass-appear 1s ease-out forwards;
+  }
+
+  /* Fade in animation */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in forwards;
+  }
+
+  /* Animation durations */
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+
+  .duration-500 {
+    transition-duration: 500ms;
+  }
+
+  .duration-600 {
+    transition-duration: 600ms;
+  }
+
+  .duration-700 {
+    transition-duration: 700ms;
+  }
+
+  .duration-1000 {
+    transition-duration: 1000ms;
+  }
+
+  /* Animation delays */
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+
+  /* Transform utilities */
+  .transform-none {
+    transform: none;
+  }
+
+  .translate-y-10 {
+    transform: translateY(40px);
+  }
+
+  .-translate-y-10 {
+    transform: translateY(-40px);
+  }
+
+  .translate-x-10 {
+    transform: translateX(40px);
+  }
+
+  .-translate-x-10 {
+    transform: translateX(-40px);
+  }
+
+  /* Slideshow transitions */
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .object-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Fade animations for dropdown menus */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+
+  .animate-fadeOut {
+    animation: fadeOut 0.2s ease-in forwards;
+  }
+}
+
