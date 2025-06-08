@@ -6,7 +6,7 @@ export default function TeamSection() {
     {
       name: "Federico Lopez",
       role: "Founder & CEO",
-      bio: "Bringing together technology and business strategy, Federico helps drive Bixen’s vision and innovation",
+      bio: "Bringing together technology and business strategy, Federico helps drive Bixen's vision and innovation",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/federico.jpg-XCfCQttpBwL8qHbmEG33C1HnoXCCwm.jpeg",
     },
     {
@@ -17,8 +17,8 @@ export default function TeamSection() {
     },
     {
       name: "Florencia Zalazar",
-      role: "Sales & Marketing Manager",
-      bio: "Florencia brings strategic vision and extensive experience in healthcare and technology markets, connecting our solutions with the right partners.",
+      role: "HR Manager",
+      bio: "Florencia shapes Bixen's culture and connects talent aligned with our values, building a team that thrives on creativity and impact.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/florencia.jpg-jPdi9r41DvdVPdEoob4Ym8FJYeHe4x.jpeg",
     },
@@ -73,4 +73,3 @@ export default function TeamSection() {
     </div>
   )
 }
-

@@ -19,7 +19,7 @@ export default function CaseStudiesSection() {
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
     },
     {
-      title: "ABInBev Process Optimization",
+      title: "Ongoing conversations - ABInBev Process Optimization",
       description: (
         <>
           Optimizing the barley drying process at ABInBev's production plant in Uruguay in partnership with
@@ -68,7 +68,7 @@ export default function CaseStudiesSection() {
             >
               <div className="aspect-video w-full overflow-hidden bg-white/10 flex items-center justify-center p-4">
                 {index === 0 ? (
-                  // Only ABInBev logo for the first case study
+                  // Custom image for the first case study (Intuitivo + Meta)
                   <div className="flex flex-col items-center justify-center w-full h-full gap-4">
                     <Image
                       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png"
@@ -87,7 +87,7 @@ export default function CaseStudiesSection() {
                     />
                   </div>
                 ) : (
-                  // Custom image for the second case study (Intuitivo + Meta)
+                  // Only ABInBev logo for the second case study
                   <div className="flex items-center justify-center w-full h-full bg-white rounded-xl p-4">
                     <Image
                       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png"
@@ -152,7 +152,7 @@ export default function CaseStudiesSection() {
                   <div className="mb-6">
                     <h3 className="text-[#01F9C6] text-base mb-1">CASE STUDY 2025</h3>
                     <h2 className="text-2xl font-bold text-white mb-3">
-                      UY - Optimization of the barley drying process in production plant
+                      Ongoing conversations - ABInBev Process Optimization
                     </h2>
 
                     <div className="mb-4">
@@ -223,4 +223,3 @@ export default function CaseStudiesSection() {
     </div>
   )
 }
-

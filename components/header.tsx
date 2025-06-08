@@ -125,4 +125,3 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
     </header>
   )
 }
-
