@@ -7,7 +7,7 @@ export default function TeamSection() {
       name: "Federico Lopez",
       role: "Founder & CEO",
       bio: "Bringing together technology and business strategy, Federico helps drive Bixen's vision and innovation",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/federico.jpg-XCfCQttpBwL8qHbmEG33C1HnoXCCwm.jpeg",
+      image: "/images/federico-new.jpg",
     },
     {
       name: "Damian Minnock",

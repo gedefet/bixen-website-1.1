@@ -40,7 +40,7 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
           <a href="#features" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
             Why Bixen
           </a>
-          <a href="#case-studies" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+          <a href="/case-studies" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
             Case Studies
           </a>
           <a href="#team" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
@@ -68,7 +68,7 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
         {isOpen && (
           <div
             className="fixed inset-0 z-[200] bg-[#004953] border border-[#008794]/30 shadow-xl p-4 md:hidden animate-fadeIn"
-            style={{ opacity: 1 }} // Forzar opacidad completa independientemente del scroll
+            style={{ opacity: 1 }}
           >
             <div className="flex justify-end">
               <button onClick={() => setIsOpen(false)} className="text-white bg-transparent border-none p-2">
@@ -91,7 +91,7 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
                 Why Bixen
               </a>
               <a
-                href="#case-studies"
+                href="/case-studies"
                 className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
                 onClick={() => setIsOpen(false)}
               >

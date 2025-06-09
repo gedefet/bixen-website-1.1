@@ -5,6 +5,7 @@ import { ArrowRight, X } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function CaseStudiesSection() {
   const [showABInBevDetails, setShowABInBevDetails] = useState(false)
@@ -41,86 +42,6 @@ export default function CaseStudiesSection() {
       results: "Enhanced customer experience",
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
     },
-    {
-      title: "Banking Assistant Evolution",
-      description:
-        "Enhanced IBM Watson performance through custom NLP pipeline and root word identification technology.",
-      image: null,
-      category: "Banking",
-      results: "Watson accuracy improved from 60% to 82%",
-      link: "#",
-      year: "2019",
-    },
-    {
-      title: "Intelligent Call Center Optimization",
-      description:
-        "Designed and implemented an intelligent voice assistant (IVA) system for call flow management with proprietary algorithms for elderly voice recognition.",
-      image: null,
-      category: "Healthcare",
-      results: "45% improvement in voice recognition for people >75 years, 60% reduction in operational costs",
-      link: "#",
-      year: "2020",
-    },
-    {
-      title: "Aerospace Vehicle Detection System",
-      description:
-        "Developed vehicle detection and classification system from drone imagery for aerospace applications, implemented on NVIDIA Jetson IoT platform.",
-      image: null,
-      category: "Aerospace",
-      results: "Achieved >90% precision, 300% acceleration in vehicle counting and traffic volume estimation",
-      link: "#",
-      year: "2016",
-    },
-    {
-      title: "3D Body Scan Validation",
-      description:
-        "AI-based system for detecting and classifying deficient body scans using a database of 29,000 scans across different body parts.",
-      image: null,
-      category: "Healthcare",
-      results: "98.4% precision in health parameter detection, 250% growth in first year",
-      link: "#",
-      year: "2019",
-    },
-    {
-      title: "Skeleton Detection Enhancement",
-      description:
-        "Advanced AI system for skeleton and body part detection, identifying 25 key points across the entire body for precise measurements.",
-      image: null,
-      category: "Healthcare",
-      results: "Improved precision in body detection system",
-      link: "#",
-      year: "2020",
-    },
-    {
-      title: "Process Automation Implementation",
-      description:
-        "Implemented robotic process automation (RPA) cell for internal company processes, facilitating operator tasks and optimizing human resource allocation.",
-      image: null,
-      category: "Telecommunications",
-      results: "Reduced 27 personnel dedicated to portability and corporate travel validation processes",
-      link: "#",
-      year: "2018",
-    },
-    {
-      title: "Voice-Controlled Gaming Platform",
-      description:
-        "Created efficient voice processing system for Roku platform karaoke game, optimized for platform limitations and data latency constraints.",
-      image: null,
-      category: "Entertainment",
-      results: "Successful product launch, superior performance vs competitors, excellent pitch detection ROI",
-      link: "#",
-      year: "2025",
-    },
-    {
-      title: "Voice Cloning for Influencer Platform",
-      description:
-        "Developed voice cloning algorithm to replicate influencer voices for personalized user messages, achieving imperceptible similarity to human ear.",
-      image: null,
-      category: "Social Media",
-      results: "90% voice similarity achieved, seamless platform integration",
-      link: "#",
-      year: "2025",
-    },
   ]
 
   const handleABInBevClick = (e) => {
@@ -140,14 +61,14 @@ export default function CaseStudiesSection() {
       </div>
 
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {caseStudies.map((study, index) => (
             <Card
               key={index}
               className="overflow-hidden hover:shadow-lg transition-all duration-200 bg-white/5 backdrop-blur-sm border-white/20 rounded-[1.5rem]"
             >
               <div className="aspect-video w-full overflow-hidden bg-white/10 flex items-center justify-center p-4">
-                {index === 0 ? (
+                {index === 1 ? (
                   // Custom image for the first case study (Intuitivo + Meta)
                   <div className="flex flex-col items-center justify-center w-full h-full gap-4">
                     <Image
@@ -212,6 +133,16 @@ export default function CaseStudiesSection() {
               </CardFooter>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Link
+            href="/case-studies"
+            className="inline-flex items-center text-[#01F9C6] hover:text-[#01F9C6]/80 transition-colors font-medium text-lg"
+          >
+            View all success stories
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
         </div>
       </div>
 
