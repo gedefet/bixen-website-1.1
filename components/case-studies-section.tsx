@@ -11,14 +11,6 @@ export default function CaseStudiesSection() {
 
   const caseStudies = [
     {
-      title: "Bixen in Retail",
-      description: "Learn how Bixen helped Intuitivo work with cutting-edge technology from Meta.",
-      image: null, // We'll create a custom image component for this one
-      category: "Retail",
-      results: "Enhanced customer experience",
-      link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
-    },
-    {
       title: "Ongoing conversations - ABInBev Process Optimization",
       description: (
         <>
@@ -34,12 +26,100 @@ export default function CaseStudiesSection() {
           </span>
         </>
       ),
-      image: null, // We'll create a custom image component for this one
+      image: null,
       category: "Manufacturing",
       results: "Expected: High reduction in energy consumption",
       status: "In Progress",
       link: "#",
       isABInBev: true,
+    },
+    {
+      title: "Bixen in Retail",
+      description: "Learn how Bixen helped Intuitivo work with cutting-edge technology from Meta.",
+      image: null,
+      category: "Retail",
+      results: "Enhanced customer experience",
+      link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
+    },
+    {
+      title: "Banking Assistant Evolution",
+      description:
+        "Enhanced IBM Watson performance through custom NLP pipeline and root word identification technology.",
+      image: null,
+      category: "Banking",
+      results: "Watson accuracy improved from 60% to 82%",
+      link: "#",
+      year: "2019",
+    },
+    {
+      title: "Intelligent Call Center Optimization",
+      description:
+        "Designed and implemented an intelligent voice assistant (IVA) system for call flow management with proprietary algorithms for elderly voice recognition.",
+      image: null,
+      category: "Healthcare",
+      results: "45% improvement in voice recognition for people >75 years, 60% reduction in operational costs",
+      link: "#",
+      year: "2020",
+    },
+    {
+      title: "Aerospace Vehicle Detection System",
+      description:
+        "Developed vehicle detection and classification system from drone imagery for aerospace applications, implemented on NVIDIA Jetson IoT platform.",
+      image: null,
+      category: "Aerospace",
+      results: "Achieved >90% precision, 300% acceleration in vehicle counting and traffic volume estimation",
+      link: "#",
+      year: "2016",
+    },
+    {
+      title: "3D Body Scan Validation",
+      description:
+        "AI-based system for detecting and classifying deficient body scans using a database of 29,000 scans across different body parts.",
+      image: null,
+      category: "Healthcare",
+      results: "98.4% precision in health parameter detection, 250% growth in first year",
+      link: "#",
+      year: "2019",
+    },
+    {
+      title: "Skeleton Detection Enhancement",
+      description:
+        "Advanced AI system for skeleton and body part detection, identifying 25 key points across the entire body for precise measurements.",
+      image: null,
+      category: "Healthcare",
+      results: "Improved precision in body detection system",
+      link: "#",
+      year: "2020",
+    },
+    {
+      title: "Process Automation Implementation",
+      description:
+        "Implemented robotic process automation (RPA) cell for internal company processes, facilitating operator tasks and optimizing human resource allocation.",
+      image: null,
+      category: "Telecommunications",
+      results: "Reduced 27 personnel dedicated to portability and corporate travel validation processes",
+      link: "#",
+      year: "2018",
+    },
+    {
+      title: "Voice-Controlled Gaming Platform",
+      description:
+        "Created efficient voice processing system for Roku platform karaoke game, optimized for platform limitations and data latency constraints.",
+      image: null,
+      category: "Entertainment",
+      results: "Successful product launch, superior performance vs competitors, excellent pitch detection ROI",
+      link: "#",
+      year: "2025",
+    },
+    {
+      title: "Voice Cloning for Influencer Platform",
+      description:
+        "Developed voice cloning algorithm to replicate influencer voices for personalized user messages, achieving imperceptible similarity to human ear.",
+      image: null,
+      category: "Social Media",
+      results: "90% voice similarity achieved, seamless platform integration",
+      link: "#",
+      year: "2025",
     },
   ]
 
