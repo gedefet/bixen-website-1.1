@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 
 export default function CaseStudiesSection() {
-  const [showABInBevDetails, setShowABInBevDetails] = useState(false)
+  const [selectedCase, setSelectedCase] = useState(null)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const caseStudies = [
@@ -18,87 +18,213 @@ export default function CaseStudiesSection() {
         logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
         category: "Retail",
         link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
-        hasDetails: false
+        hasModal: false
       },
       {
         title: "Barley Drying Process Optimization",
         client: "ABInBev",
         logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
         category: "Manufacturing",
-        link: "#",
-        hasDetails: true,
-        isABInBev: true
+        hasModal: true,
+        modalData: {
+          title: "UY - Optimization of the barley drying process in production plant",
+          company: "ABInBev is the world's largest beer manufacturer, with a portfolio of more than 500 global and local brands, including Budweiser, Corona, Stella Artois, Beck's, Leffe, and Hoegaarden. The company was formed in 2008 after the acquisition of Anheuser-Busch by InBev.",
+          challenge: "ABInBev needs to optimize the barley drying process at its plant in Uruguay, to reduce the plant's energy consumption while also reducing the operating windows of the barley drying process.",
+          benefits: [
+            "High reduction in energy consumption",
+            "Plant operation optimization"
+          ],
+          technology: [
+            "Deep Learning/Machine Learning",
+            "Reinforcement Learning", 
+            "Analytics/Data Science",
+            "IIoT (Industrial IoT)",
+            "AWS"
+          ]
+        }
       },
       {
-        title: "AI-Powered Healthcare Solutions",
-        client: "MedTech Corp",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
-        category: "Healthcare",
-        link: "#",
-        hasDetails: false
+        title: "Content Recommendation AI System",
+        client: "Netflix",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-netflix-logo.png",
+        category: "Entertainment",
+        hasModal: true,
+        modalData: {
+          title: "AI-Powered Content Recommendation System",
+          company: "Netflix is the world's leading streaming entertainment service with over 230 million paid memberships in more than 190 countries enjoying TV series, documentaries and feature films across a wide variety of genres and languages.",
+          challenge: "Netflix needed to enhance their content recommendation system to improve user engagement and reduce churn by providing more personalized content suggestions based on viewing patterns and preferences.",
+          benefits: [
+            "Increased user engagement by 40%",
+            "Reduced content discovery time",
+            "Improved user retention rates"
+          ],
+          technology: [
+            "Machine Learning",
+            "Deep Learning",
+            "Natural Language Processing",
+            "Big Data Analytics",
+            "AWS"
+          ]
+        }
       }
     ],
     // Row 2
     [
       {
         title: "Supply Chain Optimization Platform",
-        client: "LogiFlow",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
-        category: "Logistics",
-        link: "#",
-        hasDetails: false
+        client: "Mercado Libre",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-mercadolibre-logo.png",
+        category: "E-commerce",
+        hasModal: true,
+        modalData: {
+          title: "Supply Chain Optimization and Logistics Intelligence",
+          company: "Mercado Libre is Latin America's leading e-commerce technology company, operating online marketplaces dedicated to e-commerce and online auctions, including mercadolibre.com.",
+          challenge: "Mercado Libre needed to optimize their supply chain operations across Latin America to reduce delivery times and costs while improving inventory management and demand forecasting.",
+          benefits: [
+            "30% reduction in delivery times",
+            "25% cost savings in logistics",
+            "Improved inventory turnover"
+          ],
+          technology: [
+            "Machine Learning",
+            "Predictive Analytics",
+            "IoT Integration",
+            "Real-time Data Processing",
+            "Cloud Computing"
+          ]
+        }
       },
       {
-        title: "Smart Agriculture IoT System",
-        client: "AgroTech",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
-        category: "Agriculture",
-        link: "#",
-        hasDetails: false
-      },
-      {
-        title: "Financial Risk Assessment AI",
-        client: "FinSecure",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
+        title: "Financial Risk Assessment Platform",
+        client: "Banco Santander",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-santander-logo.png",
         category: "Fintech",
-        link: "#",
-        hasDetails: false
+        hasModal: true,
+        modalData: {
+          title: "AI-Driven Financial Risk Assessment System",
+          company: "Banco Santander is a Spanish multinational financial services company based in Madrid and Santander in Spain. It is one of the largest banks in the world by market capitalization.",
+          challenge: "Santander required an advanced risk assessment system to better evaluate loan applications and detect potential fraud while maintaining compliance with regulatory requirements.",
+          benefits: [
+            "50% reduction in loan default rates",
+            "Improved fraud detection accuracy",
+            "Faster loan approval process"
+          ],
+          technology: [
+            "Machine Learning",
+            "Deep Learning",
+            "Natural Language Processing",
+            "Blockchain Integration",
+            "Cloud Security"
+          ]
+        }
+      },
+      {
+        title: "Smart Agriculture IoT Platform",
+        client: "Syngenta",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-syngenta-logo.png",
+        category: "Agriculture",
+        hasModal: true,
+        modalData: {
+          title: "Precision Agriculture and Crop Monitoring System",
+          company: "Syngenta is a leading agriculture company helping to improve global food security by enabling millions of farmers to make better use of available resources.",
+          challenge: "Syngenta needed a comprehensive IoT platform to help farmers optimize crop yields through precision agriculture, real-time monitoring, and predictive analytics for pest and disease management.",
+          benefits: [
+            "20% increase in crop yields",
+            "Reduced pesticide usage",
+            "Improved resource efficiency"
+          ],
+          technology: [
+            "IoT Sensors",
+            "Machine Learning",
+            "Computer Vision",
+            "Satellite Imagery",
+            "Edge Computing"
+          ]
+        }
       }
     ],
     // Row 3
     [
       {
         title: "Predictive Maintenance System",
-        client: "IndustrialAI",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
+        client: "Siemens",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-siemens-logo.png",
         category: "Manufacturing",
-        link: "#",
-        hasDetails: false
+        hasModal: true,
+        modalData: {
+          title: "Industrial Predictive Maintenance Platform",
+          company: "Siemens is a German multinational conglomerate company and the largest industrial manufacturing company in Europe, with branch offices abroad.",
+          challenge: "Siemens needed to implement predictive maintenance across their industrial equipment to reduce downtime, optimize maintenance schedules, and extend equipment lifespan.",
+          benefits: [
+            "40% reduction in unplanned downtime",
+            "30% decrease in maintenance costs",
+            "Extended equipment lifespan"
+          ],
+          technology: [
+            "Industrial IoT",
+            "Machine Learning",
+            "Digital Twin Technology",
+            "Edge Computing",
+            "Time Series Analysis"
+          ]
+        }
       },
       {
-        title: "Energy Optimization Platform",
-        client: "GreenPower",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
+        title: "Energy Grid Optimization",
+        client: "Enel",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-enel-logo.png",
         category: "Energy",
-        link: "#",
-        hasDetails: false
+        hasModal: true,
+        modalData: {
+          title: "Smart Grid Optimization and Energy Management",
+          company: "Enel is an Italian multinational manufacturer and distributor of electricity and gas, serving end users and markets. It is the largest utility company in Europe by revenue.",
+          challenge: "Enel required an intelligent energy grid management system to optimize energy distribution, integrate renewable sources, and improve grid stability across their network.",
+          benefits: [
+            "25% improvement in grid efficiency",
+            "Better renewable energy integration",
+            "Reduced energy losses"
+          ],
+          technology: [
+            "AI/ML Algorithms",
+            "Smart Grid Technology",
+            "Real-time Analytics",
+            "IoT Integration",
+            "Cloud Computing"
+          ]
+        }
       },
       {
         title: "Autonomous Vehicle Navigation",
-        client: "AutoDrive",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png", // Placeholder
+        client: "Tesla",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-tesla-logo.png",
         category: "Automotive",
-        link: "#",
-        hasDetails: false
+        hasModal: true,
+        modalData: {
+          title: "Advanced Driver Assistance and Navigation System",
+          company: "Tesla, Inc. is an American electric vehicle and clean energy company based in Austin, Texas, known for electric cars, energy storage systems, and solar panels.",
+          challenge: "Tesla needed to enhance their autonomous driving capabilities with advanced computer vision and decision-making algorithms for safer and more reliable self-driving features.",
+          benefits: [
+            "Improved autonomous driving accuracy",
+            "Enhanced safety features",
+            "Better navigation in complex scenarios"
+          ],
+          technology: [
+            "Computer Vision",
+            "Deep Learning",
+            "Neural Networks",
+            "Real-time Processing",
+            "Edge AI"
+          ]
+        }
       }
     ]
   ]
 
   const handleCardClick = (study, rowIndex, cardIndex) => {
-    if (study.isABInBev) {
-      setShowABInBevDetails(true)
-    } else if (study.link !== "#") {
+    if (study.client === "Intuitivo") {
       window.open(study.link, "_blank")
+    } else if (study.hasModal) {
+      setSelectedCase(study)
     }
   }
 
@@ -136,37 +262,36 @@ export default function CaseStudiesSection() {
                     >
                       {/* Front of card - Logo only */}
                       <div className="absolute inset-0 w-full h-full backface-hidden">
-                        {/* Logo container with depth */}
                         <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] transform translate-z-4">
                           <div className="h-full flex flex-col items-center justify-center p-8">
                             {/* Logo */}
                             <div className="flex-1 flex items-center justify-center mb-4">
-                              {study.client === "ABInBev" ? (
-                                <div className="bg-white rounded-xl p-6 w-full max-w-[200px] flex items-center justify-center">
+                              {study.client === "Intuitivo" ? (
+                                <div className="flex flex-col items-center justify-center gap-3 bg-white/10 rounded-xl p-6 w-full">
                                   <Image
                                     src={study.logo}
                                     alt={`${study.client} logo`}
                                     width={150}
                                     height={60}
-                                    className="max-h-[60px] w-auto object-contain"
-                                  />
-                                </div>
-                              ) : study.client === "Intuitivo" ? (
-                                <div className="flex flex-col items-center justify-center gap-3 bg-white/10 rounded-xl p-6 w-full">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={120}
-                                    height={40}
-                                    className="max-h-[40px] w-auto"
+                                    className="max-h-[60px] w-auto"
                                   />
                                   <div className="w-12 h-[1px] bg-white/30"></div>
                                   <Image
                                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
                                     alt="Meta logo"
-                                    width={120}
-                                    height={40}
-                                    className="max-h-[40px] w-auto"
+                                    width={150}
+                                    height={60}
+                                    className="max-h-[60px] w-auto"
+                                  />
+                                </div>
+                              ) : study.client === "ABInBev" ? (
+                                <div className="bg-white rounded-xl p-6 w-full max-w-[250px] flex items-center justify-center">
+                                  <Image
+                                    src={study.logo}
+                                    alt={`${study.client} logo`}
+                                    width={200}
+                                    height={80}
+                                    className="max-h-[80px] w-auto object-contain"
                                   />
                                 </div>
                               ) : (
@@ -174,9 +299,9 @@ export default function CaseStudiesSection() {
                                   <Image
                                     src={study.logo}
                                     alt={`${study.client} logo`}
-                                    width={120}
-                                    height={60}
-                                    className="max-h-[60px] w-auto object-contain"
+                                    width={180}
+                                    height={80}
+                                    className="max-h-[80px] w-auto object-contain"
                                   />
                                 </div>
                               )}
@@ -215,14 +340,14 @@ export default function CaseStudiesSection() {
         </div>
       </div>
 
-      {/* ABInBev Case Study Modal */}
-      {showABInBevDetails && (
+      {/* Case Study Modal */}
+      {selectedCase && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
           <div className="bg-[#004953] rounded-[1.5rem] max-w-3xl w-full max-h-[80vh] overflow-y-auto">
             <div className="p-4 md:p-6 relative">
               <button
                 className="absolute top-3 right-3 text-black hover:bg-white/50 rounded-full p-2 bg-white z-10"
-                onClick={() => setShowABInBevDetails(false)}
+                onClick={() => setSelectedCase(null)}
               >
                 <X className="h-5 w-5" />
               </button>
@@ -232,43 +357,38 @@ export default function CaseStudiesSection() {
                   <div className="mb-6">
                     <h3 className="text-[#01F9C6] text-base mb-1">CASE STUDY 2025</h3>
                     <h2 className="text-2xl font-bold text-white mb-3">
-                      UY - Optimization of the barley drying process in production plant
+                      {selectedCase.modalData.title}
                     </h2>
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">THE COMPANY</h3>
                       <p className="text-white/90 text-sm">
-                        ABInBev is the world's largest beer manufacturer, with a portfolio of more than 500 global and
-                        local brands, including Budweiser, Corona, Stella Artois, Beck's, Leffe, and Hoegaarden. The
-                        company was formed in 2008 after the acquisition of Anheuser-Busch by InBev.
+                        {selectedCase.modalData.company}
                       </p>
                     </div>
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">THE CHALLENGE</h3>
                       <p className="text-white/90 text-sm">
-                        ABInBev needs to optimize the barley drying process at its plant in Uruguay, to reduce the
-                        plant's energy consumption while also reducing the operating windows of the barley drying
-                        process.
+                        {selectedCase.modalData.challenge}
                       </p>
                     </div>
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">EXPECTED BENEFITS</h3>
                       <ul className="text-white/90 list-disc pl-5 space-y-1 text-sm">
-                        <li>High reduction in energy consumption</li>
-                        <li>Plant operation optimization</li>
+                        {selectedCase.modalData.benefits.map((benefit, index) => (
+                          <li key={index}>{benefit}</li>
+                        ))}
                       </ul>
                     </div>
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">TECHNOLOGY</h3>
                       <ul className="text-white/90 list-disc pl-5 space-y-1 text-sm">
-                        <li>Deep Learning/Machine Learning</li>
-                        <li>Reinforcement Learning</li>
-                        <li>Analytics/Data Science</li>
-                        <li>IIoT (Industrial IoT)</li>
-                        <li>AWS</li>
+                        {selectedCase.modalData.technology.map((tech, index) => (
+                          <li key={index}>{tech}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -277,8 +397,8 @@ export default function CaseStudiesSection() {
                 <div className="flex flex-col justify-between">
                   <div className="bg-white rounded-xl overflow-hidden p-6 flex items-center justify-center">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png"
-                      alt="ABInBev logo"
+                      src={selectedCase.logo}
+                      alt={`${selectedCase.client} logo`}
                       width={300}
                       height={150}
                       className="w-auto max-h-[150px]"
