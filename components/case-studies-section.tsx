@@ -8,15 +8,21 @@ import Image from "next/image"
 
 export default function CaseStudiesSection() {
   const [showABInBevDetails, setShowABInBevDetails] = useState(false)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const caseStudies = [
     {
       title: "Bixen in Retail",
       description: "Learn how Bixen helped Intuitivo work with cutting-edge technology from Meta.",
-      image: null, // We'll create a custom image component for this one
+      image: null,
       category: "Retail",
       results: "Enhanced customer experience",
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
+      backContent: {
+        challenge: "Implementing cutting-edge AR/VR technology for retail experiences",
+        solution: "Developed immersive retail solutions using Meta's latest technology stack",
+        impact: "Transformed customer engagement and shopping experience"
+      }
     },
     {
       title: "ABInBev Process Optimization",
@@ -34,12 +40,17 @@ export default function CaseStudiesSection() {
           </span>
         </>
       ),
-      image: null, // We'll create a custom image component for this one
+      image: null,
       category: "Manufacturing",
       results: "Expected: High reduction in energy consumption",
       status: "In Progress",
       link: "#",
       isABInBev: true,
+      backContent: {
+        challenge: "Optimize barley drying process to reduce energy consumption",
+        solution: "AI-powered optimization using Deep Learning and Reinforcement Learning",
+        impact: "Significant energy savings and improved operational efficiency"
+      }
     },
   ]
 
@@ -62,75 +73,104 @@ export default function CaseStudiesSection() {
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {caseStudies.map((study, index) => (
-            <Card
+            <div
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-all duration-200 bg-white/5 backdrop-blur-sm border-white/20 rounded-[1.5rem]"
+              className="relative h-[400px] perspective-1000"
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="aspect-video w-full overflow-hidden bg-white/10 flex items-center justify-center p-4">
-                {index === 0 ? (
-                  // Only ABInBev logo for the first case study
-                  <div className="flex flex-col items-center justify-center w-full h-full gap-4">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png"
-                      alt="Intuitivo logo"
-                      width={200}
-                      height={60}
-                      className="max-h-[60px] w-auto"
-                    />
-                    <div className="w-16 h-[1px] bg-white/30"></div>
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                      alt="Meta logo"
-                      width={200}
-                      height={60}
-                      className="max-h-[60px] w-auto"
-                    />
+              <div
+                className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+                  hoveredCard === index ? 'rotate-y-180' : ''
+                }`}
+              >
+                {/* Front of card */}
+                <Card className="absolute inset-0 w-full h-full backface-hidden overflow-hidden hover:shadow-lg transition-all duration-200 bg-white/5 backdrop-blur-sm border-white/20 rounded-[1.5rem]">
+                  <div className="aspect-video w-full overflow-hidden bg-white/10 flex items-center justify-center p-4">
+                    {index === 0 ? (
+                      <div className="flex flex-col items-center justify-center w-full h-full gap-4">
+                        <Image
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png"
+                          alt="Intuitivo logo"
+                          width={200}
+                          height={60}
+                          className="max-h-[60px] w-auto"
+                        />
+                        <div className="w-16 h-[1px] bg-white/30"></div>
+                        <Image
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                          alt="Meta logo"
+                          width={200}
+                          height={60}
+                          className="max-h-[60px] w-auto"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center w-full h-full bg-white rounded-xl p-4">
+                        <Image
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png"
+                          alt="ABInBev logo"
+                          width={250}
+                          height={100}
+                          className="max-h-[80px] w-auto object-contain"
+                        />
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  // Custom image for the second case study (Intuitivo + Meta)
-                  <div className="flex items-center justify-center w-full h-full bg-white rounded-xl p-4">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png"
-                      alt="ABInBev logo"
-                      width={250}
-                      height={100}
-                      className="max-h-[80px] w-auto object-contain"
-                    />
-                  </div>
-                )}
+                  <CardHeader>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953]">
+                        {study.category}
+                      </Badge>
+                      {study.status && (
+                        <Badge variant="outline" className="border-yellow-400 text-yellow-400">
+                          {study.status}
+                        </Badge>
+                      )}
+                    </div>
+                    <CardTitle className="line-clamp-2 text-white">{study.title}</CardTitle>
+                    <div>
+                      <CardDescription className="text-white/80">{study.description}</CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="font-medium text-[#01F9C6]">{study.results}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <a
+                      href={study.isABInBev ? "#" : study.link}
+                      onClick={study.isABInBev ? handleABInBevClick : undefined}
+                      target={study.isABInBev ? "_self" : "_blank"}
+                      rel={study.isABInBev ? "" : "noopener noreferrer"}
+                      className="p-0 h-auto text-[#01F9C6] bg-transparent border-none flex items-center"
+                    >
+                      Read Case Study
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </a>
+                  </CardFooter>
+                </Card>
+
+                {/* Back of card */}
+                <Card className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 overflow-hidden bg-gradient-to-br from-[#01F9C6]/20 to-[#008794]/20 backdrop-blur-sm border-[#01F9C6]/50 rounded-[1.5rem]">
+                  <CardHeader className="h-full flex flex-col justify-center">
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-[#01F9C6] font-semibold mb-2">Challenge</h4>
+                        <p className="text-white/90 text-sm">{study.backContent.challenge}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-[#01F9C6] font-semibold mb-2">Solution</h4>
+                        <p className="text-white/90 text-sm">{study.backContent.solution}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-[#01F9C6] font-semibold mb-2">Impact</h4>
+                        <p className="text-white/90 text-sm">{study.backContent.impact}</p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
               </div>
-              <CardHeader>
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953]">
-                    {study.category}
-                  </Badge>
-                  {study.status && (
-                    <Badge variant="outline" className="border-yellow-400 text-yellow-400">
-                      {study.status}
-                    </Badge>
-                  )}
-                </div>
-                <CardTitle className="line-clamp-2 text-white">{study.title}</CardTitle>
-                <div>
-                  <CardDescription className="text-white/80">{study.description}</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-medium text-[#01F9C6]">{study.results}</p>
-              </CardContent>
-              <CardFooter>
-                <a
-                  href={study.isABInBev ? "#" : study.link}
-                  onClick={study.isABInBev ? handleABInBevClick : undefined}
-                  target={study.isABInBev ? "_self" : "_blank"}
-                  rel={study.isABInBev ? "" : "noopener noreferrer"}
-                  className="p-0 h-auto text-[#01F9C6] bg-transparent border-none flex items-center"
-                >
-                  Read Case Study
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </CardFooter>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
@@ -223,4 +263,3 @@ export default function CaseStudiesSection() {
     </div>
   )
 }
-
