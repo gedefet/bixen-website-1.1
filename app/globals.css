@@ -288,5 +288,22 @@ html {
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+
+  .translate-z-4 {
+    transform: translateZ(4px);
+  }
+
+  /* Enhanced 3D effects for case studies */
+  .case-study-card {
+    transform-style: preserve-3d;
+  }
+
+  .case-study-front {
+    transform: translateZ(20px);
+  }
+
+  .case-study-back {
+    transform: rotateY(180deg) translateZ(20px);
+  }
 }
 
