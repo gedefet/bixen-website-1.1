@@ -255,7 +255,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Banking Institution" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
+                        <div className="rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center bg-black">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
