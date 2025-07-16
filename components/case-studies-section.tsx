@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { X } from "lucide-react"
 import Image from "next/image"
 
@@ -126,105 +126,25 @@ export default function CaseStudiesSection() {
       },
     },
     {
-      id: "santander",
-      title: "Financial Risk Assessment Platform",
-      client: "Banco Santander",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/santander-logo-2-3lRwHxN4IAPhCkrSfNIxI.png",
-      category: "Fintech",
-      year: "2024",
-      summary: "Developing AI-driven risk assessment systems reducing loan default rates by 50% in Fintech.",
+      id: "telecom-automation",
+      title: "Automatización de procesos internos",
+      client: "América Móvil",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/america-movil-logo-7qVbMcS9NEUmHotXkSNaO.png",
+      category: "Telecommunications",
+      year: "2018",
+      summary:
+        "Implementing RPA automation to reduce 27 personnel and optimize portability processes in Telecommunications.",
       modalContent: {
-        title: "AI-Driven Financial Risk Assessment System",
+        title: "Process Automation Implementation",
         company:
-          "Banco Santander is a Spanish multinational financial services company based in Madrid and Santander in Spain. It is one of the largest banks in the world by market capitalization.",
+          "Leading telecommunications service provider in Latin America with operations in 18 countries in the American continent and 7 countries in Europe. Along with Telmex, Telcel, and Telesites, it is controlled by Grupo Carso, whose majority shareholder is Carlos Slim.",
         challenge:
-          "Santander required an advanced risk assessment system to better evaluate loan applications and detect potential fraud while maintaining compliance with regulatory requirements.",
+          "Implementation of Robot automation cell for the automation of company processes. Facilitate the task for operators and reuse human resources in tasks where they add more value. Provide speed to the portability process.",
         benefits: [
-          "50% reduction in loan default rates",
-          "Improved fraud detection accuracy",
-          "Faster loan approval process",
+          "Reduction of human resources dedicated to portability and corporate travel validation processes (27 people)",
+          "Optimization of integration with SAP CRM and other applications",
         ],
-        technology: [
-          "Machine Learning",
-          "Deep Learning",
-          "Natural Language Processing",
-          "Blockchain Integration",
-          "Cloud Security",
-        ],
-      },
-    },
-    {
-      id: "syngenta",
-      title: "Smart Agriculture IoT Platform",
-      client: "Syngenta",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/syngenta-logo-3-4mSxIyO5JBQiDlsTgOJyJ.png",
-      category: "Agriculture",
-      year: "2023",
-      summary: "Creating IoT platforms for precision agriculture increasing crop yields by 20% in Agriculture.",
-      modalContent: {
-        title: "Precision Agriculture and Crop Monitoring System",
-        company:
-          "Syngenta is a leading agriculture company helping to improve global food security by enabling millions of farmers to make better use of available resources.",
-        challenge:
-          "Syngenta needed a comprehensive IoT platform to help farmers optimize crop yields through precision agriculture and real-time monitoring.",
-        benefits: ["20% increase in crop yields", "Reduced pesticide usage", "Improved resource efficiency"],
-        technology: ["IoT Sensors", "Machine Learning", "Computer Vision", "Satellite Imagery", "Edge Computing"],
-      },
-    },
-    {
-      id: "siemens",
-      title: "Predictive Maintenance System",
-      client: "Siemens",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/siemens-logo-4-5nTyJzP6KCRjElsUhPKyK.png",
-      category: "Manufacturing",
-      year: "2023",
-      summary: "Implementing predictive maintenance systems reducing unplanned downtime by 40% in Manufacturing.",
-      modalContent: {
-        title: "Industrial Predictive Maintenance Platform",
-        company:
-          "Siemens is a German multinational conglomerate company and the largest industrial manufacturing company in Europe.",
-        challenge:
-          "Siemens needed to implement predictive maintenance across their industrial equipment to reduce downtime and optimize maintenance schedules.",
-        benefits: [
-          "40% reduction in unplanned downtime",
-          "30% decrease in maintenance costs",
-          "Extended equipment lifespan",
-        ],
-        technology: [
-          "Industrial IoT",
-          "Machine Learning",
-          "Digital Twin Technology",
-          "Edge Computing",
-          "Time Series Analysis",
-        ],
-      },
-    },
-    {
-      id: "enel",
-      title: "Energy Grid Optimization",
-      client: "Enel",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/enel-logo-5-6oUzKaQ7LDSkFmtViQLzL.png",
-      category: "Energy",
-      year: "2023",
-      summary: "Optimizing smart grid systems improving energy efficiency by 25% in Energy.",
-      modalContent: {
-        title: "Smart Grid Optimization and Energy Management",
-        company:
-          "Enel is an Italian multinational manufacturer and distributor of electricity and gas, serving end users and markets.",
-        challenge:
-          "Enel required an intelligent energy grid management system to optimize energy distribution and integrate renewable sources.",
-        benefits: [
-          "25% improvement in grid efficiency",
-          "Better renewable energy integration",
-          "Reduced energy losses",
-        ],
-        technology: [
-          "AI/ML Algorithms",
-          "Smart Grid Technology",
-          "Real-time Analytics",
-          "IoT Integration",
-          "Cloud Computing",
-        ],
+        technology: ["RPA (Robot Process Automation). UIPath", "Python for automation"],
       },
     },
   ]
@@ -248,6 +168,22 @@ export default function CaseStudiesSection() {
       return newSet
     })
   }
+
+  // Close modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (selectedCase && event.target.closest(".modal-content") === null) {
+        setSelectedCase(null)
+      }
+    }
+
+    if (selectedCase) {
+      document.addEventListener("mousedown", handleClickOutside)
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      }
+    }
+  }, [selectedCase])
 
   return (
     <div className="container px-4 md:px-6 py-16" id="case-studies">
@@ -274,77 +210,87 @@ export default function CaseStudiesSection() {
               <div
                 className={`success-story-card w-full h-full card-glow ${flippedCards.has(story.id) ? "flipped" : ""}`}
               >
-                {/* Front of card - Logo only */}
+                {/* Front of card - Logo occupying almost entire card */}
                 <div className="card-front absolute inset-0 w-full h-full">
-                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex flex-col items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
-                    {/* Logo container with floating effect */}
-                    <div className="logo-float flex-1 flex items-center justify-center">
+                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex flex-col items-center justify-center p-4 hover:bg-white/10 transition-all duration-300">
+                    {/* Logo container taking up most of the card */}
+                    <div className="logo-float flex-1 flex items-center justify-center w-full">
                       {story.client === "ABInBev" ? (
-                        <div className="bg-white rounded-xl p-6 shadow-2xl transform translate-z-30">
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={220}
-                            height={90}
-                            className="max-h-[90px] w-auto object-contain"
+                            width={280}
+                            height={120}
+                            className="max-h-[120px] w-auto object-contain"
                           />
                         </div>
                       ) : story.client === "Intuitivo" ? (
-                        <div className="bg-white/10 rounded-xl p-6 flex flex-col items-center gap-3 shadow-2xl transform translate-z-30">
+                        <div className="bg-white/10 rounded-xl p-8 flex flex-col items-center gap-4 shadow-2xl transform translate-z-30 w-full h-full justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={170}
-                            height={70}
-                            className="max-h-[70px] w-auto"
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto"
                           />
-                          <div className="w-12 h-[1px] bg-white/30"></div>
+                          <div className="w-16 h-[1px] bg-white/30"></div>
                           <Image
                             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
                             alt="Meta logo"
-                            width={170}
-                            height={70}
-                            className="max-h-[70px] w-auto"
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto"
                           />
                         </div>
                       ) : story.client === "Netflix" ? (
-                        <div className="bg-black rounded-xl p-6 shadow-2xl transform translate-z-30">
+                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={220}
-                            height={90}
-                            className="max-h-[90px] w-auto object-contain"
+                            width={280}
+                            height={120}
+                            className="max-h-[120px] w-auto object-contain"
                           />
                         </div>
                       ) : story.client === "American Logistics" ? (
-                        <div className="bg-white rounded-xl p-6 shadow-2xl transform translate-z-30">
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={220}
-                            height={90}
-                            className="max-h-[90px] w-auto object-contain"
+                            width={280}
+                            height={120}
+                            className="max-h-[120px] w-auto object-contain"
                           />
                         </div>
                       ) : story.client === "Mercado Libre" ? (
-                        <div className="bg-white rounded-xl p-6 shadow-2xl transform translate-z-30">
-                          <Image
-                            src={story.logo || "/placeholder.svg"}
-                            alt={`${story.client} logo`}
-                            width={220}
-                            height={90}
-                            className="max-h-[90px] w-auto object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <div className="bg-white/10 rounded-xl p-6 shadow-2xl transform translate-z-30">
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
                             width={200}
-                            height={80}
-                            className="max-h-[80px] w-auto object-contain"
+                            height={200}
+                            className="max-h-[200px] w-auto object-contain"
+                          />
+                        </div>
+                      ) : story.client === "América Móvil" ? (
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={280}
+                            height={120}
+                            className="max-h-[120px] w-auto object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <div className="bg-white/10 rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={260}
+                            height={110}
+                            className="max-h-[110px] w-auto object-contain"
                           />
                         </div>
                       )}
@@ -352,69 +298,31 @@ export default function CaseStudiesSection() {
                   </div>
                 </div>
 
-                {/* Back of card - Case study summary */}
+                {/* Back of card - Case study summary (no image for Netflix) */}
                 <div className="card-back absolute inset-0 w-full h-full">
                   <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
-                    {story.client === "Netflix" ? (
-                      // Special layout for Netflix with body scan image
-                      <>
-                        <div className="flex items-center gap-2 mb-3">
-                          {story.status && (
-                            <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
-                              {story.status}
-                            </span>
-                          )}
-                          <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
-                            {story.year}
-                          </span>
-                        </div>
+                    <div className="flex items-center gap-2 mb-4">
+                      {story.status && (
+                        <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
+                          {story.status}
+                        </span>
+                      )}
+                      <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
+                        {story.year}
+                      </span>
+                    </div>
 
-                        <h3 className="text-white text-lg font-medium mb-3 line-clamp-2">{story.title}</h3>
+                    <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
 
-                        <div className="flex-1 flex flex-col items-center justify-center">
-                          <div className="mb-3 rounded-lg overflow-hidden">
-                            <Image
-                              src="/images/body-scan-comparison.png"
-                              alt="3D Body Scan Comparison"
-                              width={250}
-                              height={120}
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <p className="text-white/90 text-xs text-center leading-relaxed">{story.summary}</p>
-                        </div>
+                    <div className="flex-1 flex items-center justify-center">
+                      <p className="text-white/90 text-sm text-center leading-relaxed">{story.summary}</p>
+                    </div>
 
-                        <div className="mt-3 text-center">
-                          <span className="text-[#01F9C6] text-sm font-medium">View Details</span>
-                        </div>
-                      </>
-                    ) : (
-                      // Standard layout for other cards
-                      <>
-                        <div className="flex items-center gap-2 mb-4">
-                          {story.status && (
-                            <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
-                              {story.status}
-                            </span>
-                          )}
-                          <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
-                            {story.year}
-                          </span>
-                        </div>
-
-                        <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
-
-                        <div className="flex-1 flex items-center justify-center">
-                          <p className="text-white/90 text-sm text-center leading-relaxed">{story.summary}</p>
-                        </div>
-
-                        <div className="mt-4 text-center">
-                          <span className="text-[#01F9C6] text-sm font-medium">
-                            {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
-                          </span>
-                        </div>
-                      </>
-                    )}
+                    <div className="mt-4 text-center">
+                      <span className="text-[#01F9C6] text-sm font-medium">
+                        {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -426,7 +334,7 @@ export default function CaseStudiesSection() {
       {/* Case Study Modal */}
       {selectedCase && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
-          <div className="bg-[#004953] rounded-[1.5rem] max-w-3xl w-full max-h-[80vh] overflow-y-auto">
+          <div className="modal-content bg-[#004953] rounded-[1.5rem] max-w-4xl w-full max-h-[80vh] overflow-y-auto">
             <div className="p-4 md:p-6 relative">
               <button
                 className="absolute top-3 right-3 text-black hover:bg-white/50 rounded-full p-2 bg-white z-10"
@@ -474,7 +382,7 @@ export default function CaseStudiesSection() {
                 </div>
 
                 <div className="flex flex-col justify-between">
-                  <div className="bg-white rounded-xl overflow-hidden p-6 flex items-center justify-center">
+                  <div className="bg-white rounded-xl overflow-hidden p-6 flex flex-col items-center justify-center">
                     {selectedCase.client === "Intuitivo" ? (
                       <div className="flex flex-col items-center justify-center gap-4">
                         <Image
@@ -494,14 +402,26 @@ export default function CaseStudiesSection() {
                         />
                       </div>
                     ) : selectedCase.client === "Netflix" ? (
-                      <div className="bg-black rounded-xl p-4 flex items-center justify-center">
-                        <Image
-                          src={selectedCase.logo || "/placeholder.svg"}
-                          alt={`${selectedCase.client} logo`}
-                          width={300}
-                          height={150}
-                          className="w-auto max-h-[150px]"
-                        />
+                      <div className="flex flex-col items-center justify-center gap-4">
+                        <div className="bg-black rounded-xl p-4 flex items-center justify-center">
+                          <Image
+                            src={selectedCase.logo || "/placeholder.svg"}
+                            alt={`${selectedCase.client} logo`}
+                            width={250}
+                            height={100}
+                            className="w-auto max-h-[100px]"
+                          />
+                        </div>
+                        {/* Body scan image in modal for Netflix */}
+                        <div className="mt-4 rounded-lg overflow-hidden">
+                          <Image
+                            src="/images/body-scan-comparison.png"
+                            alt="3D Body Scan Comparison"
+                            width={350}
+                            height={200}
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
                       </div>
                     ) : selectedCase.client === "American Logistics" ? (
                       <div className="bg-white rounded-xl p-4 flex items-center justify-center">
