@@ -105,7 +105,7 @@ export default function CaseStudiesSection() {
       id: "mercadolibre",
       title: "Supply Chain Optimization Platform",
       client: "Mercado Libre",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mercadolibre-logo-1-2kQvGxM3HAOhBjqReMHwH.png",
+      logo: "/images/red-flame-logo.png",
       category: "E-commerce",
       year: "2024",
       summary: "Optimizing supply chain operations across Latin America reducing delivery times by 30% in E-commerce.",
@@ -227,29 +227,6 @@ export default function CaseStudiesSection() {
         ],
       },
     },
-    {
-      id: "tesla",
-      title: "Autonomous Vehicle Navigation",
-      client: "Tesla",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tesla-logo-6-7pVaLbR8METlGnuWjRMaM.png",
-      category: "Automotive",
-      year: "2022",
-      summary:
-        "Enhancing autonomous driving capabilities with advanced computer vision and AI algorithms in Automotive.",
-      modalContent: {
-        title: "Advanced Driver Assistance and Navigation System",
-        company:
-          "Tesla, Inc. is an American electric vehicle and clean energy company based in Austin, Texas, known for electric cars and energy storage systems.",
-        challenge:
-          "Tesla needed to enhance their autonomous driving capabilities with advanced computer vision and decision-making algorithms.",
-        benefits: [
-          "Improved autonomous driving accuracy",
-          "Enhanced safety features",
-          "Better navigation in complex scenarios",
-        ],
-        technology: ["Computer Vision", "Deep Learning", "Neural Networks", "Real-time Processing", "Edge AI"],
-      },
-    },
   ]
 
   const handleCardClick = (story) => {
@@ -260,34 +237,8 @@ export default function CaseStudiesSection() {
     }
   }
 
-  const handleMouseEnter = (cardId, event) => {
-    const card = event.currentTarget
-    const rect = card.getBoundingClientRect()
-    const mouseX = event.clientX - rect.left
-    const cardWidth = rect.width
-
-    // Flip when mouse is in the right 30% of the card
-    if (mouseX > cardWidth * 0.7) {
-      setFlippedCards((prev) => new Set([...prev, cardId]))
-    }
-  }
-
-  const handleMouseMove = (cardId, event) => {
-    const card = event.currentTarget
-    const rect = card.getBoundingClientRect()
-    const mouseX = event.clientX - rect.left
-    const cardWidth = rect.width
-
-    // Flip when mouse is in the right 30% of the card
-    if (mouseX > cardWidth * 0.7) {
-      setFlippedCards((prev) => new Set([...prev, cardId]))
-    } else {
-      setFlippedCards((prev) => {
-        const newSet = new Set(prev)
-        newSet.delete(cardId)
-        return newSet
-      })
-    }
+  const handleMouseEnter = (cardId) => {
+    setFlippedCards((prev) => new Set([...prev, cardId]))
   }
 
   const handleMouseLeave = (cardId) => {
@@ -310,14 +261,13 @@ export default function CaseStudiesSection() {
       </div>
 
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        {/* Grid of 3D Rotating Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {/* Grid of 3D Rotating Cards - 3 per row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {successStories.map((story, index) => (
             <div
               key={story.id}
-              className={`relative h-[350px] perspective-1000 cursor-pointer card-delay-${index * 100}`}
-              onMouseEnter={(e) => handleMouseEnter(story.id, e)}
-              onMouseMove={(e) => handleMouseMove(story.id, e)}
+              className="relative h-[350px] perspective-1000 cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(story.id)}
               onMouseLeave={() => handleMouseLeave(story.id)}
               onClick={() => handleCardClick(story)}
             >
@@ -377,6 +327,16 @@ export default function CaseStudiesSection() {
                             className="max-h-[90px] w-auto object-contain"
                           />
                         </div>
+                      ) : story.client === "Mercado Libre" ? (
+                        <div className="bg-white rounded-xl p-6 shadow-2xl transform translate-z-30">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto object-contain"
+                          />
+                        </div>
                       ) : (
                         <div className="bg-white/10 rounded-xl p-6 shadow-2xl transform translate-z-30">
                           <Image
@@ -395,28 +355,66 @@ export default function CaseStudiesSection() {
                 {/* Back of card - Case study summary */}
                 <div className="card-back absolute inset-0 w-full h-full">
                   <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
-                    <div className="flex items-center gap-2 mb-4">
-                      {story.status && (
-                        <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
-                          {story.status}
-                        </span>
-                      )}
-                      <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
-                        {story.year}
-                      </span>
-                    </div>
+                    {story.client === "Netflix" ? (
+                      // Special layout for Netflix with body scan image
+                      <>
+                        <div className="flex items-center gap-2 mb-3">
+                          {story.status && (
+                            <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
+                              {story.status}
+                            </span>
+                          )}
+                          <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
+                            {story.year}
+                          </span>
+                        </div>
 
-                    <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
+                        <h3 className="text-white text-lg font-medium mb-3 line-clamp-2">{story.title}</h3>
 
-                    <div className="flex-1 flex items-center justify-center">
-                      <p className="text-white/90 text-sm text-center leading-relaxed">{story.summary}</p>
-                    </div>
+                        <div className="flex-1 flex flex-col items-center justify-center">
+                          <div className="mb-3 rounded-lg overflow-hidden">
+                            <Image
+                              src="/images/body-scan-comparison.png"
+                              alt="3D Body Scan Comparison"
+                              width={250}
+                              height={120}
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <p className="text-white/90 text-xs text-center leading-relaxed">{story.summary}</p>
+                        </div>
 
-                    <div className="mt-4 text-center">
-                      <span className="text-[#01F9C6] text-sm font-medium">
-                        {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
-                      </span>
-                    </div>
+                        <div className="mt-3 text-center">
+                          <span className="text-[#01F9C6] text-sm font-medium">View Details</span>
+                        </div>
+                      </>
+                    ) : (
+                      // Standard layout for other cards
+                      <>
+                        <div className="flex items-center gap-2 mb-4">
+                          {story.status && (
+                            <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
+                              {story.status}
+                            </span>
+                          )}
+                          <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
+                            {story.year}
+                          </span>
+                        </div>
+
+                        <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
+
+                        <div className="flex-1 flex items-center justify-center">
+                          <p className="text-white/90 text-sm text-center leading-relaxed">{story.summary}</p>
+                        </div>
+
+                        <div className="mt-4 text-center">
+                          <span className="text-[#01F9C6] text-sm font-medium">
+                            {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
+                          </span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

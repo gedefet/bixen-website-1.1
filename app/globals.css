@@ -292,7 +292,7 @@ html {
   /* Success Story Card 3D Effects - Edge-triggered flip */
   .success-story-card {
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.6s ease-in-out;
   }
 
   .success-story-card.flipped {
@@ -339,43 +339,6 @@ html {
     animation: card-glow 2s ease-in-out infinite;
   }
 
-  /* Individual card rotation delays for staggered effect */
-  .card-delay-0 {
-    transition-delay: 0ms;
-  }
-
-  .card-delay-100 {
-    transition-delay: 100ms;
-  }
-
-  .card-delay-200 {
-    transition-delay: 200ms;
-  }
-
-  .card-delay-300 {
-    transition-delay: 300ms;
-  }
-
-  .card-delay-400 {
-    transition-delay: 400ms;
-  }
-
-  .card-delay-500 {
-    transition-delay: 500ms;
-  }
-
-  .card-delay-600 {
-    transition-delay: 600ms;
-  }
-
-  .card-delay-700 {
-    transition-delay: 700ms;
-  }
-
-  .card-delay-800 {
-    transition-delay: 800ms;
-  }
-
   /* Enhanced 3D depth */
   .translate-z-10 {
     transform: translateZ(10px);
@@ -395,16 +358,5 @@ html {
 
   .translate-z-50 {
     transform: translateZ(50px);
-  }
-
-  /* Edge detection for card flip */
-  .card-edge-detector {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 30%;
-    height: 100%;
-    z-index: 10;
-    pointer-events: auto;
   }
 }
