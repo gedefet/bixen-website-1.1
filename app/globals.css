@@ -272,7 +272,7 @@ html {
     animation: fadeOut 0.2s ease-in forwards;
   }
 
-  /* 3D Card Effects */
+  /* 3D Card Effects for Success Stories */
   .perspective-1000 {
     perspective: 1000px;
   }
@@ -289,31 +289,7 @@ html {
     transform: rotateY(180deg);
   }
 
-  .translate-z-1 {
-    transform: translateZ(1px);
-  }
-
-  .translate-z-2 {
-    transform: translateZ(2px);
-  }
-
-  .translate-z-4 {
-    transform: translateZ(4px);
-  }
-
-  .translate-z-8 {
-    transform: translateZ(8px);
-  }
-
-  .translate-z-16 {
-    transform: translateZ(16px);
-  }
-
-  .translate-z-32 {
-    transform: translateZ(32px);
-  }
-
-  /* Success Stories Carousel */
+  /* Success Story Card 3D Effects */
   .success-story-card {
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -337,10 +313,10 @@ html {
   @keyframes float-logo {
     0%,
     100% {
-      transform: translateZ(40px) translateY(0px);
+      transform: translateZ(40px) translateY(0px) scale(1);
     }
     50% {
-      transform: translateZ(40px) translateY(-10px);
+      transform: translateZ(40px) translateY(-8px) scale(1.05);
     }
   }
 
@@ -348,59 +324,76 @@ html {
     animation: float-logo 3s ease-in-out infinite;
   }
 
-  /* Carousel rotation */
-  @keyframes carousel-rotate {
-    0% {
-      transform: rotateY(0deg);
-    }
+  /* Card hover glow effect */
+  @keyframes card-glow {
+    0%,
     100% {
-      transform: rotateY(360deg);
+      box-shadow: 0 0 20px rgba(1, 249, 198, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(1, 249, 198, 0.3);
     }
   }
 
-  .carousel-container {
-    transform-style: preserve-3d;
-    animation: carousel-rotate 20s linear infinite;
+  .card-glow:hover {
+    animation: card-glow 2s ease-in-out infinite;
   }
 
-  .carousel-container:hover {
-    animation-play-state: paused;
+  /* Individual card rotation delays for staggered effect */
+  .card-delay-0 {
+    transition-delay: 0ms;
   }
 
-  /* Individual card positioning in 3D space */
-  .carousel-card-0 {
-    transform: rotateY(0deg) translateZ(300px);
+  .card-delay-100 {
+    transition-delay: 100ms;
   }
 
-  .carousel-card-1 {
-    transform: rotateY(40deg) translateZ(300px);
+  .card-delay-200 {
+    transition-delay: 200ms;
   }
 
-  .carousel-card-2 {
-    transform: rotateY(80deg) translateZ(300px);
+  .card-delay-300 {
+    transition-delay: 300ms;
   }
 
-  .carousel-card-3 {
-    transform: rotateY(120deg) translateZ(300px);
+  .card-delay-400 {
+    transition-delay: 400ms;
   }
 
-  .carousel-card-4 {
-    transform: rotateY(160deg) translateZ(300px);
+  .card-delay-500 {
+    transition-delay: 500ms;
   }
 
-  .carousel-card-5 {
-    transform: rotateY(200deg) translateZ(300px);
+  .card-delay-600 {
+    transition-delay: 600ms;
   }
 
-  .carousel-card-6 {
-    transform: rotateY(240deg) translateZ(300px);
+  .card-delay-700 {
+    transition-delay: 700ms;
   }
 
-  .carousel-card-7 {
-    transform: rotateY(280deg) translateZ(300px);
+  .card-delay-800 {
+    transition-delay: 800ms;
   }
 
-  .carousel-card-8 {
-    transform: rotateY(320deg) translateZ(300px);
+  /* Enhanced 3D depth */
+  .translate-z-10 {
+    transform: translateZ(10px);
+  }
+
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+
+  .translate-z-30 {
+    transform: translateZ(30px);
+  }
+
+  .translate-z-40 {
+    transform: translateZ(40px);
+  }
+
+  .translate-z-50 {
+    transform: translateZ(50px);
   }
 }

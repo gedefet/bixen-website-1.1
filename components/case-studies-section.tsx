@@ -56,7 +56,7 @@ export default function CaseStudiesSection() {
       id: "netflix",
       title: "3D Body Scan Validation",
       client: "Netflix",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/netflix-logo-0-Fkv9SqM2HAOhBjqReMHwH.png",
+      logo: "/images/netflix-logo.png",
       category: "Healthcare",
       year: "2019",
       modalContent: {
@@ -237,130 +237,138 @@ export default function CaseStudiesSection() {
       </div>
 
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        {/* 3D Rotating Carousel */}
-        <div className="relative h-[500px] perspective-1000 flex items-center justify-center">
-          <div className="carousel-container relative w-full h-full">
-            {successStories.map((story, index) => (
-              <div
-                key={story.id}
-                className={`absolute w-[280px] h-[350px] cursor-pointer carousel-card-${index}`}
-                onClick={() => handleCardClick(story)}
-              >
-                <div className="success-story-card w-full h-full">
-                  {/* Front of card - Logo only */}
-                  <div className="card-front absolute inset-0 w-full h-full">
-                    <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex flex-col items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
-                      {/* Logo container with floating effect */}
-                      <div className="logo-float flex-1 flex items-center justify-center">
-                        {story.client === "ABInBev" ? (
-                          <div className="bg-white rounded-xl p-6 shadow-lg">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={200}
-                              height={80}
-                              className="max-h-[80px] w-auto object-contain"
-                            />
-                          </div>
-                        ) : story.client === "Intuitivo" ? (
-                          <div className="bg-white/10 rounded-xl p-6 flex flex-col items-center gap-3">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={150}
-                              height={60}
-                              className="max-h-[60px] w-auto"
-                            />
-                            <div className="w-12 h-[1px] bg-white/30"></div>
-                            <Image
-                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                              alt="Meta logo"
-                              width={150}
-                              height={60}
-                              className="max-h-[60px] w-auto"
-                            />
-                          </div>
-                        ) : (
-                          <div className="bg-white/10 rounded-xl p-6 shadow-lg">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={180}
-                              height={80}
-                              className="max-h-[80px] w-auto object-contain"
-                            />
-                          </div>
-                        )}
-                      </div>
+        {/* Grid of 3D Rotating Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {successStories.map((story, index) => (
+            <div
+              key={story.id}
+              className={`relative h-[350px] perspective-1000 cursor-pointer card-delay-${index * 100}`}
+              onClick={() => handleCardClick(story)}
+            >
+              <div className="success-story-card w-full h-full card-glow">
+                {/* Front of card - Logo only */}
+                <div className="card-front absolute inset-0 w-full h-full">
+                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex flex-col items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
+                    {/* Logo container with floating effect */}
+                    <div className="logo-float flex-1 flex items-center justify-center">
+                      {story.client === "ABInBev" ? (
+                        <div className="bg-white rounded-xl p-6 shadow-2xl transform translate-z-30">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={200}
+                            height={80}
+                            className="max-h-[80px] w-auto object-contain"
+                          />
+                        </div>
+                      ) : story.client === "Intuitivo" ? (
+                        <div className="bg-white/10 rounded-xl p-6 flex flex-col items-center gap-3 shadow-2xl transform translate-z-30">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={150}
+                            height={60}
+                            className="max-h-[60px] w-auto"
+                          />
+                          <div className="w-12 h-[1px] bg-white/30"></div>
+                          <Image
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                            alt="Meta logo"
+                            width={150}
+                            height={60}
+                            className="max-h-[60px] w-auto"
+                          />
+                        </div>
+                      ) : story.client === "Netflix" ? (
+                        <div className="bg-black rounded-xl p-6 shadow-2xl transform translate-z-30">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={180}
+                            height={80}
+                            className="max-h-[80px] w-auto object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <div className="bg-white/10 rounded-xl p-6 shadow-2xl transform translate-z-30">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={180}
+                            height={80}
+                            className="max-h-[80px] w-auto object-contain"
+                          />
+                        </div>
+                      )}
+                    </div>
 
-                      {/* Category badge at bottom */}
-                      <div className="mt-4">
-                        <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
-                          {story.category}
-                        </Badge>
-                      </div>
+                    {/* Category badge at bottom */}
+                    <div className="mt-4 transform translate-z-20">
+                      <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
+                        {story.category}
+                      </Badge>
                     </div>
                   </div>
+                </div>
 
-                  {/* Back of card - Case study details */}
-                  <div className="card-back absolute inset-0 w-full h-full">
-                    <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
-                          {story.category}
+                {/* Back of card - Case study details */}
+                <div className="card-back absolute inset-0 w-full h-full">
+                  <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
+                        {story.category}
+                      </Badge>
+                      {story.status && (
+                        <Badge variant="outline" className="border-yellow-400 text-yellow-400 text-xs">
+                          {story.status}
                         </Badge>
-                        {story.status && (
-                          <Badge variant="outline" className="border-yellow-400 text-yellow-400 text-xs">
-                            {story.status}
-                          </Badge>
-                        )}
-                        <Badge variant="outline" className="border-white/30 text-white/70 text-xs">
-                          {story.year}
-                        </Badge>
+                      )}
+                      <Badge variant="outline" className="border-white/30 text-white/70 text-xs">
+                        {story.year}
+                      </Badge>
+                    </div>
+
+                    <h3 className="text-white text-lg font-medium mb-3 line-clamp-2">{story.title}</h3>
+
+                    <div className="flex-1 space-y-3 text-sm">
+                      <div>
+                        <h4 className="text-[#01F9C6] font-medium mb-1">CHALLENGE</h4>
+                        <p className="text-white/80 text-xs line-clamp-3">{story.modalContent.challenge}</p>
                       </div>
 
-                      <h3 className="text-white text-lg font-medium mb-3 line-clamp-2">{story.title}</h3>
-
-                      <div className="flex-1 space-y-3 text-sm">
-                        <div>
-                          <h4 className="text-[#01F9C6] font-medium mb-1">CHALLENGE</h4>
-                          <p className="text-white/80 text-xs line-clamp-3">{story.modalContent.challenge}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="text-[#01F9C6] font-medium mb-1">BENEFITS</h4>
-                          <ul className="text-white/80 text-xs space-y-1">
-                            {story.modalContent.benefits.slice(0, 2).map((benefit, idx) => (
-                              <li key={idx} className="line-clamp-1">
-                                • {benefit}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <h4 className="text-[#01F9C6] font-medium mb-1">TECHNOLOGY</h4>
-                          <div className="flex flex-wrap gap-1">
-                            {story.modalContent.technology.slice(0, 3).map((tech, idx) => (
-                              <span key={idx} className="text-xs bg-white/10 px-2 py-1 rounded text-white/70">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                      <div>
+                        <h4 className="text-[#01F9C6] font-medium mb-1">BENEFITS</h4>
+                        <ul className="text-white/80 text-xs space-y-1">
+                          {story.modalContent.benefits.slice(0, 2).map((benefit, idx) => (
+                            <li key={idx} className="line-clamp-1">
+                              • {benefit}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
-                      <div className="mt-4 text-center">
-                        <span className="text-[#01F9C6] text-sm font-medium">
-                          {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
-                        </span>
+                      <div>
+                        <h4 className="text-[#01F9C6] font-medium mb-1">TECHNOLOGY</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {story.modalContent.technology.slice(0, 3).map((tech, idx) => (
+                            <span key={idx} className="text-xs bg-white/10 px-2 py-1 rounded text-white/70">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+                    </div>
+
+                    <div className="mt-4 text-center">
+                      <span className="text-[#01F9C6] text-sm font-medium">
+                        {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -432,6 +440,16 @@ export default function CaseStudiesSection() {
                           width={200}
                           height={60}
                           className="max-h-[60px] w-auto"
+                        />
+                      </div>
+                    ) : selectedCase.client === "Netflix" ? (
+                      <div className="bg-black rounded-xl p-4 flex items-center justify-center">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={300}
+                          height={150}
+                          className="w-auto max-h-[150px]"
                         />
                       </div>
                     ) : (
