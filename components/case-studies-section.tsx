@@ -80,9 +80,9 @@ export default function CaseStudiesSection() {
       },
     },
     {
-      id: "american-logistics",
+      id: "us-logistics",
       title: "Customer Service Center Reduction",
-      client: "American Logistics",
+      client: "US Logistics",
       logo: "/images/logistics-truck-logo.png",
       category: "Logistics",
       year: "2024",
@@ -91,7 +91,7 @@ export default function CaseStudiesSection() {
       modalContent: {
         title: "Intelligent Customer Service System (IVR)",
         company:
-          "American Logistics is a US-based non-emergency transportation company. To reduce costs, they were embarked on a plan to reduce their staff dedicated to handling customer calls.",
+          "US Logistics is a US-based non-emergency transportation company. To reduce costs, they were embarked on a plan to reduce their staff dedicated to handling customer calls.",
         challenge:
           "An intelligent customer service system (IVR) was designed and implemented for call flow management. A proprietary algorithm was designed for elderly person management based on audio matching against the person database.",
         benefits: [
@@ -102,26 +102,23 @@ export default function CaseStudiesSection() {
       },
     },
     {
-      id: "mercadolibre",
-      title: "Supply Chain Optimization Platform",
-      client: "Mercado Libre",
+      id: "banking-watson",
+      title: "Banking Assistant Evolution",
+      client: "Banking Institution",
       logo: "/images/red-flame-logo.png",
-      category: "E-commerce",
-      year: "2024",
-      summary: "Optimizing supply chain operations across Latin America reducing delivery times by 30% in E-commerce.",
+      category: "Banking",
+      year: "2019",
+      summary: "Enhanced IBM Watson performance through custom NLP pipeline and root word identification technology.",
       modalContent: {
-        title: "Supply Chain Optimization and Logistics Intelligence",
-        company:
-          "Mercado Libre is Latin America's leading e-commerce technology company, operating online marketplaces dedicated to e-commerce and online auctions.",
+        title: "Banking Assistant Evolution",
+        company: "A major banking institution needed to improve the performance of their IBM Watson implementation.",
         challenge:
-          "Mercado Libre needed to optimize their supply chain operations across Latin America to reduce delivery times and costs while improving inventory management.",
-        benefits: ["30% reduction in delivery times", "25% cost savings in logistics", "Improved inventory turnover"],
+          "Mejorar performance de IBM WATSON. Trabajo en el pipeline de NLP, introduciendo tecnología propia para identificar las raíces de las palabras y así transformar la información enviada a IBM WATSON para facilitarle el trabajo.",
+        benefits: ["La precisión de IBM Watson pasó de un 60 a un 82%"],
         technology: [
-          "Machine Learning",
-          "Predictive Analytics",
-          "IoT Integration",
-          "Real-time Data Processing",
-          "Cloud Computing",
+          "Natural Language Processing (AI-Deep Learning)",
+          "Data Science",
+          "Custom word root identification technology",
         ],
       },
     },
@@ -253,7 +250,7 @@ export default function CaseStudiesSection() {
                             className="max-h-[120px] w-auto object-contain"
                           />
                         </div>
-                      ) : story.client === "American Logistics" ? (
+                      ) : story.client === "US Logistics" ? (
                         <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
@@ -263,7 +260,7 @@ export default function CaseStudiesSection() {
                             className="max-h-[200px] w-auto object-contain"
                           />
                         </div>
-                      ) : story.client === "Mercado Libre" ? (
+                      ) : story.client === "Banking Institution" ? (
                         <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
@@ -403,17 +400,8 @@ export default function CaseStudiesSection() {
                       </div>
                     ) : selectedCase.client === "Netflix" ? (
                       <div className="flex flex-col items-center justify-center gap-4">
-                        <div className="bg-black rounded-xl p-4 flex items-center justify-center">
-                          <Image
-                            src={selectedCase.logo || "/placeholder.svg"}
-                            alt={`${selectedCase.client} logo`}
-                            width={250}
-                            height={100}
-                            className="w-auto max-h-[100px]"
-                          />
-                        </div>
-                        {/* Body scan image in modal for Netflix */}
-                        <div className="mt-4 rounded-lg overflow-hidden">
+                        {/* Only body scan image for Netflix, no logo */}
+                        <div className="rounded-lg overflow-hidden">
                           <Image
                             src="/images/body-scan-comparison.png"
                             alt="3D Body Scan Comparison"
@@ -423,12 +411,22 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       </div>
-                    ) : selectedCase.client === "American Logistics" ? (
+                    ) : selectedCase.client === "US Logistics" ? (
                       <div className="bg-white rounded-xl p-4 flex items-center justify-center">
                         <Image
                           src={selectedCase.logo || "/placeholder.svg"}
                           alt={`${selectedCase.client} logo`}
                           width={300}
+                          height={200}
+                          className="w-auto max-h-[200px]"
+                        />
+                      </div>
+                    ) : selectedCase.client === "Banking Institution" ? (
+                      <div className="bg-white rounded-xl p-4 flex items-center justify-center">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={200}
                           height={200}
                           className="w-auto max-h-[200px]"
                         />
