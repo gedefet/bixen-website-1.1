@@ -16,7 +16,6 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
       category: "Manufacturing",
       status: "In Progress",
-      year: "2025",
       summary:
         "Optimizing barley drying processes to reduce energy consumption and improve plant operations in Manufacturing.",
       modalContent: {
@@ -41,7 +40,6 @@ export default function CaseStudiesSection() {
       client: "Intuitivo",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
       category: "Retail",
-      year: "2025",
       summary:
         "Implementing Meta's SAM algorithm to enhance computer vision capabilities for autonomous retail solutions in Retail.",
       modalContent: {
@@ -62,7 +60,6 @@ export default function CaseStudiesSection() {
       client: "Netflix",
       logo: "/images/netflix-logo.png",
       category: "Healthcare",
-      year: "2019",
       summary:
         "Developing AI-based validation systems for 3D body scanning technology achieving 98.4% precision in Healthcare.",
       modalContent: {
@@ -85,7 +82,6 @@ export default function CaseStudiesSection() {
       client: "US Logistics",
       logo: "/images/logistics-truck-logo.png",
       category: "Logistics",
-      year: "2024",
       summary:
         "Implementing intelligent voice recognition systems to reduce customer service costs by 60% in Logistics.",
       modalContent: {
@@ -107,14 +103,13 @@ export default function CaseStudiesSection() {
       client: "Banking Institution",
       logo: "/images/red-flame-logo.png",
       category: "Banking",
-      year: "2019",
       summary: "Enhanced IBM Watson performance through custom NLP pipeline and root word identification technology.",
       modalContent: {
         title: "Banking Assistant Evolution",
         company: "A major banking institution needed to improve the performance of their IBM Watson implementation.",
         challenge:
-          "Mejorar performance de IBM WATSON. Trabajo en el pipeline de NLP, introduciendo tecnología propia para identificar las raíces de las palabras y así transformar la información enviada a IBM WATSON para facilitarle el trabajo.",
-        benefits: ["La precisión de IBM Watson pasó de un 60 a un 82%"],
+          "Improve IBM Watson performance by working on the NLP pipeline, introducing proprietary technology to identify word roots and transform the information sent to IBM Watson to facilitate its work.",
+        benefits: ["IBM Watson accuracy improved from 60% to 82%"],
         technology: [
           "Natural Language Processing (AI-Deep Learning)",
           "Data Science",
@@ -124,11 +119,10 @@ export default function CaseStudiesSection() {
     },
     {
       id: "telecom-automation",
-      title: "Automatización de procesos internos",
+      title: "Internal Process Automation",
       client: "América Móvil",
       logo: "/images/red-circular-logo.png",
       category: "Telecommunications",
-      year: "2018",
       summary:
         "Implementing RPA automation to reduce 27 personnel and optimize portability processes in Telecommunications.",
       modalContent: {
@@ -304,9 +298,6 @@ export default function CaseStudiesSection() {
                           {story.status}
                         </span>
                       )}
-                      <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
-                        {story.year}
-                      </span>
                     </div>
 
                     <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
@@ -343,7 +334,7 @@ export default function CaseStudiesSection() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <div className="mb-6">
-                    <h3 className="text-[#01F9C6] text-base mb-1">CASE STUDY {selectedCase.year}</h3>
+                    <h3 className="text-[#01F9C6] text-base mb-1">CASE STUDY</h3>
                     <h2 className="text-2xl font-bold text-white mb-3">{selectedCase.modalContent.title}</h2>
 
                     <div className="mb-4">
