@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import { X } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 
 export default function CaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState(null)
+  const [flippedCards, setFlippedCards] = useState(new Set())
 
   const successStories = [
     {
@@ -17,6 +17,8 @@ export default function CaseStudiesSection() {
       category: "Manufacturing",
       status: "In Progress",
       year: "2025",
+      summary:
+        "Optimizing barley drying processes to reduce energy consumption and improve plant operations in Manufacturing.",
       modalContent: {
         title: "UY - Optimization of the barley drying process in production plant",
         company:
@@ -40,6 +42,8 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
       category: "Retail",
       year: "2025",
+      summary:
+        "Implementing Meta's SAM algorithm to enhance computer vision capabilities for autonomous retail solutions in Retail.",
       modalContent: {
         title: "AI-Powered Retail Solutions with Meta SAM",
         company:
@@ -59,6 +63,8 @@ export default function CaseStudiesSection() {
       logo: "/images/netflix-logo.png",
       category: "Healthcare",
       year: "2019",
+      summary:
+        "Developing AI-based validation systems for 3D body scanning technology achieving 98.4% precision in Healthcare.",
       modalContent: {
         title: "3D Body Scan Validation System",
         company:
@@ -74,12 +80,35 @@ export default function CaseStudiesSection() {
       },
     },
     {
+      id: "american-logistics",
+      title: "Customer Service Center Reduction",
+      client: "American Logistics",
+      logo: "/images/american-logistics-logo.png",
+      category: "Logistics",
+      year: "2024",
+      summary:
+        "Implementing intelligent voice recognition systems to reduce customer service costs by 60% in Logistics.",
+      modalContent: {
+        title: "Intelligent Customer Service System (IVR)",
+        company:
+          "American Logistics is a US-based non-emergency transportation company. To reduce costs, they were embarked on a plan to reduce their staff dedicated to handling customer calls.",
+        challenge:
+          "An intelligent customer service system (IVR) was designed and implemented for call flow management. A proprietary algorithm was designed for elderly person management based on audio matching against the person database.",
+        benefits: [
+          "45% improvement in voice recognition for people over 75 years old",
+          "60% reduction in operational costs",
+        ],
+        technology: ["NLP", "Speech to text", "Proprietary voice understanding technology"],
+      },
+    },
+    {
       id: "mercadolibre",
       title: "Supply Chain Optimization Platform",
       client: "Mercado Libre",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mercadolibre-logo-1-2kQvGxM3HAOhBjqReMHwH.png",
       category: "E-commerce",
       year: "2024",
+      summary: "Optimizing supply chain operations across Latin America reducing delivery times by 30% in E-commerce.",
       modalContent: {
         title: "Supply Chain Optimization and Logistics Intelligence",
         company:
@@ -103,6 +132,7 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/santander-logo-2-3lRwHxN4IAPhCkrSfNIxI.png",
       category: "Fintech",
       year: "2024",
+      summary: "Developing AI-driven risk assessment systems reducing loan default rates by 50% in Fintech.",
       modalContent: {
         title: "AI-Driven Financial Risk Assessment System",
         company:
@@ -130,6 +160,7 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/syngenta-logo-3-4mSxIyO5JBQiDlsTgOJyJ.png",
       category: "Agriculture",
       year: "2023",
+      summary: "Creating IoT platforms for precision agriculture increasing crop yields by 20% in Agriculture.",
       modalContent: {
         title: "Precision Agriculture and Crop Monitoring System",
         company:
@@ -147,6 +178,7 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/siemens-logo-4-5nTyJzP6KCRjElsUhPKyK.png",
       category: "Manufacturing",
       year: "2023",
+      summary: "Implementing predictive maintenance systems reducing unplanned downtime by 40% in Manufacturing.",
       modalContent: {
         title: "Industrial Predictive Maintenance Platform",
         company:
@@ -174,6 +206,7 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/enel-logo-5-6oUzKaQ7LDSkFmtViQLzL.png",
       category: "Energy",
       year: "2023",
+      summary: "Optimizing smart grid systems improving energy efficiency by 25% in Energy.",
       modalContent: {
         title: "Smart Grid Optimization and Energy Management",
         company:
@@ -201,6 +234,8 @@ export default function CaseStudiesSection() {
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tesla-logo-6-7pVaLbR8METlGnuWjRMaM.png",
       category: "Automotive",
       year: "2022",
+      summary:
+        "Enhancing autonomous driving capabilities with advanced computer vision and AI algorithms in Automotive.",
       modalContent: {
         title: "Advanced Driver Assistance and Navigation System",
         company:
@@ -225,6 +260,44 @@ export default function CaseStudiesSection() {
     }
   }
 
+  const handleMouseEnter = (cardId, event) => {
+    const card = event.currentTarget
+    const rect = card.getBoundingClientRect()
+    const mouseX = event.clientX - rect.left
+    const cardWidth = rect.width
+
+    // Flip when mouse is in the right 30% of the card
+    if (mouseX > cardWidth * 0.7) {
+      setFlippedCards((prev) => new Set([...prev, cardId]))
+    }
+  }
+
+  const handleMouseMove = (cardId, event) => {
+    const card = event.currentTarget
+    const rect = card.getBoundingClientRect()
+    const mouseX = event.clientX - rect.left
+    const cardWidth = rect.width
+
+    // Flip when mouse is in the right 30% of the card
+    if (mouseX > cardWidth * 0.7) {
+      setFlippedCards((prev) => new Set([...prev, cardId]))
+    } else {
+      setFlippedCards((prev) => {
+        const newSet = new Set(prev)
+        newSet.delete(cardId)
+        return newSet
+      })
+    }
+  }
+
+  const handleMouseLeave = (cardId) => {
+    setFlippedCards((prev) => {
+      const newSet = new Set(prev)
+      newSet.delete(cardId)
+      return newSet
+    })
+  }
+
   return (
     <div className="container px-4 md:px-6 py-16" id="case-studies">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
@@ -238,14 +311,19 @@ export default function CaseStudiesSection() {
 
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
         {/* Grid of 3D Rotating Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {successStories.map((story, index) => (
             <div
               key={story.id}
               className={`relative h-[350px] perspective-1000 cursor-pointer card-delay-${index * 100}`}
+              onMouseEnter={(e) => handleMouseEnter(story.id, e)}
+              onMouseMove={(e) => handleMouseMove(story.id, e)}
+              onMouseLeave={() => handleMouseLeave(story.id)}
               onClick={() => handleCardClick(story)}
             >
-              <div className="success-story-card w-full h-full card-glow">
+              <div
+                className={`success-story-card w-full h-full card-glow ${flippedCards.has(story.id) ? "flipped" : ""}`}
+              >
                 {/* Front of card - Logo only */}
                 <div className="card-front absolute inset-0 w-full h-full">
                   <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex flex-col items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
@@ -256,9 +334,9 @@ export default function CaseStudiesSection() {
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={200}
-                            height={80}
-                            className="max-h-[80px] w-auto object-contain"
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto object-contain"
                           />
                         </div>
                       ) : story.client === "Intuitivo" ? (
@@ -266,17 +344,17 @@ export default function CaseStudiesSection() {
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={150}
-                            height={60}
-                            className="max-h-[60px] w-auto"
+                            width={170}
+                            height={70}
+                            className="max-h-[70px] w-auto"
                           />
                           <div className="w-12 h-[1px] bg-white/30"></div>
                           <Image
                             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
                             alt="Meta logo"
-                            width={150}
-                            height={60}
-                            className="max-h-[60px] w-auto"
+                            width={170}
+                            height={70}
+                            className="max-h-[70px] w-auto"
                           />
                         </div>
                       ) : story.client === "Netflix" ? (
@@ -284,9 +362,19 @@ export default function CaseStudiesSection() {
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={180}
-                            height={80}
-                            className="max-h-[80px] w-auto object-contain"
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto object-contain"
+                          />
+                        </div>
+                      ) : story.client === "American Logistics" ? (
+                        <div className="bg-white rounded-xl p-6 shadow-2xl transform translate-z-30">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto object-contain"
                           />
                         </div>
                       ) : (
@@ -294,69 +382,34 @@ export default function CaseStudiesSection() {
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={180}
+                            width={200}
                             height={80}
                             className="max-h-[80px] w-auto object-contain"
                           />
                         </div>
                       )}
                     </div>
-
-                    {/* Category badge at bottom */}
-                    <div className="mt-4 transform translate-z-20">
-                      <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
-                        {story.category}
-                      </Badge>
-                    </div>
                   </div>
                 </div>
 
-                {/* Back of card - Case study details */}
+                {/* Back of card - Case study summary */}
                 <div className="card-back absolute inset-0 w-full h-full">
                   <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
-                        {story.category}
-                      </Badge>
+                    <div className="flex items-center gap-2 mb-4">
                       {story.status && (
-                        <Badge variant="outline" className="border-yellow-400 text-yellow-400 text-xs">
+                        <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
                           {story.status}
-                        </Badge>
+                        </span>
                       )}
-                      <Badge variant="outline" className="border-white/30 text-white/70 text-xs">
+                      <span className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded border border-white/20">
                         {story.year}
-                      </Badge>
+                      </span>
                     </div>
 
-                    <h3 className="text-white text-lg font-medium mb-3 line-clamp-2">{story.title}</h3>
+                    <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
 
-                    <div className="flex-1 space-y-3 text-sm">
-                      <div>
-                        <h4 className="text-[#01F9C6] font-medium mb-1">CHALLENGE</h4>
-                        <p className="text-white/80 text-xs line-clamp-3">{story.modalContent.challenge}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-[#01F9C6] font-medium mb-1">BENEFITS</h4>
-                        <ul className="text-white/80 text-xs space-y-1">
-                          {story.modalContent.benefits.slice(0, 2).map((benefit, idx) => (
-                            <li key={idx} className="line-clamp-1">
-                              • {benefit}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="text-[#01F9C6] font-medium mb-1">TECHNOLOGY</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {story.modalContent.technology.slice(0, 3).map((tech, idx) => (
-                            <span key={idx} className="text-xs bg-white/10 px-2 py-1 rounded text-white/70">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="flex-1 flex items-center justify-center">
+                      <p className="text-white/90 text-sm text-center leading-relaxed">{story.summary}</p>
                     </div>
 
                     <div className="mt-4 text-center">
@@ -444,6 +497,16 @@ export default function CaseStudiesSection() {
                       </div>
                     ) : selectedCase.client === "Netflix" ? (
                       <div className="bg-black rounded-xl p-4 flex items-center justify-center">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={300}
+                          height={150}
+                          className="w-auto max-h-[150px]"
+                        />
+                      </div>
+                    ) : selectedCase.client === "American Logistics" ? (
+                      <div className="bg-white rounded-xl p-4 flex items-center justify-center">
                         <Image
                           src={selectedCase.logo || "/placeholder.svg"}
                           alt={`${selectedCase.client} logo`}

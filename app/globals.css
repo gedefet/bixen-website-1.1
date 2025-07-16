@@ -289,13 +289,13 @@ html {
     transform: rotateY(180deg);
   }
 
-  /* Success Story Card 3D Effects */
+  /* Success Story Card 3D Effects - Edge-triggered flip */
   .success-story-card {
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  .success-story-card:hover {
+  .success-story-card.flipped {
     transform: rotateY(180deg);
   }
 
@@ -395,5 +395,16 @@ html {
 
   .translate-z-50 {
     transform: translateZ(50px);
+  }
+
+  /* Edge detection for card flip */
+  .card-edge-detector {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: auto;
   }
 }
