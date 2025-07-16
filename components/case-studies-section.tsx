@@ -83,7 +83,7 @@ export default function CaseStudiesSection() {
       id: "american-logistics",
       title: "Customer Service Center Reduction",
       client: "American Logistics",
-      logo: "/images/american-logistics-logo.png",
+      logo: "/images/logistics-truck-logo.png",
       category: "Logistics",
       year: "2024",
       summary:
@@ -129,7 +129,7 @@ export default function CaseStudiesSection() {
       id: "telecom-automation",
       title: "Automatización de procesos internos",
       client: "América Móvil",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/america-movil-logo-7qVbMcS9NEUmHotXkSNaO.png",
+      logo: "/images/red-circular-logo.png",
       category: "Telecommunications",
       year: "2018",
       summary:
@@ -259,8 +259,8 @@ export default function CaseStudiesSection() {
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
                             width={280}
-                            height={120}
-                            className="max-h-[120px] w-auto object-contain"
+                            height={200}
+                            className="max-h-[200px] w-auto object-contain"
                           />
                         </div>
                       ) : story.client === "Mercado Libre" ? (
@@ -278,9 +278,9 @@ export default function CaseStudiesSection() {
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={280}
-                            height={120}
-                            className="max-h-[120px] w-auto object-contain"
+                            width={200}
+                            height={200}
+                            className="max-h-[200px] w-auto object-contain"
                           />
                         </div>
                       ) : (
@@ -298,7 +298,7 @@ export default function CaseStudiesSection() {
                   </div>
                 </div>
 
-                {/* Back of card - Case study summary (no image for Netflix) */}
+                {/* Back of card - Case study summary */}
                 <div className="card-back absolute inset-0 w-full h-full">
                   <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
                     <div className="flex items-center gap-2 mb-4">
@@ -429,8 +429,18 @@ export default function CaseStudiesSection() {
                           src={selectedCase.logo || "/placeholder.svg"}
                           alt={`${selectedCase.client} logo`}
                           width={300}
-                          height={150}
-                          className="w-auto max-h-[150px]"
+                          height={200}
+                          className="w-auto max-h-[200px]"
+                        />
+                      </div>
+                    ) : selectedCase.client === "América Móvil" ? (
+                      <div className="bg-white rounded-xl p-4 flex items-center justify-center">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={200}
+                          height={200}
+                          className="w-auto max-h-[200px]"
                         />
                       </div>
                     ) : (
