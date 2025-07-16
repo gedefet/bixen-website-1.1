@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { ArrowLeft, ArrowRight, X } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -12,7 +14,7 @@ import BackgroundVideo from "@/components/background-video"
 
 export default function CaseStudiesPage() {
   const [showCaseStudyDetails, setShowCaseStudyDetails] = useState(false)
-  const [currentCaseStudy, setCurrentCaseStudy] = useState(null)
+  const [currentCaseStudy, setCurrentCaseStudy] = useState<any>(null)
 
   const allCaseStudies = [
     {
@@ -265,7 +267,7 @@ export default function CaseStudiesPage() {
     },
   ]
 
-  const handleCaseStudyClick = (e, study) => {
+  const handleCaseStudyClick = (e: React.MouseEvent<HTMLAnchorElement>, study: any) => {
     e.preventDefault()
     setCurrentCaseStudy(study)
     setShowCaseStudyDetails(true)
