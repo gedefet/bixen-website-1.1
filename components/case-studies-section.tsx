@@ -1,12 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { X } from "lucide-react"
 import Image from "next/image"
 
 export default function CaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState(null)
   const [flippedCards, setFlippedCards] = useState(new Set())
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
   const successStories = [
     {
@@ -148,16 +149,56 @@ export default function CaseStudiesSection() {
     }
   }
 
+  // Mobile scroll-based flip detection
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 768) return // Only for mobile
+
+      const newFlippedCards = new Set()
+      const viewportCenter = window.innerHeight / 2
+
+      cardRefs.current.forEach((card, index) => {
+        if (card) {
+          const rect = card.getBoundingClientRect()
+          const cardCenter = rect.top + rect.height / 2
+          const distanceFromCenter = Math.abs(cardCenter - viewportCenter)
+
+          // Flip when card center is within 100px of viewport center
+          if (distanceFromCenter < 100) {
+            newFlippedCards.add(index)
+          }
+        }
+      })
+
+      setFlippedCards(newFlippedCards)
+    }
+
+    // Only add scroll listener on mobile
+    if (window.innerWidth < 768) {
+      window.addEventListener("scroll", handleScroll)
+      handleScroll() // Initial check
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  // Desktop hover handlers
   const handleMouseEnter = (cardId) => {
-    setFlippedCards((prev) => new Set([...prev, cardId]))
+    if (window.innerWidth >= 768) {
+      setFlippedCards((prev) => new Set([...prev, cardId]))
+    }
   }
 
   const handleMouseLeave = (cardId) => {
-    setFlippedCards((prev) => {
-      const newSet = new Set(prev)
-      newSet.delete(cardId)
-      return newSet
-    })
+    if (window.innerWidth >= 768) {
+      setFlippedCards((prev) => {
+        const newSet = new Set(prev)
+        newSet.delete(cardId)
+        return newSet
+      })
+    }
   }
 
   // Close modal when clicking outside
@@ -193,16 +234,19 @@ export default function CaseStudiesSection() {
           {successStories.map((story, index) => (
             <div
               key={story.id}
+              ref={(el) => (cardRefs.current[index] = el)}
               className="relative h-[350px] perspective-1000 cursor-pointer"
-              onMouseEnter={() => handleMouseEnter(story.id)}
-              onMouseLeave={() => handleMouseLeave(story.id)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
               onClick={() => handleCardClick(story)}
             >
               <div
-                className={`success-story-card w-full h-full card-glow ${flippedCards.has(story.id) ? "flipped" : ""}`}
+                className={`success-story-card w-full h-full card-glow transition-transform duration-700 transform-style-preserve-3d ${
+                  flippedCards.has(index) ? "flipped" : ""
+                }`}
               >
                 {/* Front of card - Logo occupying almost entire card */}
-                <div className="card-front absolute inset-0 w-full h-full">
+                <div className="card-front absolute inset-0 w-full h-full backface-hidden">
                   <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex flex-col items-center justify-center p-4 hover:bg-white/10 transition-all duration-300">
                     {/* Logo container taking up most of the card */}
                     <div className="logo-float flex-1 flex items-center justify-center w-full">
@@ -223,7 +267,7 @@ export default function CaseStudiesSection() {
                             alt={`${story.client} logo`}
                             width={220}
                             height={90}
-                            className="max-h-[90px] w-auto"
+                            className="max-h-[90px] w-auto object-contain"
                           />
                           <div className="w-16 h-[1px] bg-white/30"></div>
                           <Image
@@ -231,7 +275,7 @@ export default function CaseStudiesSection() {
                             alt="Meta logo"
                             width={220}
                             height={90}
-                            className="max-h-[90px] w-auto"
+                            className="max-h-[90px] w-auto object-contain"
                           />
                         </div>
                       ) : story.client === "Netflix" ? (
@@ -255,7 +299,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Banking Institution" ? (
-                        <div className="rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center bg-black">
+                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -290,7 +334,7 @@ export default function CaseStudiesSection() {
                 </div>
 
                 {/* Back of card - Case study summary */}
-                <div className="card-back absolute inset-0 w-full h-full">
+                <div className="card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180">
                   <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
                     <div className="flex items-center gap-2 mb-4">
                       {story.status && (
@@ -378,7 +422,7 @@ export default function CaseStudiesSection() {
                           alt={`${selectedCase.client} logo`}
                           width={200}
                           height={60}
-                          className="max-h-[60px] w-auto"
+                          className="max-h-[60px] w-auto object-contain"
                         />
                         <div className="w-16 h-[1px] bg-gray-300"></div>
                         <Image
@@ -386,7 +430,7 @@ export default function CaseStudiesSection() {
                           alt="Meta logo"
                           width={200}
                           height={60}
-                          className="max-h-[60px] w-auto"
+                          className="max-h-[60px] w-auto object-contain"
                         />
                       </div>
                     ) : selectedCase.client === "Netflix" ? (
@@ -409,7 +453,7 @@ export default function CaseStudiesSection() {
                           alt={`${selectedCase.client} logo`}
                           width={300}
                           height={200}
-                          className="w-auto max-h-[200px]"
+                          className="w-auto max-h-[200px] object-contain"
                         />
                       </div>
                     ) : selectedCase.client === "Banking Institution" ? (
@@ -419,7 +463,7 @@ export default function CaseStudiesSection() {
                           alt={`${selectedCase.client} logo`}
                           width={200}
                           height={200}
-                          className="w-auto max-h-[200px]"
+                          className="w-auto max-h-[200px] object-contain"
                         />
                       </div>
                     ) : selectedCase.client === "América Móvil" ? (
@@ -429,7 +473,7 @@ export default function CaseStudiesSection() {
                           alt={`${selectedCase.client} logo`}
                           width={200}
                           height={200}
-                          className="w-auto max-h-[200px]"
+                          className="w-auto max-h-[200px] object-contain"
                         />
                       </div>
                     ) : (
@@ -438,7 +482,7 @@ export default function CaseStudiesSection() {
                         alt={`${selectedCase.client} logo`}
                         width={300}
                         height={150}
-                        className="w-auto max-h-[150px]"
+                        className="w-auto max-h-[150px] object-contain"
                       />
                     )}
                   </div>
