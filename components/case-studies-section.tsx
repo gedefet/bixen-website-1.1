@@ -215,7 +215,7 @@ export default function CaseStudiesSection() {
         document.removeEventListener("mousedown", handleClickOutside)
       }
     }
-  }, [selectedCase])
+  }, [])
 
   return (
     <div className="container px-4 md:px-6 py-16" id="case-studies">
@@ -248,10 +248,10 @@ export default function CaseStudiesSection() {
                 {/* Front of card - Logo occupying almost entire card */}
                 <div className="card-front absolute inset-0 w-full h-full backface-hidden">
                   <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-4 hover:bg-white/10 transition-all duration-300">
-                    {/* Logo container with perfect centering and enlargement effect */}
+                    {/* Logo container with standardized background size matching logistics logo */}
                     <div className="logo-float flex-1 flex items-center justify-center w-full">
                       {story.client === "ABInBev" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -261,7 +261,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Intuitivo" ? (
-                        <div className="bg-white/10 rounded-xl p-8 flex flex-col items-center gap-4 shadow-2xl transform translate-z-30 w-full h-full justify-center logo-enlarge">
+                        <div className="bg-white/10 rounded-xl p-8 flex flex-col items-center gap-4 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -279,7 +279,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Netflix" ? (
-                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -289,7 +289,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "US Logistics" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -299,7 +299,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Banking Institution" ? (
-                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -309,7 +309,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "América Móvil" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -319,7 +319,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : (
-                        <div className="bg-white/10 rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                        <div className="bg-white/10 rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
