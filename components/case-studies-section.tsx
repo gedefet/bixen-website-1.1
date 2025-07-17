@@ -247,150 +247,86 @@ export default function CaseStudiesSection() {
               >
                 {/* Front of card - Logo occupying almost entire card */}
                 <div className="card-front absolute inset-0 w-full h-full backface-hidden">
-                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
-                    {/* Logo container with perfect centering */}
-                    <div className="w-full h-full flex items-center justify-center">
+                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-4 hover:bg-white/10 transition-all duration-300">
+                    {/* Logo container with perfect centering and enlargement effect */}
+                    <div className="logo-float flex-1 flex items-center justify-center w-full">
                       {story.client === "ABInBev" ? (
-                        <div className="bg-white rounded-xl shadow-2xl w-full h-full max-w-[280px] max-h-[200px] flex items-center justify-center p-6">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={240}
-                              height={100}
-                              className="w-auto h-auto max-w-full max-h-full object-contain"
-                              style={{
-                                maxWidth: "240px",
-                                maxHeight: "100px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={280}
+                            height={120}
+                            className="max-h-[120px] w-auto object-contain"
+                          />
                         </div>
                       ) : story.client === "Intuitivo" ? (
-                        <div className="bg-white/10 rounded-xl shadow-2xl w-full h-full max-w-[280px] max-h-[200px] flex flex-col items-center justify-center p-6 gap-4">
-                          <div className="flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={180}
-                              height={70}
-                              className="w-auto h-auto max-w-full max-h-[70px] object-contain"
-                              style={{
-                                maxWidth: "180px",
-                                maxHeight: "70px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
-                          <div className="w-16 h-[1px] bg-white/30 flex-shrink-0"></div>
-                          <div className="flex items-center justify-center">
-                            <Image
-                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                              alt="Meta logo"
-                              width={180}
-                              height={70}
-                              className="w-auto h-auto max-w-full max-h-[70px] object-contain"
-                              style={{
-                                maxWidth: "180px",
-                                maxHeight: "70px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-white/10 rounded-xl p-8 flex flex-col items-center gap-4 shadow-2xl transform translate-z-30 w-full h-full justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto object-contain"
+                          />
+                          <div className="w-16 h-[1px] bg-white/30"></div>
+                          <Image
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                            alt="Meta logo"
+                            width={220}
+                            height={90}
+                            className="max-h-[90px] w-auto object-contain"
+                          />
                         </div>
                       ) : story.client === "Netflix" ? (
-                        <div className="bg-black rounded-xl shadow-2xl w-full h-full max-w-[280px] max-h-[200px] flex items-center justify-center p-6">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={220}
-                              height={90}
-                              className="w-auto h-auto max-w-full max-h-full object-contain"
-                              style={{
-                                maxWidth: "220px",
-                                maxHeight: "90px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={280}
+                            height={120}
+                            className="max-h-[120px] w-auto object-contain"
+                          />
                         </div>
                       ) : story.client === "US Logistics" ? (
-                        <div className="bg-white rounded-xl shadow-2xl w-full h-full max-w-[280px] max-h-[220px] flex items-center justify-center p-6">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={200}
-                              height={160}
-                              className="w-auto h-auto max-w-full max-h-full object-contain"
-                              style={{
-                                maxWidth: "200px",
-                                maxHeight: "160px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={280}
+                            height={200}
+                            className="max-h-[200px] w-auto object-contain"
+                          />
                         </div>
                       ) : story.client === "Banking Institution" ? (
-                        <div className="bg-black rounded-xl shadow-2xl w-full h-full max-w-[200px] max-h-[200px] flex items-center justify-center p-6">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={120}
-                              height={120}
-                              className="w-auto h-auto max-w-full max-h-full object-contain"
-                              style={{
-                                maxWidth: "120px",
-                                maxHeight: "120px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={200}
+                            height={200}
+                            className="max-h-[200px] w-auto object-contain"
+                          />
                         </div>
                       ) : story.client === "América Móvil" ? (
-                        <div className="bg-white rounded-xl shadow-2xl w-full h-full max-w-[200px] max-h-[200px] flex items-center justify-center p-6">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={120}
-                              height={120}
-                              className="w-auto h-auto max-w-full max-h-full object-contain"
-                              style={{
-                                maxWidth: "120px",
-                                maxHeight: "120px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={200}
+                            height={200}
+                            className="max-h-[200px] w-auto object-contain"
+                          />
                         </div>
                       ) : (
-                        <div className="bg-white/10 rounded-xl shadow-2xl w-full h-full max-w-[280px] max-h-[200px] flex items-center justify-center p-6">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <Image
-                              src={story.logo || "/placeholder.svg"}
-                              alt={`${story.client} logo`}
-                              width={220}
-                              height={90}
-                              className="w-auto h-auto max-w-full max-h-full object-contain"
-                              style={{
-                                maxWidth: "220px",
-                                maxHeight: "90px",
-                                width: "auto",
-                                height: "auto",
-                              }}
-                            />
-                          </div>
+                        <div className="bg-white/10 rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full flex items-center justify-center logo-enlarge">
+                          <Image
+                            src={story.logo || "/placeholder.svg"}
+                            alt={`${story.client} logo`}
+                            width={260}
+                            height={110}
+                            className="max-h-[110px] w-auto object-contain"
+                          />
                         </div>
                       )}
                     </div>
@@ -478,76 +414,76 @@ export default function CaseStudiesSection() {
                 </div>
 
                 <div className="flex flex-col justify-between">
-                  <div className="bg-white rounded-xl overflow-hidden p-6 flex flex-col items-center justify-center min-h-[200px]">
+                  <div className="bg-white rounded-xl overflow-hidden p-6 flex flex-col items-center justify-center">
                     {selectedCase.client === "Intuitivo" ? (
-                      <div className="flex flex-col items-center justify-center gap-4 w-full h-full">
-                        <div className="flex items-center justify-center">
-                          <Image
-                            src={selectedCase.logo || "/placeholder.svg"}
-                            alt={`${selectedCase.client} logo`}
-                            width={200}
-                            height={60}
-                            className="w-auto h-auto max-h-[60px] object-contain"
-                            style={{
-                              maxWidth: "200px",
-                              maxHeight: "60px",
-                              width: "auto",
-                              height: "auto",
-                            }}
-                          />
-                        </div>
-                        <div className="w-16 h-[1px] bg-gray-300 flex-shrink-0"></div>
-                        <div className="flex items-center justify-center">
-                          <Image
-                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                            alt="Meta logo"
-                            width={200}
-                            height={60}
-                            className="w-auto h-auto max-h-[60px] object-contain"
-                            style={{
-                              maxWidth: "200px",
-                              maxHeight: "60px",
-                              width: "auto",
-                              height: "auto",
-                            }}
-                          />
-                        </div>
+                      <div className="flex flex-col items-center justify-center gap-4">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={200}
+                          height={60}
+                          className="max-h-[60px] w-auto object-contain"
+                        />
+                        <div className="w-16 h-[1px] bg-gray-300"></div>
+                        <Image
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                          alt="Meta logo"
+                          width={200}
+                          height={60}
+                          className="max-h-[60px] w-auto object-contain"
+                        />
                       </div>
                     ) : selectedCase.client === "Netflix" ? (
-                      <div className="flex flex-col items-center justify-center gap-4 w-full h-full">
+                      <div className="flex flex-col items-center justify-center gap-4">
                         {/* Only body scan image for Netflix, no logo */}
-                        <div className="rounded-lg overflow-hidden flex items-center justify-center">
+                        <div className="rounded-lg overflow-hidden">
                           <Image
                             src="/images/body-scan-comparison.png"
                             alt="3D Body Scan Comparison"
                             width={350}
                             height={200}
-                            className="w-auto h-auto max-w-full max-h-[200px] object-contain"
-                            style={{
-                              maxWidth: "350px",
-                              maxHeight: "200px",
-                              width: "auto",
-                              height: "auto",
-                            }}
+                            className="w-full h-auto object-cover"
                           />
                         </div>
                       </div>
-                    ) : (
-                      <div className="flex items-center justify-center w-full h-full">
+                    ) : selectedCase.client === "US Logistics" ? (
+                      <div className="bg-white rounded-xl p-4 flex items-center justify-center">
                         <Image
                           src={selectedCase.logo || "/placeholder.svg"}
                           alt={`${selectedCase.client} logo`}
                           width={300}
-                          height={150}
-                          className="w-auto h-auto max-w-full max-h-[150px] object-contain"
-                          style={{
-                            maxWidth: "300px",
-                            maxHeight: "150px",
-                            width: "auto",
-                            height: "auto",
-                          }}
+                          height={200}
+                          className="w-auto max-h-[200px] object-contain"
                         />
                       </div>
+                    ) : selectedCase.client === "Banking Institution" ? (
+                      <div className="bg-white rounded-xl p-4 flex items-center justify-center">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={200}
+                          height={200}
+                          className="w-auto max-h-[200px] object-contain"
+                        />
+                      </div>
+                    ) : selectedCase.client === "América Móvil" ? (
+                      <div className="bg-white rounded-xl p-4 flex items-center justify-center">
+                        <Image
+                          src={selectedCase.logo || "/placeholder.svg"}
+                          alt={`${selectedCase.client} logo`}
+                          width={200}
+                          height={200}
+                          className="w-auto max-h-[200px] object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <Image
+                        src={selectedCase.logo || "/placeholder.svg"}
+                        alt={`${selectedCase.client} logo`}
+                        width={300}
+                        height={150}
+                        className="w-auto max-h-[150px] object-contain"
+                      />
                     )}
                   </div>
 
@@ -566,6 +502,75 @@ export default function CaseStudiesSection() {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+        
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+        
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+        
+        .flipped {
+          transform: rotateY(180deg);
+        }
+        
+        .translate-z-30 {
+          transform: translateZ(30px);
+        }
+        
+        .card-glow {
+          box-shadow: 0 0 20px rgba(1, 249, 198, 0.1);
+        }
+        
+        .card-glow:hover {
+          box-shadow: 0 0 30px rgba(1, 249, 198, 0.2);
+        }
+        
+        .logo-float {
+          animation: logoFloat 6s ease-in-out infinite;
+        }
+        
+        .logo-enlarge {
+          transition: transform 0.3s ease-in-out;
+        }
+        
+        .logo-enlarge:hover {
+          transform: translateZ(30px) scale(1.05);
+        }
+        
+        /* Mobile: trigger enlarge effect when card is flipped */
+        @media (max-width: 767px) {
+          .flipped .logo-enlarge {
+            transform: translateZ(30px) scale(1.05);
+          }
+        }
+        
+        @keyframes logoFloat {
+          0%, 100% {
+            transform: translateY(0px) translateZ(30px);
+          }
+          50% {
+            transform: translateY(-10px) translateZ(30px);
+          }
+        }
+        
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      `}</style>
     </div>
   )
 }
