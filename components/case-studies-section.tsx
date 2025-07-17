@@ -245,87 +245,115 @@ export default function CaseStudiesSection() {
                   flippedCards.has(index) ? "flipped" : ""
                 }`}
               >
-                {/* Front of card - Logo occupying almost entire card */}
+                {/* Front of card - Square logo containers maximizing space */}
                 <div className="card-front absolute inset-0 w-full h-full backface-hidden">
-                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-4 hover:bg-white/10 transition-all duration-300">
-                    {/* Logo container with standardized background size matching logistics logo */}
-                    <div className="logo-float flex-1 flex items-center justify-center w-full">
+                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
+                    {/* Logo container with square aspect ratio and maximum size */}
+                    <div className="logo-float flex items-center justify-center w-full h-full max-w-[280px] max-h-[280px]">
                       {story.client === "ABInBev" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
+                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={280}
-                            height={120}
-                            className="max-h-[120px] w-auto object-contain"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-contain"
+                            style={{
+                              aspectRatio: "1/1",
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                       ) : story.client === "Intuitivo" ? (
-                        <div className="bg-white/10 rounded-xl p-8 flex flex-col items-center gap-4 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] justify-center logo-enlarge">
-                          <Image
-                            src={story.logo || "/placeholder.svg"}
-                            alt={`${story.client} logo`}
-                            width={220}
-                            height={90}
-                            className="max-h-[90px] w-auto object-contain"
-                          />
-                          <div className="w-16 h-[1px] bg-white/30"></div>
-                          <Image
-                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                            alt="Meta logo"
-                            width={220}
-                            height={90}
-                            className="max-h-[90px] w-auto object-contain"
-                          />
+                        <div className="bg-white/10 rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex flex-col items-center justify-center logo-enlarge p-6 gap-3">
+                          <div className="flex-1 flex items-center justify-center">
+                            <Image
+                              src={story.logo || "/placeholder.svg"}
+                              alt={`${story.client} logo`}
+                              width={180}
+                              height={80}
+                              className="w-auto h-auto max-w-full max-h-full object-contain"
+                            />
+                          </div>
+                          <div className="w-16 h-[1px] bg-white/30 flex-shrink-0"></div>
+                          <div className="flex-1 flex items-center justify-center">
+                            <Image
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                              alt="Meta logo"
+                              width={180}
+                              height={80}
+                              className="w-auto h-auto max-w-full max-h-full object-contain"
+                            />
+                          </div>
                         </div>
                       ) : story.client === "Netflix" ? (
-                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
+                        <div className="bg-black rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={280}
-                            height={120}
-                            className="max-h-[120px] w-auto object-contain"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-contain"
+                            style={{
+                              aspectRatio: "1/1",
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                       ) : story.client === "US Logistics" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
+                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={280}
-                            height={200}
-                            className="max-h-[200px] w-auto object-contain"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-contain"
+                            style={{
+                              aspectRatio: "1/1",
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                       ) : story.client === "Banking Institution" ? (
-                        <div className="bg-black rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
+                        <div className="bg-black rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={200}
-                            height={200}
-                            className="max-h-[200px] w-auto object-contain"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-contain"
+                            style={{
+                              aspectRatio: "1/1",
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                       ) : story.client === "América Móvil" ? (
-                        <div className="bg-white rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
+                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={200}
-                            height={200}
-                            className="max-h-[200px] w-auto object-contain"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-contain"
+                            style={{
+                              aspectRatio: "1/1",
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                       ) : (
-                        <div className="bg-white/10 rounded-xl p-8 shadow-2xl transform translate-z-30 w-full h-full max-w-[280px] max-h-[240px] flex items-center justify-center logo-enlarge">
+                        <div className="bg-white/10 rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
-                            width={260}
-                            height={110}
-                            className="max-h-[110px] w-auto object-contain"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-contain"
+                            style={{
+                              aspectRatio: "1/1",
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                       )}
@@ -569,6 +597,10 @@ export default function CaseStudiesSection() {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+        }
+        
+        .aspect-square {
+          aspect-ratio: 1 / 1;
         }
       `}</style>
     </div>
