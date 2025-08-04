@@ -3,53 +3,63 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Users, User, Brain, Shield, ArrowRight, BadgeCheck } from "lucide-react"
+import {
+  Users,
+  User,
+  Brain,
+  BadgeCheck,
+  FileText,
+  Code,
+  MessageSquare,
+  UserCheck,
+  CheckCircle,
+  Award,
+} from "lucide-react"
 
 export default function HumansPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#004953] via-[#004953] to-[#008794]">
+    <div className="min-h-screen bg-gradient-to-b from-[#000000] via-[#001a1d] to-[#002e33]">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
-              CURATED HUMANS by{" "}
-              <span className="relative">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fuente%20blanca%20fondo%20transparente_registrado-DEnxY22L1XvDKGRhofoq1uFyEv75Po.png"
-                  alt="Bixen"
-                  width={200}
-                  height={60}
-                  className="inline-block h-12 md:h-16 w-auto"
-                />
-              </span>
-            </h1>
+          <div className="flex flex-col items-center justify-center mb-8">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">CURATED HUMANS</h1>
+            <div className="flex items-center justify-center">
+              <span className="text-xl md:text-2xl text-gray-300">by</span>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fuente%20blanca%20fondo%20transparente_registrado-DEnxY22L1XvDKGRhofoq1uFyEv75Po.png"
+                alt="Bixen"
+                width={120}
+                height={40}
+                className="h-8 md:h-10 w-auto ml-2"
+              />
+            </div>
           </div>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
             Certified AI talent, ready to build.
           </p>
           <Button
             asChild
-            className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 text-lg px-8 py-6 rounded-xl font-semibold animate-bounce"
+            className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 text-lg px-8 py-6 rounded-xl font-semibold"
           >
-            <a href="mailto:contact@bixen.ai">Solicitar perfiles</a>
+            <a href="mailto:contact@bixen.ai">Request profiles</a>
           </Button>
         </div>
       </section>
 
-      {/* El Sello Bixen */}
-      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+      {/* The Bixen Seal */}
+      <section className="py-20 px-4 bg-black/30 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <BadgeCheck className="h-8 w-8 text-[#01F9C6]" />
-                <h2 className="text-3xl md:text-4xl font-bold text-white">El Sello Bixen</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white">The Bixen Seal</h2>
               </div>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Todos nuestros ingenieros superan un proceso de certificación propio que incluye retos técnicos de IA,
-                code‑challenge de 72 h y evaluación de soft skills. Sólo el 5% obtiene el sello{" "}
-                <span className="text-[#01F9C6] font-semibold">'Certified by Bixen'</span>.
+                All our engineers pass through our proprietary certification process that includes AI technical
+                challenges, 72-hour code challenges, and soft skills assessment. Only 5% earn the{" "}
+                <span className="text-[#01F9C6] font-semibold">'Certified by Bixen'</span> seal.
               </p>
             </div>
             <div className="relative">
@@ -65,48 +75,48 @@ export default function HumansPage() {
         </div>
       </section>
 
-      {/* Tres Modos de Contratación */}
+      {/* Three Hiring Models */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">Tres modos de contratación</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">Three Hiring Models</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Solo Bixener */}
-            <Card className="bg-white/10 backdrop-blur-sm border-[#01F9C6]/30 hover:scale-105 transition-transform duration-300 rounded-2xl shadow-2xl">
+            <Card className="bg-black/30 backdrop-blur-sm border-[#01F9C6]/30 hover:scale-105 transition-transform duration-300 rounded-2xl shadow-2xl">
               <CardContent className="p-8 text-center">
                 <User className="h-12 w-12 text-[#01F9C6] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Solo Bixener</h3>
                 <p className="text-gray-300 mb-6">
-                  1 AI Engineer dedicado
+                  1 dedicated AI Engineer
                   <br />
-                  40 h/sem
+                  40 hours/week
                 </p>
                 <Badge className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90">Certified by Bixen</Badge>
               </CardContent>
             </Card>
 
             {/* Curated Squad */}
-            <Card className="bg-white/10 backdrop-blur-sm border-[#01F9C6]/30 hover:scale-105 transition-transform duration-300 rounded-2xl shadow-2xl">
+            <Card className="bg-black/30 backdrop-blur-sm border-[#01F9C6]/30 hover:scale-105 transition-transform duration-300 rounded-2xl shadow-2xl">
               <CardContent className="p-8 text-center">
                 <Users className="h-12 w-12 text-[#01F9C6] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Curated Squad</h3>
                 <p className="text-gray-300 mb-6">
                   PM + AI Dev + Engineer
                   <br />
-                  Célula lista para entregar valor sprint a sprint
+                  Ready to deliver value sprint after sprint
                 </p>
                 <Badge className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90">Certified by Bixen</Badge>
               </CardContent>
             </Card>
 
             {/* AI Advisor */}
-            <Card className="bg-white/10 backdrop-blur-sm border-[#01F9C6]/30 hover:scale-105 transition-transform duration-300 rounded-2xl shadow-2xl">
+            <Card className="bg-black/30 backdrop-blur-sm border-[#01F9C6]/30 hover:scale-105 transition-transform duration-300 rounded-2xl shadow-2xl">
               <CardContent className="p-8 text-center">
                 <Brain className="h-12 w-12 text-[#01F9C6] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">AI Advisor</h3>
                 <p className="text-gray-300 mb-6">
-                  Experto senior fractional
+                  Senior fractional expert
                   <br />
-                  8–16 h/sem para definir visión y desbloquear decisiones críticas
+                  8–16 hours/week to define vision and unblock critical decisions
                 </p>
                 <Badge className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90">Certified by Bixen</Badge>
               </CardContent>
@@ -115,86 +125,206 @@ export default function HumansPage() {
         </div>
       </section>
 
-      {/* Proceso de Selección */}
-      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+      {/* Detailed Selection Process - Step 1 */}
+      <section className="py-16 px-4 bg-black/20 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">Our Selection Process</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
+              <div className="bg-[#01F9C6] text-[#004953] rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl absolute -top-8 -left-8 z-10">
+                1
+              </div>
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-                alt="Selection Process"
+                src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&h=400&fit=crop"
+                alt="CV & Portfolio Review"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-2xl"
               />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Proceso de selección detallado</h2>
-              <div className="space-y-6">
-                {[
-                  "Revisión de CV y portfolio",
-                  "Code‑challenge real de 72 h (LLM/MLOps)",
-                  "Entrevista técnica deep‑dive",
-                  "Entrevista de soft skills (BEI)",
-                  "QA piloto interno de 2 semanas",
-                  "Certificación y onboarding con el cliente",
-                ].map((step, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="bg-[#01F9C6] text-[#004953] rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">
-                      {index + 1}
-                    </div>
-                    <p className="text-gray-300 text-lg">{step}</p>
-                  </div>
-                ))}
+              <div className="flex items-center gap-3 mb-6">
+                <FileText className="h-8 w-8 text-[#01F9C6]" />
+                <h3 className="text-2xl md:text-3xl font-bold text-white">CV & Portfolio Review</h3>
               </div>
-              <div className="mt-8 p-6 bg-[#01F9C6]/10 rounded-xl border border-[#01F9C6]/30">
-                <p className="text-[#01F9C6] font-semibold text-lg">
-                  Resultado: talento excepcional, sin dudas de su expertise en IA.
-                </p>
-              </div>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Screening by the Bixen technical team: applied AI projects, quantifiable impact, and open-source
+                contributions/publications.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Garantía de Excelencia */}
-      <section className="py-20 px-4">
+      {/* Detailed Selection Process - Step 2 */}
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="order-2 md:order-1">
               <div className="flex items-center gap-3 mb-6">
-                <Shield className="h-8 w-8 text-[#01F9C6]" />
-                <h2 className="text-3xl md:text-4xl font-bold text-white">Garantía de Excelencia</h2>
+                <Code className="h-8 w-8 text-[#01F9C6]" />
+                <h3 className="text-2xl md:text-3xl font-bold text-white">72-Hour Code Challenge</h3>
               </div>
-              <p className="text-lg text-gray-300 leading-relaxed">Reemplazo &lt;10 días + NPS≥8 o mes gratis.</p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Real-world case (LLM/MLOps). We measure accuracy, efficiency, documentation, and best practices.
+                Peer-reviewed by Ariel and Eduardo.
+              </p>
             </div>
-            <div className="relative">
+            <div className="relative order-1 md:order-2">
+              <div className="bg-[#01F9C6] text-[#004953] rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl absolute -top-8 -right-8 z-10">
+                2
+              </div>
               <Image
-                src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
-                alt="Excellence Guarantee"
+                src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=600&h=400&fit=crop"
+                alt="Code Challenge"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-2xl"
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Detailed Selection Process - Step 3 */}
+      <section className="py-16 px-4 bg-black/20 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="bg-[#01F9C6] text-[#004953] rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl absolute -top-8 -left-8 z-10">
+                3
+              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                alt="Technical Deep-Dive"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <MessageSquare className="h-8 w-8 text-[#01F9C6]" />
+                <h3 className="text-2xl md:text-3xl font-bold text-white">Technical Deep-Dive (90 min)</h3>
+              </div>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                With a Lead AI: architecture, trade-offs, live troubleshooting, and system design on a whiteboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Selection Process - Step 4 */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="flex items-center gap-3 mb-6">
+                <UserCheck className="h-8 w-8 text-[#01F9C6]" />
+                <h3 className="text-2xl md:text-3xl font-bold text-white">Soft Skills Interview (BEI)</h3>
+              </div>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                60-minute session based on Behavioral Event Interview: ownership, collaboration, resilience, and
+                communication.
+              </p>
+            </div>
+            <div className="relative order-1 md:order-2">
+              <div className="bg-[#01F9C6] text-[#004953] rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl absolute -top-8 -right-8 z-10">
+                4
+              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop"
+                alt="Soft Skills Interview"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Selection Process - Step 5 */}
+      <section className="py-16 px-4 bg-black/20 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="bg-[#01F9C6] text-[#004953] rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl absolute -top-8 -left-8 z-10">
+                5
+              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
+                alt="Internal QA Pilot"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <CheckCircle className="h-8 w-8 text-[#01F9C6]" />
+                <h3 className="text-2xl md:text-3xl font-bold text-white">Internal QA Pilot (2 weeks)</h3>
+              </div>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Integration in a Bixen sandbox: real sprint, velocity metrics, SonarQube code quality, and 360°
+                feedback.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Selection Process - Step 6 */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="flex items-center gap-3 mb-6">
+                <Award className="h-8 w-8 text-[#01F9C6]" />
+                <h3 className="text-2xl md:text-3xl font-bold text-white">Certification & Client Onboarding</h3>
+              </div>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Issuance of the "Certified by Bixen" badge, environment setup, and kickoff with clear objectives for the
+                first 5 days.
+              </p>
+            </div>
+            <div className="relative order-1 md:order-2">
+              <div className="bg-[#01F9C6] text-[#004953] rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl absolute -top-8 -right-8 z-10">
+                6
+              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop"
+                alt="Certification & Onboarding"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Result */}
+      <section className="py-12 px-4 bg-[#01F9C6]/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[#01F9C6] font-semibold text-xl md:text-2xl">
+            Result: exceptional talent, with no doubts about their AI expertise.
+          </p>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-[#004953] to-[#008794]">
+      <section className="py-20 px-4 bg-gradient-to-r from-[#000000] to-[#001a1d]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-12">
-            ¿Listo para sumar un <span className="text-[#01F9C6]">Curated Human</span>?
+            Ready to add a <span className="text-[#01F9C6]">Curated Human</span>?
           </h2>
           <Button
             asChild
             className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 text-xl px-12 py-8 rounded-xl font-semibold"
           >
-            <a href="mailto:contact@bixen.ai" className="flex items-center gap-3">
-              Contactar ahora
-              <ArrowRight className="h-6 w-6" />
-            </a>
+            <a href="mailto:contact@bixen.ai">Request profiles</a>
           </Button>
           <p className="text-gray-400 text-sm mt-8">Certified by Bixen • 2025</p>
         </div>
