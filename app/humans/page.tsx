@@ -85,7 +85,7 @@ export default function HumansPage() {
 
           {/* The Context */}
           <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#01F9C6] mb-8 text-center">The Context:</h3>
+            
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="bg-black/30 backdrop-blur-sm border-red-500/30 rounded-2xl shadow-2xl">
                 <CardContent className="p-6 text-center">
