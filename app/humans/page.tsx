@@ -47,9 +47,9 @@ export default function HumansPage() {
       <Header isScrolled={isScrolled} opacity={opacity} />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
+      <section className="relative pt-40 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="flex flex-col items-center justify-center mb-8">
+          <div className="flex flex-col items-center justify-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">CURATED HUMANS</h1>
             <div className="flex items-center justify-center">
               <span className="text-xl md:text-2xl text-gray-300">by</span>
@@ -62,7 +62,17 @@ export default function HumansPage() {
               />
             </div>
           </div>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+
+          <div className="max-w-4xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+              We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience
+              and strong technical judgment. Each Curated Human is ready to integrate into your team from day one,
+              backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose
+              who to work with — we make sure they're the right persons.
+            </p>
+          </div>
+
+          <p className="text-xl md:text-2xl text-[#01F9C6] font-semibold max-w-3xl mx-auto">
             Certified AI talent, ready to build.
           </p>
         </div>
