@@ -64,7 +64,7 @@ export default function HumansPage() {
           </div>
 
           <div className="max-w-4xl mx-auto mb-8">
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6 font-semibold">
               We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience
               and strong technical judgment. Each Curated Human is ready to integrate into your team from day one,
               backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose
