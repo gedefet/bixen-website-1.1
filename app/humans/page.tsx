@@ -50,7 +50,7 @@ export default function HumansPage() {
       <section className="relative pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex flex-col items-center justify-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">CURATED HUMANS</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">AI CURATED HUMANS</h1>
             <div className="flex items-center justify-center">
               <span className="text-xl md:text-2xl text-gray-300">by</span>
               <Image
