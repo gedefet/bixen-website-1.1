@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { ArrowLeft, X } from "lucide-react"
+import { ArrowLeft, X } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import Link from "next/link"
@@ -281,7 +281,7 @@ export default function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#004953] via-[#006B7A] to-[#008794]">
-      <div className="container px-4 md:px-6 py-16">
+      <div className="container px-8 lg:px-16 xl:px-24 py-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <Link href="/" className="text-white hover:text-[#01F9C6] transition-colors flex items-center gap-2">

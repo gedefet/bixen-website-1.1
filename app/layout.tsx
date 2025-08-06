@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Space_Grotesk } from "next/font/google"
+import { Space_Grotesk } from 'next/font/google'
 import "./globals.css"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
@@ -16,8 +16,9 @@ export const metadata: Metadata = {
   title: "Bixen | Creation Beyond Convention",
   description:
     "Unconventional solutions for forward-thinking people. Leveraging cutting-edge technology and AI expertise to drive innovation.",
+  keywords: "AI talent, Vertex AI, LangChain, GPT-4, AI engineer, MLOps, LLM, machine learning, Hugging Face, OpenAI, Pinecone, FastAPI, MLflow, AI developers for hire",
   viewport: "width=device-width, initial-scale=1",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

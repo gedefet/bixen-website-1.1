@@ -1,90 +1,137 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Menu, X } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { useState } from "react"
 import Image from "next/image"
+import { Menu, X } from 'lucide-react'
 
-const navLinks = [
-  { href: "/#what-we-do", label: "What we do" },
-  { href: "/#features", label: "Features" },
-  { href: "/#case-studies", label: "Case Studies" },
-  { href: "/humans", label: "Curated Humans" },
-]
+interface HeaderProps {
+  isScrolled: boolean
+  opacity: number
+}
 
-export default function Header() {
+export default function Header({ isScrolled, opacity }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-black/80 backdrop-blur-sm" : "bg-transparent"
-      }`}
+      className={`z-[100] fixed top-0 left-0 right-0 w-full px-2 pt-2 lg:pt-6 transition-opacity duration-300`}
+      style={{ opacity }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/red-flame-logo.png"
-              alt="Bixen Logo"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
-            />
-            <span className="ml-3 text-2xl font-bold text-white">Bixen</span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-white hover:text-red-500 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="hidden md:flex items-center">
-            <Button asChild variant="outline" className="bg-transparent border-red-500 text-white hover:bg-red-500 hover:text-white">
-              <Link href="/#contact">Contact Us</Link>
-            </Button>
-          </div>
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+      <div
+        className={`w-full max-w-screen-xl h-14 lg:h-[4.5rem] flex flex-row items-center justify-between mx-auto px-6 ${
+          isScrolled ? "bg-[#004953]/60 backdrop-blur-sm border-b border-[#008794]/20" : "lg:bg-transparent"
+        } transition-all ease-in duration-200 rounded-[1.25rem]`}
+      >
+        <a href="/" className="flex items-center">
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fuente%20blanca%20fondo%20transparente_registrado-DEnxY22L1XvDKGRhofoq1uFyEv75Po.png"
+            alt="Bixen Logo"
+            width={120}
+            height={40}
+            className="h-8 w-auto lg:h-10 lg:w-auto"
+            priority
+          />
+        </a>
+
+        <div className="hidden md:flex items-center justify-center gap-8">
+          <a href="/#what-we-do" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+            What We Do
+          </a>
+          <a href="/#features" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+            Why Bixen
+          </a>
+          <a href="/case-studies" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+            Case Studies
+          </a>
+          <a href="/humans" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+            Humans
+          </a>
+          <a href="/#team" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+            People
+          </a>
+          <a href="/#business-partners" className="text-sm font-bold text-white hover:text-[#01F9C6] transition-colors">
+            Business Partners
+          </a>
         </div>
-      </div>
-      {isOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md">
-          <nav className="flex flex-col items-center space-y-4 py-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
+
+        <div className="hidden md:flex items-center justify-end">
+          <a
+            href="/#contact-form"
+            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 transition-colors font-medium"
+          >
+            Get in Touch
+          </a>
+        </div>
+
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white bg-transparent border-none p-2">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle menu</span>
+        </button>
+
+        {isOpen && (
+          <div
+            className="fixed inset-0 z-[200] bg-[#004953] border border-[#008794]/30 shadow-xl p-4 md:hidden animate-fadeIn"
+            style={{ opacity: 1 }}
+          >
+            <div className="flex justify-end">
+              <button onClick={() => setIsOpen(false)} className="text-white bg-transparent border-none p-2">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="flex flex-col gap-4 mt-8">
+              <a
+                href="/#what-we-do"
+                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
                 onClick={() => setIsOpen(false)}
-                className="text-white text-lg hover:text-red-500 transition-colors"
               >
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild variant="outline" className="bg-transparent border-red-500 text-white hover:bg-red-500 hover:text-white mt-4">
-              <Link href="/#contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
-            </Button>
-          </nav>
-        </div>
-      )}
+                What We Do
+              </a>
+              <a
+                href="/#features"
+                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Why Bixen
+              </a>
+              <a
+                href="/case-studies"
+                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Case Studies
+              </a>
+              <a
+                href="/humans"
+                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Humans
+              </a>
+              <a
+                href="/#team"
+                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                People
+              </a>
+              <a
+                href="/#business-partners"
+                className="text-lg font-bold text-white hover:text-[#01F9C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Business Partners
+              </a>
+              <a
+                href="/#contact-form"
+                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   )
 }
