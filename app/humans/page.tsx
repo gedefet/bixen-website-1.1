@@ -1,21 +1,44 @@
 "use client"
 
-import React, { useState, useEffect, useCallback, useRef } from "react"
+import React from "react"
 import Image from "next/image"
-import { BadgeCheck, Users, UserCheck, Brain, Clock, Target, Shield, CheckCircle, TrendingUp, ArrowRight, Mail, Code, Database, Cloud, Cpu } from 'lucide-react'
-import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
+import { CheckCircle2, BrainCircuit, Users, Rocket, Microscope, Award, Target } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import Header from "@/components/header"
+import HeroHeaderContainer from "@/components/hero-header-container"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
-import Head from "next/head"
+import AnimatedSection from "@/components/animated-section"
+
+import { Card, CardContent } from "@/components/ui/card"
+import Header from "@/components/header"
+
+export const metadata = {
+  title: "Bixen | Curated Humans - Top AI Talent",
+  description: "Access top-tier, certified AI professionals ready to integrate into your team. Rigorously validated talent in LLMs, MLOps, and more.",
+  keywords: "AI talent, Vertex AI, LangChain, GPT-4, AI engineer, MLOps, LLM, machine learning, Hugging Face, OpenAI, Pinecone, FastAPI, MLflow, AI developers for hire",
+}
+
+const StackItem = ({ title, items }: { title: string; items: string[] }) => (
+  <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6">
+    <h3 className="text-xl font-bold text-[#01F9C6] mb-4">{title}</h3>
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item} className="flex items-center text-white/90">
+          <CheckCircle2 className="h-4 w-4 mr-2 text-[#01F9C6]" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+)
 
 export default function HumansPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [headerOpacity, setHeaderOpacity] = useState(1)
-  const quoteSectionRef = useRef<HTMLElement | null>(null)
+  const [isScrolled, setIsScrolled] = React.useState(false)
+  const [headerOpacity, setHeaderOpacity] = React.useState(1)
+  const quoteSectionRef = React.useRef<HTMLElement | null>(null)
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = React.useCallback(() => {
     // Handle header background change
     if (window.scrollY > 50) {
       setIsScrolled(true)
@@ -44,7 +67,7 @@ export default function HumansPage() {
     }
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Initial check
     handleScroll()
 
@@ -66,416 +89,107 @@ export default function HumansPage() {
     }
   }, [handleScroll])
 
-  const hiringModes = [
-    {
-      icon: <UserCheck className="h-12 w-12 text-[#01F9C6]" />,
-      title: "Solo Bixener",
-      description: "1 AI Engineer dedicated",
-      details: "40 h/week",
-      badge: "Certified by Bixen"
-    },
-    {
-      icon: <Users className="h-12 w-12 text-[#01F9C6]" />,
-      title: "Curated Squad",
-      description: "PM + AI Dev + Engineer",
-      details: "Ready-to-deliver team, sprint by sprint",
-      badge: "Certified by Bixen"
-    },
-    {
-      icon: <Brain className="h-12 w-12 text-[#01F9C6]" />,
-      title: "AI Advisor",
-      description: "Senior fractional expert",
-      details: "8–16 h/week for vision and critical decisions",
-      badge: "Certified by Bixen"
-    }
-  ]
-
-  const selectionSteps = [
-    {
-      number: 1,
-      title: "CV & Portfolio Review",
-      icon: <Target className="h-8 w-8 text-[#01F9C6]" />,
-      description: "Screening by the Bixen technical team: applied AI projects, quantifiable impact, and open-source contributions/publications.",
-      image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500&h=300&fit=crop"
-    },
-    {
-      number: 2,
-      title: "72-Hour Code Challenge",
-      icon: <Clock className="h-8 w-8 text-[#01F9C6]" />,
-      description: "Real-world case (LLM/MLOps). We measure precision, efficiency, documentation, and best practices. Peer-reviewed by Ariel and Eduardo.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop"
-    },
-    {
-      number: 3,
-      title: "Technical Deep-Dive (90 min)",
-      icon: <Brain className="h-8 w-8 text-[#01F9C6]" />,
-      description: "With an AI Lead: architecture, trade-offs, live troubleshooting, and whiteboard system design.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
-    },
-    {
-      number: 4,
-      title: "Soft Skills Interview (BEI)",
-      icon: <Users className="h-8 w-8 text-[#01F9C6]" />,
-      description: "60-minute session based on Behavioral Event Interview: ownership, collaboration, resilience, and communication.",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=300&fit=crop"
-    },
-    {
-      number: 5,
-      title: "Internal QA Pilot (2 weeks)",
-      icon: <Shield className="h-8 w-8 text-[#01F9C6]" />,
-      description: "Integration in a Bixen sandbox: real sprint, velocity metrics, SonarQube code-quality, and 360° feedback.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop"
-    },
-    {
-      number: 6,
-      title: "Certification & Client Onboarding",
-      icon: <BadgeCheck className="h-8 w-8 text-[#01F9C6]" />,
-      description: "Issuance of 'Certified by Bixen' badge, environment setup, and kickoff with clear objectives for the first 5 days.",
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=500&h=300&fit=crop"
-    }
-  ]
-
-  const techStack = [
-    {
-      category: "AI Models",
-      icon: <Brain className="h-8 w-8 text-[#01F9C6]" />,
-      technologies: ["GPT-4", "Claude", "LLaMA", "Mistral", "Gemini", "BERT", "Whisper"]
-    },
-    {
-      category: "Frameworks",
-      icon: <Code className="h-8 w-8 text-[#01F9C6]" />,
-      technologies: ["LangChain", "Haystack", "Transformers", "Hugging Face", "OpenAI SDK"]
-    },
-    {
-      category: "Infrastructure",
-      icon: <Cpu className="h-8 w-8 text-[#01F9C6]" />,
-      technologies: ["Vertex AI", "MLflow", "DVC", "Docker", "Ray"]
-    },
-    {
-      category: "Vector Databases",
-      icon: <Database className="h-8 w-8 text-[#01F9C6]" />,
-      technologies: ["Pinecone", "Weaviate", "FAISS"]
-    },
-    {
-      category: "APIs & Deployment",
-      icon: <ArrowRight className="h-8 w-8 text-[#01F9C6]" />,
-      technologies: ["FastAPI", "Gradio", "Streamlit", "RESTful APIs"]
-    },
-    {
-      category: "Cloud Platforms",
-      icon: <Cloud className="h-8 w-8 text-[#01F9C6]" />,
-      technologies: ["GCP", "AWS", "Azure"]
-    }
+  const selectionProcess = [
+    { icon: <Microscope className="w-8 h-8 text-[#01F9C6]" />, title: "Initial Screening", description: "We review profiles, portfolios, and experience to ensure they meet our baseline criteria for excellence." },
+    { icon: <BrainCircuit className="w-8 h-8 text-[#01F9C6]" />, title: "Technical Deep-Dive", description: "Candidates undergo a rigorous technical assessment, including live coding and architectural challenges." },
+    { icon: <Users className="w-8 h-8 text-[#01F9C6]" />, title: "Cultural & Team Fit", description: "We evaluate soft skills, communication, and problem-solving approaches to ensure seamless team integration." },
+    { icon: <Rocket className="w-8 h-8 text-[#01F9C6]" />, title: "Real-World Project Simulation", description: "A hands-on project that mirrors real-world scenarios tests their practical application and strategic thinking." },
+    { icon: <Award className="w-8 h-8 text-[#01F9C6]" />, title: "Final Review & Certification", description: "Our senior experts conduct a final review before granting the Bixen Curated Human certification." },
+    { icon: <Target className="w-8 h-8 text-[#01F9C6]" />, title: "Client Matching", description: "We match the certified professional's skills and experience with your specific project needs and company culture." },
   ]
 
   return (
-    <>
-      <Head>
-        <meta name="keywords" content="AI talent, Vertex AI, LangChain, GPT-4, AI engineer, MLOps, LLM, machine learning, Hugging Face, OpenAI, Pinecone, FastAPI, MLflow, AI developers for hire" />
-      </Head>
-      <div className="min-h-screen bg-gradient-to-b from-black via-[#001a1f] to-[#004953]">
-        {/* Header */}
-        <Header isScrolled={isScrolled} opacity={headerOpacity} />
+    <main className="min-h-screen bg-black text-white">
+      <HeroHeaderContainer />
 
-        {/* Hero Section */}
-        <section className="relative pt-40 pb-20 overflow-hidden">
-          <div className="container px-4 md:px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-12">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-6">
-                  <span className="text-white font-bold leading-tight">CURATED HUMANS </span>
-                  <br />
-                  <div className="flex items-center justify-center gap-4 mt-4">
-                    <span className="text-white/60 text-3xl sm:text-4xl md:text-5xl font-light">by</span>
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fuente%20blanca%20fondo%20transparente_registrado-DEnxY22L1XvDKGRhofoq1uFyEv75Po.png"
-                      alt="Bixen Logo"
-                      width={200}
-                      height={60}
-                      className="h-8 sm:h-10 md:h-12 lg:h-16 w-auto"
-                    />
-                  </div>
-                </h1>
-              </div>
+      {/* Header */}
+      <Header isScrolled={isScrolled} opacity={headerOpacity} />
 
-              <div className="max-w-3xl mx-auto mb-8">
-                <p className="text-white/90 text-lg md:text-xl leading-relaxed mb-6">
-                  We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience and strong technical judgment. Each AI Curated Human is ready to integrate into your team from day one, backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose who to work with — we make sure it's the right person.
-                </p>
-                
-                <p className="text-[#01F9C6] text-xl md:text-2xl font-semibold">
-                  Certified AI talent, ready to build.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 container text-center">
+        <AnimatedSection>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">AI Curated Humans</h1>
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
+            We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience and strong technical judgment. Each AI Curated Human is ready to integrate into your team from day one, backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose who to work with — we make sure it’s the right person.
+          </p>
+          <h2 className="mt-8 text-3xl md:text-4xl font-medium text-[#01F9C6]">
+            Certified AI talent, ready to build.
+          </h2>
+        </AnimatedSection>
+      </section>
 
-        {/* Why Curated Humans Section */}
-        <section className="py-20 relative">
-          <div className="container px-4 md:px-6">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <h2 className="text-4xl font-light sm:text-5xl md:text-6xl text-white mb-8">
-                Why Curated Humans?
-              </h2>
-            </div>
-
-            {/* The Context */}
-            <div className="mb-20">
-              <h3 className="text-2xl md:text-3xl font-medium text-white mb-12 text-center">The Context</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="bg-red-500/10 border-red-500/30 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <TrendingUp className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-red-400 mb-2">87%</div>
-                    <p className="text-white/80 text-sm">
-                      of companies struggle to find AI talent, with hiring times exceeding 140 days
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-red-500/10 border-red-500/30 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <Target className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-red-400 mb-2">75-95%</div>
-                    <p className="text-white/80 text-sm">
-                      of recruiters struggle to evaluate both technical and AI-specific soft skills
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-red-500/10 border-red-500/30 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <Shield className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-red-400 mb-2">1%</div>
-                    <p className="text-white/80 text-sm">
-                      of companies consider themselves mature in AI implementation, increasing investment risk
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* Why We're the Right Choice */}
-            <div>
-              <h3 className="text-2xl md:text-3xl font-medium text-white mb-12 text-center">Why We're the Right Choice</h3>
-              <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <CheckCircle className="h-6 w-6 text-[#01F9C6] shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-semibold mb-2">+10 years of applied AI experience</h4>
-                        <p className="text-white/80">
-                          We know the key problems in sectors like healthcare, telco, retail, gaming, banking, oil & gas because we've already solved them. Our profiles have practical experience with tools like Vertex AI, LangChain, Hugging Face, OpenAI APIs, and production frameworks like MLflow and Ray.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <BadgeCheck className="h-6 w-6 text-[#01F9C6] shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-semibold mb-2">Certified by Bixen program</h4>
-                        <p className="text-white/80">
-                          Precisely defines what combines proven technical expertise, business domain knowledge, and execution capability. They master key technologies like Transformers, RLHF, Pinecone, Weaviate, Docker + FastAPI, and deployments on AWS/GCP.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <Target className="h-6 w-6 text-[#01F9C6] shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-semibold mb-2">Rigorous & quantifiable process</h4>
-                        <p className="text-white/80">
-                          We minimize selection errors: our talents have been tested, reviewed by leaders, and validated in real environments using industry-standard tools and methodologies.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <Shield className="h-6 w-6 text-[#01F9C6] shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-semibold mb-2">Exceptional quality delivery</h4>
-                        <p className="text-white/80">
-                          You won't worry about production quality or drive your recruiting team crazy with rapidly changing profiles.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* The Bixen Seal Section */}
-        <section className="py-20 relative">
-          <div className="container px-4 md:px-6">
-            <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <BadgeCheck className="h-10 w-10 text-[#01F9C6]" />
-                    <h2 className="text-3xl md:text-4xl font-medium text-white">The Bixen Seal</h2>
-                  </div>
-                  <p className="text-white/90 text-lg md:text-xl leading-relaxed">
-                    All our engineers pass a proprietary certification process that includes AI technical challenges, 72-hour code challenges, and soft skills evaluation. Only 5% obtain the 'Certified by Bixen' seal.
-                  </p>
-                </div>
-                <div className="relative">
-                  <Image
-                    src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop"
-                    alt="Certification process"
-                    width={600}
-                    height={400}
-                    className="rounded-xl object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Three Hiring Models Section */}
-        <section className="py-20 relative">
-          <div className="container px-4 md:px-6">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <h2 className="text-4xl font-light sm:text-5xl md:text-6xl text-white mb-8">
-                Three Hiring Models
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {hiringModes.map((mode, index) => (
-                <Card key={index} className="bg-white/5 border-[#01F9C6]/30 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-8 text-center">
-                    <div className="mb-6">{mode.icon}</div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">{mode.title}</h3>
-                    <p className="text-white/80 text-lg mb-2">{mode.description}</p>
-                    <p className="text-white/60 text-sm mb-6">{mode.details}</p>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#01F9C6]/20 border border-[#01F9C6]/50 rounded-full">
-                      <BadgeCheck className="h-4 w-4 text-[#01F9C6]" />
-                      <span className="text-[#01F9C6] text-sm font-medium">{mode.badge}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Detailed Selection Process */}
-        <section className="py-20 relative">
-          <div className="container px-4 md:px-6">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <h2 className="text-4xl font-light sm:text-5xl md:text-6xl text-white mb-8">
-                Detailed Selection Process
-              </h2>
-            </div>
-
-            <div className="space-y-20">
-              {selectionSteps.map((step, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-                  <div className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
-                    <div className={index % 2 === 1 ? 'md:col-start-2' : ''}>
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-12 h-12 bg-[#01F9C6] text-[#004953] rounded-full flex items-center justify-center font-bold text-xl">
-                          {step.number}
-                        </div>
-                        {step.icon}
-                        <h3 className="text-2xl md:text-3xl font-medium text-white">{step.title}</h3>
-                      </div>
-                      <p className="text-white/90 text-lg leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                    <div className={index % 2 === 1 ? 'md:col-start-1' : ''}>
-                      <Image
-                        src={step.image || "/placeholder.svg"}
-                        alt={step.title}
-                        width={600}
-                        height={400}
-                        className="rounded-xl object-cover w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Result */}
-            <div className="mt-20 text-center">
-              <div className="bg-[#01F9C6]/20 backdrop-blur-md rounded-[2rem] p-8 md:p-12 border border-[#01F9C6]/50">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#01F9C6] mb-4">Result</h3>
-                <p className="text-white text-xl md:text-2xl font-medium">
-                  Exceptional talent, no doubts about their AI expertise.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stack & Expertise Section */}
-        <section className="py-20 relative">
-          <div className="container px-4 md:px-6">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <h2 className="text-4xl font-light sm:text-5xl md:text-6xl text-white mb-8">
-                🔧 Stack & Expertise
-              </h2>
-              <p className="text-white/80 text-lg md:text-xl">
-                Technology Stack of our Curated Humans
+      {/* Why Curated Humans Section */}
+      <section className="py-16 container">
+        <AnimatedSection>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Why We're the Right Choice</h2>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <p className="text-lg text-white/80">
+                Finding elite AI talent is hard. We make it easy. Our Curated Humans are not just skilled—they are vetted, certified, and aligned with the demands of modern AI development. We go beyond resumes to validate real-world problem-solving abilities.
+              </p>
+              <p className="text-lg text-white/80">
+                Our profiles have practical experience in tools like <span className="text-[#01F9C6] font-semibold">Vertex AI, LangChain, Hugging Face, OpenAI APIs</span>, and production frameworks like <span className="text-[#01F9C6] font-semibold">MLflow and Ray</span>. They master key technologies such as <span className="text-[#01F9C6] font-semibold">Transformers, RLHF, Pinecone, Weaviate, Docker + FastAPI</span>, and deployments on <span className="text-[#01F9C6] font-semibold">AWS/GCP</span>.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {techStack.map((category, index) => (
-                <Card key={index} className="bg-white/10 border-[#01F9C6]/30 backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      {category.icon}
-                      <h3 className="text-xl font-semibold text-white">{category.category}</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-[#01F9C6]/20 border border-[#01F9C6]/50 rounded-full text-[#01F9C6] text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="bg-white/5 rounded-2xl p-8 border border-white/20">
+              <Image src="/placeholder.svg?height=400&width=500" alt="Bixen Seal of Quality" width={500} height={400} className="rounded-lg object-cover" />
             </div>
           </div>
-        </section>
+        </AnimatedSection>
+      </section>
 
-        {/* Final CTA Section */}
-        <section className="py-20 relative">
-          <div className="container px-4 md:px-6">
-            <div className="bg-gradient-to-r from-[#01F9C6]/20 to-[#008794]/20 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl text-center">
-              <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
-                Ready to add a <span className="text-[#01F9C6] font-medium">Curated Human</span>?
-              </h2>
-              <Button asChild className="bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 text-lg px-8 py-3">
-                <a href="mailto:contact@bixen.ai" className="inline-flex items-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  Contact us
-                  <ArrowRight className="h-5 w-5" />
-                </a>
-              </Button>
-              <p className="text-white/60 text-sm mt-6">Certified by Bixen • 2025</p>
-            </div>
+      {/* Selection Process Section */}
+      <section className="py-16 container">
+        <AnimatedSection>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Our Rigorous Selection Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {selectionProcess.map((step, index) => (
+              <div key={index} className="bg-white/5 border border-white/20 rounded-2xl p-6 flex flex-col items-start text-left hover:border-[#01F9C6]/50 transition-colors">
+                <div className="bg-[#01F9C6]/10 p-3 rounded-full mb-4">
+                  {step.icon}
+                </div>
+                <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-white/70">{step.description}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </AnimatedSection>
+      </section>
 
-        <Footer />
-        <ScrollToTop />
-      </div>
-    </>
+      {/* Stack & Expertise Section */}
+      <section className="py-16 container">
+        <AnimatedSection>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            🔧 Stack & Expertise of our Curated Humans
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <StackItem title="Models" items={["GPT-4 & GPT-4o", "Claude 3", "LLaMA & Mistral", "Gemini", "BERT & T5", "Whisper"]} />
+            <StackItem title="Frameworks" items={["LangChain & LlamaIndex", "Haystack", "Transformers", "Hugging Face", "OpenAI SDK", "PyTorch & TensorFlow"]} />
+            <StackItem title="Infrastructure" items={["Vertex AI", "MLflow & DVC", "Docker & Kubernetes", "Ray", "Airflow", "CI/CD Pipelines"]} />
+            <StackItem title="Vector Databases" items={["Pinecone", "Weaviate", "FAISS", "ChromaDB", "Milvus", "Elasticsearch"]} />
+            <StackItem title="APIs & Deployment" items={["FastAPI & Flask", "Gradio & Streamlit", "RESTful APIs", "Serverless (Cloud Functions)", "TorchServe", "BentoML"]} />
+            <StackItem title="Cloud" items={["Google Cloud Platform (GCP)", "Amazon Web Services (AWS)", "Microsoft Azure", "Vercel", "Hugging Face Hub", "Terraform & IaC"]} />
+          </div>
+        </AnimatedSection>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-white/5">
+        <AnimatedSection className="container text-center">
+          <h2 className="text-4xl md:text-5xl font-bold">Ready to build your AI-powered future?</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+            Access the talent that will drive your next breakthrough. Let's connect and find the perfect Curated Human for your team.
+          </p>
+          <div className="mt-8">
+            <Button asChild size="lg" className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/80 font-bold text-lg px-8 py-6">
+              <Link href="/contact">Hire AI Talent</Link>
+            </Button>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      <Footer />
+      <ScrollToTop />
+    </main>
   )
 }
