@@ -32,6 +32,12 @@ export default function CuratedPage() {
 
   return (
     <div className="bg-black text-white">
+      <head>
+        <title>AI Curated Humans - Bixen</title>
+        <meta name="description" content="Certified AI talent ready to build. We select, assess, and certify top-tier AI professionals with proven experience." />
+        <meta name="keywords" content="AI talent, Vertex AI, LangChain, GPT-4, AI engineer, MLOps, LLM, machine learning, Hugging Face, OpenAI, Pinecone, FastAPI, MLflow, AI developers for hire" />
+      </head>
+      
       <Header isScrolled={isScrolled} opacity={headerOpacity} />
 
       <main className="pt-20">
@@ -42,10 +48,16 @@ export default function CuratedPage() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
               AI Curated Humans
             </h1>
-            <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300">
-              We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience and strong technical judgment. Each AI Curated Human is ready to integrate into your team from day one, backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose who to work with — we make sure it's the right person.
-            </p>
-            <h2 className="mt-8 text-2xl md:text-3xl font-semibold text-red-500">
+            
+            {/* New introductory text */}
+            <div className="mt-8 max-w-4xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience and strong technical judgment. Each AI Curated Human is ready to integrate into your team from day one, backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose who to work with — we make sure it's the right person.
+              </p>
+            </div>
+            
+            {/* Certified AI talent heading */}
+            <h2 className="mt-12 text-2xl md:text-3xl font-semibold text-red-500">
               Certified AI talent, ready to build.
             </h2>
           </div>
