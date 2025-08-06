@@ -1,70 +1,96 @@
+"use client"
+
+import React, { useState, useEffect, useCallback, useRef } from "react"
+import Image from "next/image"
+import { ArrowRight, Play, Pause } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import Header from "@/components/header"
+import HeroSection from "@/components/hero-section"
+import WhatWeDoSection from "@/components/what-we-do-section"
+import ServicesSection from "@/components/services-section"
 import FeaturesSection from "@/components/features-section"
-import CaseStudiesSection from "@/components/case-studies-section"
+import VisionSection from "@/components/vision-section"
+import TransformativeSection from "@/components/transformative-section"
 import TeamSection from "@/components/team-section"
-import PartnersCarousel from "@/components/partners-carousel"
+import PartnersSection from "@/components/partners-section"
+import BusinessPartnerSection from "@/components/business-partner-section"
 import QuoteSection from "@/components/quote-section"
 import ContactSection from "@/components/contact-section"
-import WhatWeDoSection from "@/components/what-we-do-section"
-import VisionSection from "@/components/vision-section"
-import SectionWrapper from "@/components/section-wrapper"
-import HeroHeaderContainer from "@/components/hero-header-container"
-import BusinessPartnerSection from "@/components/business-partner-section"
+import Footer from "@/components/footer"
+import ScrollToTop from "@/components/scroll-to-top"
 
-export default function Home() {
+export default function HomePage() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [headerOpacity, setHeaderOpacity] = useState(1)
+  const quoteSectionRef = useRef<HTMLElement | null>(null)
+
+  const handleScroll = useCallback(() => {
+    // Handle header background change
+    if (window.scrollY > 50) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+
+    // Handle header fade out when reaching quote section
+    if (!quoteSectionRef.current) {
+      quoteSectionRef.current = document.getElementById("quote")
+    }
+
+    if (quoteSectionRef.current) {
+      const quoteRect = quoteSectionRef.current.getBoundingClientRect()
+      const quoteTop = quoteRect.top
+      const windowHeight = window.innerHeight
+
+      // Start fading out when quote section is 300px from entering viewport
+      if (quoteTop < windowHeight + 300) {
+        // Calculate opacity based on distance (1 when far, 0 when quote section enters viewport)
+        const opacity = Math.max(0, Math.min(1, (quoteTop - windowHeight + 300) / 300))
+        setHeaderOpacity(opacity)
+      } else {
+        setHeaderOpacity(1)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    // Initial check
+    handleScroll()
+
+    // Use requestAnimationFrame for better performance
+    let ticking = false
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", scrollListener, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", scrollListener)
+    }
+  }, [handleScroll])
+
   return (
-    <main className="flex flex-col min-h-screen">
-      <HeroHeaderContainer />
-
-      <div className="pt-16 md:pt-24">
-        {/* Sections with maximum spacing between them */}
-        <div className="relative z-10 mb-16 md:mb-24" id="what-we-do">
-          <WhatWeDoSection />
-        </div>
-
-        <div className="relative z-20 mb-16 md:mb-24">
-          <VisionSection />
-        </div>
-
-        <div className="relative z-30 mb-16 md:mb-24" id="features">
-          <FeaturesSection />
-        </div>
-
-        <div className="relative z-40 mb-16 md:mb-24" id="partners">
-          <PartnersCarousel />
-        </div>
-
-        <div className="relative z-50 mb-16 md:mb-24" id="case-studies">
-          <CaseStudiesSection />
-        </div>
-
-        <div className="relative z-30 mb-16 md:mb-24" id="business-partners">
-          <BusinessPartnerSection />
-        </div>
-      </div>
-
-      {/* Keep the remaining sections as they were */}
-      <SectionWrapper
-        backgroundColor="transparent"
-        prevSectionColor="transparent"
-        nextSectionColor="transparent"
-        id="team"
-        className="mt-16"
-      >
-        <TeamSection />
-      </SectionWrapper>
-
-      <SectionWrapper
-        backgroundColor="transparent"
-        prevSectionColor="transparent"
-        nextSectionColor="transparent"
-        id="quote"
-      >
-        <QuoteSection />
-      </SectionWrapper>
-
-      <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact">
-        <ContactSection />
-      </SectionWrapper>
-    </main>
+    <div className="min-h-screen bg-gradient-to-b from-black via-[#001a1f] to-[#004953]">
+      <Header isScrolled={isScrolled} opacity={headerOpacity} />
+      <HeroSection />
+      <WhatWeDoSection />
+      <ServicesSection />
+      <FeaturesSection />
+      <VisionSection />
+      <TransformativeSection />
+      <TeamSection />
+      <PartnersSection />
+      <BusinessPartnerSection />
+      <QuoteSection />
+      <ContactSection />
+      <Footer />
+      <ScrollToTop />
+    </div>
   )
 }

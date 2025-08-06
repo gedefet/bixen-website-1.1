@@ -1,47 +1,43 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { ArrowUp } from "lucide-react"
+import React, { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import { ArrowUp } from 'lucide-react'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
-  // Show button when page is scrolled down
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true)
-    } else {
-      setIsVisible(false)
-    }
-  }
-
-  // Set the scroll event listener
   useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true)
+      } else {
+        setIsVisible(false)
+      }
+    }
+
     window.addEventListener("scroll", toggleVisibility)
     return () => window.removeEventListener("scroll", toggleVisibility)
   }, [])
 
-  // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     })
   }
 
+  if (!isVisible) {
+    return null
+  }
+
   return (
-    <>
-      {isVisible && (
-        <Button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-2 bg-[#01F9C6] text-[#003B46] rounded-full shadow-lg hover:bg-[#01F9C6]/90 transition-all duration-300 animate-fade-in"
-          size="icon"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="h-5 w-5" />
-        </Button>
-      )}
-    </>
+    <Button
+      onClick={scrollToTop}
+      className="fixed bottom-8 right-8 z-50 bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 rounded-full p-3"
+      aria-label="Scroll to top"
+    >
+      <ArrowUp className="h-5 w-5" />
+    </Button>
   )
 }
