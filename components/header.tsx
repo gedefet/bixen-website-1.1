@@ -43,8 +43,8 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
           <a href="/case-studies" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
             Case Studies
           </a>
-          <a href="/humans" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
-            Humans
+          <a href="/humans" className="text-sm font-bold text-[#01F9C6] transition-colors">
+            Curated Humans
           </a>
           <a href="/#team" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
             People
@@ -102,10 +102,10 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
               </a>
               <a
                 href="/humans"
-                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-bold text-[#01F9C6] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Humans
+                Curated Humans
               </a>
               <a
                 href="/#team"
