@@ -1,40 +1,51 @@
-import { Lightbulb, Rocket, Zap } from 'lucide-react'
+import { ArrowRight, CheckCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function TransformativeSection() {
   return (
-    <div className="container px-4 md:px-6 py-16">
-      <div className="text-center max-w-[800px] mx-auto mb-12">
-        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl text-white">
-          Unique Solutions
-        </h2>
-        <p className="mt-4 text-lg text-white/80">
-          We specialize in crafting distinctive and highly effective solutions to complex challenges,
-          ensuring your business stands out and thrives.
-        </p>
+    <section className="py-16 md:py-24 bg-gray-50">
+      <div className="container px-4 md:px-6">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Transformative Solutions for Complex Challenges
+            </h2>
+            <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              At Bixen, we don't just solve problems—we transform them into opportunities for growth and innovation.
+            </p>
+            <ul className="grid gap-3">
+              {[
+                "Innovative approach to problem-solving",
+                "Sustainable and future-proof solutions",
+                "Collaborative partnership model",
+                "Data-driven decision making",
+              ].map((item, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex items-center gap-2">
+              <Button variant="link" className="p-0 h-auto text-primary font-medium">
+                Learn about our approach
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[1, 2, 3, 4].map((item) => (
+              <div key={item} className="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                <img
+                  src={`/placeholder.svg?height=400&width=400&text=Image ${item}`}
+                  alt={`Transformative solution ${item}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="flex flex-col items-center text-center">
-          <Lightbulb className="h-12 w-12 text-[#01F9C6] mb-4" />
-          <h3 className="text-2xl font-medium text-white mb-2">Creative Problem Solving</h3>
-          <p className="text-white/80">
-            Our approach goes beyond the ordinary, finding novel ways to tackle your toughest problems.
-          </p>
-        </div>
-        <div className="flex flex-col items-center text-center">
-          <Rocket className="h-12 w-12 text-[#01F9C6] mb-4" />
-          <h3 className="text-2xl font-medium text-white mb-2">Breakthrough Innovation</h3>
-          <p className="text-white/80">
-            We push boundaries to deliver solutions that redefine industry standards and create new opportunities.
-          </p>
-        </div>
-        <div className="flex flex-col items-center text-center">
-          <Zap className="h-12 w-12 text-[#01F9C6] mb-4" />
-          <h3 className="text-2xl font-medium text-white mb-2">Tailored for Impact</h3>
-          <p className="text-white/80">
-            Every solution is custom-built to fit your unique needs, ensuring maximum impact and sustainable growth.
-          </p>
-        </div>
-      </div>
-    </div>
+    </section>
   )
 }

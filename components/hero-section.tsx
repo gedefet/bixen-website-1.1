@@ -21,7 +21,7 @@ export default function HeroSection() {
           style={{ animationDelay: "1000ms", animationDuration: "1000ms" }}
         >
           <p className="text-2xl sm:text-3xl md:text-4xl text-white mb-10">
-            Unconventional solutions for <span className="text-[#01F9C6] font-medium">forward-thinking</span> people.
+            Unique solutions for <span className="text-[#01F9C6] font-medium">forward-thinking</span> people.
           </p>
 
           <p className="text-2xl sm:text-3xl md:text-4xl text-white">
