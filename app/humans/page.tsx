@@ -50,7 +50,7 @@ export default function HumansPage() {
       <section className="relative pt-40 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex flex-col items-center justify-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">CURATED HUMANS</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">AI CURATED HUMANS</h1>
             <div className="flex items-center justify-center">
               <span className="text-xl md:text-2xl text-gray-300">by</span>
               <Image
@@ -65,7 +65,11 @@ export default function HumansPage() {
 
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg md:text-xl leading-relaxed font-semibold text-white mb-32">
-              We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience and strong technical judgment. Each Curated Human is ready to integrate into your team from day one, backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. You choose who to work with — we make sure they're the right persons.
+              We select, assess, and certify top-tier professionals in AI, Machine Learning and Data Science, with proven experience and strong technical judgment. 
+
+Each Curated Human is ready to integrate into your team from day one, backed by a rigorous real-world validation process, ongoing support, and a quality guarantee. 
+
+You choose who to work with — we make sure they're the right persons.
             </p>
           </div>
 
@@ -89,7 +93,7 @@ export default function HumansPage() {
                   <TrendingUp className="h-12 w-12 text-red-400 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-red-400 mb-2">87%</div>
                   <p className="text-gray-300 text-sm">
-                    of companies still struggle to find AI talent, with average hiring time exceeding 140 days.
+                    of companies still struggle to find AI talent, with average hiring time exceeding 140 days for specialized profiles.
                   </p>
                 </CardContent>
               </Card>
@@ -120,7 +124,7 @@ export default function HumansPage() {
 
           {/* Why We're the Right Choice */}
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#01F9C6] mb-8 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#01F9C6] mb-8 text-center mt-14">
               Why We're the Right Choice:
             </h3>
             <div className="grid md:grid-cols-2 gap-12 items-center">
