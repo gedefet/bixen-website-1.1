@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -6,22 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { useState, useEffect } from "react"
-import {
-  Users,
-  User,
-  Brain,
-  BadgeCheck,
-  FileText,
-  Code,
-  MessageSquare,
-  UserCheck,
-  CheckCircle,
-  Award,
-  TrendingUp,
-  Clock,
-  Target,
-  Shield,
-} from "lucide-react"
+import { Users, User, Brain, BadgeCheck, FileText, Code, MessageSquare, UserCheck, CheckCircle, Award, TrendingUp, Clock, Target, Shield } from 'lucide-react'
 
 export default function HumansPage() {
   const [isScrolled, setIsScrolled] = useState(false)
