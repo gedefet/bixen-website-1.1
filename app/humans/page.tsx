@@ -9,40 +9,6 @@ import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
-const StatCard = ({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) => (
-  <div className="bg-gray-900/50 p-6 rounded-lg text-center border border-gray-700">
-    <div className="flex justify-center text-red-500 mb-3">{icon}</div>
-    <p className="text-4xl font-bold text-white">{value}</p>
-    <p className="text-gray-400">{label}</p>
-  </div>
-)
-
-const ProcessStep = ({
-  step,
-  title,
-  description,
-}: {
-  step: string
-  title: string
-  description: string
-}) => (
-  <div className="flex items-start space-x-4">
-    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
-      <span className="text-2xl font-bold text-white">{step}</span>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold text-white">{title}</h3>
-      <p className="text-gray-400 mt-1">{description}</p>
-    </div>
-  </div>
-)
-
-const TechBadge = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium mr-2 mb-2 border border-gray-700">
-    {children}
-  </span>
-)
-
 export default function CuratedHumansPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [headerOpacity, setHeaderOpacity] = useState(1)
@@ -95,21 +61,27 @@ export default function CuratedHumansPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <StatCard 
-                icon={<Cpu size={32} />} 
-                value="<5%" 
-                label="Of applicants pass our technical assessment" 
-              />
-              <StatCard 
-                icon={<BrainCircuit size={32} />} 
-                value="200+" 
-                label="Hours of real-world project validation" 
-              />
-              <StatCard 
-                icon={<Rocket size={32} />} 
-                value="1 Week" 
-                label="Average time to onboard a new talent" 
-              />
+              <div className="bg-gray-900/50 p-6 rounded-lg text-center border border-gray-700">
+                <div className="flex justify-center text-red-500 mb-3">
+                  <Cpu size={32} />
+                </div>
+                <p className="text-4xl font-bold text-white">{"<5%"}</p>
+                <p className="text-gray-400">Of applicants pass our technical assessment</p>
+              </div>
+              <div className="bg-gray-900/50 p-6 rounded-lg text-center border border-gray-700">
+                <div className="flex justify-center text-red-500 mb-3">
+                  <BrainCircuit size={32} />
+                </div>
+                <p className="text-4xl font-bold text-white">200+</p>
+                <p className="text-gray-400">Hours of real-world project validation</p>
+              </div>
+              <div className="bg-gray-900/50 p-6 rounded-lg text-center border border-gray-700">
+                <div className="flex justify-center text-red-500 mb-3">
+                  <Rocket size={32} />
+                </div>
+                <p className="text-4xl font-bold text-white">1 Week</p>
+                <p className="text-gray-400">Average time to onboard a new talent</p>
+              </div>
             </div>
           </div>
         </section>
@@ -160,36 +132,60 @@ export default function CuratedHumansPage() {
               </p>
             </div>
             <div className="max-w-4xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-              <ProcessStep 
-                step="01" 
-                title="Profile Screening" 
-                description="Initial review of experience, portfolio, and background." 
-              />
-              <ProcessStep 
-                step="02" 
-                title="Technical Assessment" 
-                description="In-depth evaluation of core AI/ML concepts and coding skills." 
-              />
-              <ProcessStep 
-                step="03" 
-                title="Live Coding Challenge" 
-                description="Real-time problem-solving session with one of our senior engineers." 
-              />
-              <ProcessStep 
-                step="04" 
-                title="System Design Interview" 
-                description="Designing a scalable, real-world AI system from the ground up." 
-              />
-              <ProcessStep 
-                step="05" 
-                title="Project Simulation" 
-                description="A multi-day take-home assignment mimicking a real client project." 
-              />
-              <ProcessStep 
-                step="06" 
-                title="Final Behavioral Interview" 
-                description="Assessing communication, teamwork, and cultural fit." 
-              />
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">01</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Profile Screening</h3>
+                  <p className="text-gray-400 mt-1">Initial review of experience, portfolio, and background.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">02</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Technical Assessment</h3>
+                  <p className="text-gray-400 mt-1">In-depth evaluation of core AI/ML concepts and coding skills.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">03</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Live Coding Challenge</h3>
+                  <p className="text-gray-400 mt-1">Real-time problem-solving session with one of our senior engineers.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">04</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">System Design Interview</h3>
+                  <p className="text-gray-400 mt-1">Designing a scalable, real-world AI system from the ground up.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">05</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Project Simulation</h3>
+                  <p className="text-gray-400 mt-1">A multi-day take-home assignment mimicking a real client project.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">06</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Final Behavioral Interview</h3>
+                  <p className="text-gray-400 mt-1">Assessing communication, teamwork, and cultural fit.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -199,7 +195,7 @@ export default function CuratedHumansPage() {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto">
               <Wrench className="mx-auto h-12 w-12 text-red-500" />
-              <h2 className="mt-4 text-3xl md:text-4xl font-bold">Stack & Expertise of our Curated Humans</h2>
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold">🔧 Stack & Expertise of our Curated Humans</h2>
               <p className="mt-4 text-lg text-gray-400">
                 Our talent pool is proficient across the entire modern AI stack, ensuring they can tackle any challenge.
               </p>
@@ -207,48 +203,60 @@ export default function CuratedHumansPage() {
             <div className="max-w-5xl mx-auto mt-12">
               <div>
                 <h3 className="text-xl font-semibold text-red-500 mb-4">Models</h3>
-                <TechBadge>GPT-4</TechBadge>
-                <TechBadge>Claude</TechBadge>
-                <TechBadge>LLaMA</TechBadge>
-                <TechBadge>Mistral</TechBadge>
-                <TechBadge>Gemini</TechBadge>
-                <TechBadge>BERT</TechBadge>
-                <TechBadge>Whisper</TechBadge>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">GPT-4</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Claude</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">LLaMA</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Mistral</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Gemini</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">BERT</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Whisper</span>
+                </div>
               </div>
               <div className="mt-6">
                 <h3 className="text-xl font-semibold text-red-500 mb-4">Frameworks</h3>
-                <TechBadge>LangChain</TechBadge>
-                <TechBadge>Haystack</TechBadge>
-                <TechBadge>Transformers</TechBadge>
-                <TechBadge>Hugging Face</TechBadge>
-                <TechBadge>OpenAI SDK</TechBadge>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">LangChain</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Haystack</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Transformers</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Hugging Face</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">OpenAI SDK</span>
+                </div>
               </div>
               <div className="mt-6">
                 <h3 className="text-xl font-semibold text-red-500 mb-4">Infrastructure</h3>
-                <TechBadge>Vertex AI</TechBadge>
-                <TechBadge>MLflow</TechBadge>
-                <TechBadge>DVC</TechBadge>
-                <TechBadge>Docker</TechBadge>
-                <TechBadge>Ray</TechBadge>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Vertex AI</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">MLflow</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">DVC</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Docker</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Ray</span>
+                </div>
               </div>
               <div className="mt-6">
                 <h3 className="text-xl font-semibold text-red-500 mb-4">Vector Databases</h3>
-                <TechBadge>Pinecone</TechBadge>
-                <TechBadge>Weaviate</TechBadge>
-                <TechBadge>FAISS</TechBadge>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Pinecone</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Weaviate</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">FAISS</span>
+                </div>
               </div>
               <div className="mt-6">
                 <h3 className="text-xl font-semibold text-red-500 mb-4">APIs & Deployment</h3>
-                <TechBadge>FastAPI</TechBadge>
-                <TechBadge>Gradio</TechBadge>
-                <TechBadge>Streamlit</TechBadge>
-                <TechBadge>RESTful APIs</TechBadge>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">FastAPI</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Gradio</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Streamlit</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">RESTful APIs</span>
+                </div>
               </div>
               <div className="mt-6">
                 <h3 className="text-xl font-semibold text-red-500 mb-4">Cloud</h3>
-                <TechBadge>GCP</TechBadge>
-                <TechBadge>AWS</TechBadge>
-                <TechBadge>Azure</TechBadge>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">GCP</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">AWS</span>
+                  <span className="inline-block bg-gray-800 text-gray-300 rounded-full px-4 py-1 text-sm font-medium border border-gray-700">Azure</span>
+                </div>
               </div>
             </div>
           </div>
