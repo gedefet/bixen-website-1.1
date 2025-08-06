@@ -1,17 +1,14 @@
-import HeroHeaderContainer from "@/components/hero-header-container"
-import HeroSection from "@/components/hero-section"
-import WhatWeDoSection from "@/components/what-we-do-section"
-import VisionSection from "@/components/vision-section"
 import FeaturesSection from "@/components/features-section"
-import PartnersCarousel from "@/components/partners-carousel"
 import CaseStudiesSection from "@/components/case-studies-section"
-import BusinessPartnerSection from "@/components/business-partner-section"
 import TeamSection from "@/components/team-section"
+import PartnersCarousel from "@/components/partners-carousel"
 import QuoteSection from "@/components/quote-section"
 import ContactSection from "@/components/contact-section"
-import Footer from "@/components/footer"
-import ScrollToTop from "@/components/scroll-to-top"
+import WhatWeDoSection from "@/components/what-we-do-section"
+import VisionSection from "@/components/vision-section"
 import SectionWrapper from "@/components/section-wrapper"
+import HeroHeaderContainer from "@/components/hero-header-container"
+import BusinessPartnerSection from "@/components/business-partner-section"
 
 export default function Home() {
   return (
@@ -19,6 +16,7 @@ export default function Home() {
       <HeroHeaderContainer />
 
       <div className="pt-16 md:pt-24">
+        {/* Sections with maximum spacing between them */}
         <div className="relative z-10 mb-16 md:mb-24" id="what-we-do">
           <WhatWeDoSection />
         </div>
@@ -44,6 +42,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Keep the remaining sections as they were */}
       <SectionWrapper
         backgroundColor="transparent"
         prevSectionColor="transparent"
@@ -66,8 +65,6 @@ export default function Home() {
       <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact">
         <ContactSection />
       </SectionWrapper>
-      <Footer />
-      <ScrollToTop />
     </main>
   )
 }
