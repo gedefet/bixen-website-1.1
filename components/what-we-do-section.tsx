@@ -1,4 +1,4 @@
-import { Brain } from "lucide-react"
+import { Brain } from 'lucide-react'
 import Image from "next/image"
 
 export default function WhatWeDoSection() {
@@ -34,16 +34,16 @@ export default function WhatWeDoSection() {
     {
       icon: (
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-iwSNTj0NWUsK8nBIFhgA8FydCiAiA5.png"
-          alt="Innovation Together"
+          src="/images/person-with-award-ribbon.png"
+          alt="Curated Humans"
           width={48}
           height={48}
           className="h-12 w-12 object-contain"
         />
       ),
-      title: "Innovation Together",
+      title: "Curated Humans",
       description:
-        "Bring your visionary ideas to life without impacting your core team's workload, leveraging our expertise to explore, innovate, and build.",
+        "Access our network of certified AI professionals, carefully vetted and ready to integrate seamlessly into your team for immediate impact.",
     },
   ]
 
