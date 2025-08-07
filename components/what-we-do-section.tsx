@@ -28,12 +28,12 @@ export default function WhatWeDoSection() {
   ]
 
   return (
-    <div className="container px-8 lg:px-16 xl:px-24 py-16">
+    <div className="container px-2 md:px-8 lg:px-16 xl:px-24 py-16">
       <div className="text-center max-w-[800px] mx-auto mb-12">
         <h2 className="hidden md:block text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-lg border border-secondary/20">
+      <div className="bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-4 md:p-8 lg:p-12 shadow-lg border border-secondary/20">
         {/* Three service cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {services.map((service, index) => (
@@ -76,7 +76,7 @@ export default function WhatWeDoSection() {
         {/* AI Section at the bottom with transparent background */}
         <div className="mt-8 py-10 px-6 text-center bg-transparent rounded-[1.5rem]">
           <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
-            <div className="bg-white/10 p-4 rounded-full mb-6">
+            <div className="hidden md:block bg-white/10 p-4 rounded-full mb-6">
               <Brain className="h-16 w-16 text-white" />
             </div>
             <h3 className="hidden md:block text-4xl md:text-5xl font-medium mb-6 text-white">AI</h3>

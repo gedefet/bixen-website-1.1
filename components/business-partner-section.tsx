@@ -1,66 +1,66 @@
-import { ArrowRight, Building2, Cpu, Factory, Flame, Leaf, Rocket, Heart, Car, Wheat } from "lucide-react"
+import { ArrowRight, Building2, Cpu, Factory, Flame, Leaf, Rocket, Heart, Car, Wheat } from 'lucide-react'
 
 export default function BusinessPartnerSection() {
   // Rearranged and recolored industries
   const industries = [
     {
-      icon: <Building2 className="h-10 w-10 text-white" />,
+      icon: <Building2 className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Fintech",
       bgColor: "bg-[#004D40]/20",
       borderColor: "border-[#004D40]",
       hoverBgColor: "hover:bg-[#004D40]/40",
     },
     {
-      icon: <Flame className="h-10 w-10 text-white" />,
+      icon: <Flame className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Oil & Gas",
       bgColor: "bg-[#FF9800]/20",
       borderColor: "border-[#FF9800]",
       hoverBgColor: "hover:bg-[#FF9800]/40",
     },
     {
-      icon: <Heart className="h-10 w-10 text-white" />,
+      icon: <Heart className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Healthcare",
       bgColor: "bg-[#F44336]/20",
       borderColor: "border-[#F44336]",
       hoverBgColor: "hover:bg-[#F44336]/40",
     },
     {
-      icon: <Rocket className="h-10 w-10 text-white" />,
+      icon: <Rocket className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Aerospace",
       bgColor: "bg-[#2196F3]/20",
       borderColor: "border-[#2196F3]",
       hoverBgColor: "hover:bg-[#2196F3]/40",
     },
     {
-      icon: <Wheat className="h-10 w-10 text-white" />,
+      icon: <Wheat className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Agriculture",
       bgColor: "bg-[#FFD700]/20",
       borderColor: "border-[#FFD700]",
       hoverBgColor: "hover:bg-[#FFD700]/40",
     },
     {
-      icon: <Factory className="h-10 w-10 text-white" />,
+      icon: <Factory className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Manufacturing",
       bgColor: "bg-[#9C27B0]/20",
       borderColor: "border-[#9C27B0]",
       hoverBgColor: "hover:bg-[#9C27B0]/40",
     },
     {
-      icon: <Cpu className="h-10 w-10 text-white" />,
+      icon: <Cpu className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Energy",
       bgColor: "bg-[#4CAF50]/20",
       borderColor: "border-[#4CAF50]",
       hoverBgColor: "hover:bg-[#4CAF50]/40",
     },
     {
-      icon: <Car className="h-10 w-10 text-white" />,
+      icon: <Car className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Automotive",
       bgColor: "bg-black/20",
       borderColor: "border-black/40",
       hoverBgColor: "hover:bg-black/40",
     },
     {
-      icon: <Leaf className="h-10 w-10 text-white" />,
+      icon: <Leaf className="h-6 md:h-10 w-6 md:w-10 text-white" />,
       name: "Sustainability",
       bgColor: "bg-[#8BC34A]/20",
       borderColor: "border-[#8BC34A]",
@@ -82,7 +82,7 @@ export default function BusinessPartnerSection() {
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-6">
-            <p className="text-white/90 text-xl md:text-2xl">
+            <p className="hidden md:block text-white/90 text-xl md:text-2xl">
               If you are a company or individual with deep expertise in industries such as (but not limited to) fintech,
               healthcare, automotive, agriculture, oil & gas, manufacturing, aerospace, energy, or sustainability,
               we&apos;d love to explore partnership opportunities.
@@ -106,10 +106,10 @@ export default function BusinessPartnerSection() {
             {industries.map((industry, index) => (
               <div
                 key={index}
-                className={`${industry.bgColor} ${industry.hoverBgColor} border ${industry.borderColor} rounded-xl p-4 flex flex-col items-center justify-center text-center transition-colors duration-200`}
+                className={`${industry.bgColor} ${industry.hoverBgColor} border ${industry.borderColor} rounded-xl p-2 md:p-4 flex flex-col items-center justify-center text-center transition-colors duration-200`}
               >
-                <div className="mb-3">{industry.icon}</div>
-                <p className="text-white font-medium text-lg">{industry.name}</p>
+                <div className="mb-2 md:mb-3">{industry.icon}</div>
+                <p className="text-white font-medium text-sm md:text-lg">{industry.name}</p>
               </div>
             ))}
           </div>

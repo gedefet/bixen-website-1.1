@@ -1,4 +1,4 @@
-import { Brain, Users, Compass, Trophy } from "lucide-react"
+import { Brain, Users, Compass, Trophy } from 'lucide-react'
 
 export default function FeaturesSection() {
   const features = [
@@ -10,6 +10,7 @@ export default function FeaturesSection() {
           Engineers and researchers that <span className="font-bold">love solving complex challenges creatively</span>.
         </>
       ),
+      mobileDescription: "Engineers who solve complex challenges creatively.",
     },
     {
       icon: <Brain className="h-10 w-10 text-[#01F9C6]" />,
@@ -21,6 +22,7 @@ export default function FeaturesSection() {
           a few—to always know exactly what's best for your project.
         </>
       ),
+      mobileDescription: "Experts in Computer Vision, LLMs, and Intelligent Agents.",
       highlight: true,
     },
     {
@@ -31,6 +33,7 @@ export default function FeaturesSection() {
           Aligning technology with your strategy <span className="font-bold">to achieve your business goals</span>.
         </>
       ),
+      mobileDescription: "Technology aligned with your business strategy.",
     },
     {
       icon: <Trophy className="h-10 w-10 text-[#01F9C6]" />,
@@ -41,6 +44,7 @@ export default function FeaturesSection() {
           <span className="font-bold">industries like software, manufacturing, healthcare, and aerospace</span>.
         </>
       ),
+      mobileDescription: "Experience across software, manufacturing, and healthcare.",
     },
   ]
 
@@ -53,30 +57,31 @@ export default function FeaturesSection() {
       </div>
 
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`p-6 rounded-[1.5rem] border transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
+              className={`p-4 md:p-6 rounded-[1.5rem] border transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
                 feature.highlight
                   ? "bg-[#01F9C6]/20 border-[#01F9C6] shadow-[0_0_15px_rgba(1,249,198,0.3)]"
                   : "bg-white/5 border-white/20 hover:border-[#01F9C6]/50"
               }`}
             >
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-3 md:mb-4">
                 {feature.highlight ? (
-                  <div className="bg-[#01F9C6]/30 p-3 rounded-full">{feature.icon}</div>
+                  <div className="bg-[#01F9C6]/30 p-2 md:p-3 rounded-full">{feature.icon}</div>
                 ) : (
                   feature.icon
                 )}
               </div>
               <h3
-                className={`text-2xl md:text-3xl font-medium mb-3 text-center ${feature.highlight ? "text-[#01F9C6]" : "text-white"}`}
+                className={`text-lg md:text-2xl lg:text-3xl font-medium mb-2 md:mb-3 text-center ${feature.highlight ? "text-[#01F9C6]" : "text-white"}`}
               >
                 {feature.title}
               </h3>
               <div className="flex-grow flex items-center justify-center">
-                <p className="text-white/80 text-center text-lg md:text-xl">{feature.description}</p>
+                <p className="md:hidden text-white/80 text-center text-sm">{feature.mobileDescription}</p>
+                <p className="hidden md:block text-white/80 text-center text-lg md:text-xl">{feature.description}</p>
               </div>
             </div>
           ))}
