@@ -41,7 +41,7 @@ export default function TeamSection() {
   const secondRowMembers = team.slice(3, 5) // Florencia, Joaquin
 
   return (
-    <div className="px-2 md:px-4">
+    <div className="container px-4 md:px-6">
       <div className="text-center max-w-[800px] mx-auto mb-8">
         <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
         <p className="mt-4 text-white md:text-xl max-w-3xl mx-auto">
@@ -51,27 +51,29 @@ export default function TeamSection() {
       </div>
       
       {/* First row: Federico, Alejandro, Damian */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {firstRowMembers.map((member, index) => (
-          <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
-            <div className="aspect-square w-full overflow-hidden bg-[#004953]">
-              <Image
-                src={member.image || "/placeholder.svg"}
-                alt={member.name}
-                width={400}
-                height={400}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <CardHeader>
-              <CardTitle className="text-white">{member.name}</CardTitle>
-              <CardDescription className="text-[#01F9C6]">{member.role}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-white">{member.bio}</p>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="container px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {firstRowMembers.map((member, index) => (
+            <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
+              <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-white">{member.name}</CardTitle>
+                <CardDescription className="text-[#01F9C6]">{member.role}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-white">{member.bio}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
       
       {/* Second row: Florencia, Joaquin (centered) */}
