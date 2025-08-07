@@ -1,118 +1,68 @@
-import { ArrowRight, Building2, Cpu, Factory, Flame, Leaf, Rocket, Heart, Car, Wheat } from 'lucide-react'
+import { Building2, Heart, Factory, Plane, Smartphone, DollarSign } from 'lucide-react'
 
 export default function BusinessPartnerSection() {
-  // Rearranged and recolored industries
   const industries = [
     {
-      icon: <Building2 className="h-6 md:h-10 w-6 md:w-10 text-white" />,
+      icon: <DollarSign className="h-8 w-8 text-[#01F9C6]" />,
       name: "Fintech",
-      bgColor: "bg-[#004D40]/20",
-      borderColor: "border-[#004D40]",
-      hoverBgColor: "hover:bg-[#004D40]/40",
+      description: "Financial technology solutions",
     },
     {
-      icon: <Flame className="h-6 md:h-10 w-6 md:w-10 text-white" />,
-      name: "Oil & Gas",
-      bgColor: "bg-[#FF9800]/20",
-      borderColor: "border-[#FF9800]",
-      hoverBgColor: "hover:bg-[#FF9800]/40",
-    },
-    {
-      icon: <Heart className="h-6 md:h-10 w-6 md:w-10 text-white" />,
+      icon: <Heart className="h-8 w-8 text-[#01F9C6]" />,
       name: "Healthcare",
-      bgColor: "bg-[#F44336]/20",
-      borderColor: "border-[#F44336]",
-      hoverBgColor: "hover:bg-[#F44336]/40",
+      description: "Medical and health solutions",
     },
     {
-      icon: <Rocket className="h-6 md:h-10 w-6 md:w-10 text-white" />,
-      name: "Aerospace",
-      bgColor: "bg-[#2196F3]/20",
-      borderColor: "border-[#2196F3]",
-      hoverBgColor: "hover:bg-[#2196F3]/40",
-    },
-    {
-      icon: <Wheat className="h-6 md:h-10 w-6 md:w-10 text-white" />,
-      name: "Agriculture",
-      bgColor: "bg-[#FFD700]/20",
-      borderColor: "border-[#FFD700]",
-      hoverBgColor: "hover:bg-[#FFD700]/40",
-    },
-    {
-      icon: <Factory className="h-6 md:h-10 w-6 md:w-10 text-white" />,
+      icon: <Factory className="h-8 w-8 text-[#01F9C6]" />,
       name: "Manufacturing",
-      bgColor: "bg-[#9C27B0]/20",
-      borderColor: "border-[#9C27B0]",
-      hoverBgColor: "hover:bg-[#9C27B0]/40",
+      description: "Industrial and production systems",
     },
     {
-      icon: <Cpu className="h-6 md:h-10 w-6 md:w-10 text-white" />,
-      name: "Energy",
-      bgColor: "bg-[#4CAF50]/20",
-      borderColor: "border-[#4CAF50]",
-      hoverBgColor: "hover:bg-[#4CAF50]/40",
+      icon: <Plane className="h-8 w-8 text-[#01F9C6]" />,
+      name: "Aerospace",
+      description: "Aviation and space technology",
     },
     {
-      icon: <Car className="h-6 md:h-10 w-6 md:w-10 text-white" />,
-      name: "Automotive",
-      bgColor: "bg-black/20",
-      borderColor: "border-black/40",
-      hoverBgColor: "hover:bg-black/40",
+      icon: <Smartphone className="h-8 w-8 text-[#01F9C6]" />,
+      name: "Technology",
+      description: "Software and hardware solutions",
     },
     {
-      icon: <Leaf className="h-6 md:h-10 w-6 md:w-10 text-white" />,
-      name: "Sustainability",
-      bgColor: "bg-[#8BC34A]/20",
-      borderColor: "border-[#8BC34A]",
-      hoverBgColor: "hover:bg-[#8BC34A]/40",
+      icon: <Building2 className="h-8 w-8 text-[#01F9C6]" />,
+      name: "Enterprise",
+      description: "Large-scale business solutions",
     },
   ]
 
   return (
-    <div className="container px-4 md:px-6 py-16 relative" id="business-partners">
-      <div className="text-center max-w-[800px] mx-auto mb-12">
-        <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl mb-4 text-white">
-          We&apos;re looking for business partners!
+    <div className="px-1 md:px-6 py-8 md:py-16">
+      <div className="text-center max-w-[800px] mx-auto mb-8 md:mb-12">
+        <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl mb-4 text-white">
+          Business Partners
         </h2>
-        <p className="text-white/80 md:text-xl">
-          Collaborate with us to create innovative solutions for your industry.
+        <p className="hidden md:block text-white/80 md:text-xl">
+          If you are a company or individual with deep expertise in industries such as fintech, healthcare,
+          manufacturing, aerospace, or technology, and you're looking to expand your service offerings with cutting-edge
+          AI solutions, we'd love to explore a partnership with you.
         </p>
       </div>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="space-y-6">
-            <p className="hidden md:block text-white/90 text-xl md:text-2xl">
-              If you are a company or individual with deep expertise in industries such as (but not limited to) fintech,
-              healthcare, automotive, agriculture, oil & gas, manufacturing, aerospace, energy, or sustainability,
-              we&apos;d love to explore partnership opportunities.
-            </p>
-
-            <p className="text-white/90 text-xl md:text-2xl">
-              Let&apos;s discuss how we can work together to transform opportunities into solutions.
-            </p>
-
-            <div>
-              <a
-                href="#contact"
-                className="inline-flex items-center px-4 py-2 rounded-md bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 transition-colors font-medium text-lg"
-              >
-                Contact Us <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {industries.map((industry, index) => (
-              <div
-                key={index}
-                className={`${industry.bgColor} ${industry.hoverBgColor} border ${industry.borderColor} rounded-xl p-2 md:p-4 flex flex-col items-center justify-center text-center transition-colors duration-200`}
-              >
-                <div className="mb-2 md:mb-3">{industry.icon}</div>
-                <p className="text-white font-medium text-sm md:text-lg">{industry.name}</p>
+      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-4 md:p-8 lg:p-12 shadow-xl">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {industries.map((industry, index) => (
+            <div
+              key={index}
+              className="bg-white/5 border border-white/20 rounded-[1.5rem] p-4 md:p-6 text-center hover:bg-white/10 transition-all duration-200 hover:border-[#01F9C6]/50"
+            >
+              <div className="flex justify-center mb-3 md:mb-4">
+                <div className="bg-[#01F9C6]/20 p-2 md:p-3 rounded-full">
+                  {industry.icon}
+                </div>
               </div>
-            ))}
-          </div>
+              <h3 className="text-lg md:text-xl font-medium text-white mb-1 md:mb-2">{industry.name}</h3>
+              <p className="hidden md:block text-white/70 text-sm">{industry.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -218,19 +218,19 @@ export default function CaseStudiesSection() {
   }, [])
 
   return (
-    <div className="container px-4 md:px-6 py-16" id="case-studies">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+    <div className="px-1 md:px-6 py-8 md:py-16" id="case-studies">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12">
         <div className="max-w-[600px]">
-          <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl mb-4 text-white">
+          <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl mb-4 text-white">
             Success Stories
           </h2>
-          <p className="text-white/80 md:text-xl">Real-world examples of how Bixen drives exceptional results.</p>
+          <p className="hidden md:block text-white/80 md:text-xl">Real-world examples of how Bixen drives exceptional results.</p>
         </div>
       </div>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
+      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-4 md:p-8 lg:p-12 shadow-xl">
         {/* Grid of 3D Rotating Cards - 3x2 on mobile, 3 per row on desktop */}
-        <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-8">
           {successStories.map((story, index) => (
             <div
               key={story.id}
@@ -247,11 +247,11 @@ export default function CaseStudiesSection() {
               >
                 {/* Front of card - Square logo containers maximizing space */}
                 <div className="card-front absolute inset-0 w-full h-full backface-hidden">
-                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-3 md:p-6 hover:bg-white/10 transition-all duration-300">
+                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-2 md:p-6 hover:bg-white/10 transition-all duration-300">
                     {/* Logo container with square aspect ratio and maximum size */}
-                    <div className="logo-float flex items-center justify-center w-full h-full max-w-[160px] md:max-w-[280px] max-h-[160px] md:max-h-[280px]">
+                    <div className="logo-float flex items-center justify-center w-full h-full max-w-[180px] md:max-w-[280px] max-h-[180px] md:max-h-[280px]">
                       {story.client === "ABInBev" ? (
-                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-4 md:p-8">
+                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-3 md:p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -265,7 +265,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Intuitivo" ? (
-                        <div className="bg-white/10 rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex flex-col items-center justify-center logo-enlarge p-3 md:p-6 gap-2 md:gap-3">
+                        <div className="bg-white/10 rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex flex-col items-center justify-center logo-enlarge p-2 md:p-6 gap-1 md:gap-3">
                           <div className="flex-1 flex items-center justify-center">
                             <Image
                               src={story.logo || "/placeholder.svg"}
@@ -287,7 +287,7 @@ export default function CaseStudiesSection() {
                           </div>
                         </div>
                       ) : story.client === "Netflix" ? (
-                        <div className="bg-black rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-4 md:p-8">
+                        <div className="bg-black rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-3 md:p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -301,7 +301,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "US Logistics" ? (
-                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-4 md:p-8">
+                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-3 md:p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -315,7 +315,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "Banking Institution" ? (
-                        <div className="bg-black rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-4 md:p-8">
+                        <div className="bg-black rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-3 md:p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -329,7 +329,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : story.client === "América Móvil" ? (
-                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-4 md:p-8">
+                        <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-3 md:p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -343,7 +343,7 @@ export default function CaseStudiesSection() {
                           />
                         </div>
                       ) : (
-                        <div className="bg-white/10 rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-4 md:p-8">
+                        <div className="bg-white/10 rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-3 md:p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
                             alt={`${story.client} logo`}
@@ -363,8 +363,8 @@ export default function CaseStudiesSection() {
 
                 {/* Back of card - Case study summary */}
                 <div className="card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                  <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-3 md:p-6 flex flex-col shadow-2xl">
-                    <div className="flex items-center gap-2 mb-2 md:mb-4">
+                  <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-2 md:p-6 flex flex-col shadow-2xl">
+                    <div className="flex items-center gap-2 mb-1 md:mb-4">
                       {story.status && (
                         <span className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded border border-yellow-400/30">
                           {story.status}
@@ -372,13 +372,13 @@ export default function CaseStudiesSection() {
                       )}
                     </div>
 
-                    <h3 className="text-white text-sm md:text-xl font-medium mb-2 md:mb-4 line-clamp-2">{story.title}</h3>
+                    <h3 className="text-white text-xs md:text-xl font-medium mb-1 md:mb-4 line-clamp-2">{story.title}</h3>
 
                     <div className="flex-1 flex items-center justify-center">
                       <p className="text-white/90 text-xs md:text-sm text-center leading-relaxed">{story.summary}</p>
                     </div>
 
-                    <div className="mt-2 md:mt-4 text-center">
+                    <div className="mt-1 md:mt-4 text-center">
                       <span className="text-[#01F9C6] text-xs md:text-sm font-medium">
                         {story.client === "Intuitivo" ? "View on LinkedIn" : "View Details"}
                       </span>

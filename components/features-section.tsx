@@ -49,25 +49,25 @@ export default function FeaturesSection() {
   ]
 
   return (
-    <div className="container px-4 md:px-6 py-16">
-      <div className="text-center max-w-[800px] mx-auto mb-12">
-        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl text-white">
+    <div className="px-1 md:px-6 py-8 md:py-16">
+      <div className="text-center max-w-[800px] mx-auto mb-8 md:mb-12">
+        <h2 className="text-3xl md:text-4xl font-light sm:text-5xl md:text-6xl text-white">
           Why Choose <span className="text-white">Bixen</span>
         </h2>
       </div>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-4 md:p-8 lg:p-12 shadow-xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`p-4 md:p-6 rounded-[1.5rem] border transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
+              className={`p-3 md:p-6 rounded-[1.5rem] border transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
                 feature.highlight
                   ? "bg-[#01F9C6]/20 border-[#01F9C6] shadow-[0_0_15px_rgba(1,249,198,0.3)]"
                   : "bg-white/5 border-white/20 hover:border-[#01F9C6]/50"
               }`}
             >
-              <div className="flex justify-center mb-3 md:mb-4">
+              <div className="flex justify-center mb-2 md:mb-4">
                 {feature.highlight ? (
                   <div className="bg-[#01F9C6]/30 p-2 md:p-3 rounded-full">{feature.icon}</div>
                 ) : (
@@ -75,7 +75,7 @@ export default function FeaturesSection() {
                 )}
               </div>
               <h3
-                className={`text-lg md:text-2xl lg:text-3xl font-medium mb-2 md:mb-3 text-center ${feature.highlight ? "text-[#01F9C6]" : "text-white"}`}
+                className={`text-sm md:text-2xl lg:text-3xl font-medium mb-1 md:mb-3 text-center ${feature.highlight ? "text-[#01F9C6]" : "text-white"}`}
               >
                 {feature.title}
               </h3>
