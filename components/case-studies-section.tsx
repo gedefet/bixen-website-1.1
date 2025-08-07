@@ -7,7 +7,7 @@ import Image from "next/image"
 export default function CaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState(null)
   const [flippedCards, setFlippedCards] = useState(new Set())
-  const cardRefs = useRef<(HTMLDivElement | null>[])([])
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
   const successStories = [
     {
