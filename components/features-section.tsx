@@ -80,7 +80,7 @@ export default function FeaturesSection() {
                 {feature.title}
               </h3>
               <div className="flex-grow flex items-center justify-center">
-                <p className="md:hidden text-white/80 text-center text-sm">{feature.mobileDescription}</p>
+                <p className="hidden md:block text-white/80 text-center text-sm">{feature.mobileDescription}</p>
                 <p className="hidden md:block text-white/80 text-center text-lg md:text-xl">{feature.description}</p>
               </div>
             </div>
