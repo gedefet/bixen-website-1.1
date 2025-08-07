@@ -1,4 +1,4 @@
-import { Brain } from "lucide-react"
+import { Brain } from 'lucide-react'
 import Image from "next/image"
 
 export default function WhatWeDoSection() {
@@ -48,23 +48,23 @@ export default function WhatWeDoSection() {
   ]
 
   return (
-    <div className="container px-4 md:px-6 py-16">
+    <div className="container px-8 lg:px-16 xl:px-24 py-16">
       <div className="text-center max-w-[800px] mx-auto mb-12">
         <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-white/10 to-[#01F9C6]/20 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl border border-[#01F9C6]/30">
+      <div className="bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-lg border border-secondary/20">
         {/* Three service cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-6 rounded-[1.5rem] border border-[#01F9C6] bg-[#01F9C6]/20 shadow-[0_0_15px_rgba(1,249,198,0.3)] transition-all duration-200 hover:shadow-lg flex flex-col h-full"
+              className="p-6 rounded-[1.5rem] border border-secondary/30 bg-secondary/10 shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full"
             >
               <div className="mb-5 flex justify-center">
-                <div className="bg-[#01F9C6]/30 p-4 rounded-full inline-block">{service.icon}</div>
+                <div className="bg-secondary/20 p-4 rounded-full inline-block">{service.icon}</div>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium mb-4 text-[#01F9C6] text-center">{service.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-medium mb-4 text-secondary text-center">{service.title}</h3>
               <p className="text-white/90 mb-5 flex-grow text-lg text-center">{service.description}</p>
             </div>
           ))}

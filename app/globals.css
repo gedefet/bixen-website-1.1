@@ -4,42 +4,42 @@
 
 @layer base {
   :root {
-    /* Dark theme colors with new teal palette */
-    --background: 190 100% 14%; /* #004953 - Midnight Green */
+    /* Dark theme colors with softer teal palette */
+    --background: 190 60% 18%; /* #062e36 - Softer Midnight Green */
     --foreground: 0 0% 100%; /* #FFFFFF - White */
 
     /* Card colors */
-    --card: 190 100% 14%; /* #004953 - Midnight Green */
+    --card: 190 60% 18%; /* #062e36 - Softer Midnight Green */
     --card-foreground: 0 0% 100%; /* #FFFFFF - White */
 
     /* Popover colors */
-    --popover: 190 100% 14%; /* #004953 - Midnight Green */
+    --popover: 190 60% 18%; /* #062e36 - Softer Midnight Green */
     --popover-foreground: 0 0% 100%; /* #FFFFFF - White */
 
-    /* Primary - Teal Blue */
-    --primary: 190 99% 32%; /* #008794 - Teal Blue */
+    /* Primary - Softer Teal Blue */
+    --primary: 190 50% 44%; /* #339ca7 - Less saturated Teal Blue */
     --primary-foreground: 0 0% 100%; /* #FFFFFF - White */
 
-    /* Secondary - Bright Teal */
-    --secondary: 165 99% 49%; /* #01F9C6 - Bright Teal */
-    --secondary-foreground: 190 100% 14%; /* #004953 - Midnight Green */
+    /* Secondary - Softer Bright Teal */
+    --secondary: 165 60% 65%; /* #66e6d3 - Less saturated Bright Teal */
+    --secondary-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
 
     /* Muted colors */
-    --muted: 190 100% 18%; /* #004953 - Slightly lighter than background */
+    --muted: 190 60% 22%; /* Slightly lighter than background */
     --muted-foreground: 0 0% 100%; /* #FFFFFF - White */
 
-    /* Accent - Aquamarine */
-    --accent: 160 100% 75%; /* #7FFFD4 - Aquamarine */
-    --accent-foreground: 190 100% 14%; /* #004953 - Midnight Green */
+    /* Accent - Softer Aquamarine */
+    --accent: 160 60% 85%; /* #a2f5e3 - Less saturated Aquamarine */
+    --accent-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
 
     /* Destructive */
     --destructive: 0 84.2% 60.2%; /* Keep destructive as is */
     --destructive-foreground: 0 0% 98%;
 
-    /* Border and input colors */
-    --border: 190 99% 32% / 30%; /* #008794 with opacity - Teal Blue */
-    --input: 190 99% 32% / 30%; /* #008794 with opacity - Teal Blue */
-    --ring: 190 99% 32%; /* #008794 - Teal Blue */
+    /* Border and input colors - lower opacity and contrast */
+    --border: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
+    --input: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
+    --ring: 190 50% 44% / 50%; /* #339ca7 with moderate opacity */
 
     --radius: 0.5rem;
   }
@@ -309,35 +309,7 @@ html {
     transform: rotateY(180deg) translateZ(20px);
   }
 
-  /* Logo floating effect */
-  @keyframes float-logo {
-    0%,
-    100% {
-      transform: translateZ(40px) translateY(0px) scale(1);
-    }
-    50% {
-      transform: translateZ(40px) translateY(-8px) scale(1.05);
-    }
-  }
-
-  .logo-float {
-    animation: float-logo 3s ease-in-out infinite;
-  }
-
-  /* Card hover glow effect */
-  @keyframes card-glow {
-    0%,
-    100% {
-      box-shadow: 0 0 20px rgba(1, 249, 198, 0.1);
-    }
-    50% {
-      box-shadow: 0 0 40px rgba(1, 249, 198, 0.3);
-    }
-  }
-
-  .card-glow:hover {
-    animation: card-glow 2s ease-in-out infinite;
-  }
+  /* Removed logo floating effect and card glow for less visual intensity */
 
   /* Enhanced 3D depth */
   .translate-z-10 {

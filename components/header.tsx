@@ -19,7 +19,7 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
     >
       <div
         className={`w-full max-w-screen-xl h-14 lg:h-[4.5rem] flex flex-row items-center justify-between mx-auto px-6 ${
-          isScrolled ? "bg-[#004953]/60 backdrop-blur-sm border-b border-[#008794]/20" : "lg:bg-transparent"
+          isScrolled ? "bg-background/80 backdrop-blur-sm border-b border-primary/20" : "lg:bg-transparent"
         } transition-all ease-in duration-200 rounded-[1.25rem]`}
       >
         <a href="/" className="flex items-center">
@@ -34,22 +34,22 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
         </a>
 
         <div className="hidden md:flex items-center justify-center gap-8">
-          <a href="/#what-we-do" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+          <a href="/#what-we-do" className="text-sm font-medium text-white hover:text-secondary transition-colors">
             What We Do
           </a>
-          <a href="/#features" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+          <a href="/#features" className="text-sm font-medium text-white hover:text-secondary transition-colors">
             Why Bixen
           </a>
-          <a href="/case-studies" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+          <a href="/case-studies" className="text-sm font-medium text-white hover:text-secondary transition-colors">
             Case Studies
           </a>
-          <a href="/humans" className="text-sm font-bold text-[#01F9C6] transition-colors">
+          <a href="/humans" className="text-sm font-bold text-secondary transition-colors">
             Curated Humans
           </a>
-          <a href="/#team" className="text-sm font-medium text-white hover:text-[#01F9C6] transition-colors">
+          <a href="/#team" className="text-sm font-medium text-white hover:text-secondary transition-colors">
             People
           </a>
-          <a href="/#business-partners" className="text-sm font-bold text-white hover:text-[#01F9C6] transition-colors">
+          <a href="/#business-partners" className="text-sm font-bold text-white hover:text-secondary transition-colors">
             Business Partners
           </a>
         </div>
@@ -57,7 +57,7 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
         <div className="hidden md:flex items-center justify-end">
           <a
             href="/#contact-form"
-            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-[#01F9C6] text-[#004953] hover:bg-[#01F9C6]/90 transition-colors font-medium"
+            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-secondary text-background hover:bg-secondary/90 transition-colors font-medium"
           >
             Get in Touch
           </a>
@@ -70,7 +70,7 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
 
         {isOpen && (
           <div
-            className="fixed inset-0 z-[200] bg-[#004953] border border-[#008794]/30 shadow-xl p-4 md:hidden animate-fadeIn"
+            className="fixed inset-0 z-[200] bg-background border border-primary/30 shadow-xl p-4 md:hidden animate-fadeIn"
             style={{ opacity: 1 }}
           >
             <div className="flex justify-end">
@@ -81,49 +81,49 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
             <div className="flex flex-col gap-4 mt-8">
               <a
                 href="/#what-we-do"
-                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 What We Do
               </a>
               <a
                 href="/#features"
-                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Why Bixen
               </a>
               <a
                 href="/case-studies"
-                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Case Studies
               </a>
               <a
                 href="/humans"
-                className="text-lg font-bold text-[#01F9C6] transition-colors"
+                className="text-lg font-bold text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Curated Humans
               </a>
               <a
                 href="/#team"
-                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 People
               </a>
               <a
                 href="/#business-partners"
-                className="text-lg font-bold text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-bold text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Business Partners
               </a>
               <a
                 href="/#contact-form"
-                className="text-lg font-medium text-white hover:text-[#01F9C6] transition-colors"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
