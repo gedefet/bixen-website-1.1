@@ -1,92 +1,70 @@
-import { Brain, Users, Compass, Trophy } from 'lucide-react'
+'use client'
+
+import { Card, CardContent } from "@/components/ui/card"
+import { Users, Brain, Target, Award } from 'lucide-react'
 
 export default function FeaturesSection() {
   const features = [
     {
-      icon: <Users className="h-10 w-10 text-[#01F9C6]" />,
+      icon: Users,
       title: "World-Class Team",
-      description: (
-        <>
-          Engineers and researchers that <span className="font-bold">love solving complex challenges creatively</span>.
-        </>
-      ),
-      mobileDescription: "Engineers who solve complex challenges creatively.",
+      shortDescription: "Engineers and researchers that love solving complex challenges creatively.",
+      longDescription: "Engineers and researchers that love solving complex challenges creatively."
     },
     {
-      icon: <Brain className="h-10 w-10 text-[#01F9C6]" />,
+      icon: Brain,
       title: "AI & Machine Learning Experts",
-      description: (
-        <>
-          Our team stays ahead in AI and Machine Learning—
-          <span className="font-bold">Computer Vision, LLMs, Intelligent Agents, and Optimization Models</span>, to name
-          a few—to always know exactly what's best for your project.
-        </>
-      ),
-      mobileDescription: "Experts in Computer Vision, LLMs, and Intelligent Agents.",
-      highlight: true,
+      shortDescription: "Our team stays ahead in AI and Machine Learning.",
+      longDescription: "Our team stays ahead in AI and Machine Learning—Computer Vision, LLMs, Intelligent Agents, and Optimization Models, to name a few—to always know exactly what's best for your project."
     },
     {
-      icon: <Compass className="h-10 w-10 text-[#01F9C6]" />,
+      icon: Target,
       title: "Your Business - Our Guide",
-      description: (
-        <>
-          Aligning technology with your strategy <span className="font-bold">to achieve your business goals</span>.
-        </>
-      ),
-      mobileDescription: "Technology aligned with your business strategy.",
+      shortDescription: "Aligning technology with your strategy to achieve your business goals.",
+      longDescription: "Aligning technology with your strategy to achieve your business goals."
     },
     {
-      icon: <Trophy className="h-10 w-10 text-[#01F9C6]" />,
+      icon: Award,
       title: "Proven Track Record",
-      description: (
-        <>
-          Extensive experience in the field, combining academic rigor and expertise across{" "}
-          <span className="font-bold">industries like software, manufacturing, healthcare, and aerospace</span>.
-        </>
-      ),
-      mobileDescription: "Experience across software, manufacturing, and healthcare.",
-    },
+      shortDescription: "Extensive experience in the field.",
+      longDescription: "Extensive experience in the field, combining academic rigor and expertise across industries like software, manufacturing, healthcare, and aerospace."
+    }
   ]
 
   return (
-    <div className="px-1 md:px-6 py-8 md:py-16">
-      <div className="text-center max-w-[800px] mx-auto mb-8 md:mb-12">
-        <h2 className="text-3xl md:text-4xl font-light sm:text-5xl md:text-6xl text-white">
-          Why Choose <span className="text-white">Bixen</span>
-        </h2>
-      </div>
-
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-4 md:p-8 lg:p-12 shadow-xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`p-3 md:p-6 rounded-[1.5rem] border transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
-                feature.highlight
-                  ? "bg-[#01F9C6]/20 border-[#01F9C6] shadow-[0_0_15px_rgba(1,249,198,0.3)]"
-                  : "bg-white/5 border-white/20 hover:border-[#01F9C6]/50"
-              }`}
-            >
-              <div className="flex justify-center mb-2 md:mb-4">
-                {feature.highlight ? (
-                  <div className="bg-[#01F9C6]/30 p-2 md:p-3 rounded-full">{feature.icon}</div>
-                ) : (
-                  feature.icon
-                )}
-              </div>
-              <h3
-                className={`text-sm md:text-2xl lg:text-3xl font-medium mb-1 md:mb-3 text-center ${feature.highlight ? "text-[#01F9C6]" : "text-white"}`}
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Why Choose Bixen
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon
+            return (
+              <Card 
+                key={index} 
+                className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 h-full"
               >
-                {feature.title}
-              </h3>
-              <div className="flex-grow flex items-center justify-center">
-                <p className="hidden md:block text-white/80 text-center text-sm">{feature.mobileDescription}</p>
-                <p className="hidden md:block text-white/80 text-center text-lg md:text-xl">{feature.description}</p>
-              </div>
-            </div>
-          ))}
+                <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                  <div className="mb-4">
+                    <IconComponent className="w-12 h-12 text-emerald-400" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  {/* Show longer description on desktop, no description on mobile */}
+                  <p className="text-white/80 text-sm leading-relaxed hidden md:block">
+                    {feature.longDescription}
+                  </p>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

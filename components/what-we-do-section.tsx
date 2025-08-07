@@ -29,11 +29,6 @@ export default function WhatWeDoSection() {
 
   return (
     <div className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-16">
-      {/* Mobile "What We Do" title */}
-      <div className="md:hidden text-center mb-8 px-2">
-        <h2 className="text-3xl font-light text-white">What We Do</h2>
-      </div>
-
       <div className="text-center max-w-[800px] mx-auto mb-12 px-4 md:px-0">
         <h2 className="hidden md:block text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
       </div>
@@ -96,9 +91,9 @@ export default function WhatWeDoSection() {
       </div>
 
       {/* Mobile layout without background wrapper */}
-      <div className="md:hidden px-1">
+      <div className="md:hidden px-2">
         {/* Three service cards */}
-        <div className="grid grid-cols-1 gap-4 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-12">
           {services.map((service, index) => (
             <div
               key={index}

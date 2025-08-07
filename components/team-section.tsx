@@ -1,104 +1,114 @@
 import Image from "next/image"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function TeamSection() {
-  const firstRowMembers = [
+  const team = [
     {
-      name: "Federico Carrone",
-      role: "Co-founder & CEO",
+      name: "Federico Lopez",
+      role: "Founder & CEO",
+      bio: "Bringing together technology and business strategy, Federico helps drive Bixen's vision and innovation",
       image: "/images/federico-new.jpg",
-      description: "Leading AI innovation with 15+ years of experience in machine learning and business strategy.",
     },
     {
-      name: "Alejandro Hernández",
-      role: "Co-founder & CTO",
-      image: "/images/senior-ai-consultant.png",
-      description: "Expert in AI architecture and scalable systems with deep technical leadership experience.",
+      name: "Alejandro Sagula",
+      role: "Corporate Architecture and Automation Expert",
+      bio: "Alejandro brings over 30 years of experience in large-scale IT organizations, helping companies scale products and systems efficiently. As an advisor to Bixen, he contributes his expertise in automation and enterprise architecture with a focus on operational excellence.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alesagula-1gDy7EWJAz339nREa6XP184LtGKXRd.jpeg",
     },
     {
-      name: "Damián Silvani",
-      role: "Co-founder & Head of Engineering",
-      image: "/images/solo-developer-focused.png",
-      description: "Full-stack engineer specializing in AI integration and high-performance computing solutions.",
+      name: "Damian Minnock",
+      role: "AI & Machine Learning Leader",
+      bio: "MSc AI specialist with expertise in Computer Vision, Voice Processing, and Large Language Models (LLM). As a senior advisor, he supports Bixen's most complex AI initiatives, leading innovation with a strong hands-on approach.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damian.jpg-QJtCUyZNrHwbqwzufrI74Rs0MtwF4R.jpeg",
+    },
+    {
+      name: "Florencia Zalazar",
+      role: "HR Manager",
+      bio: "Florencia shapes Bixen's culture and connects talent aligned with our values, building a team that thrives on creativity and impact.",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/florencia.jpg-jPdi9r41DvdVPdEoob4Ym8FJYeHe4x.jpeg",
+    },
+    {
+      name: "Joaquin Cuomo",
+      role: "Expert Advisor",
+      bio: "MSc specialist providing strategic guidance on LLM and NLP technologies, with deep expertise in applying AI to solve complex business challenges.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
     },
   ]
 
-  const secondRowMembers = [
-    {
-      name: "Florencia Gonzalez",
-      role: "AI Research Scientist",
-      image: "/images/person-with-award-ribbon.png",
-      description: "PhD in Computer Science, specializing in computer vision and deep learning research.",
-    },
-    {
-      name: "Joaquín Martinez",
-      role: "Senior AI Engineer",
-      image: "/images/drone-aerial-view.png",
-      description: "Expert in MLOps and AI deployment with extensive experience in production systems.",
-    },
-  ]
+  // Split team members for desktop layout
+  const firstRowMembers = team.slice(0, 3) // Federico, Alejandro, Damian
+  const secondRowMembers = team.slice(3, 5) // Florencia, Joaquin
 
   return (
-    <div className="px-2 md:px-4 py-8 md:py-16">
-      <div className="text-center max-w-[800px] mx-auto mb-8 md:mb-12">
-        <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl mb-4 text-white">
-          Meet Our Team
-        </h2>
-        <p className="text-white/80 text-sm md:text-xl">
-          Passionate experts dedicated to transforming your business with cutting-edge AI solutions.
+    <div className="container px-4 md:px-6">
+      <div className="text-center max-w-[800px] mx-auto mb-8">
+        <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
+        <p className="mt-4 text-white md:text-xl max-w-3xl mx-auto">
+          Visionary minds, purposeful technology. These are some of the people driving Bixen, alongside a global team of
+          experts.
         </p>
       </div>
-
-      {/* First row - 3 members */}
-      <div className="container px-4 md:px-6 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      {/* First row: Federico, Alejandro, Damian */}
+      <div className="container px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {firstRowMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white/10 backdrop-blur-md rounded-[2rem] p-6 md:p-8 shadow-xl border border-white/20 hover:border-[#01F9C6]/50 transition-all duration-300 group"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6 rounded-full overflow-hidden border-4 border-[#01F9C6]/30 group-hover:border-[#01F9C6] transition-all duration-300">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    width={160}
-                    height={160}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">{member.name}</h3>
-                <p className="text-[#01F9C6] font-medium mb-4 text-sm md:text-base">{member.role}</p>
-                <p className="text-white/80 text-sm md:text-base leading-relaxed">{member.description}</p>
+            <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
+              <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </div>
+              <CardHeader>
+                <CardTitle className="text-white">{member.name}</CardTitle>
+                <CardDescription className="text-[#01F9C6]">{member.role}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-white">{member.bio}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
-
-      {/* Second row - 2 members centered */}
+      
+      {/* Second row: Florencia, Joaquin (centered) */}
       <div className="flex justify-center mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl w-full">
           {secondRowMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white/10 backdrop-blur-md rounded-[2rem] p-6 md:p-8 shadow-xl border border-white/20 hover:border-[#01F9C6]/50 transition-all duration-300 group"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6 rounded-full overflow-hidden border-4 border-[#01F9C6]/30 group-hover:border-[#01F9C6] transition-all duration-300">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    width={160}
-                    height={160}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">{member.name}</h3>
-                <p className="text-[#01F9C6] font-medium mb-4 text-sm md:text-base">{member.role}</p>
-                <p className="text-white/80 text-sm md:text-base leading-relaxed">{member.description}</p>
+            <Card key={index + 3} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
+              <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </div>
+              <CardHeader>
+                <CardTitle className="text-white">{member.name}</CardTitle>
+                <CardDescription className="text-[#01F9C6]">{member.role}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-white">{member.bio}</p>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+      </div>
+      
+      <div className="text-center max-w-3xl mx-auto">
+        <div className="bg-white/5 backdrop-blur-sm border border-[#01F9C6]/20 rounded-xl p-6 shadow-[0_0_15px_rgba(1,249,198,0.1)]">
+          <p className="text-white text-lg md:text-2xl leading-relaxed font-light">
+            We are a global team of{" "}
+            <span className="text-[#01F9C6] font-medium">AI, engineering, and business strategy</span> experts,
+            developing technology solutions to shape smarter businesses.
+          </p>
         </div>
       </div>
     </div>
