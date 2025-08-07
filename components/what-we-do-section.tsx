@@ -28,8 +28,8 @@ export default function WhatWeDoSection() {
   ]
 
   return (
-    <div className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-16">
-      <div className="text-center max-w-[800px] mx-auto mb-12 px-4 md:px-0">
+    <div className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-4 md:py-16">
+      <div className="text-center max-w-[800px] mx-auto mb-6 md:mb-12 px-2 md:px-0">
         <h2 className="hidden md:block text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
       </div>
 
@@ -91,20 +91,20 @@ export default function WhatWeDoSection() {
       </div>
 
       {/* Mobile layout without background wrapper */}
-      <div className="md:hidden px-2">
+      <div className="md:hidden px-1">
         {/* Three service cards */}
-        <div className="grid grid-cols-1 gap-6 mb-12">
+        <div className="grid grid-cols-1 gap-3 mb-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`p-6 rounded-[1.5rem] shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
+              className={`p-4 rounded-[1.5rem] shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
                 service.isSpecial
                   ? 'bg-black/30 border border-black shadow-[0_0_20px_rgba(1,249,198,0.3)] hover:shadow-[0_0_30px_rgba(1,249,198,0.4)]'
                   : 'border border-secondary/30 bg-secondary/10'
               }`}
             >
-              <div className="mb-5 flex justify-center">
-                <div className={`p-4 rounded-full inline-block ${
+              <div className="mb-3 flex justify-center">
+                <div className={`p-3 rounded-full inline-block ${
                   service.isSpecial
                     ? 'bg-[#01F9C6]/20 shadow-[0_0_15px_rgba(1,249,198,0.4)]'
                     : 'bg-secondary/20'
@@ -112,15 +112,15 @@ export default function WhatWeDoSection() {
                   {service.icon}
                 </div>
               </div>
-              <h3 className={`text-2xl font-medium mb-4 text-center ${
+              <h3 className={`text-xl font-medium mb-2 text-center ${
                 service.isSpecial ? 'text-[#01F9C6]' : 'text-secondary'
               }`}>
                 {service.title}
               </h3>
               {service.isSpecial && (
-                <div className="mt-auto pt-4 flex justify-center">
+                <div className="mt-auto pt-2 flex justify-center">
                   <Link href="/humans">
-                    <button className="bg-[#01F9C6] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#01F9C6]/90 transition-colors duration-200 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]">
+                    <button className="bg-[#01F9C6] text-black px-4 py-2 rounded-lg font-medium hover:bg-[#01F9C6]/90 transition-colors duration-200 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]">
                       Learn More
                     </button>
                   </Link>

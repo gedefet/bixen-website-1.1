@@ -34,10 +34,10 @@ export default function VisionSection() {
   }, [])
 
   return (
-    <div className="container px-4 md:px-6 py-16">
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="grid gap-8 md:grid-cols-2 items-center">
-          <div className="space-y-6">
+    <div className="container px-2 md:px-6 py-4 md:py-16">
+      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-4 md:p-12 shadow-xl">
+        <div className="grid gap-4 md:gap-8 md:grid-cols-2 items-center">
+          <div className="space-y-3 md:space-y-6">
             <h2 className="hidden md:block text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">
               Your business vision is our compass
             </h2>

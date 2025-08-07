@@ -15,29 +15,29 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <HeroHeaderContainer />
 
-      <div className="pt-16 md:pt-24 px-8 lg:px-16 xl:px-24">
-        {/* Sections with maximum spacing between them */}
-        <div className="relative z-10 mb-16 md:mb-24" id="what-we-do">
+      <div className="pt-8 md:pt-24 px-2 md:px-8 lg:px-16 xl:px-24">
+        {/* Sections with minimal spacing on mobile, maximum spacing on desktop */}
+        <div className="relative z-10 mb-6 md:mb-24" id="what-we-do">
           <WhatWeDoSection />
         </div>
 
-        <div className="relative z-20 mb-16 md:mb-24">
+        <div className="relative z-20 mb-6 md:mb-24">
           <VisionSection />
         </div>
 
-        <div className="relative z-30 mb-16 md:mb-24" id="features">
+        <div className="relative z-30 mb-6 md:mb-24" id="features">
           <FeaturesSection />
         </div>
 
-        <div className="relative z-40 mb-16 md:mb-24" id="partners">
+        <div className="relative z-40 mb-6 md:mb-24" id="partners">
           <PartnersCarousel />
         </div>
 
-        <div className="relative z-50 mb-16 md:mb-24" id="case-studies">
+        <div className="relative z-50 mb-6 md:mb-24" id="case-studies">
           <CaseStudiesSection />
         </div>
 
-        <div className="relative z-30 mb-16 md:mb-24" id="business-partners">
+        <div className="relative z-30 mb-6 md:mb-24" id="business-partners">
           <BusinessPartnerSection />
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function Home() {
         prevSectionColor="transparent"
         nextSectionColor="transparent"
         id="team"
-        className="mt-16 px-8 lg:px-16 xl:px-24"
+        className="mt-6 md:mt-16 px-2 md:px-8 lg:px-16 xl:px-24"
       >
         <TeamSection />
       </SectionWrapper>
@@ -58,12 +58,12 @@ export default function Home() {
         prevSectionColor="transparent"
         nextSectionColor="transparent"
         id="quote"
-        className="px-8 lg:px-16 xl:px-24"
+        className="px-2 md:px-8 lg:px-16 xl:px-24"
       >
         <QuoteSection />
       </SectionWrapper>
 
-      <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact" className="px-8 lg:px-16 xl:px-24">
+      <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact" className="px-2 md:px-8 lg:px-16 xl:px-24">
         <ContactSection />
       </SectionWrapper>
     </main>
