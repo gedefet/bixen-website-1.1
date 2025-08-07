@@ -7,30 +7,56 @@ export default function VisionSection() {
   const compassRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const compass = compassRef.current
-    if (!compass) return
+    const el = compassRef.current
+    if (!el) return
 
-    const handleScroll = () => {
-      const rect = compass.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-      const elementTop = rect.top
-      const elementHeight = rect.height
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-      // Calculate if element is in viewport
-      const elementVisible = elementTop < windowHeight && elementTop + elementHeight > 0
+    let rafId = 0
+    let ticking = false
 
-      if (elementVisible) {
-        // Calculate rotation based on scroll position
-        const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + elementHeight)))
-        const rotation = scrollProgress * 360
-        compass.style.transform = `rotate(${rotation}deg)`
+    const update = () => {
+      ticking = false
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+
+      // Compute how centered the element is in the viewport: 1 at center, 0 out of view
+      const elementCenter = rect.top + rect.height / 2
+      const viewportCenter = vh / 2
+      const distance = Math.abs(elementCenter - viewportCenter)
+      const maxDistance = viewportCenter + rect.height / 2
+      const progress = 1 - Math.min(1, distance / maxDistance)
+
+      const rotation = progress * 360
+      el.style.transform = `rotate(${rotation}deg)`
+    }
+
+    const onScroll = () => {
+      if (prefersReducedMotion) return
+      if (!ticking) {
+        ticking = true
+        rafId = requestAnimationFrame(update)
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial call
+    const onResize = () => {
+      if (prefersReducedMotion) return
+      update()
+    }
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("resize", onResize)
+    // Initial render
+    update()
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onResize)
+      cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
@@ -53,15 +79,18 @@ export default function VisionSection() {
             <div className="hidden md:block relative">
               <div
                 ref={compassRef}
-                className="w-64 h-64 transition-transform duration-100 ease-out"
-                style={{ transformOrigin: "center" }}
+                // Removed transition classes to avoid lag during manual transform updates
+                className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80"
+                style={{ transformOrigin: "50% 50%", willChange: "transform" }}
+                aria-hidden="true"
               >
                 <Image
-                  src="/placeholder.svg?height=256&width=256"
+                  src="/placeholder.svg?height=320&width=320"
                   alt="Compass representing business direction"
-                  width={256}
-                  height={256}
+                  width={320}
+                  height={320}
                   className="w-full h-full object-contain"
+                  priority
                 />
               </div>
             </div>
