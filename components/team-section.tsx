@@ -36,8 +36,12 @@ export default function TeamSection() {
     },
   ]
 
+  // Split team members for mobile layout
+  const firstRowMembers = team.slice(0, 3) // Federico, Alejandro, Damian
+  const secondRowMembers = team.slice(3, 5) // Florencia, Joaquin
+
   return (
-    <div className="container px-4 md:px-6">
+    <div className="px-2 md:px-6">
       <div className="text-center max-w-[800px] mx-auto mb-8">
         <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
         <p className="mt-4 text-white md:text-xl max-w-3xl mx-auto">
@@ -45,7 +49,62 @@ export default function TeamSection() {
           experts.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      
+      {/* Mobile Layout */}
+      <div className="md:hidden">
+        {/* First row: Federico, Alejandro, Damian */}
+        <div className="grid grid-cols-3 gap-2 mb-4">
+          {firstRowMembers.map((member, index) => (
+            <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
+              <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <CardHeader className="p-3">
+                <CardTitle className="text-white text-sm">{member.name}</CardTitle>
+                <CardDescription className="text-[#01F9C6] text-xs">{member.role}</CardDescription>
+              </CardHeader>
+              <CardContent className="p-3 pt-0">
+                <p className="text-xs text-white">{member.bio}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        {/* Second row: Florencia, Joaquin (centered) */}
+        <div className="flex justify-center gap-2">
+          <div className="grid grid-cols-2 gap-2 max-w-[66.67%]">
+            {secondRowMembers.map((member, index) => (
+              <Card key={index + 3} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
+                <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    width={400}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <CardHeader className="p-3">
+                  <CardTitle className="text-white text-sm">{member.name}</CardTitle>
+                  <CardDescription className="text-[#01F9C6] text-xs">{member.role}</CardDescription>
+                </CardHeader>
+                <CardContent className="p-3 pt-0">
+                  <p className="text-xs text-white">{member.bio}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         {team.map((member, index) => (
           <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
             <div className="aspect-square w-full overflow-hidden bg-[#004953]">
@@ -67,6 +126,7 @@ export default function TeamSection() {
           </Card>
         ))}
       </div>
+      
       <div className="text-center mt-16 max-w-3xl mx-auto">
         <div className="bg-white/5 backdrop-blur-sm border border-[#01F9C6]/20 rounded-xl p-6 shadow-[0_0_15px_rgba(1,249,198,0.1)]">
           <p className="text-white text-lg md:text-2xl leading-relaxed font-light">
