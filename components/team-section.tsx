@@ -10,9 +10,15 @@ export default function TeamSection() {
       image: "/images/federico-new.jpg",
     },
     {
+      name: "Alejandro Sagula",
+      role: "Corporate Architecture and Automation Expert",
+      bio: "Alejandro brings over 30 years of experience in large-scale IT organizations, helping companies scale products and systems efficiently. As an advisor to Bixen, he contributes his expertise in automation and enterprise architecture with a focus on operational excellence.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alesagula-1gDy7EWJAz339nREa6XP184LtGKXRd.jpeg",
+    },
+    {
       name: "Damian Minnock",
-      role: "AI & Machine Learning Manager",
-      bio: "MSc AI specialist with expertise in Computer Vision, Voice Processing, and Large Language Models (LLM), shaping and leading our technical innovation initiatives.",
+      role: "AI & Machine Learning Leader",
+      bio: "MSc AI specialist with expertise in Computer Vision, Voice Processing, and Large Language Models (LLM). As a senior advisor, he supports Bixen's most complex AI initiatives, leading innovation with a strong hands-on approach.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damian.jpg-QJtCUyZNrHwbqwzufrI74Rs0MtwF4R.jpeg",
     },
     {
@@ -39,7 +45,7 @@ export default function TeamSection() {
           experts.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         {team.map((member, index) => (
           <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
             <div className="aspect-square w-full overflow-hidden bg-[#004953]">

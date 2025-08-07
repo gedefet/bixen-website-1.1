@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
 import { Users, User, Brain, BadgeCheck, FileText, Code, MessageSquare, UserCheck, CheckCircle, Award, TrendingUp, Clock, Target, Shield, Bot, Eye, MessageCircle, Workflow, BarChart3, Star, FileSearch, Mic } from 'lucide-react'
 import Head from 'next/head'
+import ContactSection from "@/components/contact-section"
 
 export default function HumansPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -420,8 +421,8 @@ export default function HumansPage() {
               </p>
               <div className="relative">
                 <Image
-                  src="/images/person-with-award-ribbon.png"
-                  alt="Person with Award Ribbon - Certification"
+                  src="/images/bixen-seal-stamp.png"
+                  alt="The Bixen Seal - Professional Certification"
                   width={600}
                   height={300}
                   className="rounded-xl w-full"
@@ -801,19 +802,9 @@ export default function HumansPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Contact Section */}
       <section className="py-20 px-8 lg:px-16 xl:px-24 bg-gradient-to-r from-[#0a1a1f] to-[#203a43]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-12">
-            Ready to add an <span className="text-[#00d4aa]">AI certified professional</span>?
-          </h2>
-          <a
-            href="mailto:contact@bixen.ai"
-            className="text-xl text-[#00d4aa] hover:text-[#00b894] transition-colors font-medium underline decoration-2 underline-offset-4"
-          >
-            Contact us at contact@bixen.ai
-          </a>
-        </div>
+        <ContactSection />
       </section>
     </div>
   )

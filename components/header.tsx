@@ -40,17 +40,17 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
           <a href="/#features" className="text-sm font-medium text-white hover:text-secondary transition-colors">
             Why Bixen
           </a>
-          <a href="/case-studies" className="text-sm font-medium text-white hover:text-secondary transition-colors">
-            Case Studies
+          <a href="/#case-studies" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+            Success Cases
           </a>
           <a href="/humans" className="text-sm font-bold text-secondary transition-colors">
             Curated Humans
           </a>
-          <a href="/#team" className="text-sm font-medium text-white hover:text-secondary transition-colors">
-            People
-          </a>
           <a href="/#business-partners" className="text-sm font-bold text-white hover:text-secondary transition-colors">
             Business Partners
+          </a>
+          <a href="/#team" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+            People
           </a>
         </div>
 
@@ -94,11 +94,11 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
                 Why Bixen
               </a>
               <a
-                href="/case-studies"
+                href="/#case-studies"
                 className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Case Studies
+                Success Cases
               </a>
               <a
                 href="/humans"
@@ -108,18 +108,18 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
                 Curated Humans
               </a>
               <a
-                href="/#team"
-                className="text-lg font-medium text-white hover:text-secondary transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                People
-              </a>
-              <a
                 href="/#business-partners"
                 className="text-lg font-bold text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Business Partners
+              </a>
+              <a
+                href="/#team"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                People
               </a>
               <a
                 href="/#contact-form"
