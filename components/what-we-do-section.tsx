@@ -30,7 +30,7 @@ export default function WhatWeDoSection() {
   return (
     <div className="container px-8 lg:px-16 xl:px-24 py-16">
       <div className="text-center max-w-[800px] mx-auto mb-12">
-        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
+        <h2 className="hidden md:block text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
       </div>
 
       <div className="bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-lg border border-secondary/20">
@@ -59,7 +59,7 @@ export default function WhatWeDoSection() {
               }`}>
                 {service.title}
               </h3>
-              <p className="text-white/90 mb-5 flex-grow text-lg text-center">{service.description}</p>
+              <p className="hidden md:block text-white/90 mb-5 flex-grow text-lg text-center">{service.description}</p>
               {service.isSpecial && (
                 <div className="mt-auto pt-4 flex justify-center">
                   <Link href="/humans">
@@ -79,8 +79,8 @@ export default function WhatWeDoSection() {
             <div className="bg-white/10 p-4 rounded-full mb-6">
               <Brain className="h-16 w-16 text-white" />
             </div>
-            <h3 className="text-4xl md:text-5xl font-medium mb-6 text-white">AI</h3>
-            <p className="text-white/90 text-xl md:text-2xl leading-relaxed">
+            <h3 className="hidden md:block text-4xl md:text-5xl font-medium mb-6 text-white">AI</h3>
+            <p className="hidden md:block text-white/90 text-xl md:text-2xl leading-relaxed">
               At Bixen, AI is in our DNA. With over 10 years of hands-on experience building intelligent solutions—even
               before 'AI' became mainstream—we integrate AI strategically and practically into every stage of your
               project. Our expertise ensures smarter outcomes, greater efficiency, and measurable business value.

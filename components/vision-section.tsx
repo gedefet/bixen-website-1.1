@@ -49,14 +49,14 @@ export default function VisionSection() {
             </div>
           </div>
           <div className="space-y-4 order-1 lg:order-2">
-            <h2 className="text-3xl font-light sm:text-4xl md:text-5xl text-white">
+            <h2 className="hidden md:block text-3xl font-light sm:text-4xl md:text-5xl text-white">
               Your business vision is <span className="italic">our compass</span>
             </h2>
-            <p className="text-white/80 text-xl md:text-2xl mb-6">
+            <p className="hidden md:block text-white/80 text-xl md:text-2xl mb-6">
               At Bixen, we develop projects with a strong technical and scientific focus, always guided by our clients'
               business vision.
             </p>
-            <p className="text-white/80 text-xl md:text-2xl">
+            <p className="hidden md:block text-white/80 text-xl md:text-2xl">
               We combine cutting-edge technology with deep industry knowledge to create solutions that truly matter.
             </p>
           </div>
