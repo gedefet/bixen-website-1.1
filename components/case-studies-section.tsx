@@ -43,7 +43,13 @@ export default function CaseStudiesSection() {
         challenge:
           "ABInBev needs to optimize the barley drying process at its plant in Uruguay, to reduce the plant's energy consumption while also reducing the operating windows of the barley drying process.",
         benefits: ["High reduction in energy consumption", "Plant operation optimization"],
-        technology: ["Deep Learning/Machine Learning", "Reinforcement Learning", "Analytics/Data Science", "IIoT (Industrial IoT)", "AWS"],
+        technology: [
+          "Deep Learning/Machine Learning",
+          "Reinforcement Learning",
+          "Analytics/Data Science",
+          "IIoT (Industrial IoT)",
+          "AWS",
+        ],
       },
     },
     {
@@ -61,7 +67,9 @@ export default function CaseStudiesSection() {
           "Intuitivo is an international company that leads the AI-applied unattended retail industry. They use Computer Vision and Machine Learning to process what happens in transactions and transform a common refrigerator into an autonomous point of sale.",
         challenge:
           "Staying at the cutting edge is essential to compete. For Intuitivo, constantly evaluating and applying cutting-edge technologies is essential to maintain their leadership and continue evolving in a constantly changing market.",
-        benefits: ["Bixen proposed seven improvement points to optimize both performance and detection quality, compared to default SAM"],
+        benefits: [
+          "Bixen proposed seven improvement points to optimize both performance and detection quality, compared to default SAM",
+        ],
         technology: ["Meta SAM", "Computer Vision", "Video Processing", "Deep Learning"],
       },
     },
@@ -79,7 +87,11 @@ export default function CaseStudiesSection() {
           "A healthcare technology company was experiencing difficulties with their scans, due to failures both in their quality and in the subject being measured, which made it difficult for them to implement at scale.",
         challenge:
           "The company needed to improve the quality and reliability of their 3D body scanning technology to enable large-scale deployment.",
-        benefits: ["98.4% precision in the detection of people's health parameters", "The product was launched massively in California", "250% growth in the first year"],
+        benefits: [
+          "98.4% precision in the detection of people's health parameters",
+          "The product was launched massively in California",
+          "250% growth in the first year",
+        ],
         technology: ["Computer Vision (AI - Deep Learning)", "Data Science"],
       },
     },
@@ -97,7 +109,10 @@ export default function CaseStudiesSection() {
           "US Logistics is a US-based non-emergency transportation company. To reduce costs, they were embarked on a plan to reduce their staff dedicated to handling customer calls.",
         challenge:
           "An intelligent customer service system (IVR) was designed and implemented for call flow management. A proprietary algorithm was designed for elderly person management based on audio matching against the person database.",
-        benefits: ["45% improvement in voice recognition for people over 75 years old", "60% reduction in operational costs"],
+        benefits: [
+          "45% improvement in voice recognition for people over 75 years old",
+          "60% reduction in operational costs",
+        ],
         technology: ["NLP", "Speech to text", "Proprietary voice understanding technology"],
       },
     },
@@ -115,7 +130,11 @@ export default function CaseStudiesSection() {
         challenge:
           "Improve IBM Watson performance by working on the NLP pipeline, introducing proprietary technology to identify word roots and transform the information sent to IBM Watson to facilitate its work.",
         benefits: ["IBM Watson accuracy improved from 60% to 82%"],
-        technology: ["Natural Language Processing (AI-Deep Learning)", "Data Science", "Custom word root identification technology"],
+        technology: [
+          "Natural Language Processing (AI-Deep Learning)",
+          "Data Science",
+          "Custom word root identification technology",
+        ],
       },
     },
     {
@@ -132,7 +151,10 @@ export default function CaseStudiesSection() {
           "Leading telecommunications service provider in Latin America with operations in 18 countries in the American continent and 7 countries in Europe. Along with Telmex, Telcel, and Telesites, it is controlled by Grupo Carso, whose majority shareholder is Carlos Slim.",
         challenge:
           "Implementation of Robot automation cell for the automation of company processes. Facilitate the task for operators and reuse human resources in tasks where they add more value. Provide speed to the portability process.",
-        benefits: ["Reduction of human resources dedicated to portability and corporate travel validation processes (27 people)", "Optimization of integration with SAP CRM and other applications"],
+        benefits: [
+          "Reduction of human resources dedicated to portability and corporate travel validation processes (27 people)",
+          "Optimization of integration with SAP CRM and other applications",
+        ],
         technology: ["RPA (Robot Process Automation). UIPath", "Python for automation"],
       },
     },
@@ -140,7 +162,10 @@ export default function CaseStudiesSection() {
 
   const handleCardClick = (story: Story) => {
     if (story.client === "Intuitivo") {
-      window.open("https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346", "_blank")
+      window.open(
+        "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
+        "_blank"
+      )
     } else {
       setSelectedCase(story)
     }
@@ -149,18 +174,47 @@ export default function CaseStudiesSection() {
   // Desktop hover handlers (mobile is static)
   const handleMouseEnter = (cardId: number) => {
     if (typeof window !== "undefined" && window.innerWidth >= 768) {
-      setFlippedCards(prev => new Set([...prev, cardId]))
+      setFlippedCards((prev) => new Set([...prev, cardId]))
     }
   }
 
   const handleMouseLeave = (cardId: number) => {
     if (typeof window !== "undefined" && window.innerWidth >= 768) {
-      setFlippedCards(prev => {
+      setFlippedCards((prev) => {
         const next = new Set(prev)
         next.delete(cardId)
         return next
       })
     }
+  }
+
+  // Helper to render the logo wrapper matching desktop style but scaled for mobile
+  const LogoBox = ({ story }: { story: Story }) => {
+    // Choose background by client (to match desktop vibe)
+    const isLightBg =
+      story.client === "ABInBev" || story.client === "US Logistics" || story.client === "América Móvil"
+    const isDarkBg = story.client === "Netflix" || story.client === "Banking Institution"
+
+    const wrapperClasses =
+      isLightBg
+        ? "bg-white"
+        : isDarkBg
+        ? "bg-black"
+        : "bg-white/10"
+
+    return (
+      <div className={`${wrapperClasses} rounded-xl shadow-2xl w-full h-full aspect-square p-2 sm:p-3 md:p-6`}>
+        <Image
+          src={story.logo || "/placeholder.svg"}
+          alt={`${story.client} logo`}
+          width={400}
+          height={400}
+          // Fill available space without distortion
+          className="w-full h-full object-contain"
+          style={{ objectFit: "contain" }}
+        />
+      </div>
+    )
   }
 
   return (
@@ -177,31 +231,26 @@ export default function CaseStudiesSection() {
       </div>
 
       <div className="bg-white/10 backdrop-blur-md rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-12 shadow-xl">
-        {/* Mobile: Static, logo-only cards */}
+        {/* Mobile: Static, logo-only cards that fill the container */}
         <div className="grid grid-cols-3 gap-3 md:hidden" role="list">
           {successStories.map((story) => (
             <button
               key={story.id}
               type="button"
               onClick={() => handleCardClick(story)}
-              className="group aspect-square rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#01F9C6]"
+              className="group aspect-square rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 transition-colors p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#01F9C6]"
               aria-label={`Abrir ${story.client}`}
               role="listitem"
             >
-              <div className="w-full h-full flex items-center justify-center rounded-lg bg-transparent">
-                <Image
-                  src={story.logo || "/placeholder.svg"}
-                  alt={`${story.client} logo`}
-                  width={120}
-                  height={120}
-                  className="max-w-[70%] max-h-[70%] object-contain"
-                />
+              <div className="w-full h-full">
+                {/* Logo fills the whole square container with object-contain */}
+                <LogoBox story={story} />
               </div>
             </button>
           ))}
         </div>
 
-        {/* Desktop: 3D flip cards */}
+        {/* Desktop: 3D flip cards unchanged */}
         <div className="hidden md:grid md:grid-cols-3 md:gap-8">
           {successStories.map((story, index) => (
             <div
@@ -216,11 +265,13 @@ export default function CaseStudiesSection() {
                   flippedCards.has(index) ? "flipped" : ""
                 }`}
               >
-                {/* Front of card */}
+                {/* Front of card - mirrors previous desktop presentation */}
                 <div className="card-front absolute inset-0 w-full h-full backface-hidden">
                   <div className="h-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] flex items-center justify-center p-6 hover:bg-white/10 transition-all duration-300">
                     <div className="logo-float flex items-center justify-center w-full h-full max-w-[280px] max-h-[280px]">
-                      {story.client === "ABInBev" || story.client === "US Logistics" || story.client === "América Móvil" ? (
+                      {story.client === "ABInBev" ||
+                      story.client === "US Logistics" ||
+                      story.client === "América Móvil" ? (
                         <div className="bg-white rounded-xl shadow-2xl transform translate-z-30 w-full h-full aspect-square flex items-center justify-center logo-enlarge p-8">
                           <Image
                             src={story.logo || "/placeholder.svg"}
@@ -280,7 +331,7 @@ export default function CaseStudiesSection() {
                   </div>
                 </div>
 
-                {/* Back of card */}
+                {/* Back of card - details */}
                 <div className="card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180">
                   <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] p-6 flex flex-col shadow-2xl">
                     <div className="flex items-center gap-2 mb-4">
@@ -327,7 +378,7 @@ export default function CaseStudiesSection() {
               <button
                 className="absolute top-3 right-3 text-black hover:bg-white/50 rounded-full p-2 bg-white z-10"
                 onClick={() => setSelectedCase(null)}
-                aria-label="Close case study modal"
+                aria-label="Cerrar modal de caso de estudio"
               >
                 <X className="h-5 w-5" />
               </button>
