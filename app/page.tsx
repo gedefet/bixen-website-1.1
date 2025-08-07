@@ -9,18 +9,11 @@ import VisionSection from "@/components/vision-section"
 import SectionWrapper from "@/components/section-wrapper"
 import HeroHeaderContainer from "@/components/hero-header-container"
 import BusinessPartnerSection from "@/components/business-partner-section"
-import HomeHero from "@/components/sections/home-hero"
-import ServicesGrid from "@/components/sections/services-grid"
-import SealCard from "@/components/sections/seal-card"
-import SuccessStories from "@/components/sections/success-stories"
-import ProcessTimeline from "@/components/sections/process-timeline"
-import TeamGrid from "@/components/sections/team-grid"
-import ContactCTA from "@/components/sections/contact-cta"
 
-export default function HomePage() {
+export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <HomeHero />
+      <HeroHeaderContainer />
 
       <div className="pt-8 md:pt-24 px-2 md:px-8 lg:px-16 xl:px-24">
         {/* Sections with minimal spacing on mobile, maximum spacing on desktop */}
@@ -47,22 +40,6 @@ export default function HomePage() {
         <div className="relative z-30 mb-6 md:mb-24" id="business-partners">
           <BusinessPartnerSection />
         </div>
-
-        <div className="relative z-60 mb-6 md:mb-24" id="services">
-          <ServicesGrid />
-        </div>
-
-        <div className="relative z-70 mb-6 md:mb-24" id="seal">
-          <SealCard />
-        </div>
-
-        <div className="relative z-80 mb-6 md:mb-24" id="success-stories">
-          <SuccessStories />
-        </div>
-
-        <div className="relative z-90 mb-6 md:mb-24" id="process-timeline">
-          <ProcessTimeline />
-        </div>
       </div>
 
       {/* Keep the remaining sections as they were */}
@@ -73,7 +50,7 @@ export default function HomePage() {
         id="team"
         className="mt-6 md:mt-16 px-2 md:px-8 lg:px-16 xl:px-24"
       >
-        <TeamGrid />
+        <TeamSection />
       </SectionWrapper>
 
       <SectionWrapper
@@ -87,7 +64,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact" className="px-2 md:px-8 lg:px-16 xl:px-24">
-        <ContactCTA />
+        <ContactSection />
       </SectionWrapper>
     </main>
   )
