@@ -55,13 +55,17 @@ return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
         {firstRowMembers.map((member, index) => (
           <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
-            <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+            <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
               <Image
                 src={member.image || "/placeholder.svg"}
                 alt={member.name}
                 width={400}
                 height={400}
                 className="h-full w-full object-cover"
+              />
+              <div
+                className="absolute inset-0 bg-black/10 pointer-events-none"
+                aria-hidden="true"
               />
             </div>
             <CardHeader className="p-3 md:p-6">
@@ -82,13 +86,17 @@ return (
         {secondRowMembers.map((member, index) => (
           <div key={index} className={index === 0 ? "md:col-start-2" : ""}>
             <Card className="h-full overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
-              <div className="aspect-square w-full overflow-hidden bg-[#004953]">
+              <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
                   width={400}
                   height={400}
                   className="h-full w-full object-cover"
+                />
+                <div
+                  className="absolute inset-0 bg-black/10 pointer-events-none"
+                  aria-hidden="true"
                 />
               </div>
               <CardHeader className="p-3 md:p-6">
