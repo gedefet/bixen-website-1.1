@@ -57,11 +57,11 @@ export default function HeroSection() {
   )
 
   return (
-    <section className="relative z-0 overflow-hidden">
+    <section className="relative z-0 overflow-visible">
       {/* 0.5 black overlay that fades smoothly to transparent toward the next section */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-black/40 to-transparent"
+        className="pointer-events-none absolute left-0 right-0 top-[-3.5rem] lg:top-[-4.5rem] h-[calc(100%+3.5rem)] lg:h-[calc(100%+4.5rem)] z-[1] bg-gradient-to-b from-black/50 via-black/40 to-transparent"
       />
 
       <div className="container px-8 lg:px-16 xl:px-24 relative z-[2] pt-16">
