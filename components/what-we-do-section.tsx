@@ -1,146 +1,125 @@
-import { Brain, Gift, UserCheck } from 'lucide-react'
-import Image from "next/image"
+import { Brain, Camera, Bot, MessageSquareText, Workflow, ServerCog, Database, LayoutDashboard } from 'lucide-react'
 import Link from "next/link"
 
-export default function WhatWeDoSection() {
-  const services = [
-    {
-      icon: <Gift className="h-12 w-12 text-secondary" />,
-      title: "Product Strategy & Design",
-      description:
-        "We co-create your product vision, crafting prototypes and experiences that solve real business problems. From ideation to validation, we help you build the right thing — before you build it right.",
-      isSpecial: false,
-    },
-    {
-      icon: <UserCheck className="h-12 w-12 text-white" />,
-      title: "Curated Humans™ by Bixen",
-      description:
-        "We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience. Our certified AI professionals are ready to join your team from day one, backed by a rigorous validation process.",
-      isSpecial: true,
-    },
-    {
-      icon: <Brain className="h-12 w-12 text-secondary" />,
-      title: "AI Solutions & Delivery",
-      description:
-        "From chatbots to computer vision, we build applied AI that delivers measurable impact. With over a decade of experience, we integrate AI into your stack, not just your slides.",
-      isSpecial: false,
-    },
-  ]
+type Offering = {
+  icon: JSX.Element
+  title: string
+  description: string
+  href?: string
+}
 
+const offerings: Offering[] = [
+  {
+    icon: <Bot className="h-8 w-8 text-secondary" />,
+    title: "Generative Agents",
+    description:
+      "Autonomous, goal-driven agents that plan, reason, and act across tools and data.",
+  },
+  {
+    icon: <Camera className="h-8 w-8 text-secondary" />,
+    title: "Computer Vision",
+    description:
+      "Detection, tracking, OCR, and visual QA for real-world automation and insight.",
+  },
+  {
+    icon: <MessageSquareText className="h-8 w-8 text-secondary" />,
+    title: "NLP & RAG",
+    description:
+      "Domain-grounded assistants with retrieval, summarization, and compliance controls.",
+  },
+  {
+    icon: <Workflow className="h-8 w-8 text-secondary" />,
+    title: "Agentic Automation",
+    description:
+      "Orchestrated workflows, RPA integrations, and enterprise-grade handoffs.",
+  },
+  {
+    icon: <Brain className="h-8 w-8 text-secondary" />,
+    title: "LLM Apps & Chatbots",
+    description:
+      "High-UX conversational systems with memory, tools, and multi-turn reasoning.",
+  },
+  {
+    icon: <ServerCog className="h-8 w-8 text-secondary" />,
+    title: "MLOps & Serving",
+    description:
+      "Observability, evaluations, and scalable inference with robust CI/CD for models.",
+  },
+  {
+    icon: <Database className="h-8 w-8 text-secondary" />,
+    title: "Data Engineering",
+    description:
+      "Pipelines, warehousing, and governance to make your data AI-ready.",
+  },
+  {
+    icon: <LayoutDashboard className="h-8 w-8 text-secondary" />,
+    title: "Product Strategy & Design",
+    description:
+      "Validate problems, de-risk solutions, and ship experiences customers love.",
+  },
+]
+
+export default function WhatWeDoSection() {
   return (
-    <div id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-4 md:py-16">
-      <div className="text-center max-w-[800px] mx-auto mb-6 md:mb-12 px-2 md:px-0">
-        <h2 className="hidden md:block text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
+    <section id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-6 md:py-14">
+      <div className="text-center max-w-[900px] mx-auto mb-6 md:mb-10 px-2 md:px-0">
+        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-3 text-white">
+          What We Do
+        </h2>
+        <p className="text-white/80 text-lg md:text-xl">
+          Practical AI and product capabilities that compound business value.
+        </p>
       </div>
 
-      {/* Desktop wrapper with background */}
-      <div className="hidden md:block bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-lg border border-secondary/20">
-        {/* Three service cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {services.map((service, index) => (
+      {/* Desktop/tablet wrapper with background */}
+      <div className="hidden md:block bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-10 shadow-lg border border-secondary/20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          {offerings.map((o, i) => (
             <div
-              key={index}
-              className={`p-6 rounded-[1.5rem] shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
-                service.isSpecial
-                  ? 'bg-black/30 border border-black shadow-[0_0_20px_rgba(1,249,198,0.3)] hover:shadow-[0_0_30px_rgba(1,249,198,0.4)]'
-                  : 'border border-secondary/30 bg-secondary/10'
-              }`}
+              key={i}
+              className="h-full p-6 rounded-[1.25rem] border border-secondary/30 bg-secondary/10 shadow-md transition-all duration-200 hover:shadow-lg flex flex-col"
             >
-              <div className="mb-5 flex justify-center">
-                <div className={`p-4 rounded-full inline-block ${
-                  service.isSpecial
-                    ? 'bg-[#01F9C6]/20 shadow-[0_0_15px_rgba(1,249,198,0.4)]'
-                    : 'bg-secondary/20'
-                }`}>
-                  {service.icon}
-                </div>
+              <div className="mb-4 flex items-center gap-3">
+                <div className="p-3 rounded-full bg-secondary/20">{o.icon}</div>
+                <h3 className="text-xl md:text-2xl font-semibold text-white">
+                  {o.title}
+                </h3>
               </div>
-              <h3 className={`text-2xl md:text-3xl font-medium mb-4 text-center ${
-                service.isSpecial ? 'text-[#01F9C6]' : 'text-secondary'
-              }`}>
-                {service.title}
-              </h3>
-              <p className="text-white/90 mb-5 flex-grow text-lg text-center">{service.description}</p>
-              {service.isSpecial && (
-                <div className="mt-auto pt-4 flex justify-center">
-                  <Link href="/humans">
-                    <button className="bg-[#01F9C6] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#01F9C6]/90 transition-colors duration-200 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]">
-                      Learn More
-                    </button>
+              <p className="text-white/90 text-base md:text-lg leading-relaxed flex-grow">
+                {o.description}
+              </p>
+              {o.href && (
+                <div className="mt-5">
+                  <Link
+                    href={o.href}
+                    className="inline-flex text-secondary hover:underline font-medium"
+                  >
+                    Learn more
                   </Link>
                 </div>
               )}
             </div>
           ))}
-        </div>
-
-        {/* AI Section at the bottom with transparent background */}
-        <div className="mt-8 py-10 px-6 text-center bg-transparent rounded-[1.5rem]">
-          <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
-            <div className="bg-white/10 p-4 rounded-full mb-6">
-              <Brain className="h-16 w-16 text-white" />
-            </div>
-            <h3 className="text-4xl md:text-5xl font-medium mb-6 text-white">AI</h3>
-            <p className="text-white/90 text-xl md:text-2xl leading-relaxed">
-              At Bixen, AI is in our DNA. With over 10 years of hands-on experience building intelligent solutions—even
-              before 'AI' became mainstream—we integrate AI strategically and practically into every stage of your
-              project. Our expertise ensures smarter outcomes, greater efficiency, and measurable business value.
-            </p>
-          </div>
         </div>
       </div>
 
       {/* Mobile layout without background wrapper */}
-      <div className="md:hidden px-1">
-        {/* Mobile-only "What We Do" title */}
-        <div className="text-center mb-6 px-2">
-          <h2
-            className="text-4xl font-light leading-tight tracking-tight text-white"
-            aria-label="What We Do"
-          >
-            What We Do
-          </h2>
-          <div className="mt-2 h-[2px] w-16 mx-auto bg-[#01F9C6]/70 rounded-full" aria-hidden="true" />
-        </div>
-
-        {/* Three service cards */}
-        <div className="grid grid-cols-1 gap-3 mb-6">
-          {services.map((service, index) => (
+      <div className="md:hidden px-1 mt-2">
+        <div className="grid grid-cols-1 gap-3">
+          {offerings.map((o, i) => (
             <div
-              key={index}
-              className={`p-4 rounded-[1.5rem] shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
-                service.isSpecial
-                  ? 'bg-black/30 border border-black shadow-[0_0_20px_rgba(1,249,198,0.3)] hover:shadow-[0_0_30px_rgba(1,249,198,0.4)]'
-                  : 'border border-secondary/30 bg-secondary/10'
-              }`}
+              key={i}
+              className="p-4 rounded-[1.25rem] border border-secondary/30 bg-secondary/10 shadow-md transition-all duration-200 hover:shadow-lg"
             >
-              <div className="mb-3 flex justify-center">
-                <div className={`p-3 rounded-full inline-block ${
-                  service.isSpecial
-                    ? 'bg-[#01F9C6]/20 shadow-[0_0_15px_rgba(1,249,198,0.4)]'
-                    : 'bg-secondary/20'
-                }`}>
-                  {service.icon}
-                </div>
+              <div className="mb-3 flex items-center gap-3">
+                <div className="p-2.5 rounded-full bg-secondary/20">{o.icon}</div>
+                <h3 className="text-lg font-semibold text-white">{o.title}</h3>
               </div>
-              <h3 className={`text-xl font-medium mb-2 text-center ${
-                service.isSpecial ? 'text-[#01F9C6]' : 'text-secondary'
-              }`}>
-                {service.title}
-              </h3>
-              {service.isSpecial && (
-                <div className="mt-auto pt-2 flex justify-center">
-                  <Link href="/humans">
-                    <button className="bg-[#01F9C6] text-black px-4 py-2 rounded-lg font-medium hover:bg-[#01F9C6]/90 transition-colors duration-200 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]">
-                      Learn More
-                    </button>
-                  </Link>
-                </div>
-              )}
+              <p className="text-white/90 text-base leading-relaxed">{o.description}</p>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
