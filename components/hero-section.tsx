@@ -70,11 +70,11 @@ export default function HeroSection() {
           {/* LEFT: Match typography and color “Forward‑Thinking People” with secondary color */}
           <AnimatedSection direction="left" className="self-center">
             <div className="max-w-xl">
-              <p className="text-2xl sm:text-3xl md:text-4xl text-white font-normal leading-tight">
-                {"Unique Solutions for "}
-                <span className="text-secondary font-medium">{"Forward-Thinking People"}</span>
+              <p className="text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal leading-tight">
+                {"Unique solutions for "}
+                <span className="text-secondary font-medium">{"forward-thinking people."}</span>
               </p>
-              <p className="mt-6 text-2xl sm:text-3xl md:text-4xl text-white font-normal">
+              <p className="mt-6 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
                 {"Leveraging deep AI expertise and "}
                 <span className="text-secondary font-medium">{"exceptional talent"}</span>
                 {" to push beyond off-the-shelf technology."}
@@ -83,7 +83,7 @@ export default function HeroSection() {
           </AnimatedSection>
 
           {/* RIGHT: Vertically centered, larger carousel WITHOUT icons */}
-          <AnimatedSection direction="right" className="self-center">
+          <AnimatedSection direction="right" className="self-center mt-8 md:mt-10">
             {/* Flex wrapper ensures the carousel is vertically centered relative to the left column */}
             <div className="relative lg:pl-6 xl:pl-12 flex h-full items-center justify-center w-full">
               {/* Responsive height and width to stand out while staying balanced */}
