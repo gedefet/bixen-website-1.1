@@ -15,7 +15,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <HeroHeaderContainer />
 
-      <div className="pt-8 md:pt-24 px-2 md:px-8 lg:px-16 xl:px-24">
+      <div className="pt-3 sm:pt-4 md:pt-10 lg:pt-12 px-2 md:px-8 lg:px-16 xl:px-24">
         {/* Sections with minimal spacing on mobile, maximum spacing on desktop */}
         <div className="relative z-10 mb-6 md:mb-24" id="what-we-do">
           <WhatWeDoSection />
