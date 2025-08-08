@@ -24,19 +24,19 @@ type Offering = {
 
 const offerings: Offering[] = [
   {
-    icon: <Gift className="h-7 w-7 text-secondary" />,
+    icon: <Gift className="h-8 w-8 text-[#18c7ab]" />,
     title: "Product Strategy & Design",
     description:
       "Co-create your product vision and validate the right solutions before you build.",
   },
   {
-    icon: <Brain className="h-7 w-7 text-secondary" />,
+    icon: <Brain className="h-8 w-8 text-[#18c7ab]" />,
     title: "AI Solutions & Delivery",
     description:
       "From chatbots to computer vision, we deliver applied AI with measurable impact.",
   },
   {
-    icon: <Users2 className="h-7 w-7 text-secondary" />,
+    icon: <Users2 className="h-8 w-8 text-[#18c7ab]" />,
     title: "Curated Humans by Bixen",
     description:
       "Certified AI professionals ready to join your team and deliver from day one.",
@@ -46,10 +46,10 @@ const offerings: Offering[] = [
 ]
 
 export default function HeroSection() {
-  // Autoplay plugin so the carousel advances every 1s
+  // Autoplay every 3 seconds
   const autoplay = useRef(
     Autoplay({
-      delay: 1000,
+      delay: 3000,
       stopOnInteraction: false,
       stopOnMouseEnter: false,
     })
@@ -58,10 +58,9 @@ export default function HeroSection() {
   return (
     <div className="container px-8 lg:px-16 xl:px-24 relative z-10 pt-16 overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
-        {/* LEFT: Typography-aligned content */}
+        {/* LEFT: Ensure same typography on both lines */}
         <AnimatedSection direction="left">
           <div className="max-w-2xl">
-            {/* Ensure same typography for both lines */}
             <p className="text-2xl sm:text-3xl md:text-4xl text-white font-normal leading-tight">
               Unique Solutions for Forward-Thinking People
             </p>
@@ -73,7 +72,7 @@ export default function HeroSection() {
           </div>
         </AnimatedSection>
 
-        {/* RIGHT: Offerings Carousel (no boxes, transparent arrows centered) */}
+        {/* RIGHT: Offerings Carousel - icon above text, larger title, transparent centered arrows */}
         <AnimatedSection direction="right">
           <div className="relative lg:pl-6 xl:pl-12">
             <Carousel
@@ -85,29 +84,26 @@ export default function HeroSection() {
                 {offerings.map((item, idx) => (
                   <CarouselItem key={idx} className="basis-full">
                     <div className="py-2">
-                      <div className="flex items-start gap-4">
-                        <div className="shrink-0 rounded-full bg-secondary/15 p-3">{item.icon}</div>
-                        <div className="space-y-2">
-                          <h3 className="text-white text-2xl md:text-3xl font-semibold">
-                            {item.title}
-                          </h3>
-                          <p className="text-white/90 text-lg md:text-xl leading-relaxed">
-                            {item.description}
-                          </p>
-
-                          {item.isHumans && item.ctaHref && (
-                            <div className="pt-2">
-                              <Link href={item.ctaHref}>
-                                <Button
-                                  className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]"
-                                  size="lg"
-                                >
-                                  Explore Curated Humans
-                                </Button>
-                              </Link>
-                            </div>
-                          )}
-                        </div>
+                      <div className="flex flex-col items-center text-center gap-4">
+                        <div className="rounded-full bg-[#18c7ab]/15 p-3">{item.icon}</div>
+                        <h3 className="text-white text-3xl md:text-4xl font-semibold">
+                          {item.title}
+                        </h3>
+                        <p className="text-white/90 text-lg md:text-xl leading-relaxed max-w-[42ch]">
+                          {item.description}
+                        </p>
+                        {item.isHumans && item.ctaHref && (
+                          <div className="pt-1">
+                            <Link href={item.ctaHref}>
+                              <Button
+                                className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]"
+                                size="lg"
+                              >
+                                Explore Curated Humans
+                              </Button>
+                            </Link>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </CarouselItem>
@@ -116,11 +112,11 @@ export default function HeroSection() {
 
               {/* Transparent arrows centered vertically over the text */}
               <CarouselPrevious
-                className="absolute left-0 top-1/2 -translate-y-1/2 translate-x-0 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0"
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10"
                 aria-label="Previous"
               />
               <CarouselNext
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-0 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0"
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10"
                 aria-label="Next"
               />
             </Carousel>
