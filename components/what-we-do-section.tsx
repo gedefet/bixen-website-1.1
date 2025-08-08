@@ -1,61 +1,63 @@
-import { Brain, Camera, Bot, MessageSquareText, Workflow, ServerCog, Database, LayoutDashboard } from 'lucide-react'
+"use client"
+
+import Image from "next/image"
 import Link from "next/link"
 
-type Offering = {
-  icon: JSX.Element
+type Capability = {
   title: string
   description: string
+  image: string
   href?: string
 }
 
-const offerings: Offering[] = [
+const capabilities: Capability[] = [
   {
-    icon: <Bot className="h-8 w-8 text-secondary" />,
     title: "Generative Agents",
     description:
       "Autonomous, goal-driven agents that plan, reason, and act across tools and data.",
+    image: "/female-ai-avatar-soundwaves.png",
   },
   {
-    icon: <Camera className="h-8 w-8 text-secondary" />,
     title: "Computer Vision",
     description:
       "Detection, tracking, OCR, and visual QA for real-world automation and insight.",
+    image: "/body-recognition-silhouette.png",
   },
   {
-    icon: <MessageSquareText className="h-8 w-8 text-secondary" />,
     title: "NLP & RAG",
     description:
       "Domain-grounded assistants with retrieval, summarization, and compliance controls.",
+    image: "/placeholder.jpg",
   },
   {
-    icon: <Workflow className="h-8 w-8 text-secondary" />,
     title: "Agentic Automation",
     description:
       "Orchestrated workflows, RPA integrations, and enterprise-grade handoffs.",
+    image: "/workflow-automation-diagram.png",
   },
   {
-    icon: <Brain className="h-8 w-8 text-secondary" />,
     title: "LLM Apps & Chatbots",
     description:
       "High-UX conversational systems with memory, tools, and multi-turn reasoning.",
+    image: "/senior-ai-consultant.png",
   },
   {
-    icon: <ServerCog className="h-8 w-8 text-secondary" />,
     title: "MLOps & Serving",
     description:
-      "Observability, evaluations, and scalable inference with robust CI/CD for models.",
+      "Evaluations, observability, and scalable inference with robust CI/CD for models.",
+    image: "/rpa-technology.png",
   },
   {
-    icon: <Database className="h-8 w-8 text-secondary" />,
     title: "Data Engineering",
     description:
       "Pipelines, warehousing, and governance to make your data AI-ready.",
+    image: "/office-workspace-hero.png",
   },
   {
-    icon: <LayoutDashboard className="h-8 w-8 text-secondary" />,
     title: "Product Strategy & Design",
     description:
       "Validate problems, de-risk solutions, and ship experiences customers love.",
+    image: "/solo-developer-focused.png",
   },
 ]
 
@@ -71,52 +73,46 @@ export default function WhatWeDoSection() {
         </p>
       </div>
 
-      {/* Desktop/tablet wrapper with background */}
-      <div className="hidden md:block bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-10 shadow-lg border border-secondary/20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-          {offerings.map((o, i) => (
-            <div
-              key={i}
-              className="h-full p-6 rounded-[1.25rem] border border-secondary/30 bg-secondary/10 shadow-md transition-all duration-200 hover:shadow-lg flex flex-col"
+      {/* Image cards matching curated-humans visual style */}
+      <div className="bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-5 md:p-8 lg:p-10 shadow-lg border border-secondary/20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          {capabilities.map((cap) => (
+            <article
+              key={cap.title}
+              className="group relative rounded-2xl overflow-hidden border border-secondary/30 bg-black/20 shadow-[0_0_20px_rgba(1,249,198,0.1)] hover:shadow-[0_0_28px_rgba(1,249,198,0.18)] transition-shadow duration-300"
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div className="p-3 rounded-full bg-secondary/20">{o.icon}</div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white">
-                  {o.title}
-                </h3>
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src={cap.image || "/placeholder.svg"}
+                  alt={cap.title}
+                  fill
+                  sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
+                  priority={false}
+                />
+                {/* Soft overlay and gradient for legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
-              <p className="text-white/90 text-base md:text-lg leading-relaxed flex-grow">
-                {o.description}
-              </p>
-              {o.href && (
-                <div className="mt-5">
-                  <Link
-                    href={o.href}
-                    className="inline-flex text-secondary hover:underline font-medium"
-                  >
-                    Learn more
-                  </Link>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Mobile layout without background wrapper */}
-      <div className="md:hidden px-1 mt-2">
-        <div className="grid grid-cols-1 gap-3">
-          {offerings.map((o, i) => (
-            <div
-              key={i}
-              className="p-4 rounded-[1.25rem] border border-secondary/30 bg-secondary/10 shadow-md transition-all duration-200 hover:shadow-lg"
-            >
-              <div className="mb-3 flex items-center gap-3">
-                <div className="p-2.5 rounded-full bg-secondary/20">{o.icon}</div>
-                <h3 className="text-lg font-semibold text-white">{o.title}</h3>
+              {/* Text content pinned to bottom over the image */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
+                <h3 className="text-white text-xl md:text-2xl font-semibold drop-shadow">
+                  {cap.title}
+                </h3>
+                <p className="mt-1 text-white/90 text-sm md:text-base leading-relaxed line-clamp-3">
+                  {cap.description}
+                </p>
               </div>
-              <p className="text-white/90 text-base leading-relaxed">{o.description}</p>
-            </div>
+
+              {/* Optional clickable area (if href present) */}
+              {cap.href && (
+                <Link
+                  href={cap.href}
+                  className="absolute inset-0"
+                  aria-label={`Learn more about ${cap.title}`}
+                />
+              )}
+            </article>
           ))}
         </div>
       </div>
