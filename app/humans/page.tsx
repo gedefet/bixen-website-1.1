@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
-import { Users, User, Brain, BadgeCheck, FileText, Code, MessageSquare, UserCheck, CheckCircle, Award, TrendingUp, Clock, Target, Shield, Bot, Eye, MessageCircle, Workflow, BarChart3, Star, FileSearch, Mic } from 'lucide-react'
+import { Users, User, Brain, BadgeCheck, FileText, Code, MessageSquare, UserCheck, CheckCircle, Award, TrendingUp, Clock, Target, Shield, Bot, Eye, MessageCircle, Workflow, BarChart3, Star, FileSearch, Mic, Sparkles, Cpu, Database, FlaskConical, ServerCog, Cloud, CircuitBoard } from 'lucide-react'
 import Head from 'next/head'
 import ContactSection from "@/components/contact-section"
 
@@ -714,81 +714,145 @@ export default function HumansPage() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-20 px-8 lg:px-16 xl:px-24">
+      <section id="tech-stack" className="py-20 px-8 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-thin text-white mb-4">Tech Stack</h2>
-            <p className="text-xl text-gray-300">
-              Our team seamlessly adapts to your existing technology stack while bringing expertise in cutting-edge AI frameworks and tools.
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl md:text-6xl font-thin text-white mb-6">
+              Our Certified AI Tech Stack
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto">
+              Every Curated Human™ works with a rigorously validated technology stack, ensuring compatibility with your existing systems and the ability to deliver high-impact results from day one. Our expertise covers the entire AI lifecycle — from data ingestion to deployment — across multiple domains and industries.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/30 rounded-xl">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#00d4aa] mb-4">Models</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>• GPT-4, Claude, LLaMA</p>
-                  <p>• Mistral, Gemini, BERT</p>
-                  <p>• Whisper, Stable Diffusion</p>
-                </div>
-              </CardContent>
-            </Card>
 
-            <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/30 rounded-xl">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#00d4aa] mb-4">Frameworks</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>• LangChain, Haystack</p>
-                  <p>• Transformers, Hugging Face</p>
-                  <p>• OpenAI SDK, Anthropic</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {/* 1. AI & Machine Learning Frameworks */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/30 rounded-xl hover:border-[#00d4aa]/50 hover:shadow-lg transition-colors">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <Cpu className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">AI &amp; Machine Learning Frameworks</h3>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• TensorFlow'}</p>
+                  <p>{'• PyTorch'}</p>
+                  <p>{'• Hugging Face Transformers'}</p>
+                  <p>{'• scikit-learn'}</p>
+                  <p>{'• spaCy'}</p>
+                  <p>{'• OpenCV'}</p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/30 rounded-xl">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#00d4aa] mb-4">Infrastructure</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>• Vertex AI, MLflow, DVC</p>
-                  <p>• Docker, Ray, Kubernetes</p>
-                  <p>• Apache Airflow, Prefect</p>
+            {/* 2. Large Language Models & Generative AI (Prominent) */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/40 rounded-xl hover:border-[#00d4aa]/60 hover:shadow-lg transition-colors lg:col-span-2 ring-1 ring-[#00d4aa]/25">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <Sparkles className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">Large Language Models &amp; Generative AI</h3>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• GPT-4, Claude, Vertex AI, Azure OpenAI'}</p>
+                  <p>{'• LLaMA 2, Mistral'}</p>
+                  <p>{'• LangChain, AutoGen, CrewAI'}</p>
+                  <p>{'• Prompt engineering & fine-tuning'}</p>
+                  <p>{'• Retrieval-Augmented Generation (RAG) pipelines'}</p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/30 rounded-xl">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#00d4aa] mb-4">Vector Databases</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>• Pinecone, Weaviate</p>
-                  <p>• FAISS, ChromaDB</p>
-                  <p>• Qdrant, Milvus</p>
+            {/* 3. Vector Databases & Search */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/30 rounded-xl hover:border-[#00d4aa]/50 hover:shadow-lg transition-colors">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <Database className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">Vector Databases &amp; Search</h3>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• Pinecone'}</p>
+                  <p>{'• Weaviate'}</p>
+                  <p>{'• FAISS'}</p>
+                  <p>{'• Milvus'}</p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/30 rounded-xl">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#00d4aa] mb-4">APIs & Deployment</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>• FastAPI, Gradio</p>
-                  <p>• Streamlit, RESTful APIs</p>
-                  <p>• GraphQL, WebSockets</p>
+            {/* 4. Automation & Testing Tools (Prominent) */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/40 rounded-xl hover:border-[#00d4aa]/60 hover:shadow-lg transition-colors lg:col-span-2 ring-1 ring-[#00d4aa]/25">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <FlaskConical className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">Automation &amp; Testing Tools</h3>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• Selenium, Cypress, Playwright'}</p>
+                  <p>{'• TestRail, Postman, Cucumber'}</p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/30 rounded-xl">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#00d4aa] mb-4">Cloud</h3>
-                <div className="space-y-2 text-gray-300">
-                  <p>• GCP, AWS, Azure</p>
-                  <p>• Serverless, Lambda</p>
-                  <p>• Cloud Run, ECS</p>
+            {/* 5. DevOps & MLOps */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/30 rounded-xl hover:border-[#00d4aa]/50 hover:shadow-lg transition-colors">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <ServerCog className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">DevOps &amp; MLOps</h3>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• Jenkins, GitHub Actions, GitLab CI/CD'}</p>
+                  <p>{'• Docker, Kubernetes'}</p>
+                  <p>{'• MLflow, Weights & Biases'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 6. Cloud & Infrastructure */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/30 rounded-xl hover:border-[#00d4aa]/50 hover:shadow-lg transition-colors">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <Cloud className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">Cloud &amp; Infrastructure</h3>
+                </div>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• AWS (SageMaker, Lambda, ECS)'}</p>
+                  <p>{'• Google Cloud (Vertex AI, BigQuery)'}</p>
+                  <p>{'• Microsoft Azure (Cognitive Services, ML)'}</p>
+                  <p>{'• Cloud-native microservices'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 7. Advanced AI Capabilities */}
+            <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/30 rounded-xl hover:border-[#00d4aa]/50 hover:shadow-lg transition-colors">
+              <div className="p-6">
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#00d4aa]/20">
+                    <CircuitBoard className="h-5 w-5 text-[#00d4aa]" />
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00d4aa]">Advanced AI Capabilities</h3>
+                </div>
+                <div className="space-y-1.5 text-gray-300">
+                  <p>{'• Multi-agent orchestration'}</p>
+                  <p>{'• Reinforcement Learning'}</p>
+                  <p>{'• Multi-modal reasoning (text, vision, audio)'}</p>
+                  <p>{'• Human-in-the-loop optimization'}</p>
+                  <p>{'• Graph-based reasoning'}</p>
+                  <p>{'• Autonomous AI systems for QE'}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
