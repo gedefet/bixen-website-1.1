@@ -1,129 +1,146 @@
-"use client"
-
+import { Brain, Gift, UserCheck } from 'lucide-react'
 import Image from "next/image"
-import { Bot, Camera, MessageSquareText, Workflow, LineChartIcon as ChartLine, Sparkles, FileText, Mic } from 'lucide-react'
+import Link from "next/link"
 
-type Capability = {
-  title: string
-  description: string
-  image: string
-  icon: JSX.Element
-}
+export default function WhatWeDoSection() {
+  const services = [
+    {
+      icon: <Gift className="h-12 w-12 text-secondary" />,
+      title: "Product Strategy & Design",
+      description:
+        "We co-create your product vision, crafting prototypes and experiences that solve real business problems. From ideation to validation, we help you build the right thing — before you build it right.",
+      isSpecial: false,
+    },
+    {
+      icon: <Brain className="h-12 w-12 text-secondary" />,
+      title: "AI Solutions & Delivery",
+      description:
+        "From chatbots to computer vision, we build applied AI that delivers measurable impact. With over a decade of experience, we integrate AI into your stack, not just your slides.",
+      isSpecial: false,
+    },
+    {
+      icon: <UserCheck className="h-12 w-12 text-white" />,
+      title: "Curated Humans™ by Bixen",
+      description:
+        "We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience. Our certified AI professionals are ready to join your team from day one, backed by a rigorous validation process.",
+      isSpecial: true,
+    },
+  ]
 
-const capabilities: Capability[] = [
-  {
-    title: "Generative AI Agents",
-    description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "/placeholder.jpg",
-    icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Computer Vision Systems",
-    description: "Object detection, quality control, and video analytics",
-    image: "/body-recognition-silhouette.png",
-    icon: <Camera className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Intelligent Chatbots",
-    description: "NLP & sentiment analysis for customer engagement",
-    image: "/senior-ai-consultant.png",
-    icon: <MessageSquareText className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Workflow Automation",
-    description: "AI + RPA for intelligent process automation",
-    image: "/workflow-automation-diagram.png",
-    icon: <Workflow className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Predictive Analytics",
-    description: "Health, finance, and logistics forecasting systems",
-    image: "/office-workspace-hero.png",
-    icon: <ChartLine className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Recommendation Systems",
-    description: "Personalization engines for enhanced user experience",
-    image: "/solo-developer-focused.png",
-    icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Document Processing",
-    description: "OCR, NER, and intelligent document classification",
-    image: "/placeholder.jpg",
-    icon: <FileText className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Voice Interfaces",
-    description: "Speech-to-text, voicebots, and audio processing",
-    image: "/female-ai-avatar-soundwaves.png",
-    icon: <Mic className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-]
-
-// Card component that visually matches the provided reference
-function CapabilityCard({ cap }: { cap: Capability }) {
   return (
-    <article className="group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
-      {/* Image header */}
-      <div className="relative w-full aspect-[16/10]">
-        <Image
-          src={cap.image || "/placeholder.svg"}
-          alt={cap.title}
-          fill
-          sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
-          priority={false}
-        />
-        {/* soft top highlight and bottom gradient for legibility */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/[0.18] to-transparent rounded-t-2xl" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
+    <div id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-4 md:py-16">
+      <div className="text-center max-w-[800px] mx-auto mb-6 md:mb-12 px-2 md:px-0">
+        <h2 className="hidden md:block text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">What We Do</h2>
+      </div>
+
+      {/* Desktop wrapper with background */}
+      <div className="hidden md:block bg-gradient-to-br from-white/5 to-secondary/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-lg border border-secondary/20">
+        {/* Three service cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`p-6 rounded-[1.5rem] shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
+                service.isSpecial
+                  ? 'bg-black/30 border border-black shadow-[0_0_20px_rgba(1,249,198,0.3)] hover:shadow-[0_0_30px_rgba(1,249,198,0.4)]'
+                  : 'border border-secondary/30 bg-secondary/10'
+              }`}
+            >
+              <div className="mb-5 flex justify-center">
+                <div className={`p-4 rounded-full inline-block ${
+                  service.isSpecial
+                    ? 'bg-[#01F9C6]/20 shadow-[0_0_15px_rgba(1,249,198,0.4)]'
+                    : 'bg-secondary/20'
+                }`}>
+                  {service.icon}
+                </div>
+              </div>
+              <h3 className={`text-2xl md:text-3xl font-medium mb-4 text-center ${
+                service.isSpecial ? 'text-[#01F9C6]' : 'text-secondary'
+              }`}>
+                {service.title}
+              </h3>
+              <p className="text-white/90 mb-5 flex-grow text-lg text-center">{service.description}</p>
+              {service.isSpecial && (
+                <div className="mt-auto pt-4 flex justify-center">
+                  <Link href="/humans">
+                    <button className="bg-[#01F9C6] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#01F9C6]/90 transition-colors duration-200 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]">
+                      Learn More
+                    </button>
+                  </Link>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-        {/* circular teal icon badge near lower-left over the image */}
-        <div className="absolute left-4 bottom-4">
-          <div className="h-10 w-10 rounded-full bg-[#0dc4a8]/18 backdrop-blur-sm border border-[#0dc4a8]/30 flex items-center justify-center shadow-[0_4px_20px_rgba(13,196,168,0.25)]">
-            {cap.icon}
+
+        {/* AI Section at the bottom with transparent background */}
+        <div className="mt-8 py-10 px-6 text-center bg-transparent rounded-[1.5rem]">
+          <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
+            <div className="bg-white/10 p-4 rounded-full mb-6">
+              <Brain className="h-16 w-16 text-white" />
+            </div>
+            <h3 className="text-4xl md:text-5xl font-medium mb-6 text-white">AI</h3>
+            <p className="text-white/90 text-xl md:text-2xl leading-relaxed">
+              At Bixen, AI is in our DNA. With over 10 years of hands-on experience building intelligent solutions—even
+              before 'AI' became mainstream—we integrate AI strategically and practically into every stage of your
+              project. Our expertise ensures smarter outcomes, greater efficiency, and measurable business value.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Text block */}
-      <div className="px-6 pt-5 pb-6">
-        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight">
-          {cap.title}
-        </h3>
-        <p className="mt-2 text-white/75 text-sm md:text-base leading-relaxed">
-          {cap.description}
-        </p>
-      </div>
+      {/* Mobile layout without background wrapper */}
+      <div className="md:hidden px-1">
+        {/* Mobile-only "What We Do" title */}
+        <div className="text-center mb-6 px-2">
+          <h2
+            className="text-4xl font-light leading-tight tracking-tight text-white"
+            aria-label="What We Do"
+          >
+            What We Do
+          </h2>
+          <div className="mt-2 h-[2px] w-16 mx-auto bg-[#01F9C6]/70 rounded-full" aria-hidden="true" />
+        </div>
 
-      {/* subtle hover lift */}
-      <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-white/10 transition-all duration-300" />
-    </article>
-  )
-}
-
-export default function WhatWeDoSection() {
-  return (
-    <section id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-8 md:py-14">
-      <div className="text-center max-w-[900px] mx-auto mb-6 md:mb-10 px-2 md:px-0">
-        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-3 text-white">
-          What We Do
-        </h2>
-        <p className="text-white/80 text-lg md:text-xl">
-          Practical AI and product capabilities that compound business value.
-        </p>
-      </div>
-
-      {/* Background wrapper to match the look and emphasize the grid */}
-      <div className="rounded-[2rem] border border-white/10 bg-[#0d2730]/60 p-5 md:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-          {capabilities.map((cap) => (
-            <CapabilityCard key={cap.title} cap={cap} />
+        {/* Three service cards */}
+        <div className="grid grid-cols-1 gap-3 mb-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`p-4 rounded-[1.5rem] shadow-md transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
+                service.isSpecial
+                  ? 'bg-black/30 border border-black shadow-[0_0_20px_rgba(1,249,198,0.3)] hover:shadow-[0_0_30px_rgba(1,249,198,0.4)]'
+                  : 'border border-secondary/30 bg-secondary/10'
+              }`}
+            >
+              <div className="mb-3 flex justify-center">
+                <div className={`p-3 rounded-full inline-block ${
+                  service.isSpecial
+                    ? 'bg-[#01F9C6]/20 shadow-[0_0_15px_rgba(1,249,198,0.4)]'
+                    : 'bg-secondary/20'
+                }`}>
+                  {service.icon}
+                </div>
+              </div>
+              <h3 className={`text-xl font-medium mb-2 text-center ${
+                service.isSpecial ? 'text-[#01F9C6]' : 'text-secondary'
+              }`}>
+                {service.title}
+              </h3>
+              {service.isSpecial && (
+                <div className="mt-auto pt-2 flex justify-center">
+                  <Link href="/humans">
+                    <button className="bg-[#01F9C6] text-black px-4 py-2 rounded-lg font-medium hover:bg-[#01F9C6]/90 transition-colors duration-200 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)]">
+                      Learn More
+                    </button>
+                  </Link>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
