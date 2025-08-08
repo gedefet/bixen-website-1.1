@@ -11,42 +11,42 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import { Brain, Gift, Users2 } from 'lucide-react'
 import { useRef } from "react"
 
 type Offering = {
   title: string
   description: string
-  icon: JSX.Element
   ctaHref?: string
   isHumans?: boolean
 }
 
 const offerings: Offering[] = [
   {
-    icon: <Gift className="h-8 w-8 text-[#18c7ab]" />,
-    title: "Product Strategy & Design",
-    description:
-      "Co-create your product vision and validate the right solutions before you build.",
-  },
-  {
-    icon: <Brain className="h-8 w-8 text-[#18c7ab]" />,
     title: "AI Solutions & Delivery",
     description:
       "From chatbots to computer vision, we deliver applied AI with measurable impact.",
   },
   {
-    icon: <Users2 className="h-8 w-8 text-[#18c7ab]" />,
-    title: "Curated Humans by Bixen",
+    title: "Curated Humans",
     description:
       "Certified AI professionals ready to join your team and deliver from day one.",
     ctaHref: "/humans",
     isHumans: true,
   },
+  {
+    title: "AI Journey",
+    description:
+      "We help you integrate AI across all your organization, in an effective way.",
+  },
+  {
+    title: "Product Strategy and Design",
+    description:
+      "Co-create your product vision and validate the right solutions before you build.",
+  },
 ]
 
 export default function HeroSection() {
-  // Autoplay every 3 seconds
+  // Auto-advance every 3 seconds
   const autoplay = useRef(
     Autoplay({
       delay: 3000,
@@ -57,26 +57,29 @@ export default function HeroSection() {
 
   return (
     <div className="container px-8 lg:px-16 xl:px-24 relative z-10 pt-16 overflow-hidden">
+      {/* items-center vertically aligns the left and right columns */}
       <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
-        {/* LEFT: Ensure same typography on both lines but keep a narrower measure */}
+        {/* LEFT: Match typography across both lines and color the phrase */}
         <AnimatedSection direction="left">
-          <div className="max-w-xl"> {/* narrowed from max-w-2xl to emphasize carousel scale */}
+          <div className="max-w-xl">
             <p className="text-2xl sm:text-3xl md:text-4xl text-white font-normal leading-tight">
-              Unique Solutions for Forward-Thinking People
+              {"Unique Solutions for "}
+              <span className="text-secondary font-medium">{"Forward-Thinking People"}</span>
             </p>
             <p className="mt-6 text-2xl sm:text-3xl md:text-4xl text-white font-normal">
-              Leveraging deep AI expertise and{" "}
-              <span className="text-secondary font-medium">exceptional talent</span>{" "}
-              to push beyond off-the-shelf technology.
+              {"Leveraging deep AI expertise and "}
+              <span className="text-secondary font-medium">{"exceptional talent"}</span>
+              {" to push beyond off-the-shelf technology."}
             </p>
           </div>
         </AnimatedSection>
 
-        {/* RIGHT: Offerings Carousel - larger, proportionate, and centered */}
+        {/* RIGHT: Vertically centered, larger carousel without icons */}
         <AnimatedSection direction="right">
-          <div className="relative lg:pl-6 xl:pl-12">
-            {/* Carousel wrapper with responsive height and generous width */}
-            <div className="w-full mx-auto h-[380px] sm:h-[420px] md:h-[480px] lg:h-[560px] xl:h-[600px] max-w-[760px] md:max-w-[820px]">
+          {/* Use flex to vertically center the carousel relative to the left content */}
+          <div className="relative lg:pl-6 xl:pl-12 flex h-full items-center justify-center">
+            {/* Responsive height and width to stand out while staying balanced */}
+            <div className="w-full mx-auto h-[380px] sm:h-[440px] md:h-[520px] lg:h-[560px] xl:h-[600px] max-w-[780px] md:max-w-[860px]">
               <Carousel
                 className="w-full h-full relative"
                 opts={{ align: "start", loop: true }}
@@ -86,12 +89,12 @@ export default function HeroSection() {
                   {offerings.map((item, idx) => (
                     <CarouselItem key={idx} className="basis-full h-full">
                       <div className="h-full w-full flex items-center justify-center">
-                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-4 px-2 sm:px-4">
-                          <div className="rounded-full bg-[#18c7ab]/15 p-3">{item.icon}</div>
-                          <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold">
+                        {/* Increased gap between title and description, larger title */}
+                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-6 px-3 sm:px-4">
+                          <h3 className="text-white text-4xl md:text-5xl lg:text-6xl font-semibold">
                             {item.title}
                           </h3>
-                          <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[48ch]">
+                          <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch]">
                             {item.description}
                           </p>
                           {item.isHumans && item.ctaHref && (
@@ -112,7 +115,7 @@ export default function HeroSection() {
                   ))}
                 </CarouselContent>
 
-                {/* Transparent arrows centered vertically over the larger carousel */}
+                {/* Transparent arrows vertically centered over the text */}
                 <CarouselPrevious
                   className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10"
                   aria-label="Previous"
