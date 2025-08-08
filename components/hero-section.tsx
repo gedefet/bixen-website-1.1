@@ -66,7 +66,7 @@ export default function HeroSection() {
 
       <div className="container px-8 lg:px-16 xl:px-24 relative z-[2] pt-16">
         {/* items-center helps vertical alignment across columns */}
-        <div className="grid grid-cols-1 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
           {/* LEFT: Match typography and color “Forward‑Thinking People” with secondary color */}
           <AnimatedSection direction="left" className="self-center">
             <div className="max-w-xl">
@@ -83,9 +83,9 @@ export default function HeroSection() {
           </AnimatedSection>
 
           {/* RIGHT: Vertically centered, larger carousel WITHOUT icons */}
-          <AnimatedSection direction="right" className="self-center mt-8 md:mt-10 lg:mt-12">
+          <AnimatedSection direction="right" className="self-center">
             {/* Flex wrapper ensures the carousel is vertically centered relative to the left column */}
-            <div className="relative flex h-full items-center justify-center w-full">
+            <div className="relative lg:pl-6 xl:pl-12 flex h-full items-center justify-center w-full">
               {/* Responsive height and width to stand out while staying balanced */}
               <div className="w-full mx-auto h-[380px] sm:h-[440px] md:h-[520px] lg:h-[560px] xl:h-[600px] max-w-[780px] md:max-w-[860px]">
                 <Carousel

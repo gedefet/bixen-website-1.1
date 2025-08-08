@@ -9,7 +9,6 @@ import VisionSection from "@/components/vision-section"
 import SectionWrapper from "@/components/section-wrapper"
 import HeroHeaderContainer from "@/components/hero-header-container"
 import BusinessPartnerSection from "@/components/business-partner-section"
-import WhyChooseBixenSection from "@/components/why-choose-bixen-section"
 
 export default function Home() {
   return (
@@ -24,10 +23,6 @@ export default function Home() {
 
         <div className="relative z-20 mb-6 md:mb-24">
           <VisionSection />
-        </div>
-
-        <div className="relative z-25 mb-6 md:mb-24" id="why-choose-bixen">
-          <WhyChooseBixenSection />
         </div>
 
         <div className="relative z-30 mb-6 md:mb-24" id="features">
