@@ -12,18 +12,18 @@ export default function WhatWeDoSection() {
       isSpecial: false,
     },
     {
-      icon: <Brain className="h-12 w-12 text-secondary" />,
-      title: "AI Solutions & Delivery",
-      description:
-        "From chatbots to computer vision, we build applied AI that delivers measurable impact. With over a decade of experience, we integrate AI into your stack, not just your slides.",
-      isSpecial: false,
-    },
-    {
       icon: <UserCheck className="h-12 w-12 text-white" />,
       title: "Curated Humans™ by Bixen",
       description:
         "We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience. Our certified AI professionals are ready to join your team from day one, backed by a rigorous validation process.",
       isSpecial: true,
+    },
+    {
+      icon: <Brain className="h-12 w-12 text-secondary" />,
+      title: "AI Solutions & Delivery",
+      description:
+        "From chatbots to computer vision, we build applied AI that delivers measurable impact. With over a decade of experience, we integrate AI into your stack, not just your slides.",
+      isSpecial: false,
     },
   ]
 
