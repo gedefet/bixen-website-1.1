@@ -14,6 +14,7 @@ type Offering = {
   isHumans?: boolean
 }
 
+// Ordered: AI Solutions & Delivery, Curated Humans, AI Journey, Product Strategy and Design
 const offerings: Offering[] = [
   {
     title: "AI Solutions & Delivery",
@@ -42,32 +43,39 @@ export default function HeroSection() {
   )
 
   return (
-    <section className="relative z-0 overflow-visible">
-      {/* overlay from previous version remains */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[-25vh] h-[calc(100%+25vh)] z-[1] bg-gradient-to-b from-black/60 via-black/50 to-transparent"
-      />
+    <section className="relative overflow-visible">
+      {/* Uniform cool overlay ensures legibility even if background imagery is used later */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 uniform-overlay" />
 
-      <div className="container px-8 lg:px-16 xl:px-24 relative z-[2] pt-16">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
+      <div className="container-x section-y relative z-[1]">
+        <div className="grid lg:grid-cols-2 gap-10 items-center min-h-[60vh]">
+          {/* LEFT: Value proposition first */}
           <AnimatedSection direction="left" className="self-center">
-            <div className="max-w-xl">
-              <p className="text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal leading-tight">
-                {"Unique solutions for "}
-                <span className="text-secondary font-medium">{"forward-thinking people."}</span>
+            <div className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl">Ship AI that matters.</h1>
+              <p className="mt-5 text-foreground/90 text-lg md:text-xl max-w-prose">
+                Teams ready in 10 days. Certified engineers delivering in your stack from week one.
               </p>
-              <p className="mt-6 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
-                {"Leveraging deep AI expertise and "}
-                <span className="text-secondary font-medium">{"exceptional talent"}</span>
-                {" to push beyond off-the-shelf technology."}
-              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="#contact" aria-label="Start in 10 days - contact us">
+                  <Button variant="default" size="lg" className="btn-primary">
+                    Start in 10 days
+                  </Button>
+                </Link>
+                <Link href="#process" aria-label="See the process">
+                  <Button variant="link" size="lg">
+                    See the process
+                  </Button>
+                </Link>
+              </div>
             </div>
           </AnimatedSection>
 
-          <AnimatedSection direction="right" className="self-center mt-8 md:mt-10">
-            <div className="relative lg:pl-6 xl:pl-12 flex h-full items-center justify-center w-full">
-              <div className="w-full mx-auto h-[380px] sm:h-[440px] md:h-[520px] lg:h-[560px] xl:h-[600px] max-w-[780px] md:max-w-[860px]">
+          {/* RIGHT: Carousel with consistent typography */}
+          <AnimatedSection direction="right" className="self-center">
+            <div className="relative flex h-full items-center justify-center w-full">
+              <div className="w-full mx-auto h-[360px] sm:h-[420px] md:h-[520px] lg:h-[560px] max-w-[820px]">
                 <Carousel
                   className="w-full h-full relative"
                   opts={{ align: "start", loop: true }}
@@ -78,20 +86,16 @@ export default function HeroSection() {
                       <CarouselItem key={idx} className="basis-full h-full">
                         <div className="h-full w-full flex items-center justify-center">
                           <div className="flex h-full w-full flex-col items-center justify-center text-center gap-7 px-3 sm:px-4">
-                            {/* Helvetica Neue via global body; ensure tracking and leading */}
-                            <h3 className="font-sans text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
+                            <h3 className="text-white text-5xl md:text-6xl font-bold tracking-tight leading-tight">
                               {item.title}
                             </h3>
-                            <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch]">
+                            <p className="text-foreground/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[55ch]">
                               {item.description}
                             </p>
                             {item.isHumans && item.ctaHref && (
                               <div className="pt-1">
-                                <Link href={item.ctaHref}>
-                                  <Button
-                                    className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)] btn-hover"
-                                    size="lg"
-                                  >
+                                <Link href={item.ctaHref} aria-label="Explore Curated Humans">
+                                  <Button variant="default" size="lg" className="btn-primary">
                                     Explore Curated Humans
                                   </Button>
                                 </Link>
@@ -105,11 +109,11 @@ export default function HeroSection() {
 
                   <CarouselPrevious
                     className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10"
-                    aria-label="Previous"
+                    aria-label="Previous item"
                   />
                   <CarouselNext
                     className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10"
-                    aria-label="Next"
+                    aria-label="Next item"
                   />
                 </Carousel>
               </div>

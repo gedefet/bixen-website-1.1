@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { X } from 'lucide-react'
+import { X } from "lucide-react"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 type Story = {
   id: string
@@ -21,6 +22,30 @@ type Story = {
   }
 }
 
+type CaseItem = {
+  company: string
+  useCase: string
+  metric: string
+}
+
+const miniCases: CaseItem[] = [
+  {
+    company: "FintechCo",
+    useCase: "Risk scoring model to reduce defaults",
+    metric: "93% accuracy • 6 weeks to prod",
+  },
+  {
+    company: "RetailX",
+    useCase: "Vision-based QC for assembly line",
+    metric: "−38% defects • 8 weeks to prod",
+  },
+  {
+    company: "SupportHub",
+    useCase: "LLM-powered triage and auto replies",
+    metric: "−62% handle time • 4 weeks to prod",
+  },
+]
+
 export default function CaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState<Story | null>(null)
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set())
@@ -30,8 +55,7 @@ export default function CaseStudiesSection() {
       id: "abinbev",
       title: "Ongoing conversations - ABInBev Process Optimization",
       client: "ABInBev",
-      logo:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
       category: "Manufacturing",
       status: "In Progress",
       summary:
@@ -56,8 +80,7 @@ export default function CaseStudiesSection() {
       id: "intuitivo",
       title: "Retail Innovation with Meta Technology",
       client: "Intuitivo",
-      logo:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
       category: "Retail",
       summary:
         "Implementing Meta's SAM algorithm to enhance computer vision capabilities for autonomous retail solutions in Retail.",
@@ -122,8 +145,7 @@ export default function CaseStudiesSection() {
       client: "Banking Institution",
       logo: "/images/red-flame-logo.png",
       category: "Banking",
-      summary:
-        "Enhanced IBM Watson performance through custom NLP pipeline and root word identification technology.",
+      summary: "Enhanced IBM Watson performance through custom NLP pipeline and root word identification technology.",
       modalContent: {
         title: "Banking Assistant Evolution",
         company: "A major banking institution needed to improve the performance of their IBM Watson implementation.",
@@ -162,10 +184,7 @@ export default function CaseStudiesSection() {
 
   const handleCardClick = (story: Story) => {
     if (story.client === "Intuitivo") {
-      window.open(
-        "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
-        "_blank"
-      )
+      window.open("https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346", "_blank")
     } else {
       setSelectedCase(story)
     }
@@ -191,16 +210,10 @@ export default function CaseStudiesSection() {
   // Helper to render the logo wrapper matching desktop style but scaled for mobile
   const LogoBox = ({ story }: { story: Story }) => {
     // Choose background by client (to match desktop vibe)
-    const isLightBg =
-      story.client === "ABInBev" || story.client === "US Logistics" || story.client === "América Móvil"
+    const isLightBg = story.client === "ABInBev" || story.client === "US Logistics" || story.client === "América Móvil"
     const isDarkBg = story.client === "Netflix" || story.client === "Banking Institution"
 
-    const wrapperClasses =
-      isLightBg
-        ? "bg-white"
-        : isDarkBg
-        ? "bg-black"
-        : "bg-white/10"
+    const wrapperClasses = isLightBg ? "bg-white" : isDarkBg ? "bg-black" : "bg-white/10"
 
     return (
       <div className={`${wrapperClasses} rounded-xl shadow-2xl w-full h-full aspect-square p-2 sm:p-3 md:p-6`}>
@@ -221,9 +234,7 @@ export default function CaseStudiesSection() {
     <div className="container px-3 md:px-6 py-8 md:py-16" id="case-studies">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-12">
         <div className="max-w-[700px]">
-          <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-2 md:mb-4 text-white">
-            Success Stories
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-2 md:mb-4 text-white">Success Stories</h2>
           <p className="text-white/80 text-sm md:text-xl">
             Real-world examples of how Bixen drives exceptional results.
           </p>
@@ -342,14 +353,10 @@ export default function CaseStudiesSection() {
                       )}
                     </div>
 
-                    <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">
-                      {story.title}
-                    </h3>
+                    <h3 className="text-white text-xl font-medium mb-4 line-clamp-2">{story.title}</h3>
 
                     <div className="flex-1 flex items-center justify-center">
-                      <p className="text-white/90 text-sm text-center leading-relaxed">
-                        {story.summary}
-                      </p>
+                      <p className="text-white/90 text-sm text-center leading-relaxed">{story.summary}</p>
                     </div>
 
                     <div className="mt-4 text-center">
@@ -364,6 +371,37 @@ export default function CaseStudiesSection() {
           ))}
         </div>
       </div>
+
+      {/* Mini Cases Section */}
+      <section className="section-y" id="mini-cases">
+        <div className="container-x">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+            <h2 className="text-4xl sm:text-5xl">Quick Wins</h2>
+            <p className="mt-4 text-[hsl(var(--secondary))] text-lg">
+              Three examples of applied AI delivered to production quickly and responsibly.
+            </p>
+          </div>
+
+          <div className="cards-grid">
+            {miniCases.map((item) => (
+              <article key={item.company} className="glass glass-hover p-6">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-2xl font-semibold">{item.company}</h3>
+                    <p className="mt-2 text-[hsl(var(--secondary))]">{item.useCase}</p>
+                  </div>
+                </div>
+                <p className="mt-4 text-foreground/90">{item.metric}</p>
+                <div className="mt-6">
+                  <Button variant="link" aria-label={`Read more about ${item.company}`}>
+                    Read more
+                  </Button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Case Study Modal */}
       {selectedCase && (
@@ -387,9 +425,7 @@ export default function CaseStudiesSection() {
                 <div>
                   <div className="mb-6">
                     <h3 className="text-[#01F9C6] text-base mb-1">CASE STUDY</h3>
-                    <h2 className="text-2xl font-bold text-white mb-3">
-                      {selectedCase.modalContent.title}
-                    </h2>
+                    <h2 className="text-2xl font-bold text-white mb-3">{selectedCase.modalContent.title}</h2>
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">THE COMPANY</h3>
@@ -576,6 +612,36 @@ export default function CaseStudiesSection() {
 
         .aspect-square {
           aspect-ratio: 1 / 1;
+        }
+
+        .section-y {
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+
+        .container-x {
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .cards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+
+        .glass {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 1rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .glass-hover:hover {
+          transform: translateY(-10px);
         }
       `}</style>
     </div>

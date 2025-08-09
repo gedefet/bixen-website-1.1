@@ -59,9 +59,8 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        // Prioritize Helvetica Neue, then fall back to system sans-serif fonts
-        sans: ["Helvetica Neue", "system-ui", "sans-serif"],
-        montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        /* Use Inter across the site for a clean sans-serif */
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       animation: {
         "spin-slow": "spin-slow 8s linear infinite",

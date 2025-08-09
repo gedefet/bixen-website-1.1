@@ -8,68 +8,62 @@ import WhatWeDoSection from "@/components/what-we-do-section"
 import VisionSection from "@/components/vision-section"
 import SectionWrapper from "@/components/section-wrapper"
 import HeroHeaderContainer from "@/components/hero-header-container"
-import BusinessPartnerSection from "@/components/business-partner-section"
+import ClosingCta from "@/components/closing-cta"
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
+      {/* Value proposition first */}
       <HeroHeaderContainer />
 
-      <div className="pt-3 sm:pt-4 md:pt-10 lg:pt-12 px-2 md:px-8 lg:px-16 xl:px-24">
-        {/* Unified breathing space */}
-        <div className="relative z-10 section-spacing" id="what-we-do">
+      {/* Services next */}
+      <div className="px-2">
+        <div id="what-we-do">
           <WhatWeDoSection />
         </div>
 
-        <div className="relative z-20 section-spacing">
-          <VisionSection />
-        </div>
-
-        <div className="relative z-30 section-spacing" id="features">
-          <FeaturesSection />
-        </div>
-
-        <div className="relative z-40 section-spacing" id="partners">
-          <PartnersCarousel />
-        </div>
-
-        <div className="relative z-50 section-spacing" id="case-studies">
+        {/* Success stories to support credibility */}
+        <div id="case-studies">
           <CaseStudiesSection />
         </div>
 
-        <div className="relative z-30 section-spacing" id="business-partners">
-          <BusinessPartnerSection />
+        {/* Partners/universities */}
+        <div id="partners">
+          <PartnersCarousel />
         </div>
+
+        {/* Vision and features (avoid repetition; keep concise) */}
+        <VisionSection />
+        <FeaturesSection />
+
+        {/* People */}
+        <SectionWrapper
+          backgroundColor="transparent"
+          prevSectionColor="transparent"
+          nextSectionColor="transparent"
+          id="team"
+        >
+          <TeamSection />
+        </SectionWrapper>
+
+        {/* Quote (optional narrative break) */}
+        <SectionWrapper
+          backgroundColor="transparent"
+          prevSectionColor="transparent"
+          nextSectionColor="transparent"
+          id="quote"
+        >
+          <QuoteSection />
+        </SectionWrapper>
+
+        {/* CTA band before contact */}
+        <ClosingCta />
+
+        {/* Contact last */}
+        <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact">
+          <ContactSection />
+        </SectionWrapper>
       </div>
-
-      <SectionWrapper
-        backgroundColor="transparent"
-        prevSectionColor="transparent"
-        nextSectionColor="transparent"
-        id="team"
-        className="mt-6 md:mt-16 px-2 md:px-8 lg:px-16 xl:px-24"
-      >
-        <TeamSection />
-      </SectionWrapper>
-
-      <SectionWrapper
-        backgroundColor="transparent"
-        prevSectionColor="transparent"
-        nextSectionColor="transparent"
-        id="quote"
-        className="px-2 md:px-8 lg:px-16 xl:px-24"
-      >
-        <QuoteSection />
-      </SectionWrapper>
-
-      <SectionWrapper
-        backgroundColor="transparent"
-        prevSectionColor="transparent"
-        id="contact"
-        className="px-2 md:px-8 lg:px-16 xl:px-24"
-      >
-        <ContactSection />
-      </SectionWrapper>
     </main>
   )
 }
