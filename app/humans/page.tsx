@@ -1,12 +1,49 @@
 "use client"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
-import { Users, User, Brain, BadgeCheck, FileText, Code, MessageSquare, UserCheck, CheckCircle, Award, TrendingUp, Clock, Target, Shield, Bot, Eye, MessageCircle, Workflow, BarChart3, Star, FileSearch, Mic, Sparkles, Cpu, Database, FlaskConical, ServerCog, Cloud, CircuitBoard } from 'lucide-react'
-import Head from 'next/head'
+import {
+  Users,
+  User,
+  Brain,
+  BadgeCheck,
+  FileText,
+  Code,
+  MessageSquare,
+  UserCheck,
+  CheckCircle,
+  Award,
+  TrendingUp,
+  Clock,
+  Target,
+  Bot,
+  Eye,
+  MessageCircle,
+  Workflow,
+  BarChart3,
+  Star,
+  FileSearch,
+  Mic,
+  Sparkles,
+  Cpu,
+  Database,
+  FlaskConical,
+  ServerCog,
+  Cloud,
+  CircuitBoard,
+} from "lucide-react"
+import Head from "next/head"
 import ContactSection from "@/components/contact-section"
+
+function TechIcon({ src, label }: { src: string; label: string }) {
+  return (
+    <div className="flex items-center gap-2.5 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:border-white/20 transition-colors">
+      <Image src={src || "/placeholder.svg"} alt={label} width={20} height={20} className="h-5 w-5 object-contain" />
+      <span className="text-sm text-gray-200">{label}</span>
+    </div>
+  )
+}
 
 export default function HumansPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -31,10 +68,19 @@ export default function HumansPage() {
     <div className="min-h-screen bg-gradient-to-b from-[#0a1a1f] via-[#0f2027] to-[#203a43]">
       <Head>
         <title>AI Curated Humans by Bixen - Certified AI Talent Ready to Build</title>
-        <meta name="description" content="We select, assess, and certify top-tier AI professionals with proven experience. Vertex AI, LangChain, GPT-4, MLOps experts ready to integrate into your team from day one." />
-        <meta name="keywords" content="AI talent, Vertex AI, LangChain, GPT-4, AI engineer, MLOps, LLM, machine learning, Hugging Face, OpenAI, Pinecone, FastAPI, MLflow, AI developers for hire, certified AI professionals, curated AI talent" />
+        <meta
+          name="description"
+          content="We select, assess, and certify top-tier AI professionals with proven experience. Vertex AI, LangChain, GPT-4, MLOps experts ready to integrate into your team from day one."
+        />
+        <meta
+          name="keywords"
+          content="AI talent, Vertex AI, LangChain, GPT-4, AI engineer, MLOps, LLM, machine learning, Hugging Face, OpenAI, Pinecone, FastAPI, MLflow, AI developers for hire, certified AI professionals, curated AI talent"
+        />
         <meta property="og:title" content="AI Curated Humans by Bixen - Certified AI Talent" />
-        <meta property="og:description" content="Certified AI professionals with expertise in GPT-4, LangChain, Vertex AI, and production ML frameworks. Ready to integrate into your team from day one." />
+        <meta
+          property="og:description"
+          content="Certified AI professionals with expertise in GPT-4, LangChain, Vertex AI, and production ML frameworks. Ready to integrate into your team from day one."
+        />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -85,12 +131,10 @@ export default function HumansPage() {
           {/* Fade to next section */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#203a43] to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 text-center max-w-5xl mx-auto pt-32 lg:pt-40">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-            AI Curated Humans
-          </h1>
-          
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">AI Curated Humans</h1>
+
           {/* "by" text with Bixen logo */}
           <div className="flex items-center justify-center gap-3 mb-20">
             <span className="text-2xl md:text-3xl text-gray-300 font-light">by</span>
@@ -102,17 +146,17 @@ export default function HumansPage() {
               className="object-contain"
             />
           </div>
-          
+
           <div className="text-lg md:text-xl text-gray-300 mb-24 max-w-4xl mx-auto leading-relaxed space-y-6">
             <p>
-              We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience and strong technical judgment.
+              We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience
+              and strong technical judgment.
             </p>
             <p>
-              Our certified AI professionals are ready to join your team from day one, backed by a rigorous validation process, ongoing support, and a quality guarantee.
+              Our certified AI professionals are ready to join your team from day one, backed by a rigorous validation
+              process, ongoing support, and a quality guarantee.
             </p>
-            <p>
-              You choose who to work with — we make sure they're the right person.
-            </p>
+            <p>You choose who to work with — we make sure they're the right person.</p>
           </div>
           <div className="text-3xl md:text-5xl font-bold text-[#00d4aa] leading-tight">
             Certified AI talent with your stack, ready to build.
@@ -141,7 +185,9 @@ export default function HumansPage() {
               </div>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-white mb-2">Generative AI Agents</h3>
-                <p className="text-gray-300 text-sm">Sales assistants, onboarding copilots, and intelligent automation</p>
+                <p className="text-gray-300 text-sm">
+                  Sales assistants, onboarding copilots, and intelligent automation
+                </p>
               </CardContent>
             </Card>
 
@@ -189,12 +235,7 @@ export default function HumansPage() {
 
             <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/20 rounded-xl hover:border-[#00d4aa]/40 transition-colors overflow-hidden">
               <div className="relative h-48">
-                <Image
-                  src="/workflow-automation-diagram.png"
-                  alt="Workflow Automation"
-                  fill
-                  className="object-cover"
-                />
+                <Image src="/workflow-automation-diagram.png" alt="Workflow Automation" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a2f33] to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
                   <div className="bg-[#00d4aa]/20 rounded-full w-12 h-12 flex items-center justify-center">
@@ -273,12 +314,7 @@ export default function HumansPage() {
 
             <Card className="bg-[#1a2f33]/80 backdrop-blur-sm border-[#00d4aa]/20 rounded-xl hover:border-[#00d4aa]/40 transition-colors overflow-hidden">
               <div className="relative h-48">
-                <Image
-                  src="/female-ai-avatar-soundwaves.png"
-                  alt="Voice Interfaces"
-                  fill
-                  className="object-cover"
-                />
+                <Image src="/female-ai-avatar-soundwaves.png" alt="Voice Interfaces" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a2f33] to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
                   <div className="bg-[#00d4aa]/20 rounded-full w-12 h-12 flex items-center justify-center">
@@ -315,7 +351,8 @@ export default function HumansPage() {
                 <Clock className="h-16 w-16 text-red-400 mx-auto mb-6" />
                 <div className="text-4xl font-bold text-red-400 mb-4">75-95%</div>
                 <p className="text-gray-300">
-                  of recruiters struggle to evaluate both technical and AI-specific soft skills in traditional hiring processes.
+                  of recruiters struggle to evaluate both technical and AI-specific soft skills in traditional hiring
+                  processes.
                 </p>
               </CardContent>
             </Card>
@@ -325,7 +362,8 @@ export default function HumansPage() {
                 <Target className="h-16 w-16 text-red-400 mx-auto mb-6" />
                 <div className="text-4xl font-bold text-red-400 mb-4">1%</div>
                 <p className="text-gray-300">
-                  of companies consider themselves mature in AI implementation, increasing investment risk without real results.
+                  of companies consider themselves mature in AI implementation, increasing investment risk without real
+                  results.
                 </p>
               </CardContent>
             </Card>
@@ -336,10 +374,8 @@ export default function HumansPage() {
       {/* Why We're the Right Choice */}
       <section className="py-20 px-8 lg:px-16 xl:px-24 bg-[#0f2027]/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-thin text-white text-center mb-16">
-            Why We're the Right Choice
-          </h2>
-          
+          <h2 className="text-4xl md:text-6xl font-thin text-white text-center mb-16">Why We're the Right Choice</h2>
+
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left side - 2x2 grid of cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -352,7 +388,8 @@ export default function HumansPage() {
                     <div>
                       <h3 className="text-lg font-bold text-white mb-2">+10 years of applied AI experience</h3>
                       <p className="text-gray-300 text-sm">
-                        We know the key problems in sectors like healthcare, telco, retail, gaming, banking, oil & gas because we've already solved them.
+                        We know the key problems in sectors like healthcare, telco, retail, gaming, banking, oil & gas
+                        because we've already solved them.
                       </p>
                     </div>
                   </div>
@@ -368,7 +405,8 @@ export default function HumansPage() {
                     <div>
                       <h3 className="text-lg font-bold text-white mb-2">Rigorous & quantifiable process</h3>
                       <p className="text-gray-300 text-sm">
-                        We minimize selection errors: our talents have been tested, reviewed by leaders, and validated in real environments.
+                        We minimize selection errors: our talents have been tested, reviewed by leaders, and validated
+                        in real environments.
                       </p>
                     </div>
                   </div>
@@ -384,7 +422,8 @@ export default function HumansPage() {
                     <div>
                       <h3 className="text-lg font-bold text-white mb-2">Certified by Bixen program</h3>
                       <p className="text-gray-300 text-sm">
-                        Precisely defines what combines proven technical expertise, business domain knowledge, and execution capability.
+                        Precisely defines what combines proven technical expertise, business domain knowledge, and
+                        execution capability.
                       </p>
                     </div>
                   </div>
@@ -400,7 +439,8 @@ export default function HumansPage() {
                     <div>
                       <h3 className="text-lg font-bold text-white mb-2">Exceptional quality delivery</h3>
                       <p className="text-gray-300 text-sm">
-                        You won't worry about production quality or drive your recruiting team crazy with profiles changing at record speed.
+                        You won't worry about production quality or drive your recruiting team crazy with profiles
+                        changing at record speed.
                       </p>
                     </div>
                   </div>
@@ -417,7 +457,8 @@ export default function HumansPage() {
                 <h3 className="text-2xl font-bold text-white">The Bixen Seal</h3>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                All our engineers pass a proprietary certification process that includes AI technical challenges, code challenges, and soft skills evaluation. Only after that they obtain the 'Certified by Bixen' seal.
+                All our engineers pass a proprietary certification process that includes AI technical challenges, code
+                challenges, and soft skills evaluation. Only after that they obtain the 'Certified by Bixen' seal.
               </p>
               <div className="relative">
                 <Image
@@ -436,9 +477,7 @@ export default function HumansPage() {
       {/* Three Hiring Models */}
       <section className="py-20 px-8 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-thin text-white text-center mb-16">
-            Three Hiring Models
-          </h2>
+          <h2 className="text-4xl md:text-6xl font-thin text-white text-center mb-16">Three Hiring Models</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Solo Bixener */}
             <Card className="bg-[#1a2f33] border-[#00d4aa]/20 rounded-xl overflow-hidden">
@@ -483,7 +522,9 @@ export default function HumansPage() {
               </div>
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">Curated Squad</h3>
-                <p className="text-gray-300 mb-8">A tailor-crafted AI team to work alongside your team, ready to deliver value sprint by sprint.</p>
+                <p className="text-gray-300 mb-8">
+                  A tailor-crafted AI team to work alongside your team, ready to deliver value sprint by sprint.
+                </p>
                 <Badge className="bg-[#00d4aa] text-black hover:bg-[#00b894] border-0 px-4 py-2">
                   Certified by Bixen
                 </Badge>
@@ -508,7 +549,9 @@ export default function HumansPage() {
               </div>
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">AI Advisor</h3>
-                <p className="text-gray-300 text-sm mb-8">Senior fractional expert aimed to assist with vision and critical decisions.</p>
+                <p className="text-gray-300 text-sm mb-8">
+                  Senior fractional expert aimed to assist with vision and critical decisions.
+                </p>
                 <Badge className="bg-[#00d4aa] text-black hover:bg-[#00b894] border-0 px-4 py-2">
                   Certified by Bixen
                 </Badge>
@@ -521,10 +564,9 @@ export default function HumansPage() {
       {/* Detailed Selection Process */}
       <section className="py-20 px-8 lg:px-16 xl:px-24 bg-[#0f2027]/50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-thin text-white text-center mb-16">
-            Detailed Selection Process
-          </h2>
-          
+          <h2 className="text-4xl md:text-6xl font-thin text-white text-center mb-16">Detailed Selection Process</h2>
+
+          {/* Steps omitted (unchanged) — keeping existing content */}
           {/* Step 1 */}
           <div className="mb-16">
             <div className="bg-[#1a2f33] rounded-2xl p-8 md:p-12 relative">
@@ -540,7 +582,8 @@ export default function HumansPage() {
                     <h3 className="text-2xl font-bold text-white">CV & Portfolio Review</h3>
                   </div>
                   <p className="text-gray-300 leading-relaxed">
-                    Screening by the Bixen technical team: applied AI projects, GitHub contributions, quantifiable impact, and open-source contributions/publications.
+                    Screening by the Bixen technical team: applied AI projects, GitHub contributions, quantifiable
+                    impact, and open-source contributions/publications.
                   </p>
                 </div>
                 <div className="relative">
@@ -580,7 +623,8 @@ export default function HumansPage() {
                     <h3 className="text-2xl font-bold text-white">AI/ML Code Challenge</h3>
                   </div>
                   <p className="text-gray-300 leading-relaxed">
-                    Real-world case (LLM/ML/DS). We measure accuracy, efficiency, documentation, and best practices. Peer reviewed by Bixen's Tech Leaders.
+                    Real-world case (LLM/ML/DS). We measure accuracy, efficiency, documentation, and best practices.
+                    Peer reviewed by Bixen's Tech Leaders.
                   </p>
                 </div>
               </div>
@@ -642,7 +686,8 @@ export default function HumansPage() {
                     <h3 className="text-2xl font-bold text-white">Soft Skills Interview (BEI)</h3>
                   </div>
                   <p className="text-gray-300 leading-relaxed">
-                    60-minute session based on Behavioral Event Interview: ownership, collaboration, resilience, and communication.
+                    60-minute session based on Behavioral Event Interview: ownership, collaboration, resilience, and
+                    communication.
                   </p>
                 </div>
               </div>
@@ -704,7 +749,8 @@ export default function HumansPage() {
                     <h3 className="text-2xl font-bold text-white">Certification & Client Onboarding</h3>
                   </div>
                   <p className="text-gray-300 leading-relaxed">
-                    Issuance of the "Certified by Bixen" badge, environment setup, and soft onboarding with the client with clear objectives for the first sprint.
+                    Issuance of the "Certified by Bixen" badge, environment setup, and soft onboarding with the client
+                    with clear objectives for the first sprint.
                   </p>
                 </div>
               </div>
@@ -713,15 +759,15 @@ export default function HumansPage() {
         </div>
       </section>
 
-      {/* Tech Stack */}
+      {/* Tech Stack with brand icons */}
       <section id="tech-stack" className="py-20 px-8 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-6xl font-thin text-white mb-6">
-              Our Certified AI Tech Stack
-            </h2>
+            <h2 className="text-4xl md:text-6xl font-thin text-white mb-6">Our Certified AI Tech Stack</h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto">
-              Every Curated Human™ works with a rigorously validated technology stack, ensuring compatibility with your existing systems and the ability to deliver high-impact results from day one. Our expertise covers the entire AI lifecycle — from data ingestion to deployment — across multiple domains and industries.
+              Every Curated Human™ works with a rigorously validated technology stack, ensuring compatibility with your
+              existing systems and the ability to deliver high-impact results from day one. Our expertise covers the
+              entire AI lifecycle — from data ingestion to deployment — across multiple domains and industries.
             </p>
           </div>
 
@@ -735,18 +781,18 @@ export default function HumansPage() {
                   </span>
                   <h3 className="text-xl font-bold text-[#00d4aa]">AI &amp; Machine Learning Frameworks</h3>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p>{'• TensorFlow'}</p>
-                  <p>{'• PyTorch'}</p>
-                  <p>{'• Hugging Face Transformers'}</p>
-                  <p>{'• scikit-learn'}</p>
-                  <p>{'• spaCy'}</p>
-                  <p>{'• OpenCV'}</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <TechIcon src="/tech/tensorflow.svg" label="TensorFlow" />
+                  <TechIcon src="/tech/pytorch.svg" label="PyTorch" />
+                  <TechIcon src="/tech/huggingface.svg" label="Hugging Face" />
+                  <TechIcon src="/tech/scikitlearn.svg" label="scikit-learn" />
+                  <TechIcon src="/tech/spacy.svg" label="spaCy" />
+                  <TechIcon src="/tech/opencv.svg" label="OpenCV" />
                 </div>
               </div>
             </div>
 
-            {/* 2. Large Language Models & Generative AI (Prominent) */}
+            {/* 2. Large Language Models & Generative AI */}
             <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/40 rounded-xl hover:border-[#00d4aa]/60 hover:shadow-lg transition-colors lg:col-span-2 ring-1 ring-[#00d4aa]/25">
               <div className="p-6">
                 <div className="mb-4 inline-flex items-center gap-3">
@@ -755,12 +801,15 @@ export default function HumansPage() {
                   </span>
                   <h3 className="text-xl font-bold text-[#00d4aa]">Large Language Models &amp; Generative AI</h3>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p>{'• GPT-4, Claude, Vertex AI, Azure OpenAI'}</p>
-                  <p>{'• LLaMA 2, Mistral'}</p>
-                  <p>{'• LangChain, AutoGen, CrewAI'}</p>
-                  <p>{'• Prompt engineering & fine-tuning'}</p>
-                  <p>{'• Retrieval-Augmented Generation (RAG) pipelines'}</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <TechIcon src="/tech/openai.svg" label="OpenAI (GPT-4)" />
+                  <TechIcon src="/tech/anthropic.svg" label="Anthropic (Claude)" />
+                  <TechIcon src="/tech/googlecloud.svg" label="Vertex AI (Google Cloud)" />
+                  <TechIcon src="/tech/microsoftazure.svg" label="Azure OpenAI" />
+                  <TechIcon src="/tech/meta.svg" label="LLaMA 2 (Meta)" />
+                  {/* Keep textual mentions for less-common brands if no official icon is available */}
+                  {/* Optional icons below if available in the future:
+                      /tech/mistral.svg, /tech/langchain.svg, /tech/autogen.svg, /tech/crewai.svg */}
                 </div>
               </div>
             </div>
@@ -774,16 +823,17 @@ export default function HumansPage() {
                   </span>
                   <h3 className="text-xl font-bold text-[#00d4aa]">Vector Databases &amp; Search</h3>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p>{'• Pinecone'}</p>
-                  <p>{'• Weaviate'}</p>
-                  <p>{'• FAISS'}</p>
-                  <p>{'• Milvus'}</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <TechIcon src="/tech/pinecone.svg" label="Pinecone" />
+                  {/* Add when available */}
+                  {/* <TechIcon src="/tech/weaviate.svg" label="Weaviate" /> */}
+                  {/* <TechIcon src="/tech/faiss.svg" label="FAISS" /> */}
+                  {/* <TechIcon src="/tech/milvus.svg" label="Milvus" /> */}
                 </div>
               </div>
             </div>
 
-            {/* 4. Automation & Testing Tools (Prominent) */}
+            {/* 4. Automation & Testing Tools */}
             <div className="bg-[#1a2f33]/80 backdrop-blur-sm border border-[#00d4aa]/40 rounded-xl hover:border-[#00d4aa]/60 hover:shadow-lg transition-colors lg:col-span-2 ring-1 ring-[#00d4aa]/25">
               <div className="p-6">
                 <div className="mb-4 inline-flex items-center gap-3">
@@ -792,9 +842,13 @@ export default function HumansPage() {
                   </span>
                   <h3 className="text-xl font-bold text-[#00d4aa]">Automation &amp; Testing Tools</h3>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p>{'• Selenium, Cypress, Playwright'}</p>
-                  <p>{'• TestRail, Postman, Cucumber'}</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <TechIcon src="/tech/selenium.svg" label="Selenium" />
+                  <TechIcon src="/tech/cypress.svg" label="Cypress" />
+                  <TechIcon src="/tech/playwright.svg" label="Playwright" />
+                  <TechIcon src="/tech/postman.svg" label="Postman" />
+                  <TechIcon src="/tech/cucumber.svg" label="Cucumber" />
+                  {/* TestRail icon may not be available — keep text mention elsewhere if needed */}
                 </div>
               </div>
             </div>
@@ -808,10 +862,14 @@ export default function HumansPage() {
                   </span>
                   <h3 className="text-xl font-bold text-[#00d4aa]">DevOps &amp; MLOps</h3>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p>{'• Jenkins, GitHub Actions, GitLab CI/CD'}</p>
-                  <p>{'• Docker, Kubernetes'}</p>
-                  <p>{'• MLflow, Weights & Biases'}</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <TechIcon src="/tech/jenkins.svg" label="Jenkins" />
+                  <TechIcon src="/tech/githubactions.svg" label="GitHub Actions" />
+                  <TechIcon src="/tech/gitlab.svg" label="GitLab CI/CD" />
+                  <TechIcon src="/tech/docker.svg" label="Docker" />
+                  <TechIcon src="/tech/kubernetes.svg" label="Kubernetes" />
+                  <TechIcon src="/tech/mlflow.svg" label="MLflow" />
+                  <TechIcon src="/tech/weightsandbiases.svg" label="Weights & Biases" />
                 </div>
               </div>
             </div>
@@ -825,11 +883,10 @@ export default function HumansPage() {
                   </span>
                   <h3 className="text-xl font-bold text-[#00d4aa]">Cloud &amp; Infrastructure</h3>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p>{'• AWS (SageMaker, Lambda, ECS)'}</p>
-                  <p>{'• Google Cloud (Vertex AI, BigQuery)'}</p>
-                  <p>{'• Microsoft Azure (Cognitive Services, ML)'}</p>
-                  <p>{'• Cloud-native microservices'}</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <TechIcon src="/tech/amazonaws.svg" label="AWS" />
+                  <TechIcon src="/tech/googlecloud.svg" label="Google Cloud" />
+                  <TechIcon src="/tech/microsoftazure.svg" label="Microsoft Azure" />
                 </div>
               </div>
             </div>
@@ -844,12 +901,12 @@ export default function HumansPage() {
                   <h3 className="text-xl font-bold text-[#00d4aa]">Advanced AI Capabilities</h3>
                 </div>
                 <div className="space-y-1.5 text-gray-300">
-                  <p>{'• Multi-agent orchestration'}</p>
-                  <p>{'• Reinforcement Learning'}</p>
-                  <p>{'• Multi-modal reasoning (text, vision, audio)'}</p>
-                  <p>{'• Human-in-the-loop optimization'}</p>
-                  <p>{'• Graph-based reasoning'}</p>
-                  <p>{'• Autonomous AI systems for QE'}</p>
+                  <p>{"• Multi-agent orchestration"}</p>
+                  <p>{"• Reinforcement Learning"}</p>
+                  <p>{"• Multi-modal reasoning (text, vision, audio)"}</p>
+                  <p>{"• Human-in-the-loop optimization"}</p>
+                  <p>{"• Graph-based reasoning"}</p>
+                  <p>{"• Autonomous AI systems for QE"}</p>
                 </div>
               </div>
             </div>

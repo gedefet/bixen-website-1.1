@@ -1,7 +1,18 @@
 "use client"
 
 import Image from "next/image"
-import { Camera, MessageSquareText, Workflow, LineChartIcon as ChartLine, Sparkles, FileText, Mic } from 'lucide-react'
+import {
+  Camera,
+  MessageSquareText,
+  Workflow,
+  LineChartIcon as ChartLine,
+  Sparkles,
+  FileText,
+  Mic,
+  ServerCog,
+} from "lucide-react"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { cn } from "@/lib/utils"
 
 type Capability = {
   title: string
@@ -10,11 +21,11 @@ type Capability = {
   icon: JSX.Element
 }
 
-const capabilities: Capability[] = [
+const allCapabilities: Capability[] = [
+  // Requested first three
   {
     title: "Generative AI Agents",
-    description:
-      "Sales assistants, onboarding copilots, and intelligent automation",
+    description: "Sales assistants, onboarding copilots, and intelligent automation",
     image: "/placeholder.jpg",
     icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
   },
@@ -25,11 +36,27 @@ const capabilities: Capability[] = [
     icon: <Camera className="h-5 w-5 text-[#0dc4a8]" />,
   },
   {
+    title: "DevOps & MLOps",
+    description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
+    image: "/placeholder.jpg",
+    icon: <ServerCog className="h-5 w-5 text-[#0dc4a8]" />,
+  },
+
+  // Then: Recommendation Systems, Intelligent Chatbots
+  {
+    title: "Recommendation Systems",
+    description: "Personalization engines for enhanced user experience",
+    image: "/solo-developer-focused.png",
+    icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
+  },
+  {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
     image: "/senior-ai-consultant.png",
     icon: <MessageSquareText className="h-5 w-5 text-[#0dc4a8]" />,
   },
+
+  // Remaining capabilities (original cards)
   {
     title: "Workflow Automation",
     description: "AI + RPA for intelligent process automation",
@@ -41,12 +68,6 @@ const capabilities: Capability[] = [
     description: "Health, finance, and logistics forecasting systems",
     image: "/office-workspace-hero.png",
     icon: <ChartLine className="h-5 w-5 text-[#0dc4a8]" />,
-  },
-  {
-    title: "Recommendation Systems",
-    description: "Personalization engines for enhanced user experience",
-    image: "/solo-developer-focused.png",
-    icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
   },
   {
     title: "Document Processing",
@@ -62,16 +83,21 @@ const capabilities: Capability[] = [
   },
 ]
 
-function CapabilityCard({ cap }: { cap: Capability }) {
+function CapabilityCard({ cap, className }: { cap: Capability; className?: string }) {
   return (
-    <article className="group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
+    <article
+      className={cn(
+        "group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)]",
+        className,
+      )}
+    >
       {/* Image header */}
       <div className="relative w-full aspect-[16/10]">
         <Image
           src={cap.image || "/placeholder.svg"}
           alt={cap.title}
           fill
-          sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw"
           className="object-cover"
           priority={false}
         />
@@ -90,12 +116,8 @@ function CapabilityCard({ cap }: { cap: Capability }) {
 
       {/* Text block */}
       <div className="px-6 pt-5 pb-6">
-        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight">
-          {cap.title}
-        </h3>
-        <p className="mt-2 text-white/75 text-sm md:text-base leading-relaxed">
-          {cap.description}
-        </p>
+        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight">{cap.title}</h3>
+        <p className="mt-2 text-white/75 text-sm md:text-base leading-relaxed">{cap.description}</p>
       </div>
 
       {/* subtle hover ring */}
@@ -106,25 +128,35 @@ function CapabilityCard({ cap }: { cap: Capability }) {
 
 export default function WhatWeDoSection() {
   return (
-    <section
-      id="what-we-do"
-      className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-8 md:py-14"
-    >
+    <section id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-8 md:py-14">
       <div className="text-center max-w-[900px] mx-auto mb-6 md:mb-10 px-2 md:px-0">
-        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-3 text-white">
-          What We Do
-        </h2>
+        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-3 text-white">What We Do</h2>
         <p className="text-white/80 text-lg md:text-xl">
           Practical AI and product capabilities that compound business value.
         </p>
       </div>
 
-      <div className="rounded-[2rem] border border-white/10 bg-[#0d2730]/60 p-5 md:p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-          {capabilities.map((cap) => (
-            <CapabilityCard key={cap.title} cap={cap} />
-          ))}
-        </div>
+      <div className="rounded-[2rem] border border-white/10 bg-[#0d2730]/60 p-4 md:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+        <Carousel
+          className="w-full"
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselContent className="-ml-3 md:-ml-4">
+            {allCapabilities.map((cap) => (
+              <CarouselItem key={cap.title} className="pl-3 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                <CapabilityCard cap={cap} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <div className="mt-4 flex items-center justify-end gap-3">
+            <CarouselPrevious className="relative" />
+            <CarouselNext className="relative" />
+          </div>
+        </Carousel>
       </div>
     </section>
   )
