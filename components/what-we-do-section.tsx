@@ -90,7 +90,7 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover image-grade"
-          priority={false}
+          loading="lazy"
         />
         <div className="absolute inset-0 uniform-overlay pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/15 to-transparent rounded-t-2xl pointer-events-none" />
