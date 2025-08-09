@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { cn } from "@/lib/utils"
+import type { JSX } from "react" // Import JSX to fix the undeclared variable error
 
 type Capability = {
   title: string
@@ -152,10 +153,8 @@ export default function WhatWeDoSection() {
             ))}
           </CarouselContent>
 
-          <div className="mt-4 flex items-center justify-end gap-3">
-            <CarouselPrevious className="relative" />
-            <CarouselNext className="relative" />
-          </div>
+          <CarouselPrevious className="left-3 md:left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 md:h-11 md:w-11 border-white/30 bg-black/30 text-white hover:bg-black/40 backdrop-blur-sm shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" />
+          <CarouselNext className="right-3 md:right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 md:h-11 md:w-11 border-white/30 bg-black/30 text-white hover:bg-black/40 backdrop-blur-sm shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" />
         </Carousel>
       </div>
     </section>
