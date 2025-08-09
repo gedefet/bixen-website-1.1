@@ -59,7 +59,8 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        // Prioritize Helvetica Neue, then fall back to system sans-serif fonts
+        sans: ["Helvetica Neue", "system-ui", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
       },
       animation: {

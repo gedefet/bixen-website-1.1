@@ -6,9 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
-import { Montserrat } from "next/font/google"
-
-const montserrat = Montserrat({ subsets: ["latin"] })
 
 type Offering = {
   title: string
@@ -94,7 +91,7 @@ export default function HeroSection() {
                           {/* Increased spacing and larger title for emphasis */}
                           <div className="flex h-full w-full flex-col items-center justify-center text-center gap-7 px-3 sm:px-4">
                             <h3
-                              className={`font-montserrat text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] ${montserrat.className}`}
+                              className={`font-sans text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1]`}
                             >
                               {item.title}
                             </h3>
