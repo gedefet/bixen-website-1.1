@@ -51,6 +51,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans",
+      "Liberation Sans", sans-serif;
   }
   h1,
   h2,
@@ -330,5 +332,51 @@ html {
 
   .translate-z-50 {
     transform: translateZ(50px);
+  }
+
+  /* Unified cool (slightly warm) grading and micro-interactions */
+  .image-grade {
+    /* cooler with a hint of warmth via mild saturation */
+    filter: hue-rotate(176deg) saturate(0.95) contrast(1.05) brightness(0.98);
+  }
+  .photo-grade {
+    /* subtle teal-cool overlay with a soft dark fade for legibility */
+    background: linear-gradient(to bottom, rgba(20, 180, 200, 0.1), rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.38));
+  }
+
+  .glass-hover {
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(1, 249, 198, 0.12), 0 6px 20px rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .btn-hover {
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  }
+  .btn-hover:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(1, 249, 198, 0.25), 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .icon-6 {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .section-spacing {
+    margin-bottom: 2rem;
+  }
+  @media (min-width: 768px) {
+    .section-spacing {
+      margin-bottom: 6rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-spacing {
+      margin-bottom: 7.5rem;
+    }
   }
 }

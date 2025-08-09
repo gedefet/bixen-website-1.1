@@ -16,33 +16,32 @@ export default function Home() {
       <HeroHeaderContainer />
 
       <div className="pt-3 sm:pt-4 md:pt-10 lg:pt-12 px-2 md:px-8 lg:px-16 xl:px-24">
-        {/* Sections with minimal spacing on mobile, maximum spacing on desktop */}
-        <div className="relative z-10 mb-6 md:mb-24" id="what-we-do">
+        {/* Unified breathing space */}
+        <div className="relative z-10 section-spacing" id="what-we-do">
           <WhatWeDoSection />
         </div>
 
-        <div className="relative z-20 mb-6 md:mb-24">
+        <div className="relative z-20 section-spacing">
           <VisionSection />
         </div>
 
-        <div className="relative z-30 mb-6 md:mb-24" id="features">
+        <div className="relative z-30 section-spacing" id="features">
           <FeaturesSection />
         </div>
 
-        <div className="relative z-40 mb-6 md:mb-24" id="partners">
+        <div className="relative z-40 section-spacing" id="partners">
           <PartnersCarousel />
         </div>
 
-        <div className="relative z-50 mb-6 md:mb-24" id="case-studies">
+        <div className="relative z-50 section-spacing" id="case-studies">
           <CaseStudiesSection />
         </div>
 
-        <div className="relative z-30 mb-6 md:mb-24" id="business-partners">
+        <div className="relative z-30 section-spacing" id="business-partners">
           <BusinessPartnerSection />
         </div>
       </div>
 
-      {/* Keep the remaining sections as they were */}
       <SectionWrapper
         backgroundColor="transparent"
         prevSectionColor="transparent"
@@ -63,7 +62,12 @@ export default function Home() {
         <QuoteSection />
       </SectionWrapper>
 
-      <SectionWrapper backgroundColor="transparent" prevSectionColor="transparent" id="contact" className="px-2 md:px-8 lg:px-16 xl:px-24">
+      <SectionWrapper
+        backgroundColor="transparent"
+        prevSectionColor="transparent"
+        id="contact"
+        className="px-2 md:px-8 lg:px-16 xl:px-24"
+      >
         <ContactSection />
       </SectionWrapper>
     </main>

@@ -13,7 +13,7 @@ import {
 } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { cn } from "@/lib/utils"
-import type { JSX } from "react" // Import JSX to fix the undeclared variable error
+import type { JSX } from "react"
 
 type Capability = {
   title: string
@@ -22,60 +22,61 @@ type Capability = {
   icon: JSX.Element
 }
 
+// Reordered per your last instructions and kept relevant tech imagery
 const allCapabilities: Capability[] = [
   {
     title: "Generative AI Agents",
     description: "Sales assistants, onboarding copilots, and intelligent automation",
     image: "/images/capabilities/generative-ai-agents.jpg",
-    icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Computer Vision Systems",
     description: "Object detection, quality control, and video analytics",
     image: "/body-recognition-silhouette.png",
-    icon: <Camera className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <Camera className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "DevOps & MLOps",
     description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
     image: "/images/capabilities/devops-mlops.jpg",
-    icon: <ServerCog className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <ServerCog className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Recommendation Systems",
     description: "Personalization engines for enhanced user experience",
     image: "/images/capabilities/recommendation-systems.jpg",
-    icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
     image: "/images/capabilities/intelligent-chatbots.jpg",
-    icon: <MessageSquareText className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <MessageSquareText className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Workflow Automation",
     description: "AI + RPA for intelligent process automation",
     image: "/workflow-automation-diagram.png",
-    icon: <Workflow className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <Workflow className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Predictive Analytics",
     description: "Health, finance, and logistics forecasting systems",
     image: "/images/capabilities/predictive-analytics.jpg",
-    icon: <ChartLine className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <ChartLine className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Document Processing",
     description: "OCR, NER, and intelligent document classification",
     image: "/images/capabilities/document-processing.jpg",
-    icon: <FileText className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <FileText className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Voice Interfaces",
     description: "Speech-to-text, voicebots, and audio processing",
     image: "/female-ai-avatar-soundwaves.png",
-    icon: <Mic className="h-5 w-5 text-[#0dc4a8]" />,
+    icon: <Mic className="icon-6 text-[#0dc4a8]" />,
   },
 ]
 
@@ -83,7 +84,7 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
   return (
     <article
       className={cn(
-        "group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)]",
+        "group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)] glass-hover",
         className,
       )}
     >
@@ -94,9 +95,11 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
           alt={cap.title}
           fill
           sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw"
-          className="object-cover"
+          className="object-cover image-grade"
           priority={false}
         />
+        {/* unified cool tint overlay */}
+        <div className="absolute inset-0 pointer-events-none photo-grade" />
         {/* soft highlight and legibility gradient */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/[0.18] to-transparent rounded-t-2xl" />
@@ -124,8 +127,8 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
 
 export default function WhatWeDoSection() {
   return (
-    <section id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-8 md:py-14">
-      <div className="text-center max-w-[900px] mx-auto mb-6 md:mb-10 px-2 md:px-0">
+    <section id="what-we-do" className="px-0 md:container md:px-8 lg:px-16 xl:px-24 py-10 md:py-16">
+      <div className="text-center max-w-[900px] mx-auto mb-8 md:mb-12 px-2 md:px-0">
         <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-3 text-white">What We Do</h2>
         <p className="text-white/80 text-lg md:text-xl">
           Practical AI and product capabilities that compound business value.
