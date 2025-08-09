@@ -23,11 +23,10 @@ type Capability = {
 }
 
 const allCapabilities: Capability[] = [
-  // Requested first three
   {
     title: "Generative AI Agents",
     description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "/placeholder.jpg",
+    image: "/images/capabilities/generative-ai-agents.jpg",
     icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
   },
   {
@@ -39,25 +38,21 @@ const allCapabilities: Capability[] = [
   {
     title: "DevOps & MLOps",
     description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
-    image: "/placeholder.jpg",
+    image: "/images/capabilities/devops-mlops.jpg",
     icon: <ServerCog className="h-5 w-5 text-[#0dc4a8]" />,
   },
-
-  // Then: Recommendation Systems, Intelligent Chatbots
   {
     title: "Recommendation Systems",
     description: "Personalization engines for enhanced user experience",
-    image: "/solo-developer-focused.png",
+    image: "/images/capabilities/recommendation-systems.jpg",
     icon: <Sparkles className="h-5 w-5 text-[#0dc4a8]" />,
   },
   {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
-    image: "/senior-ai-consultant.png",
+    image: "/images/capabilities/intelligent-chatbots.jpg",
     icon: <MessageSquareText className="h-5 w-5 text-[#0dc4a8]" />,
   },
-
-  // Remaining capabilities (original cards)
   {
     title: "Workflow Automation",
     description: "AI + RPA for intelligent process automation",
@@ -67,13 +62,13 @@ const allCapabilities: Capability[] = [
   {
     title: "Predictive Analytics",
     description: "Health, finance, and logistics forecasting systems",
-    image: "/office-workspace-hero.png",
+    image: "/images/capabilities/predictive-analytics.jpg",
     icon: <ChartLine className="h-5 w-5 text-[#0dc4a8]" />,
   },
   {
     title: "Document Processing",
     description: "OCR, NER, and intelligent document classification",
-    image: "/placeholder.jpg",
+    image: "/images/capabilities/document-processing.jpg",
     icon: <FileText className="h-5 w-5 text-[#0dc4a8]" />,
   },
   {
