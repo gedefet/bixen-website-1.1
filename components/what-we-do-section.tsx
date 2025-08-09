@@ -27,7 +27,7 @@ const allCapabilities: Capability[] = [
   {
     title: "Generative AI Agents",
     description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "/images/capabilities/generative-ai-agents.jpg",
+    image: "/placeholder.jpg",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
@@ -39,19 +39,19 @@ const allCapabilities: Capability[] = [
   {
     title: "DevOps & MLOps",
     description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
-    image: "/images/capabilities/devops-mlops.jpg",
+    image: "/images/rpa-technology.png",
     icon: <ServerCog className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Recommendation Systems",
     description: "Personalization engines for enhanced user experience",
-    image: "/images/capabilities/recommendation-systems.jpg",
+    image: "/solo-developer-focused.png",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
-    image: "/images/capabilities/intelligent-chatbots.jpg",
+    image: "/senior-ai-consultant.png",
     icon: <MessageSquareText className="icon-6 text-[#0dc4a8]" />,
   },
   {
@@ -63,13 +63,13 @@ const allCapabilities: Capability[] = [
   {
     title: "Predictive Analytics",
     description: "Health, finance, and logistics forecasting systems",
-    image: "/images/capabilities/predictive-analytics.jpg",
+    image: "/office-workspace-hero.png",
     icon: <ChartLine className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Document Processing",
     description: "OCR, NER, and intelligent document classification",
-    image: "/images/capabilities/document-processing.jpg",
+    image: "/placeholder.jpg",
     icon: <FileText className="icon-6 text-[#0dc4a8]" />,
   },
   {
