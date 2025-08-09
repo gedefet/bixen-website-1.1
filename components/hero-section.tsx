@@ -3,15 +3,12 @@
 import AnimatedSection from "@/components/animated-section"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
+import { Montserrat } from "next/font/google"
+
+const montserrat = Montserrat({ subsets: ["latin"] })
 
 type Offering = {
   title: string
@@ -24,25 +21,21 @@ type Offering = {
 const offerings: Offering[] = [
   {
     title: "AI Solutions & Delivery",
-    description:
-      "From chatbots to computer vision, we deliver applied AI with measurable impact.",
+    description: "From chatbots to computer vision, we deliver applied AI with measurable impact.",
   },
   {
     title: "Curated Humans",
-    description:
-      "Certified AI professionals ready to join your team and deliver from day one.",
+    description: "Certified AI professionals ready to join your team and deliver from day one.",
     ctaHref: "/humans",
     isHumans: true,
   },
   {
     title: "AI Journey",
-    description:
-      "We help you integrate AI across all your organization, in an effective way.",
+    description: "We help you integrate AI across all your organization, in an effective way.",
   },
   {
     title: "Product Strategy and Design",
-    description:
-      "Co-create your product vision and validate the right solutions before you build.",
+    description: "Co-create your product vision and validate the right solutions before you build.",
   },
 ]
 
@@ -53,7 +46,7 @@ export default function HeroSection() {
       delay: 3000,
       stopOnInteraction: false,
       stopOnMouseEnter: false,
-    })
+    }),
   )
 
   return (
@@ -100,7 +93,9 @@ export default function HeroSection() {
                         <div className="h-full w-full flex items-center justify-center">
                           {/* Increased spacing and larger title for emphasis */}
                           <div className="flex h-full w-full flex-col items-center justify-center text-center gap-7 px-3 sm:px-4">
-                            <h3 className="text-white text-5xl md:text-6xl lg:text-7xl font-semibold">
+                            <h3
+                              className={`font-montserrat text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] ${montserrat.className}`}
+                            >
                               {item.title}
                             </h3>
                             <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch]">
