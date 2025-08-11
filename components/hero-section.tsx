@@ -23,7 +23,10 @@ const offerings: Offering[] = [
     ctaHref: "/humans",
     isHumans: true,
   },
-  { title: "AI Journey", description: "We help you integrate AI across all your organization, in an effective way." },
+  {
+    title: "AI Journey",
+    description: "We help you integrate AI across all your organization, in a 7-step framework proven by Bixen.",
+  },
   {
     title: "Product Strategy and Design",
     description: "Co-create your product vision and validate the right solutions before you build.",
@@ -86,15 +89,15 @@ export default function HeroSection() {
                       }`}
                     >
                       <div className="h-full w-full flex items-center justify-center">
-                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-7 px-3 sm:px-4">
+                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-8 px-3 sm:px-4">
                           <h3 className="font-sans text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
                             {item.title}
                           </h3>
-                          <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch]">
+                          <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch] mt-4">
                             {item.description}
                           </p>
                           {item.isHumans && item.ctaHref && (
-                            <div className="pt-1">
+                            <div className="pt-2">
                               <Link href={item.ctaHref}>
                                 <Button
                                   className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)] btn-hover"

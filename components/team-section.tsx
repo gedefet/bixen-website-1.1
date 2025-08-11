@@ -1,112 +1,122 @@
+"use client"
+
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Linkedin, Mail } from "lucide-react"
+
+type TeamMember = {
+  name: string
+  role: string
+  description: string
+  image: string
+  skills: string[]
+  linkedin?: string
+  email?: string
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    name: "Federico Lopez",
+    role: "Founder & CEO",
+    description: "AI strategist with 10+ years building scalable solutions for Fortune 500 companies.",
+    image: "/images/federico-new.jpg",
+    skills: ["AI Strategy", "Product Leadership", "Team Building"],
+    linkedin: "https://linkedin.com/in/federicolopez",
+    email: "federico@bixen.co",
+  },
+  {
+    name: "Senior AI Consultant",
+    role: "Technical Lead",
+    description: "Expert in machine learning and deep learning with extensive experience in computer vision.",
+    image: "/images/senior-ai-consultant.png",
+    skills: ["Machine Learning", "Computer Vision", "MLOps"],
+  },
+  {
+    name: "Solo Developer",
+    role: "Full Stack Developer",
+    description: "Focused developer specializing in AI-powered applications and modern web technologies.",
+    image: "/images/solo-developer-focused.png",
+    skills: ["React", "Python", "AI Integration"],
+  },
+  {
+    name: "Award Winner",
+    role: "Data Scientist",
+    description: "Award-winning data scientist with expertise in predictive analytics and business intelligence.",
+    image: "/images/person-with-award-ribbon.png",
+    skills: ["Data Science", "Analytics", "Business Intelligence"],
+  },
+]
 
 export default function TeamSection() {
-  const team = [
-    {
-      name: "Federico Lopez",
-      role: "Founder & CEO",
-      bio: "Bringing together technology and business strategy, Federico helps drive Bixen's vision and innovation",
-      image: "/images/federico-new.jpg",
-    },
-    {
-      name: "Alejandro Sagula",
-      role: "Corporate Architecture and Automation Expert",
-      bio: "Alejandro brings over 30 years of experience in large-scale IT organizations, helping companies scale products and systems efficiently. As an advisor to Bixen, he contributes his expertise in automation and enterprise architecture with a focus on operational excellence.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alesagula-1gDy7EWJAz339nREa6XP184LtGKXRd.jpeg",
-    },
-    {
-      name: "Damian Minnock",
-      role: "AI & Machine Learning Leader",
-      bio: "MSc AI specialist with expertise in Computer Vision, Voice Processing, and Large Language Models (LLM). As a senior advisor, he supports Bixen's most complex AI initiatives, leading innovation with a strong hands-on approach.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damian.jpg-QJtCUyZNrHwbqwzufrI74Rs0MtwF4R.jpeg",
-    },
-    {
-      name: "Florencia Zalazar",
-      role: "HR Manager",
-      bio: "Florencia shapes Bixen's culture and connects talent aligned with our values, building a team that thrives on creativity and impact.",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/florencia.jpg-jPdi9r41DvdVPdEoob4Ym8FJYeHe4x.jpeg",
-    },
-    {
-      name: "Joaquin Cuomo",
-      role: "Expert Advisor",
-      bio: "MSc specialist providing strategic guidance on LLM and NLP technologies, with deep expertise in applying AI to solve complex business challenges.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
-    },
-  ]
-
-  const firstRowMembers = team.slice(0, 3)
-  const secondRowMembers = team.slice(3, 5)
-
   return (
-    <div className="container px-2 md:px-6">
-      <div className="text-center max-w-[800px] mx-auto mb-4 md:mb-8">
-        <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
-        <p className="mt-2 md:mt-4 text-white text-sm md:text-xl max-w-3xl mx-auto">
-          Visionary minds, purposeful technology. These are some of the people driving Bixen, alongside a global team of
-          experts.
-        </p>
+    <section className="py-16 md:py-24">
+      <div className="text-center max-w-[900px] mx-auto mb-12 md:mb-16">
+        <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-4 text-white">Meet Our Team</h2>
+        <p className="text-white/80 text-lg md:text-xl">Exceptional talent driving innovation in AI and technology.</p>
       </div>
 
-      {/* First row: original images without filters */}
-      <div className="container px-2 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
-          {firstRowMembers.map((member, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover"
-            >
-              <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
-                <Image
-                  src={member.image || "/placeholder.svg"}
-                  alt={member.name}
-                  width={800}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {teamMembers.map((member, index) => (
+          <Card
+            key={index}
+            className="group overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover"
+          >
+            <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
+              <Image
+                src={member.image || "/placeholder.svg"}
+                alt={member.name}
+                fill
+                className="h-full w-full object-cover image-grade transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 pointer-events-none photo-grade" />
+
+              {/* Social links overlay */}
+              <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-[#0dc4a8]/20 transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                )}
+                {member.email && (
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-[#0dc4a8]/20 transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                  </a>
+                )}
               </div>
-              <CardHeader className="p-3 md:p-6">
-                <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
-                <CardDescription className="text-[#01F9C6] text-xs md:text-sm">{member.role}</CardDescription>
-              </CardHeader>
-              <CardContent className="p-3 md:p-6 pt-0">
-                <p className="text-xs md:text-sm text-white">{member.bio}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Second row: original images without filters */}
-      <div className="container px-2 md:px-6 mb-8 md:mb-16">
-        <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-6">
-          {secondRowMembers.map((member, index) => (
-            <div key={index} className="w-full md:w-1/3">
-              <Card className="h-full overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover">
-                <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    width={800}
-                    height={800}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <CardHeader className="p-3 md:p-6">
-                  <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
-                  <CardDescription className="text-[#01F9C6] text-xs md:text-sm">{member.role}</CardDescription>
-                </CardHeader>
-                <CardContent className="p-3 md:p-6 pt-0">
-                  <p className="text-xs md:text-sm text-white">{member.bio}</p>
-                </CardContent>
-              </Card>
             </div>
-          ))}
-        </div>
-      </div>
 
-      <div className="text-center max-w-3xl mx-auto">{/* reserved copy block if needed */}</div>
-    </div>
+            <div className="p-6">
+              <h3 className="text-white text-xl font-semibold tracking-tight mb-1">{member.name}</h3>
+              <p className="text-[#01F9C6] text-sm font-medium mb-3">{member.role}</p>
+              <p className="text-white/75 text-sm leading-relaxed mb-4">{member.description}</p>
+
+              {/* Skills badges */}
+              <div className="flex flex-wrap gap-2">
+                {member.skills.map((skill, skillIndex) => (
+                  <Badge
+                    key={skillIndex}
+                    variant="secondary"
+                    className="bg-[#0dc4a8]/10 text-[#0dc4a8] border-[#0dc4a8]/20 text-xs"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-white/10 transition-all duration-300" />
+          </Card>
+        ))}
+      </div>
+    </section>
   )
 }

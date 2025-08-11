@@ -22,12 +22,12 @@ type Capability = {
   icon: JSX.Element
 }
 
-// Reordered per your last instructions and kept relevant tech imagery
+// Enhanced capabilities with relevant images
 const allCapabilities: Capability[] = [
   {
     title: "Generative AI Agents",
     description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "/images/capabilities/generative-ai-agents.jpg",
+    image: "/female-ai-avatar-soundwaves.png",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
@@ -39,19 +39,19 @@ const allCapabilities: Capability[] = [
   {
     title: "DevOps & MLOps",
     description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
-    image: "/images/capabilities/devops-mlops.jpg",
+    image: "/images/office-workspace-hero.png",
     icon: <ServerCog className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Recommendation Systems",
     description: "Personalization engines for enhanced user experience",
-    image: "/images/capabilities/recommendation-systems.jpg",
+    image: "/images/drone-aerial-view.png",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
-    image: "/images/capabilities/intelligent-chatbots.jpg",
+    image: "/female-ai-avatar-soundwaves.png",
     icon: <MessageSquareText className="icon-6 text-[#0dc4a8]" />,
   },
   {
@@ -63,13 +63,13 @@ const allCapabilities: Capability[] = [
   {
     title: "Predictive Analytics",
     description: "Health, finance, and logistics forecasting systems",
-    image: "/images/capabilities/predictive-analytics.jpg",
+    image: "/images/body-scan-comparison.png",
     icon: <ChartLine className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Document Processing",
     description: "OCR, NER, and intelligent document classification",
-    image: "/images/capabilities/document-processing.jpg",
+    image: "/images/rpa-technology.png",
     icon: <FileText className="icon-6 text-[#0dc4a8]" />,
   },
   {

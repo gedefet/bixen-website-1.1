@@ -21,12 +21,13 @@ export default function Home() {
           <WhatWeDoSection />
         </div>
 
-        <div className="relative z-20 section-spacing">
-          <VisionSection />
-        </div>
-
+        {/* Rearranged: Why Choose Bixen (Features) before Vision */}
         <div className="relative z-30 section-spacing" id="features">
           <FeaturesSection />
+        </div>
+
+        <div className="relative z-20 section-spacing">
+          <VisionSection />
         </div>
 
         <div className="relative z-40 section-spacing" id="partners">
