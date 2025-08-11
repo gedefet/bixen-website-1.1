@@ -1,56 +1,52 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from "next/image"
 
 export default function PartnersCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Partner logos grouped into sets of three
-  const partnerGroups = [
-    [
-      {
-        name: "NVIDIA",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-VRdAI1eHxM2NYjZtoJlN7oaNqQXwYX.png",
-        size: "large",
-      },
-      {
-        name: "Amazon",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QrK5VKqq2imvPmwxs3Uy3Qer8guVgB.png",
-        size: "normal",
-      },
-      {
-        name: "Microsoft Azure",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-E3FvTS1BXHdoF3KOMD6sL7LtNc2Rut.png",
-        size: "xlarge",
-      },
-    ],
-    [
-      {
-        name: "Google Cloud",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ABX98sjMF1p1Ol198zNs15LxgR966k.png",
-        size: "xlarge",
-      },
-      {
-        name: "Ingenia",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-YBLKyRpcyLWwMZ84W6W8mrKVXJ3Kh3.png",
-        size: "normal",
-      },
-      {
-        name: "Universidad de Buenos Aires",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hxUQCX0I7n4TcYHz0ojZ5nlkb2nLWw.png",
-        size: "large",
-      },
-    ],
+  // Partner logos with their URLs
+  const partners = [
+    {
+      name: "NVIDIA",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-VRdAI1eHxM2NYjZtoJlN7oaNqQXwYX.png",
+      size: "large",
+    },
+    {
+      name: "Amazon",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QrK5VKqq2imvPmwxs3Uy3Qer8guVgB.png",
+      size: "normal",
+    },
+    {
+      name: "Microsoft Azure",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-E3FvTS1BXHdoF3KOMD6sL7LtNc2Rut.png",
+      size: "xlarge",
+    },
+    {
+      name: "Google Cloud",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ABX98sjMF1p1Ol198zNs15LxgR966k.png",
+      size: "xlarge",
+    },
+    {
+      name: "Ingenia",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-YBLKyRpcyLWwMZ84W6W8mrKVXJ3Kh3.png",
+      size: "normal", // Reduced size
+    },
+    {
+      name: "Universidad de Buenos Aires",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hxUQCX0I7n4TcYHz0ojZ5nlkb2nLWw.png",
+      size: "large",
+    },
   ]
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % partnerGroups.length)
+    setCurrentSlide((prev) => (prev + 1) % partners.length)
   }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + partnerGroups.length) % partnerGroups.length)
+    setCurrentSlide((prev) => (prev - 1 + partners.length) % partners.length)
   }
 
   useEffect(() => {
@@ -77,27 +73,21 @@ export default function PartnersCarousel() {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {partnerGroups.map((group, groupIndex) => (
-                <div key={groupIndex} className="w-full flex-shrink-0 flex items-center justify-center p-4 md:p-8">
-                  <div className="grid grid-cols-3 gap-8 md:gap-12 w-full max-w-4xl">
-                    {group.map((partner, partnerIndex) => (
-                      <div key={partnerIndex} className="flex items-center justify-center">
-                        <Image
-                          src={partner.image || "/placeholder.svg"}
-                          alt={`${partner.name} logo`}
-                          width={partner.size === "xlarge" ? 300 : partner.size === "large" ? 250 : 200}
-                          height={partner.size === "xlarge" ? 150 : partner.size === "large" ? 125 : 100}
-                          className={`object-contain ${
-                            partner.size === "xlarge"
-                              ? "max-h-[120px]"
-                              : partner.size === "large"
-                                ? "max-h-[100px]"
-                                : "max-h-[80px]"
-                          } w-auto`}
-                        />
-                      </div>
-                    ))}
-                  </div>
+              {partners.map((partner, index) => (
+                <div key={index} className="w-full flex-shrink-0 flex items-center justify-center p-4 md:p-8">
+                  <Image
+                    src={partner.image || "/placeholder.svg"}
+                    alt={`${partner.name} logo`}
+                    width={partner.size === "xlarge" ? 500 : partner.size === "large" ? 400 : 300}
+                    height={partner.size === "xlarge" ? 250 : partner.size === "large" ? 200 : 150}
+                    className={`object-contain ${
+                      partner.size === "xlarge"
+                        ? "max-h-[220px]"
+                        : partner.size === "large"
+                          ? "max-h-[180px]"
+                          : "max-h-[100px]"
+                    } w-auto`}
+                  />
                 </div>
               ))}
             </div>
@@ -117,7 +107,7 @@ export default function PartnersCarousel() {
             <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
           </button>
           <div className="flex justify-center mt-3 md:mt-6 gap-1 md:gap-2">
-            {partnerGroups.map((_, index) => (
+            {partners.map((_, index) => (
               <button
                 key={index}
                 className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${

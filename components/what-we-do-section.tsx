@@ -22,60 +22,60 @@ type Capability = {
   icon: JSX.Element
 }
 
-// Reordered per your last instructions and kept relevant tech imagery
+// Updated with the new visual elements for enhanced design coherence
 const allCapabilities: Capability[] = [
   {
     title: "Generative AI Agents",
     description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/generative-ai-agents-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/robot-ai-agent.png",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Computer Vision Systems",
     description: "Object detection, quality control, and video analytics",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/computer-vision-systems-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/forest-aerial-view.png",
     icon: <Camera className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "DevOps & MLOps",
     description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/devops-mlops-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/mlops-workflow.png",
     icon: <ServerCog className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Recommendation Systems",
     description: "Personalization engines for enhanced user experience",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/recommendation-systems-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/recommendation-systems.png",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/intelligent-chatbots-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/intelligent-chatbots.png",
     icon: <MessageSquareText className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Workflow Automation",
     description: "AI + RPA for intelligent process automation",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/workflow-automation-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/workflow-automation.png",
     icon: <Workflow className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Predictive Analytics",
     description: "Health, finance, and logistics forecasting systems",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/predictive-analytics-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/predictive-analytics.png",
     icon: <ChartLine className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Document Processing",
     description: "OCR, NER, and intelligent document classification",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/document-processing-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/ocr-document-processing.png",
     icon: <FileText className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Voice Interfaces",
     description: "Speech-to-text, voicebots, and audio processing",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/voice-interfaces-Yd9Iy9Yd9Iy9.jpg",
+    image: "/images/capabilities/voice-interfaces.png",
     icon: <Mic className="icon-6 text-[#0dc4a8]" />,
   },
 ]
@@ -151,8 +151,8 @@ export default function WhatWeDoSection() {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious className="-left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10 md:h-11 md:w-11 border-white/30 bg-black/30 text-white hover:bg-black/40 backdrop-blur-sm shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" />
-          <CarouselNext className="-right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10 md:h-11 md:w-11 border-white/30 bg-black/30 text-white hover:bg-black/40 backdrop-blur-sm shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" />
+          <CarouselPrevious className="left-3 md:left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 md:h-11 md:w-11 border-white/30 bg-black/30 text-white hover:bg-black/40 backdrop-blur-sm shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" />
+          <CarouselNext className="right-3 md:right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 md:h-11 md:w-11 border-white/30 bg-black/30 text-white hover:bg-black/40 backdrop-blur-sm shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60" />
         </Carousel>
       </div>
     </section>

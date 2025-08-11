@@ -6,7 +6,6 @@ import QuoteSection from "@/components/quote-section"
 import ContactSection from "@/components/contact-section"
 import WhatWeDoSection from "@/components/what-we-do-section"
 import VisionSection from "@/components/vision-section"
-import ServiceLevelsSection from "@/components/service-levels-section"
 import SectionWrapper from "@/components/section-wrapper"
 import HeroHeaderContainer from "@/components/hero-header-container"
 import BusinessPartnerSection from "@/components/business-partner-section"
@@ -15,11 +14,6 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <HeroHeaderContainer />
-
-      {/* Service Levels Section - Right after Hero */}
-      <div className="relative z-60">
-        <ServiceLevelsSection />
-      </div>
 
       <div className="pt-3 sm:pt-4 md:pt-10 lg:pt-12 px-2 md:px-8 lg:px-16 xl:px-24">
         {/* Unified breathing space */}
