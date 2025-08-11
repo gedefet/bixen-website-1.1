@@ -53,11 +53,11 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
           <AnimatedSection direction="left" className="self-center">
             <div className="max-w-xl">
-              <p className="text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal leading-tight">
+              <p className="text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal leading-tight font-[Inter,sans-serif]">
                 {"Unique solutions for "}
                 <span className="text-secondary font-medium">{"forward-thinking people."}</span>
               </p>
-              <p className="mt-6 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
+              <p className="mt-6 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal font-[Inter,sans-serif]">
                 {"Leveraging deep AI expertise and "}
                 <span className="text-secondary font-medium">{"exceptional talent"}</span>
                 {" to push beyond off-the-shelf technology."}

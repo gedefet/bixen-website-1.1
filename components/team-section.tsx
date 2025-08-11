@@ -49,7 +49,7 @@ export default function TeamSection() {
         </p>
       </div>
 
-      {/* First row: uniform square portraits with unified grading */}
+      {/* First row: original images without filters */}
       <div className="container px-2 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
           {firstRowMembers.map((member, index) => (
@@ -63,10 +63,8 @@ export default function TeamSection() {
                   alt={member.name}
                   width={800}
                   height={800}
-                  className="h-full w-full object-cover image-grade"
+                  className="h-full w-full object-cover"
                 />
-                {/* unified cool tint overlay */}
-                <div className="absolute inset-0 pointer-events-none photo-grade" />
               </div>
               <CardHeader className="p-3 md:p-6">
                 <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
@@ -80,7 +78,7 @@ export default function TeamSection() {
         </div>
       </div>
 
-      {/* Second row: uniform square portraits and grading */}
+      {/* Second row: original images without filters */}
       <div className="container px-2 md:px-6 mb-8 md:mb-16">
         <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-6">
           {secondRowMembers.map((member, index) => (
@@ -92,10 +90,8 @@ export default function TeamSection() {
                     alt={member.name}
                     width={800}
                     height={800}
-                    className="h-full w-full object-cover image-grade"
+                    className="h-full w-full object-cover"
                   />
-                  {/* unified cool tint overlay */}
-                  <div className="absolute inset-0 pointer-events-none photo-grade" />
                 </div>
                 <CardHeader className="p-3 md:p-6">
                   <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
