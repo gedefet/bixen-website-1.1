@@ -5,47 +5,41 @@
 @layer base {
   :root {
     /* Dark theme colors with softer teal palette */
-    --background: 222.2 84% 4.9%; /* Updated color */
-    --foreground: 210 40% 98%; /* Updated color */
+    --background: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+    --foreground: 0 0% 100%; /* #FFFFFF - White */
 
     /* Card colors */
-    --card: 222.2 84% 4.9%; /* Updated color */
-    --card-foreground: 210 40% 98%; /* Updated color */
+    --card: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+    --card-foreground: 0 0% 100%; /* #FFFFFF - White */
 
     /* Popover colors */
-    --popover: 222.2 84% 4.9%; /* Updated color */
-    --popover-foreground: 210 40% 98%; /* Updated color */
+    --popover: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF - White */
 
-    /* Primary - Updated color */
-    --primary: 210 40% 98%; /* Updated color */
-    --primary-foreground: 222.2 84% 4.9%; /* Updated color */
+    /* Primary - Softer Teal Blue */
+    --primary: 190 50% 44%; /* #339ca7 - Less saturated Teal Blue */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White */
 
-    /* Secondary - Updated color */
-    --secondary: 217.2 32.6% 17.5%; /* Updated color */
-    --secondary-foreground: 210 40% 98%; /* Updated color */
+    /* Secondary - Softer Bright Teal */
+    --secondary: 165 60% 65%; /* #66e6d3 - Less saturated Bright Teal */
+    --secondary-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
 
     /* Muted colors */
-    --muted: 217.2 32.6% 17.5%; /* Updated color */
-    --muted-foreground: 215 20.2% 65.1%; /* Updated color */
+    --muted: 190 60% 22%; /* Slightly lighter than background */
+    --muted-foreground: 0 0% 100%; /* #FFFFFF - White */
 
-    /* Accent - Updated color */
-    --accent: 217.2 32.6% 17.5%; /* Updated color */
-    --accent-foreground: 210 40% 98%; /* Updated color */
+    /* Accent - Softer Aquamarine */
+    --accent: 160 60% 85%; /* #a2f5e3 - Less saturated Aquamarine */
+    --accent-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
 
     /* Destructive */
-    --destructive: 0 62.8% 30.6%; /* Updated color */
-    --destructive-foreground: 210 40% 98%; /* Updated color */
+    --destructive: 0 84.2% 60.2%; /* Keep destructive as is */
+    --destructive-foreground: 0 0% 98%;
 
     /* Border and input colors - lower opacity and contrast */
-    --border: 217.2 32.6% 17.5%; /* Updated color */
-    --input: 217.2 32.6% 17.5%; /* Updated color */
-    --ring: 212.7 26.8% 83.9%; /* Updated color */
-
-    --chart-1: 220 70% 50%; /* New chart color */
-    --chart-2: 160 60% 45%; /* New chart color */
-    --chart-3: 30 80% 55%; /* New chart color */
-    --chart-4: 280 65% 60%; /* New chart color */
-    --chart-5: 340 75% 55%; /* New chart color */
+    --border: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
+    --input: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
+    --ring: 190 50% 44% / 50%; /* #339ca7 with moderate opacity */
 
     --radius: 0.5rem;
   }
@@ -57,7 +51,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans",
+      "Liberation Sans", sans-serif;
   }
   h1,
   h2,
@@ -342,15 +337,15 @@ html {
   /* Unified cool (slightly warm) grading and micro-interactions */
   .image-grade {
     /* cooler with a hint of warmth via mild saturation */
-    filter: saturate(0.9) contrast(1.05) hue-rotate(178deg);
+    filter: hue-rotate(176deg) saturate(0.95) contrast(1.05) brightness(0.98);
   }
   .photo-grade {
     /* subtle teal-cool overlay with a soft dark fade for legibility */
-    background: linear-gradient(to bottom, rgba(2, 164, 185, 0.1), rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.35));
+    background: linear-gradient(to bottom, rgba(20, 180, 200, 0.1), rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.38));
   }
 
   .glass-hover {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
   }
   .glass-hover:hover {
     transform: translateY(-2px);
@@ -359,7 +354,7 @@ html {
   }
 
   .btn-hover {
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
   }
   .btn-hover:hover {
     transform: translateY(-1px);
@@ -384,33 +379,4 @@ html {
       margin-bottom: 7.5rem;
     }
   }
-}
-
-.btn-primary {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.18s;
-}
-
-.btn-primary:hover {
-  background-color: hsl(var(--primary) / 0.9);
-  transform: translateY(-1px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-.btn-primary:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-}
-
-.btn-secondary-link {
-  color: hsl(var(--secondary-foreground));
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: color 0.18s;
-}
-
-.btn-secondary-link:hover {
-  color: hsl(var(--primary));
 }
