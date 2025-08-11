@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import { Menu, X } from 'lucide-react'
 
 interface HeaderProps {
   isScrolled: boolean
@@ -33,31 +33,33 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
           />
         </a>
 
-        <nav className="hidden md:flex items-center justify-center gap-8">
-          <a href="/#process" className="text-sm font-medium text-white hover:underline btn-secondary-link">
-            Process
+        <div className="hidden md:flex items-center justify-center gap-8">
+          <a href="/#what-we-do" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+            What We Do
           </a>
-          <a href="/humans#talent" className="text-sm font-medium text-white hover:underline btn-secondary-link">
-            Talent
+          <a href="/#features" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+            Why Bixen
           </a>
-          <a href="/#what-we-do" className="text-sm font-medium text-white hover:underline btn-secondary-link">
-            Services
+          <a href="/#case-studies" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+            Success Cases
           </a>
-          <a href="/#case-studies" className="text-sm font-medium text-white hover:underline btn-secondary-link">
-            Proof
+          <a href="/humans" className="text-sm font-bold text-secondary transition-colors">
+            Curated Humans
           </a>
-          <a href="/#team" className="text-sm font-medium text-white hover:underline btn-secondary-link">
+          <a href="/#business-partners" className="text-sm font-bold text-white hover:text-secondary transition-colors">
+            Business Partners
+          </a>
+          <a href="/#team" className="text-sm font-medium text-white hover:text-secondary transition-colors">
             People
           </a>
-        </nav>
+        </div>
 
         <div className="hidden md:flex items-center justify-end">
           <a
-            href="/#contact"
-            aria-label="Start in 10 days"
-            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md btn-primary font-semibold"
+            href="/#contact-form"
+            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-secondary text-background hover:bg-secondary/90 transition-colors font-medium"
           >
-            Start in 10 days
+            Get in Touch
           </a>
         </div>
 
@@ -78,47 +80,53 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
             </div>
             <div className="flex flex-col gap-4 mt-8">
               <a
-                href="/#process"
-                className="text-lg font-medium text-white hover:underline btn-secondary-link"
-                onClick={() => setIsOpen(false)}
-              >
-                Process
-              </a>
-              <a
-                href="/humans#talent"
-                className="text-lg font-medium text-white hover:underline btn-secondary-link"
-                onClick={() => setIsOpen(false)}
-              >
-                Talent
-              </a>
-              <a
                 href="/#what-we-do"
-                className="text-lg font-medium text-white hover:underline btn-secondary-link"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Services
+                What We Do
+              </a>
+              <a
+                href="/#features"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Why Bixen
               </a>
               <a
                 href="/#case-studies"
-                className="text-lg font-medium text-white hover:underline btn-secondary-link"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Proof
+                Success Cases
+              </a>
+              <a
+                href="/humans"
+                className="text-lg font-bold text-secondary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Curated Humans
+              </a>
+              <a
+                href="/#business-partners"
+                className="text-lg font-bold text-white hover:text-secondary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Business Partners
               </a>
               <a
                 href="/#team"
-                className="text-lg font-medium text-white hover:underline btn-secondary-link"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 People
               </a>
               <a
-                href="/#contact"
-                className="text-lg font-semibold text-[#0B1F24] btn-primary inline-flex w-fit px-3 py-2 rounded-md"
+                href="/#contact-form"
+                className="text-lg font-medium text-white hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
-                aria-label="Start in 10 days"
               >
-                Start in 10 days
+                Contact
               </a>
             </div>
           </div>
