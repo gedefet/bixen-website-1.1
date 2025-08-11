@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import {
   Camera,
   MessageSquareText,
@@ -12,6 +11,7 @@ import {
   ServerCog,
 } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { ImageWithFallback } from "@/components/image-with-fallback"
 import { cn } from "@/lib/utils"
 import type { JSX } from "react"
 
@@ -90,13 +90,15 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
     >
       {/* Image header */}
       <div className="relative w-full aspect-[16/10]">
-        <Image
+        <ImageWithFallback
           src={cap.image || "/placeholder.svg"}
           alt={cap.title}
           fill
           sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw"
-          className="object-cover image-grade"
+          className="object-cover image-grade transition-transform duration-300 group-hover:scale-105"
           priority={false}
+          quality={85}
+          placeholder="blur"
         />
         {/* unified cool tint overlay */}
         <div className="absolute inset-0 pointer-events-none photo-grade" />
@@ -144,7 +146,7 @@ export default function WhatWeDoSection() {
           }}
         >
           <CarouselContent className="-ml-3 md:-ml-4">
-            {allCapabilities.map((cap) => (
+            {allCapabilities.map((cap, index) => (
               <CarouselItem key={cap.title} className="pl-3 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                 <CapabilityCard cap={cap} />
               </CarouselItem>
