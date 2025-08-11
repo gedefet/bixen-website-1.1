@@ -68,7 +68,7 @@ export default function HeroSection() {
                 {"Unique solutions for "}
                 <span className="text-secondary font-medium">{"forward-thinking people."}</span>
               </p>
-              <p className="mt-6 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
+              <p className="mt-3 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
                 {"Leveraging deep AI expertise and "}
                 <span className="text-secondary font-medium">{"exceptional talent"}</span>
                 {" to push beyond off-the-shelf technology."}
