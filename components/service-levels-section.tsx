@@ -6,109 +6,75 @@ import { Badge } from "@/components/ui/badge"
 export default function ServiceLevelsSection() {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 xl:px-24 bg-black">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Elegí tu nivel de transformación</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Transformation Level</h2>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Misma excelencia técnica, adaptada a tu ambición y presupuesto
+            Same technical excellence, adapted to your ambition and budget
           </p>
         </div>
 
-        {/* Service Cards */}
-        <div className="space-y-8 mb-16">
-          {/* MOONSHOT Card */}
-          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-red-500">
+        {/* Service Cards - Inverted Pyramid */}
+        <div className="space-y-6 mb-16">
+          {/* MOONSHOT Card - Widest */}
+          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-red-500 w-full">
             <div className="flex items-start gap-4 mb-6">
               <div className="text-3xl">🚀</div>
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
                   <h3 className="text-2xl font-bold text-white">MOONSHOT</h3>
-                  <Badge className="bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/10">COMPLEJO</Badge>
+                  <Badge className="bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/10">COMPLEX</Badge>
                 </div>
                 <p className="text-zinc-300 text-lg mb-6 leading-relaxed">
-                  Lo que otros dicen que es imposible. Optimización de plantas completas, modelos de IA propietarios,
-                  Computer Vision industrial.
+                  What others say is impossible. Complete plant optimization, proprietary AI models, industrial Computer
+                  Vision.
                 </p>
-                <div className="grid md:grid-cols-2 gap-4 text-sm text-zinc-400">
-                  <div>
-                    <span className="text-zinc-300 font-medium">Duración:</span> 6-12 meses
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Inversión:</span> $200K+
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Equipo:</span> PhD dedicado
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Casos:</span> ABInBev • Netflix • Confidencial
-                  </div>
+                <div className="text-sm text-zinc-400">
+                  <span className="text-zinc-300 font-medium">Cases:</span> ABInBev • Netflix • Confidential
                 </div>
               </div>
             </div>
           </div>
 
-          {/* TRANSFORMACIÓN Card */}
-          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-purple-500">
+          {/* TRANSFORMATION Card - Medium */}
+          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-purple-500 w-[85%] mx-auto">
             <div className="flex items-start gap-4 mb-6">
               <div className="text-3xl">⚡</div>
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
-                  <h3 className="text-2xl font-bold text-white">TRANSFORMACIÓN</h3>
+                  <h3 className="text-2xl font-bold text-white">TRANSFORMATION</h3>
                   <Badge className="bg-purple-500/10 text-purple-400 border-purple-500/20 hover:bg-purple-500/10">
-                    ESTRATÉGICO
+                    STRATEGIC
                   </Badge>
                 </div>
                 <p className="text-zinc-300 text-lg mb-6 leading-relaxed">
-                  Automatización de procesos críticos, Computer Vision para QA, sistemas de predicción y forecasting con
-                  ML.
+                  Critical process automation, Computer Vision for QA, prediction and forecasting systems with ML.
                 </p>
-                <div className="grid md:grid-cols-2 gap-4 text-sm text-zinc-400">
-                  <div>
-                    <span className="text-zinc-300 font-medium">Duración:</span> 2-6 meses
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Inversión:</span> $50K-$200K
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Equipo:</span> Equipo senior
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">ROI típico:</span> 3.2x en 6 meses
-                  </div>
+                <div className="text-sm text-zinc-400">
+                  <span className="text-zinc-300 font-medium">Typical ROI:</span> 3.2x in 6 months
                 </div>
               </div>
             </div>
           </div>
 
-          {/* QUICK WIN Card */}
-          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-emerald-500">
+          {/* QUICK WIN Card - Narrowest */}
+          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-emerald-500 w-[70%] mx-auto">
             <div className="flex items-start gap-4 mb-6">
               <div className="text-3xl">🎯</div>
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
                   <h3 className="text-2xl font-bold text-white">QUICK WIN</h3>
                   <Badge className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/10">
-                    RÁPIDO
+                    FAST
                   </Badge>
                 </div>
                 <p className="text-zinc-300 text-lg mb-6 leading-relaxed">
-                  Chatbots inteligentes, dashboards con IA, automatización RPA, análisis predictivo básico. Resultados
-                  rápidos y medibles.
+                  Intelligent chatbots, AI dashboards, RPA automation, basic predictive analytics. Fast and measurable
+                  results.
                 </p>
-                <div className="grid md:grid-cols-2 gap-4 text-sm text-zinc-400">
-                  <div>
-                    <span className="text-zinc-300 font-medium">Duración:</span> 2-6 semanas
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Inversión:</span> $15K-$50K
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Equipo:</span> 1-2 developers
-                  </div>
-                  <div>
-                    <span className="text-zinc-300 font-medium">Tiempo a producción:</span> 30 días promedio
-                  </div>
+                <div className="text-sm text-zinc-400">
+                  <span className="text-zinc-300 font-medium">Average time to production:</span> 30 days
                 </div>
               </div>
             </div>
@@ -121,37 +87,37 @@ export default function ServiceLevelsSection() {
             <div className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent mb-2">
               67%
             </div>
-            <p className="text-zinc-400 text-sm">de clientes enterprise empezaron con Quick Win</p>
+            <p className="text-zinc-400 text-sm">of enterprise clients started with Quick Win</p>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent mb-2">
               100%
             </div>
-            <p className="text-zinc-400 text-sm">de proyectos entregados con ROI positivo</p>
+            <p className="text-zinc-400 text-sm">of projects delivered with positive ROI</p>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent mb-2">
               10+
             </div>
-            <p className="text-zinc-400 text-sm">años de experiencia en IA aplicada</p>
+            <p className="text-zinc-400 text-sm">years of applied AI experience</p>
           </div>
         </div>
 
         {/* Final CTA */}
         <div className="text-center">
           <p className="text-xl text-zinc-300 mb-8 max-w-2xl mx-auto">
-            ¿No sabés por dónde empezar? Hacemos un assessment gratuito de tu caso.
+            Don't know where to start? We provide a free assessment of your case.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-black hover:bg-zinc-200 font-medium px-8 py-3">
-              Agendar Assessment
+              Schedule Assessment
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="border-zinc-600 text-zinc-300 hover:bg-zinc-800 hover:text-white font-medium px-8 py-3 bg-transparent"
             >
-              Ver Casos de Éxito
+              View Success Cases
             </Button>
           </div>
         </div>

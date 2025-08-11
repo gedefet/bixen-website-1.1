@@ -16,6 +16,11 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <HeroHeaderContainer />
 
+      {/* Service Levels Section - Right after Hero */}
+      <div className="relative z-60">
+        <ServiceLevelsSection />
+      </div>
+
       <div className="pt-3 sm:pt-4 md:pt-10 lg:pt-12 px-2 md:px-8 lg:px-16 xl:px-24">
         {/* Unified breathing space */}
         <div className="relative z-10 section-spacing" id="what-we-do">
@@ -41,11 +46,6 @@ export default function Home() {
         <div className="relative z-30 section-spacing" id="business-partners">
           <BusinessPartnerSection />
         </div>
-      </div>
-
-      {/* Service Levels Section */}
-      <div className="relative z-60">
-        <ServiceLevelsSection />
       </div>
 
       <SectionWrapper
