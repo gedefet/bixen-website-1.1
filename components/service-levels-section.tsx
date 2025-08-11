@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 export default function ServiceLevelsSection() {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 xl:px-24 bg-black">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Transformation Level</h2>
@@ -15,10 +15,10 @@ export default function ServiceLevelsSection() {
           </p>
         </div>
 
-        {/* Service Cards - Inverted Pyramid */}
-        <div className="space-y-6 mb-16">
-          {/* MOONSHOT Card - Widest */}
-          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-red-500 w-full">
+        {/* Service Cards - True Inverted Pyramid */}
+        <div className="space-y-4 mb-16">
+          {/* MOONSHOT Card - Largest (100%) */}
+          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-red-500 w-full mx-auto">
             <div className="flex items-start gap-4 mb-6">
               <div className="text-3xl">🚀</div>
               <div className="flex-1">
@@ -37,8 +37,8 @@ export default function ServiceLevelsSection() {
             </div>
           </div>
 
-          {/* TRANSFORMATION Card - Medium */}
-          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-purple-500 w-[85%] mx-auto">
+          {/* TRANSFORMATION Card - Medium (75%) */}
+          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-purple-500 w-[75%] mx-auto">
             <div className="flex items-start gap-4 mb-6">
               <div className="text-3xl">⚡</div>
               <div className="flex-1">
@@ -58,8 +58,8 @@ export default function ServiceLevelsSection() {
             </div>
           </div>
 
-          {/* QUICK WIN Card - Narrowest */}
-          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-emerald-500 w-[70%] mx-auto">
+          {/* QUICK WIN Card - Smallest (50%) */}
+          <div className="group bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:-translate-y-1 transition-all duration-300 border-l-4 border-l-emerald-500 w-[50%] mx-auto">
             <div className="flex items-start gap-4 mb-6">
               <div className="text-3xl">🎯</div>
               <div className="flex-1">
