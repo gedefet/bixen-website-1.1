@@ -22,14 +22,14 @@ const config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "var(--primary)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "var(--secondary)",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -41,7 +41,7 @@ const config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "var(--accent)",
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
@@ -59,23 +59,35 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        // Prioritize Helvetica Neue, then fall back to system sans-serif fonts
-        sans: ["Helvetica Neue", "system-ui", "sans-serif"],
-        montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       animation: {
-        "spin-slow": "spin-slow 8s linear infinite",
-        compass: "compass-appear 1s ease-out forwards",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 3s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
       keyframes: {
-        "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        "compass-appear": {
-          "0%": { opacity: "0.5", transform: "scale(0.8)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)" },
+          "50%": { boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)" },
+        },
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },

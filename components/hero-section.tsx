@@ -1,139 +1,169 @@
 "use client"
 
-import AnimatedSection from "@/components/animated-section"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
-
-type Offering = {
-  title: string
-  description: string
-  ctaHref?: string
-  isHumans?: boolean
-}
-
-const offerings: Offering[] = [
-  {
-    title: "AI Solutions & Delivery",
-    description: "From chatbots to computer vision, we deliver applied AI with measurable impact.",
-  },
-  {
-    title: "Curated Humans",
-    description: "Certified AI professionals ready to join your team and deliver from day one.",
-    ctaHref: "/humans",
-    isHumans: true,
-  },
-  {
-    title: "AI Journey",
-    description: "We help you integrate AI across all your organization, in a 7-step framework proven by Bixen.",
-  },
-  {
-    title: "Product Strategy and Design",
-    description: "Co-create your product vision and validate the right solutions before you build.",
-  },
-]
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { ArrowRight, Play } from "lucide-react"
 
 export default function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentWord, setCurrentWord] = useState(0)
+  const [displayText, setDisplayText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  const words = ["Datos Caóticos", "Ideas Ambiciosas", "Problemas Complejos"]
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % offerings.length)
-    }, 3000)
+    const word = words[currentWord]
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (displayText.length < word.length) {
+            setDisplayText(word.slice(0, displayText.length + 1))
+          } else {
+            setTimeout(() => setIsDeleting(true), 2000)
+          }
+        } else {
+          if (displayText.length > 0) {
+            setDisplayText(displayText.slice(0, -1))
+          } else {
+            setIsDeleting(false)
+            setCurrentWord((prev) => (prev + 1) % words.length)
+          }
+        }
+      },
+      isDeleting ? 50 : 100,
+    )
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearTimeout(timeout)
+  }, [displayText, isDeleting, currentWord, words])
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % offerings.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + offerings.length) % offerings.length)
-  }
+  const metrics = [
+    { value: 87, suffix: "%", label: "Reducción de Costos" },
+    { value: 3.2, suffix: "x", label: "ROI Promedio" },
+    { value: 50, suffix: "+", label: "Empresas Transformadas" },
+  ]
 
   return (
-    <section className="relative z-0 overflow-visible">
-      {/* overlay from previous version remains */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[-25vh] h-[calc(100%+25vh)] z-[1] bg-gradient-to-b from-black/60 via-black/50 to-transparent"
-      />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6]/20 via-transparent to-[#06B6D4]/20" />
+        <motion.div
+          animate={{
+            background: [
+              "radial-gradient(circle at 20% 50%, #8B5CF6 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 50%, #06B6D4 0%, transparent 50%)",
+              "radial-gradient(circle at 40% 40%, #10B981 0%, transparent 50%)",
+            ],
+          }}
+          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+          className="absolute inset-0 opacity-10"
+        />
 
-      <div className="container px-8 lg:px-16 xl:px-24 relative z-[2] pt-16">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
-          <AnimatedSection direction="left" className="self-center">
-            <div className="max-w-xl">
-              <p className="text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal leading-tight">
-                {"Unique solutions for "}
-                <span className="text-secondary font-medium">{"forward-thinking people."}</span>
-              </p>
-              <p className="mt-6 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
-                {"Leveraging deep AI expertise and "}
-                <span className="text-secondary font-medium">{"exceptional talent"}</span>
-                {" to push beyond off-the-shelf technology."}
-              </p>
-            </div>
-          </AnimatedSection>
+        {/* Floating Particles */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-white/30 rounded-full"
+            animate={{
+              x: [0, Math.random() * 100 - 50],
+              y: [0, Math.random() * 100 - 50],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Number.POSITIVE_INFINITY,
+              delay: Math.random() * 2,
+            }}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
 
-          <AnimatedSection direction="right" className="self-center mt-8 md:mt-10">
-            <div className="relative lg:pl-6 xl:pl-12 flex h-full items-center justify-center w-full">
-              <div className="w-full mx-auto h-[380px] sm:h-[440px] md:h-[520px] lg:h-[560px] xl:h-[600px] max-w-[780px] md:max-w-[860px] relative">
-                {/* Simple slideshow container */}
-                <div className="w-full h-full relative overflow-hidden">
-                  {offerings.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className={`absolute inset-0 transition-opacity duration-500 ${
-                        idx === currentSlide ? "opacity-100" : "opacity-0"
-                      }`}
-                    >
-                      <div
-                        className="h-full w-full flex items-center justify-center cursor-pointer"
-                        onClick={nextSlide}
-                      >
-                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-5 px-3 sm:px-4">
-                          <h3 className="font-sans text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-                            {item.title}
-                          </h3>
-                          <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch]">
-                            {item.description}
-                          </p>
-                          {item.isHumans && item.ctaHref && (
-                            <div className="pt-1">
-                              <Link href={item.ctaHref}>
-                                <Button
-                                  className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)] btn-hover"
-                                  size="lg"
-                                >
-                                  Explore Curated Humans
-                                </Button>
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        {/* Social Proof Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-8 text-sm text-white/60"
+        >
+          Trusted by Netflix • Meta • ABInBev • 50+ Industry Leaders
+        </motion.div>
 
-                {/* Dots indicator */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {offerings.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentSlide ? "bg-[#01F9C6]" : "bg-white/30"
-                      }`}
-                      onClick={() => setCurrentSlide(index)}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
+        {/* Main Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+        >
+          Convertimos{" "}
+          <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
+            {displayText}
+            <span className="animate-pulse">|</span>
+          </span>
+          <br />
+          en Ventajas Competitivas con IA
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto"
+        >
+          Desde 2014, construyendo el futuro que otros apenas imaginan
+        </motion.p>
+
+        {/* Metrics */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-12"
+        >
+          {metrics.map((metric, index) => (
+            <div key={index} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
+                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 + index * 0.2 }}>
+                  {metric.value}
+                  {metric.suffix}
+                </motion.span>
               </div>
+              <div className="text-sm text-white/60 mt-1">{metric.label}</div>
             </div>
-          </AnimatedSection>
-        </div>
+          ))}
+        </motion.div>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)" }}
+            whileTap={{ scale: 0.95 }}
+            className="group px-8 py-4 bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] rounded-full font-semibold text-white shadow-lg shadow-[#8B5CF6]/25 backdrop-blur-sm border border-white/10 flex items-center gap-2"
+          >
+            <Play size={20} />
+            Ver Transformación en Acción
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full font-semibold text-white hover:bg-white/20 transition-all duration-300"
+          >
+            Hablar con un Experto • Gratis
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   )
