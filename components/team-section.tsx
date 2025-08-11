@@ -1,122 +1,112 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { Linkedin } from "lucide-react"
+import Image from "next/image"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function TeamSection() {
   const team = [
     {
       name: "Federico Lopez",
       role: "Founder & CEO",
-      bio: "PhD en IA • 10+ años transformando empresas",
+      bio: "Bringing together technology and business strategy, Federico helps drive Bixen's vision and innovation",
       image: "/images/federico-new.jpg",
-      linkedin: "#",
     },
     {
       name: "Alejandro Sagula",
-      role: "Corporate Architecture Expert",
-      bio: "30+ años en arquitectura empresarial",
+      role: "Corporate Architecture and Automation Expert",
+      bio: "Alejandro brings over 30 years of experience in large-scale IT organizations, helping companies scale products and systems efficiently. As an advisor to Bixen, he contributes his expertise in automation and enterprise architecture with a focus on operational excellence.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alesagula-1gDy7EWJAz339nREa6XP184LtGKXRd.jpeg",
-      linkedin: "#",
     },
     {
       name: "Damian Minnock",
-      role: "AI & ML Leader",
-      bio: "MSc AI • Computer Vision & LLM Expert",
+      role: "AI & Machine Learning Leader",
+      bio: "MSc AI specialist with expertise in Computer Vision, Voice Processing, and Large Language Models (LLM). As a senior advisor, he supports Bixen's most complex AI initiatives, leading innovation with a strong hands-on approach.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damian.jpg-QJtCUyZNrHwbqwzufrI74Rs0MtwF4R.jpeg",
-      linkedin: "#",
     },
     {
       name: "Florencia Zalazar",
       role: "HR Manager",
-      bio: "Construyendo cultura de innovación",
+      bio: "Florencia shapes Bixen's culture and connects talent aligned with our values, building a team that thrives on creativity and impact.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/florencia.jpg-jPdi9r41DvdVPdEoob4Ym8FJYeHe4x.jpeg",
-      linkedin: "#",
     },
     {
       name: "Joaquin Cuomo",
       role: "Expert Advisor",
-      bio: "MSc • LLM & NLP Specialist",
+      bio: "MSc specialist providing strategic guidance on LLM and NLP technologies, with deep expertise in applying AI to solve complex business challenges.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
-      linkedin: "#",
     },
   ]
 
+  const firstRowMembers = team.slice(0, 3)
+  const secondRowMembers = team.slice(3, 5)
+
   return (
-    <section id="team" className="py-20 lg:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Mentes que{" "}
-            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">Moldean</span>{" "}
-            el Futuro
-          </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Expertos con décadas de experiencia construyendo el futuro de la IA
-          </p>
-        </motion.div>
+    <div className="container px-2 md:px-6">
+      <div className="text-center max-w-[800px] mx-auto mb-4 md:mb-8">
+        <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
+        <p className="mt-2 md:mt-4 text-white text-sm md:text-xl max-w-3xl mx-auto">
+          Visionary minds, purposeful technology. These are some of the people driving Bixen, alongside a global team of
+          experts.
+        </p>
+      </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {team.map((member, index) => (
-            <motion.div
+      {/* First row: original images without filters */}
+      <div className="container px-2 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
+          {firstRowMembers.map((member, index) => (
+            <Card
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{
-                y: -10,
-                rotateX: 5,
-                rotateY: 5,
-                scale: 1.02,
-              }}
-              className="group relative"
+              className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover"
             >
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500">
-                {/* Image */}
-                <div className="relative aspect-square overflow-hidden">
-                  <img
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                  {/* LinkedIn Overlay */}
-                  <motion.div initial={{ opacity: 0 }} whileHover={{ opacity: 1 }} className="absolute top-4 right-4">
-                    <a
-                      href={member.linkedin}
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                    >
-                      <Linkedin size={20} />
-                    </a>
-                  </motion.div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-[#8B5CF6] group-hover:to-[#06B6D4] transition-all duration-300">
-                    {member.name}
-                  </h3>
-                  <div className="text-[#06B6D4] font-medium mb-3">{member.role}</div>
-                  <p className="text-white/70 text-sm leading-relaxed">{member.bio}</p>
-                </div>
-
-                {/* Glow Effect */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 rounded-3xl" />
-                </div>
+              <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={member.name}
+                  width={800}
+                  height={800}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </motion.div>
+              <CardHeader className="p-3 md:p-6">
+                <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
+                <CardDescription className="text-[#01F9C6] text-xs md:text-sm">{member.role}</CardDescription>
+              </CardHeader>
+              <CardContent className="p-3 md:p-6 pt-0">
+                <p className="text-xs md:text-sm text-white">{member.bio}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
-    </section>
+
+      {/* Second row: original images without filters */}
+      <div className="container px-2 md:px-6 mb-8 md:mb-16">
+        <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-6">
+          {secondRowMembers.map((member, index) => (
+            <div key={index} className="w-full md:w-1/3">
+              <Card className="h-full overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover">
+                <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    width={800}
+                    height={800}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <CardHeader className="p-3 md:p-6">
+                  <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
+                  <CardDescription className="text-[#01F9C6] text-xs md:text-sm">{member.role}</CardDescription>
+                </CardHeader>
+                <CardContent className="p-3 md:p-6 pt-0">
+                  <p className="text-xs md:text-sm text-white">{member.bio}</p>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="text-center max-w-3xl mx-auto">{/* reserved copy block if needed */}</div>
+    </div>
   )
 }

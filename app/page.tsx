@@ -1,41 +1,81 @@
-"use client"
-import HeroSection from "@/components/hero-section"
-import ProblemSolutionSection from "@/components/problem-solution-section"
-import SuccessCasesSection from "@/components/success-cases-section"
-import ServicesSection from "@/components/services-section"
-import ProcessSection from "@/components/process-section"
+import FeaturesSection from "@/components/features-section"
+import CaseStudiesSection from "@/components/case-studies-section"
 import TeamSection from "@/components/team-section"
-import PartnersSection from "@/components/partners-section"
-import FinalCTASection from "@/components/final-cta-section"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import ScrollProgress from "@/components/scroll-progress"
-import ChatWidget from "@/components/chat-widget"
+import PartnersCarousel from "@/components/partners-carousel"
+import QuoteSection from "@/components/quote-section"
+import ContactSection from "@/components/contact-section"
+import WhatWeDoSection from "@/components/what-we-do-section"
+import VisionSection from "@/components/vision-section"
+import ServiceLevelsSection from "@/components/service-levels-section"
+import SectionWrapper from "@/components/section-wrapper"
+import HeroHeaderContainer from "@/components/hero-header-container"
+import BusinessPartnerSection from "@/components/business-partner-section"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0A0A0B] text-white overflow-x-hidden">
-      {/* Subtle noise texture overlay */}
-      <div className="fixed inset-0 opacity-[0.02] pointer-events-none z-0">
-        <div className="w-full h-full bg-gradient-to-br from-white/5 via-transparent to-white/5 bg-[length:100px_100px]"></div>
+    <main className="flex flex-col min-h-screen">
+      <HeroHeaderContainer />
+
+      <div className="pt-3 sm:pt-4 md:pt-10 lg:pt-12 px-2 md:px-8 lg:px-16 xl:px-24">
+        {/* Unified breathing space */}
+        <div className="relative z-10 section-spacing" id="what-we-do">
+          <WhatWeDoSection />
+        </div>
+
+        <div className="relative z-30 section-spacing" id="features">
+          <FeaturesSection />
+        </div>
+
+        <div className="relative z-20 section-spacing">
+          <VisionSection />
+        </div>
+
+        <div className="relative z-40 section-spacing" id="partners">
+          <PartnersCarousel />
+        </div>
+
+        <div className="relative z-50 section-spacing" id="case-studies">
+          <CaseStudiesSection />
+        </div>
+
+        <div className="relative z-30 section-spacing" id="business-partners">
+          <BusinessPartnerSection />
+        </div>
       </div>
 
-      <ScrollProgress />
-      <Navbar />
+      {/* Service Levels Section */}
+      <div className="relative z-60">
+        <ServiceLevelsSection />
+      </div>
 
-      <main className="relative z-10">
-        <HeroSection />
-        <ProblemSolutionSection />
-        <SuccessCasesSection />
-        <ServicesSection />
-        <ProcessSection />
+      <SectionWrapper
+        backgroundColor="transparent"
+        prevSectionColor="transparent"
+        nextSectionColor="transparent"
+        id="team"
+        className="mt-6 md:mt-16 px-2 md:px-8 lg:px-16 xl:px-24"
+      >
         <TeamSection />
-        <PartnersSection />
-        <FinalCTASection />
-      </main>
+      </SectionWrapper>
 
-      <Footer />
-      <ChatWidget />
-    </div>
+      <SectionWrapper
+        backgroundColor="transparent"
+        prevSectionColor="transparent"
+        nextSectionColor="transparent"
+        id="quote"
+        className="px-2 md:px-8 lg:px-16 xl:px-24"
+      >
+        <QuoteSection />
+      </SectionWrapper>
+
+      <SectionWrapper
+        backgroundColor="transparent"
+        prevSectionColor="transparent"
+        id="contact"
+        className="px-2 md:px-8 lg:px-16 xl:px-24"
+      >
+        <ContactSection />
+      </SectionWrapper>
+    </main>
   )
 }

@@ -5,24 +5,42 @@
 @layer base {
   :root {
     /* Dark theme colors with softer teal palette */
-    --background: #0a0a0b;
-    --foreground: #ffffff;
+    --background: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+    --foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Card colors */
     --card: 190 60% 18%; /* #062e36 - Softer Midnight Green */
     --card-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+    /* Popover colors */
     --popover: 190 60% 18%; /* #062e36 - Softer Midnight Green */
     --popover-foreground: 0 0% 100%; /* #FFFFFF - White */
-    --primary: #8b5cf6;
+
+    /* Primary - Softer Teal Blue */
+    --primary: 190 50% 44%; /* #339ca7 - Less saturated Teal Blue */
     --primary-foreground: 0 0% 100%; /* #FFFFFF - White */
-    --secondary: #06b6d4;
+
+    /* Secondary - Softer Bright Teal */
+    --secondary: 165 60% 65%; /* #66e6d3 - Less saturated Bright Teal */
     --secondary-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+
+    /* Muted colors */
     --muted: 190 60% 22%; /* Slightly lighter than background */
     --muted-foreground: 0 0% 100%; /* #FFFFFF - White */
-    --accent: #10b981;
+
+    /* Accent - Softer Aquamarine */
+    --accent: 160 60% 85%; /* #a2f5e3 - Less saturated Aquamarine */
     --accent-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+
+    /* Destructive */
     --destructive: 0 84.2% 60.2%; /* Keep destructive as is */
     --destructive-foreground: 0 0% 98%;
-    --glass: rgba(255, 255, 255, 0.1);
-    --border: rgba(255, 255, 255, 0.2);
+
+    /* Border and input colors - lower opacity and contrast */
+    --border: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
+    --input: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
+    --ring: 190 50% 44% / 50%; /* #339ca7 with moderate opacity */
+
     --radius: 0.5rem;
   }
 }
@@ -31,15 +49,11 @@
   * {
     @apply border-border;
   }
-
   body {
-    background-color: #0a0a0b;
-    color: #ffffff;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply bg-background text-foreground;
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans",
+      "Liberation Sans", sans-serif;
   }
-
   h1,
   h2,
   h3,
@@ -57,6 +71,31 @@
   }
 }
 
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Section transition styles */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth section transitions */
+.section-divider {
+  display: none; /* Remove section dividers since we're using a gradient */
+}
+
+.section-divider-top {
+  top: -60px;
+  background: linear-gradient(to bottom, transparent 0%, var(--section-color) 100%);
+}
+
+.section-divider-bottom {
+  bottom: -60px;
+  background: linear-gradient(to bottom, var(--section-color) 0%, transparent 100%);
+}
+
 /* Add smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
@@ -65,12 +104,6 @@ html {
 /* Transition animations */
 .section-transition {
   transition: background-color 0.8s ease-in-out;
-}
-
-/* Section transition styles */
-section {
-  position: relative;
-  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -88,10 +121,6 @@ section {
 }
 
 @layer utilities {
-  .gradient-text {
-    @apply bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent;
-  }
-
   /* Compass animation */
   @keyframes spin-slow {
     0% {
@@ -282,83 +311,7 @@ section {
     transform: rotateY(180deg) translateZ(20px);
   }
 
-  /* Text balance utility */
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Glassmorphism utilities */
-  .glass {
-    @apply bg-white/10 backdrop-blur-sm border border-white/20;
-  }
-
-  .glass-hover {
-    @apply hover:bg-white/15 hover:border-white/30 transition-all duration-300;
-  }
-
-  /* Glow effects */
-  .glow-purple {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-  }
-
-  .glow-cyan {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-  }
-
-  .glow-emerald {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #8b5cf6, #06b6d4);
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #7c3aed, #0891b2);
-  }
-
-  /* Magnetic cursor effect */
-  .magnetic {
-    transition: transform 0.2s ease-out;
-  }
-
-  .magnetic:hover {
-    transform: scale(1.05);
-  }
-
-  /* Ripple effect */
-  .ripple {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ripple::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-
-  .ripple:hover::before {
-    width: 300px;
-    height: 300px;
-  }
+  /* Removed logo floating effect and card glow for less visual intensity */
 
   /* Enhanced 3D depth */
   .translate-z-10 {
@@ -391,6 +344,15 @@ section {
     background: linear-gradient(to bottom, rgba(20, 180, 200, 0.1), rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.38));
   }
 
+  .glass-hover {
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(1, 249, 198, 0.12), 0 6px 20px rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
   .btn-hover {
     transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
   }
@@ -417,33 +379,4 @@ section {
       margin-bottom: 7.5rem;
     }
   }
-}
-
-/* Custom animations */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
 }
