@@ -22,12 +22,12 @@ type Capability = {
   icon: JSX.Element
 }
 
-// Updated with the new visual elements for enhanced design coherence
+// Updated with the specific visual elements as requested
 const allCapabilities: Capability[] = [
   {
     title: "Generative AI Agents",
     description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "/images/capabilities/robot-ai-agent.png",
+    image: "/images/capabilities/generative-ai-agents.png",
     icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
   },
   {
@@ -39,7 +39,7 @@ const allCapabilities: Capability[] = [
   {
     title: "DevOps & MLOps",
     description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
-    image: "/images/capabilities/mlops-workflow.png",
+    image: "/images/capabilities/devops-mlops.png",
     icon: <ServerCog className="icon-6 text-[#0dc4a8]" />,
   },
   {
@@ -51,13 +51,13 @@ const allCapabilities: Capability[] = [
   {
     title: "Intelligent Chatbots",
     description: "NLP & sentiment analysis for customer engagement",
-    image: "/images/capabilities/intelligent-chatbots.png",
+    image: "/images/capabilities/chatbot-interaction.png",
     icon: <MessageSquareText className="icon-6 text-[#0dc4a8]" />,
   },
   {
     title: "Workflow Automation",
     description: "AI + RPA for intelligent process automation",
-    image: "/images/capabilities/workflow-automation.png",
+    image: "/images/capabilities/workflow-automation-diagram.png",
     icon: <Workflow className="icon-6 text-[#0dc4a8]" />,
   },
   {
