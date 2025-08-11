@@ -60,15 +60,15 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-x-0 top-[-25vh] h-[calc(100%+25vh)] z-[1] bg-gradient-to-b from-black/60 via-black/50 to-transparent"
       />
 
-      <div className="container px-8 lg:px-16 xl:px-24 relative z-[2] pt-16">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
+      <div className="container px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 relative z-[2] pt-12 sm:pt-16">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center min-h-[calc(100vh-3rem)] sm:min-h-[calc(100vh-4rem)]">
           <AnimatedSection direction="left" className="self-center">
             <div className="max-w-xl">
-              <p className="text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal leading-tight">
+              <p className="text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] text-white font-normal leading-tight">
                 {"Unique solutions for "}
                 <span className="text-secondary font-medium">{"forward-thinking people."}</span>
               </p>
-              <p className="mt-3 text-[22px] sm:text-[28px] md:text-[34px] text-white font-normal">
+              <p className="mt-2 sm:mt-3 md:mt-3 text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] text-white font-normal">
                 {"Leveraging deep AI expertise and "}
                 <span className="text-secondary font-medium">{"exceptional talent"}</span>
                 {" to push beyond off-the-shelf technology."}
@@ -76,9 +76,9 @@ export default function HeroSection() {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection direction="right" className="self-center mt-8 md:mt-10">
+          <AnimatedSection direction="right" className="self-center mt-6 sm:mt-8 md:mt-10">
             <div className="relative lg:pl-6 xl:pl-12 flex h-full items-center justify-center w-full">
-              <div className="w-full mx-auto h-[380px] sm:h-[440px] md:h-[520px] lg:h-[560px] xl:h-[600px] max-w-[780px] md:max-w-[860px] relative">
+              <div className="w-full mx-auto h-[320px] sm:h-[380px] md:h-[440px] lg:h-[520px] xl:h-[600px] max-w-[780px] md:max-w-[860px] relative">
                 {/* Simple slideshow container */}
                 <div className="w-full h-full relative overflow-hidden">
                   {offerings.map((item, idx) => (
@@ -89,18 +89,18 @@ export default function HeroSection() {
                       }`}
                     >
                       <div className="h-full w-full flex items-center justify-center">
-                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-7 px-3 sm:px-4">
-                          <h3 className="font-sans text-white text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
+                        <div className="flex h-full w-full flex-col items-center justify-center text-center gap-4 sm:gap-6 md:gap-7 px-2 sm:px-3 md:px-4">
+                          <h3 className="font-sans text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.1]">
                             {item.title}
                           </h3>
-                          <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-[50ch]">
+                          <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-[50ch]">
                             {item.description}
                           </p>
                           {item.isHumans && item.ctaHref && (
                             <div className="pt-1">
                               <Link href={item.ctaHref}>
                                 <Button
-                                  className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)] btn-hover"
+                                  className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)] btn-hover text-sm sm:text-base"
                                   size="lg"
                                 >
                                   Explore Curated Humans
@@ -117,29 +117,29 @@ export default function HeroSection() {
                 {/* Navigation buttons */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10 p-2"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10 p-1 sm:p-2"
                   aria-label="Previous"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10 p-2"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10 p-1 sm:p-2"
                   aria-label="Next"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
 
                 {/* Dots indicator */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
                   {offerings.map((_, index) => (
                     <button
                       key={index}
-                      className={`w-2 h-2 rounded-full transition-colors ${
+                      className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
                         index === currentSlide ? "bg-[#01F9C6]" : "bg-white/30"
                       }`}
                       onClick={() => setCurrentSlide(index)}
