@@ -160,27 +160,27 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
       {/* Header with gradient background */}
       <div className={`relative w-full h-32 bg-gradient-to-br ${cap.gradient} opacity-80`}>
         {/* Overlay pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fillRule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fillOpacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
-        
+        <div
+          className="absolute inset-0 bg-white/5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
         {/* Icon badge */}
         <div className="absolute left-6 bottom-6">
           <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
-            <div className="text-white">
-              {cap.icon}
-            </div>
+            <div className="text-white">{cap.icon}</div>
           </div>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight mb-3">
-          {cap.title}
-        </h3>
-        
-        <p className="text-white/75 text-sm md:text-base leading-relaxed mb-4">
-          {cap.description}
-        </p>
+        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight mb-3">{cap.title}</h3>
+
+        <p className="text-white/75 text-sm md:text-base leading-relaxed mb-4">{cap.description}</p>
 
         {/* Features */}
         <div className="mb-4">
