@@ -31,10 +31,15 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-[#0A0A0B] text-white antialiased;
+    background-color: #0a0a0b;
+    color: #ffffff;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   h1,
   h2,
   h3,
@@ -60,21 +65,6 @@
 section {
   position: relative;
   z-index: 1;
-}
-
-/* Smooth section transitions */
-.section-divider {
-  display: none; /* Remove section dividers since we're using a gradient */
-}
-
-.section-divider-top {
-  top: -60px;
-  background: linear-gradient(to bottom, transparent 0%, var(--section-color) 100%);
-}
-
-.section-divider-bottom {
-  bottom: -60px;
-  background: linear-gradient(to bottom, var(--section-color) 0%, transparent 100%);
 }
 
 /* Add smooth scrolling for anchor links */
