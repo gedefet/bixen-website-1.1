@@ -9,6 +9,7 @@ import VisionSection from "@/components/vision-section"
 import SectionWrapper from "@/components/section-wrapper"
 import HeroHeaderContainer from "@/components/hero-header-container"
 import BusinessPartnerSection from "@/components/business-partner-section"
+import AIJourneySection from "@/components/ai-journey-section"
 
 export default function Home() {
   return (
@@ -41,6 +42,8 @@ export default function Home() {
           <BusinessPartnerSection />
         </div>
       </div>
+
+      <AIJourneySection />
 
       <SectionWrapper
         backgroundColor="transparent"
