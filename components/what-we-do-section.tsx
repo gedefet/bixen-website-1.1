@@ -9,74 +9,143 @@ import {
   FileText,
   Mic,
   ServerCog,
+  Brain,
 } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { ImageWithFallback } from "@/components/image-with-fallback"
 import { cn } from "@/lib/utils"
 import type { JSX } from "react"
 
 type Capability = {
   title: string
   description: string
-  image: string
+  features: string[]
+  technologies: string[]
   icon: JSX.Element
+  gradient: string
 }
 
-// Updated with the specific visual elements as requested
+// Updated with comprehensive service descriptions and technical details
 const allCapabilities: Capability[] = [
   {
     title: "Generative AI Agents",
-    description: "Sales assistants, onboarding copilots, and intelligent automation",
-    image: "/images/capabilities/generative-ai-agents.png",
-    icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Intelligent autonomous systems that understand context, generate human-like responses, and execute complex workflows with minimal supervision.",
+    features: [
+      "Sales & Customer Support Assistants",
+      "Onboarding & Training Copilots",
+      "Content Generation & Curation",
+      "Process Automation & Decision Making",
+    ],
+    technologies: ["GPT-4", "Claude", "LangChain", "Vector Databases"],
+    icon: <Sparkles className="w-6 h-6" />,
+    gradient: "from-purple-500 to-pink-500",
   },
   {
     title: "Computer Vision Systems",
-    description: "Object detection, quality control, and video analytics",
-    image: "/images/capabilities/forest-aerial-view.png",
-    icon: <Camera className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Advanced visual intelligence solutions that analyze, interpret, and understand visual data in real-time for industrial and commercial applications.",
+    features: [
+      "Object Detection & Classification",
+      "Quality Control & Inspection",
+      "Video Analytics & Monitoring",
+      "Facial Recognition & Biometrics",
+    ],
+    technologies: ["OpenCV", "YOLO", "TensorFlow", "PyTorch"],
+    icon: <Camera className="w-6 h-6" />,
+    gradient: "from-blue-500 to-cyan-500",
   },
   {
     title: "DevOps & MLOps",
-    description: "Reliable CI/CD for AI: reproducible training, model registry, scalable serving",
-    image: "/images/capabilities/devops-mlops.png",
-    icon: <ServerCog className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "End-to-end machine learning operations infrastructure ensuring reliable, scalable, and reproducible AI model deployment and monitoring.",
+    features: [
+      "CI/CD for ML Models",
+      "Model Registry & Versioning",
+      "Automated Testing & Validation",
+      "Performance Monitoring & Alerting",
+    ],
+    technologies: ["MLflow", "Kubeflow", "Docker", "Kubernetes"],
+    icon: <ServerCog className="w-6 h-6" />,
+    gradient: "from-green-500 to-emerald-500",
   },
   {
     title: "Recommendation Systems",
-    description: "Personalization engines for enhanced user experience",
-    image: "/images/capabilities/recommendation-systems.png",
-    icon: <Sparkles className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Sophisticated personalization engines that analyze user behavior and preferences to deliver highly relevant content and product suggestions.",
+    features: [
+      "Collaborative Filtering",
+      "Content-Based Recommendations",
+      "Real-time Personalization",
+      "A/B Testing & Optimization",
+    ],
+    technologies: ["Apache Spark", "TensorFlow", "Redis", "Elasticsearch"],
+    icon: <Brain className="w-6 h-6" />,
+    gradient: "from-orange-500 to-red-500",
   },
   {
     title: "Intelligent Chatbots",
-    description: "NLP & sentiment analysis for customer engagement",
-    image: "/images/capabilities/chatbot-interaction.png",
-    icon: <MessageSquareText className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Natural language processing powered conversational interfaces that understand context, sentiment, and intent for meaningful customer interactions.",
+    features: [
+      "Natural Language Understanding",
+      "Sentiment Analysis & Emotion Detection",
+      "Multi-language Support",
+      "Integration with Business Systems",
+    ],
+    technologies: ["Rasa", "Dialogflow", "spaCy", "BERT"],
+    icon: <MessageSquareText className="w-6 h-6" />,
+    gradient: "from-indigo-500 to-purple-500",
   },
   {
     title: "Workflow Automation",
-    description: "AI + RPA for intelligent process automation",
-    image: "/images/capabilities/workflow-automation-diagram.png",
-    icon: <Workflow className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Intelligent process automation combining AI decision-making with robotic process automation to streamline complex business workflows.",
+    features: [
+      "Business Process Automation",
+      "Document Processing Workflows",
+      "Decision Tree Implementation",
+      "Integration with Legacy Systems",
+    ],
+    technologies: ["UiPath", "Automation Anywhere", "Zapier", "Microsoft Power Automate"],
+    icon: <Workflow className="w-6 h-6" />,
+    gradient: "from-teal-500 to-blue-500",
   },
   {
     title: "Predictive Analytics",
-    description: "Health, finance, and logistics forecasting systems",
-    image: "/images/capabilities/predictive-analytics.png",
-    icon: <ChartLine className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Advanced statistical modeling and machine learning algorithms that forecast trends, identify risks, and optimize business outcomes across industries.",
+    features: [
+      "Time Series Forecasting",
+      "Risk Assessment & Modeling",
+      "Customer Churn Prediction",
+      "Supply Chain Optimization",
+    ],
+    technologies: ["Scikit-learn", "XGBoost", "Prophet", "Apache Airflow"],
+    icon: <ChartLine className="w-6 h-6" />,
+    gradient: "from-yellow-500 to-orange-500",
   },
   {
     title: "Document Processing",
-    description: "OCR, NER, and intelligent document classification",
-    image: "/images/capabilities/ocr-document-processing.png",
-    icon: <FileText className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Optical character recognition and natural language processing systems that extract, classify, and analyze information from structured and unstructured documents.",
+    features: ["OCR & Text Extraction", "Document Classification", "Named Entity Recognition", "Automated Data Entry"],
+    technologies: ["Tesseract", "AWS Textract", "spaCy", "Apache Tika"],
+    icon: <FileText className="w-6 h-6" />,
+    gradient: "from-slate-500 to-gray-500",
   },
   {
     title: "Voice Interfaces",
-    description: "Speech-to-text, voicebots, and audio processing",
-    image: "/images/capabilities/voice-interfaces.png",
-    icon: <Mic className="icon-6 text-[#0dc4a8]" />,
+    description:
+      "Speech recognition and synthesis technologies that enable natural voice interactions, audio processing, and voice-controlled applications.",
+    features: [
+      "Speech-to-Text Conversion",
+      "Voice Command Processing",
+      "Audio Content Analysis",
+      "Multi-language Voice Support",
+    ],
+    technologies: ["Whisper", "Google Speech API", "Azure Cognitive Services", "Mozilla DeepSpeech"],
+    icon: <Mic className="w-6 h-6" />,
+    gradient: "from-rose-500 to-pink-500",
   },
 ]
 
@@ -84,45 +153,66 @@ function CapabilityCard({ cap, className }: { cap: Capability; className?: strin
   return (
     <article
       className={cn(
-        "group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)] glass-hover",
+        "group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f2f34]/40 shadow-[0_12px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300",
         className,
       )}
     >
-      {/* Image header */}
-      <div className="relative w-full aspect-[16/10]">
-        <ImageWithFallback
-          src={cap.image || "/placeholder.svg"}
-          alt={cap.title}
-          fill
-          sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw"
-          className="object-cover image-grade transition-transform duration-300 group-hover:scale-105"
-          priority={false}
-          quality={85}
-          placeholder="blur"
-        />
-        {/* unified cool tint overlay */}
-        <div className="absolute inset-0 pointer-events-none photo-grade" />
-        {/* soft highlight and legibility gradient */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/[0.18] to-transparent rounded-t-2xl" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
-        </div>
-        {/* circular teal icon badge near lower-left */}
-        <div className="absolute left-4 bottom-4">
-          <div className="h-10 w-10 rounded-full bg-[#0dc4a8]/18 backdrop-blur-sm border border-[#0dc4a8]/30 flex items-center justify-center shadow-[0_4px_20px_rgba(13,196,168,0.25)]">
-            {cap.icon}
+      {/* Header with gradient background */}
+      <div className={`relative w-full h-32 bg-gradient-to-br ${cap.gradient} opacity-80`}>
+        {/* Overlay pattern */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fillRule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fillOpacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
+        
+        {/* Icon badge */}
+        <div className="absolute left-6 bottom-6">
+          <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
+            <div className="text-white">
+              {cap.icon}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Text block */}
-      <div className="px-6 pt-5 pb-6">
-        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight">{cap.title}</h3>
-        <p className="mt-2 text-white/75 text-sm md:text-base leading-relaxed">{cap.description}</p>
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight mb-3">
+          {cap.title}
+        </h3>
+        
+        <p className="text-white/75 text-sm md:text-base leading-relaxed mb-4">
+          {cap.description}
+        </p>
+
+        {/* Features */}
+        <div className="mb-4">
+          <h4 className="text-white/90 text-sm font-medium mb-2">Key Features:</h4>
+          <ul className="space-y-1">
+            {cap.features.map((feature, index) => (
+              <li key={index} className="text-white/70 text-xs md:text-sm flex items-start">
+                <span className="text-[#0dc4a8] mr-2 mt-1">•</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Technologies */}
+        <div>
+          <h4 className="text-white/90 text-sm font-medium mb-2">Technologies:</h4>
+          <div className="flex flex-wrap gap-1">
+            {cap.technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="px-2 py-1 bg-white/10 text-white/80 text-xs rounded-md border border-white/20"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* subtle hover ring */}
-      <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-white/10 transition-all duration-300" />
+      {/* Hover effect */}
+      <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-white/10 transition-all duration-300 rounded-2xl" />
     </article>
   )
 }
@@ -133,7 +223,8 @@ export default function WhatWeDoSection() {
       <div className="text-center max-w-[900px] mx-auto mb-8 md:mb-12 px-2 md:px-0">
         <h2 className="text-4xl font-light sm:text-5xl md:text-6xl mb-3 text-white">What We Do</h2>
         <p className="text-white/80 text-lg md:text-xl">
-          Practical AI and product capabilities that compound business value.
+          Practical AI and product capabilities that compound business value through cutting-edge technology and proven
+          methodologies.
         </p>
       </div>
 
