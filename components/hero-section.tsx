@@ -93,14 +93,14 @@ export default function HeroSection() {
                           <h3 className="font-sans text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.1]">
                             {item.title}
                           </h3>
-                          <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-[50ch]">
+                          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-[50ch]">
                             {item.description}
                           </p>
                           {item.isHumans && item.ctaHref && (
                             <div className="pt-1">
                               <Link href={item.ctaHref}>
                                 <Button
-                                  className="bg-[#01F9C6] text-black hover:bg-[#01F9C6]/90 shadow-[0_0_10px_rgba(1,249,198,0.3)] hover:shadow-[0_0_15px_rgba(1,249,198,0.5)] btn-hover text-sm sm:text-base"
+                                  className="bg-primary text-white hover:bg-primary/90 shadow-[0_0_10px_rgba(51,156,167,0.3)] hover:shadow-[0_0_15px_rgba(51,156,167,0.5)] btn-hover text-sm sm:text-base font-medium"
                                   size="lg"
                                 >
                                   Explore Curated Humans
@@ -140,7 +140,7 @@ export default function HeroSection() {
                     <button
                       key={index}
                       className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
-                        index === currentSlide ? "bg-[#01F9C6]" : "bg-white/30"
+                        index === currentSlide ? "bg-secondary" : "bg-white/30"
                       }`}
                       onClick={() => setCurrentSlide(index)}
                       aria-label={`Go to slide ${index + 1}`}
