@@ -1,9 +1,9 @@
-import { Brain, Users, Compass, Trophy } from 'lucide-react'
+import { Brain, Users, Compass, Trophy } from "lucide-react"
 
 export default function FeaturesSection() {
   const features = [
     {
-      icon: <Users className="h-10 w-10 text-[#01F9C6]" />,
+      icon: <Users className="h-10 w-10 text-secondary" />,
       title: "World-Class Team",
       description: (
         <>
@@ -13,7 +13,7 @@ export default function FeaturesSection() {
       mobileDescription: "Engineers who solve complex challenges creatively.",
     },
     {
-      icon: <Brain className="h-10 w-10 text-[#01F9C6]" />,
+      icon: <Brain className="h-10 w-10 text-secondary" />,
       title: "AI & Machine Learning Experts",
       description: (
         <>
@@ -26,7 +26,7 @@ export default function FeaturesSection() {
       highlight: true,
     },
     {
-      icon: <Compass className="h-10 w-10 text-[#01F9C6]" />,
+      icon: <Compass className="h-10 w-10 text-secondary" />,
       title: "Your Business - Our Guide",
       description: (
         <>
@@ -36,7 +36,7 @@ export default function FeaturesSection() {
       mobileDescription: "Technology aligned with your business strategy.",
     },
     {
-      icon: <Trophy className="h-10 w-10 text-[#01F9C6]" />,
+      icon: <Trophy className="h-10 w-10 text-secondary" />,
       title: "Proven Track Record",
       description: (
         <>
@@ -51,12 +51,12 @@ export default function FeaturesSection() {
   return (
     <div className="container px-2 md:px-6 py-4 md:py-16">
       <div className="text-center max-w-[800px] mx-auto mb-6 md:mb-12">
-        <h2 className="text-3xl md:text-4xl font-light sm:text-5xl md:text-6xl text-white">
-          Why Choose <span className="text-white">Bixen</span>
+        <h2 className="text-3xl md:text-4xl font-light sm:text-5xl md:text-6xl text-foreground">
+          Why Choose <span className="text-foreground">Bixen</span>
         </h2>
       </div>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-4 md:p-12 shadow-xl">
+      <div className="bg-card/10 backdrop-blur-md rounded-[2rem] p-4 md:p-12 shadow-xl">
         {/* Updated to a 2x2 grid on sm+ screens, keeping styling intact */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-6">
           {features.map((feature, index) => (
@@ -64,27 +64,27 @@ export default function FeaturesSection() {
               key={index}
               className={`p-3 md:p-6 rounded-[1.5rem] border transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
                 feature.highlight
-                  ? "bg-[#01F9C6]/20 border-[#01F9C6] shadow-[0_0_15px_rgba(1,249,198,0.3)]"
-                  : "bg-white/5 border-white/20 hover:border-[#01F9C6]/50"
+                  ? "bg-secondary/20 border-secondary shadow-[0_0_15px_rgba(42,161,152,0.3)]"
+                  : "bg-card/5 border-border hover:border-secondary/50"
               }`}
             >
               <div className="flex justify-center mb-2 md:mb-4">
                 {feature.highlight ? (
-                  <div className="bg-[#01F9C6]/30 p-2 md:p-3 rounded-full">{feature.icon}</div>
+                  <div className="bg-secondary/30 p-2 md:p-3 rounded-full">{feature.icon}</div>
                 ) : (
                   feature.icon
                 )}
               </div>
               <h3
                 className={`text-sm md:text-2xl lg:text-3xl font-medium mb-1 md:mb-3 text-center ${
-                  feature.highlight ? "text-[#01F9C6]" : "text-white"
+                  feature.highlight ? "text-secondary" : "text-foreground"
                 }`}
               >
                 {feature.title}
               </h3>
               <div className="flex-grow flex items-center justify-center">
-                <p className="md:hidden text-white/80 text-center text-xs">{feature.mobileDescription}</p>
-                <p className="hidden md:block text-white/80 text-center text-lg md:text-xl">
+                <p className="md:hidden text-muted-foreground text-center text-xs">{feature.mobileDescription}</p>
+                <p className="hidden md:block text-muted-foreground text-center text-lg md:text-xl">
                   {feature.description}
                 </p>
               </div>

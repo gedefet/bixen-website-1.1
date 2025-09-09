@@ -41,7 +41,7 @@ export default function BackgroundSlideshow() {
           alt="Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#004953]/80 via-[#004953]/60 to-[#004953]/80 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 backdrop-blur-[1px]"></div>
       </div>
 
       {/* Siguiente imagen (para el fade) */}
@@ -55,7 +55,7 @@ export default function BackgroundSlideshow() {
           alt="Next Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#004953]/80 via-[#004953]/60 to-[#004953]/80 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 backdrop-blur-[1px]"></div>
       </div>
     </div>
   )

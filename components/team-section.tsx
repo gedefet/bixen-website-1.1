@@ -42,8 +42,10 @@ export default function TeamSection() {
   return (
     <div className="container px-2 md:px-6">
       <div className="text-center max-w-[800px] mx-auto mb-4 md:mb-8">
-        <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
-        <p className="mt-2 md:mt-4 text-white text-sm md:text-xl max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-foreground">
+          People
+        </h2>
+        <p className="mt-2 md:mt-4 text-muted-foreground text-sm md:text-xl max-w-3xl mx-auto">
           Visionary minds, purposeful technology. These are some of the people driving Bixen, alongside a global team of
           experts.
         </p>
@@ -53,11 +55,8 @@ export default function TeamSection() {
       <div className="container px-2 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
           {firstRowMembers.map((member, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover"
-            >
-              <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
+            <Card key={index} className="overflow-hidden bg-card/80 backdrop-blur-sm border-border glass-hover">
+              <div className="relative aspect-square w-full overflow-hidden bg-muted">
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
@@ -67,11 +66,11 @@ export default function TeamSection() {
                 />
               </div>
               <CardHeader className="p-3 md:p-6">
-                <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
-                <CardDescription className="text-[#01F9C6] text-xs md:text-sm">{member.role}</CardDescription>
+                <CardTitle className="text-foreground text-sm md:text-base">{member.name}</CardTitle>
+                <CardDescription className="text-secondary text-xs md:text-sm">{member.role}</CardDescription>
               </CardHeader>
               <CardContent className="p-3 md:p-6 pt-0">
-                <p className="text-xs md:text-sm text-white">{member.bio}</p>
+                <p className="text-xs md:text-sm text-muted-foreground">{member.bio}</p>
               </CardContent>
             </Card>
           ))}
@@ -83,8 +82,8 @@ export default function TeamSection() {
         <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-6">
           {secondRowMembers.map((member, index) => (
             <div key={index} className="w-full md:w-1/3">
-              <Card className="h-full overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 glass-hover">
-                <div className="relative aspect-square w-full overflow-hidden bg-[#004953]">
+              <Card className="h-full overflow-hidden bg-card/80 backdrop-blur-sm border-border glass-hover">
+                <div className="relative aspect-square w-full overflow-hidden bg-muted">
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={member.name}
@@ -94,11 +93,11 @@ export default function TeamSection() {
                   />
                 </div>
                 <CardHeader className="p-3 md:p-6">
-                  <CardTitle className="text-white text-sm md:text-base">{member.name}</CardTitle>
-                  <CardDescription className="text-[#01F9C6] text-xs md:text-sm">{member.role}</CardDescription>
+                  <CardTitle className="text-foreground text-sm md:text-base">{member.name}</CardTitle>
+                  <CardDescription className="text-secondary text-xs md:text-sm">{member.role}</CardDescription>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <p className="text-xs md:text-sm text-white">{member.bio}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground">{member.bio}</p>
                 </CardContent>
               </Card>
             </div>

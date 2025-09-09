@@ -4,49 +4,50 @@
 
 @layer base {
   :root {
-    /* Dark theme colors with softer teal palette */
-    --background: 190 60% 18%; /* #062e36 - Softer Midnight Green */
-    --foreground: 0 0% 100%; /* #FFFFFF - White */
+    /* Updated to Solarized Light theme colors */
+    --background: 44 87% 94%; /* #fdf6e3 - Warm cream background */
+    --foreground: 194 14% 40%; /* #586e75 - Dark gray-blue text */
 
     /* Card colors */
-    --card: 190 60% 18%; /* #062e36 - Softer Midnight Green */
-    --card-foreground: 0 0% 100%; /* #FFFFFF - White */
+    --card: 44 87% 94%; /* #fdf6e3 - Warm cream background */
+    --card-foreground: 194 14% 40%; /* #586e75 - Dark gray-blue text */
 
     /* Popover colors */
-    --popover: 190 60% 18%; /* #062e36 - Softer Midnight Green */
-    --popover-foreground: 0 0% 100%; /* #FFFFFF - White */
+    --popover: 44 87% 94%; /* #fdf6e3 - Warm cream background */
+    --popover-foreground: 194 14% 40%; /* #586e75 - Dark gray-blue text */
 
-    /* Primary - Softer Teal Blue */
-    --primary: 190 50% 44%; /* #339ca7 - Less saturated Teal Blue */
-    --primary-foreground: 0 0% 100%; /* #FFFFFF - White */
+    /* Primary - Blue Color */
+    --primary: 205 98% 39%; /* #268bd2 - Blue Color */
+    --primary-foreground: 44 87% 94%; /* #fdf6e3 - Light text on blue */
 
-    /* Secondary - Softer Bright Teal */
-    --secondary: 170 69% 51%; /* #28DCC2 - Vibrant Teal */
-    --secondary-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+    /* Secondary - Cyan Color */
+    --secondary: 175 74% 41%; /* #2aa198 - Cyan Color */
+    --secondary-foreground: 44 87% 94%; /* #fdf6e3 - Light text on cyan */
 
     /* Muted colors */
-    --muted: 190 60% 22%; /* Slightly lighter than background */
-    --muted-foreground: 0 0% 100%; /* #FFFFFF - White */
+    --muted: 45 43% 91%; /* #F6F0DE - Second Background */
+    --muted-foreground: 186 8% 55%; /* #93a1a1 - Text color */
 
-    /* Accent - Softer Aquamarine */
-    --accent: 160 60% 85%; /* #a2f5e3 - Less saturated Aquamarine */
-    --accent-foreground: 190 60% 18%; /* #062e36 - Softer Midnight Green */
+    /* Accent - Magenta/Pink */
+    --accent: 331 74% 52%; /* #d33682 - Accent Color */
+    --accent-foreground: 44 87% 94%; /* #fdf6e3 - Light text on accent */
 
-    /* Destructive */
-    --destructive: 0 84.2% 60.2%; /* Keep destructive as is */
-    --destructive-foreground: 0 0% 98%;
+    /* Destructive - Red Color */
+    --destructive: 1 71% 52%; /* #dc322f - Error Color */
+    --destructive-foreground: 44 87% 94%; /* #fdf6e3 - Light text on red */
 
-    /* Border and input colors - lower opacity and contrast */
-    --border: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
-    --input: 190 50% 44% / 15%; /* #339ca7 with lower opacity */
-    --ring: 190 50% 44% / 50%; /* #339ca7 with moderate opacity */
+    /* Border and input colors */
+    --border: 49 54% 86%; /* #edead9 - Border color */
+    --input: 49 54% 86%; /* #edead9 - Input border */
+    --ring: 205 98% 39%; /* #268bd2 - Focus ring (blue) */
 
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Updated chart colors to match Solarized palette */
+    --chart-1: 18 89% 44%; /* #cb4b16 - Orange Color */
+    --chart-2: 175 74% 41%; /* #2aa198 - Cyan Color */
+    --chart-3: 205 98% 39%; /* #268bd2 - Blue Color */
+    --chart-4: 45 100% 35%; /* #b58900 - Yellow Color */
+    --chart-5: 331 74% 52%; /* #d33682 - Accent Color */
   }
 
   .dark {
@@ -376,13 +377,14 @@ html {
     background: linear-gradient(to bottom, rgba(2, 164, 185, 0.1), rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.35));
   }
 
+  /* Updated hover effects for light theme */
   .glass-hover {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
   }
   .glass-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(1, 249, 198, 0.12), 0 6px 20px rgba(0, 0, 0, 0.35);
-    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 40px rgba(42, 161, 152, 0.12), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: rgba(88, 110, 117, 0.18);
   }
 
   .btn-hover {
@@ -390,7 +392,7 @@ html {
   }
   .btn-hover:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(1, 249, 198, 0.25), 0 6px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 24px rgba(42, 161, 152, 0.25), 0 6px 16px rgba(0, 0, 0, 0.1);
   }
 
   .icon-6 {
@@ -412,7 +414,7 @@ html {
     }
   }
 
-  /* Shimmer animation for loading states */
+  /* Updated shimmer animation for light theme */
   @keyframes shimmer {
     0% {
       background-position: -200% 0;
@@ -423,7 +425,7 @@ html {
   }
 
   .animate-shimmer {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background: linear-gradient(90deg, #f6f0de 25%, #edead9 50%, #f6f0de 75%);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }

@@ -54,21 +54,20 @@ export default function HeroSection() {
 
   return (
     <section className="relative z-0 overflow-visible">
-      {/* overlay from previous version remains */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[-25vh] h-[calc(100%+25vh)] z-[1] bg-gradient-to-b from-black/60 via-black/50 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-[-25vh] h-[calc(100%+25vh)] z-[1] bg-gradient-to-b from-foreground/20 via-foreground/10 to-transparent"
       />
 
       <div className="container px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 relative z-[2] pt-12 sm:pt-16">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center min-h-[calc(100vh-3rem)] sm:min-h-[calc(100vh-4rem)]">
           <AnimatedSection direction="left" className="self-center">
             <div className="max-w-xl">
-              <p className="text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] text-white font-normal leading-tight">
+              <p className="text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] text-foreground font-normal leading-tight">
                 {"Unique solutions for "}
                 <span className="text-secondary font-medium">{"forward-thinking people."}</span>
               </p>
-              <p className="mt-2 sm:mt-3 md:mt-3 text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] text-white font-normal">
+              <p className="mt-2 sm:mt-3 md:mt-3 text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] text-foreground font-normal">
                 {"Leveraging deep AI expertise and "}
                 <span className="text-secondary font-medium">{"exceptional talent"}</span>
                 {" to push beyond off-the-shelf technology."}
@@ -90,17 +89,17 @@ export default function HeroSection() {
                     >
                       <div className="h-full w-full flex items-center justify-center">
                         <div className="flex h-full w-full flex-col items-center justify-center text-center gap-4 sm:gap-6 md:gap-7 px-2 sm:px-3 md:px-4">
-                          <h3 className="font-sans text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.1]">
+                          <h3 className="font-sans text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.1]">
                             {item.title}
                           </h3>
-                          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-[50ch]">
+                          <p className="text-foreground text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-[50ch]">
                             {item.description}
                           </p>
                           {item.isHumans && item.ctaHref && (
                             <div className="pt-1">
                               <Link href={item.ctaHref}>
                                 <Button
-                                  className="bg-primary text-white hover:bg-primary/90 shadow-[0_0_10px_rgba(51,156,167,0.3)] hover:shadow-[0_0_15px_rgba(51,156,167,0.5)] btn-hover text-sm sm:text-base font-medium"
+                                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_10px_rgba(38,139,210,0.3)] hover:shadow-[0_0_15px_rgba(38,139,210,0.5)] btn-hover text-sm sm:text-base font-medium"
                                   size="lg"
                                 >
                                   Explore Curated Humans
@@ -117,7 +116,7 @@ export default function HeroSection() {
                 {/* Navigation buttons */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10 p-1 sm:p-2"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-muted-foreground hover:text-foreground focus-visible:ring-0 z-10 p-1 sm:p-2"
                   aria-label="Previous"
                 >
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +125,7 @@ export default function HeroSection() {
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-white/70 hover:text-white focus-visible:ring-0 z-10 p-1 sm:p-2"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent border-none hover:bg-transparent text-muted-foreground hover:text-foreground focus-visible:ring-0 z-10 p-1 sm:p-2"
                   aria-label="Next"
                 >
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +139,7 @@ export default function HeroSection() {
                     <button
                       key={index}
                       className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
-                        index === currentSlide ? "bg-secondary" : "bg-white/30"
+                        index === currentSlide ? "bg-secondary" : "bg-muted-foreground/30"
                       }`}
                       onClick={() => setCurrentSlide(index)}
                       aria-label={`Go to slide ${index + 1}`}

@@ -57,7 +57,7 @@ export default function BackgroundVideo() {
     <div className="fixed inset-0 -z-10 w-full h-full overflow-hidden">
       {error ? (
         // Fallback to a static background if video fails
-        <div className="absolute inset-0 bg-[#004953]"></div>
+        <div className="absolute inset-0 bg-background"></div>
       ) : (
         <video ref={videoRef} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
           <source
@@ -67,7 +67,7 @@ export default function BackgroundVideo() {
           Your browser does not support the video tag.
         </video>
       )}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#004953]/90 via-[#004953]/70 to-[#004953]/90 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90 backdrop-blur-[2px]"></div>
     </div>
   )
 }

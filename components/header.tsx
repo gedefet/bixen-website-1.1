@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Menu, X } from 'lucide-react'
+import { Menu, X } from "lucide-react"
 
 interface HeaderProps {
   isScrolled: boolean
@@ -28,28 +28,34 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
             alt="Bixen Logo"
             width={120}
             height={40}
-            className="h-8 w-auto lg:h-10 lg:w-auto"
+            className="h-8 w-auto lg:h-10 lg:w-auto brightness-0 contrast-100"
             priority
           />
         </a>
 
         <div className="hidden md:flex items-center justify-center gap-8">
-          <a href="/#what-we-do" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+          <a href="/#what-we-do" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
             What We Do
           </a>
-          <a href="/#features" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+          <a href="/#features" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
             Why Bixen
           </a>
-          <a href="/#case-studies" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+          <a
+            href="/#case-studies"
+            className="text-sm font-medium text-foreground hover:text-secondary transition-colors"
+          >
             Success Cases
           </a>
           <a href="/humans" className="text-sm font-bold text-secondary transition-colors">
             Curated Humans
           </a>
-          <a href="/#business-partners" className="text-sm font-bold text-white hover:text-secondary transition-colors">
+          <a
+            href="/#business-partners"
+            className="text-sm font-bold text-foreground hover:text-secondary transition-colors"
+          >
             Business Partners
           </a>
-          <a href="/#team" className="text-sm font-medium text-white hover:text-secondary transition-colors">
+          <a href="/#team" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
             People
           </a>
         </div>
@@ -57,13 +63,13 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
         <div className="hidden md:flex items-center justify-end">
           <a
             href="/#contact-form"
-            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-secondary text-background hover:bg-secondary/90 transition-colors font-medium"
+            className="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-medium"
           >
             Get in Touch
           </a>
         </div>
 
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white bg-transparent border-none p-2">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground bg-transparent border-none p-2">
           <Menu className="h-5 w-5" />
           <span className="sr-only">Toggle menu</span>
         </button>
@@ -74,28 +80,28 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
             style={{ opacity: 1 }}
           >
             <div className="flex justify-end">
-              <button onClick={() => setIsOpen(false)} className="text-white bg-transparent border-none p-2">
+              <button onClick={() => setIsOpen(false)} className="text-foreground bg-transparent border-none p-2">
                 <X className="h-5 w-5" />
               </button>
             </div>
             <div className="flex flex-col gap-4 mt-8">
               <a
                 href="/#what-we-do"
-                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 What We Do
               </a>
               <a
                 href="/#features"
-                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Why Bixen
               </a>
               <a
                 href="/#case-studies"
-                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Success Cases
@@ -109,21 +115,21 @@ export default function Header({ isScrolled, opacity }: HeaderProps) {
               </a>
               <a
                 href="/#business-partners"
-                className="text-lg font-bold text-white hover:text-secondary transition-colors"
+                className="text-lg font-bold text-foreground hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Business Partners
               </a>
               <a
                 href="/#team"
-                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 People
               </a>
               <a
                 href="/#contact-form"
-                className="text-lg font-medium text-white hover:text-secondary transition-colors"
+                className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
