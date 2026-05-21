@@ -1,5 +1,12 @@
 "use client"
 
+const STATS = [
+  { num: "10+ yrs", label: "Applied AI" },
+  { num: "98.4%",   label: "Precision · 3D Body Scan" },
+  { num: "-60%",    label: "Customer Service Cost" },
+  { num: "4",       label: "Continents Delivered" },
+]
+
 const ITEMS = [
   "Bixen Humans",
   "Product Strategy",
@@ -10,24 +17,75 @@ const ITEMS = [
 ]
 
 export default function ServicesTickerSection() {
-  const track = [...ITEMS, ...ITEMS]
+  const track = [...ITEMS, ...ITEMS, ...ITEMS]
 
   return (
     <div>
-      {/* Auto-scrolling ticker */}
+      {/* Stats row */}
       <div
         style={{
           borderTop: "1px solid var(--bdr)",
           borderBottom: "1px solid var(--bdr)",
+          background: "var(--surface-1)",
+        }}
+      >
+        <div
+          className="grid stats-grid"
+          style={{
+            gridTemplateColumns: "repeat(4,1fr)",
+            maxWidth: "var(--container-w)",
+            margin: "0 auto",
+            padding: "0 var(--section-pad-x)",
+          }}
+        >
+          {STATS.map((s, i) => (
+            <div
+              key={i}
+              className="flex flex-col gap-2 reveal"
+              style={{
+                padding: "28px 24px",
+                borderRight: i < STATS.length - 1 ? "1px solid var(--bdr)" : undefined,
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "clamp(30px,3vw,48px)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1,
+                  color: "var(--text)",
+                }}
+              >
+                {s.num}
+              </div>
+              <div
+                style={{
+                  fontSize: 10.5,
+                  letterSpacing: "var(--tracking-eyebrow)",
+                  textTransform: "uppercase",
+                  color: "var(--text-3)",
+                }}
+              >
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Auto-scrolling ticker */}
+      <div
+        style={{
+          borderBottom: "1px solid var(--bdr)",
           overflow: "hidden",
-          padding: "13px 0",
+          padding: "20px 0",
         }}
       >
         <div
           style={{
             display: "flex",
             width: "max-content",
-            animation: "marquee 28s linear infinite",
+            animation: "marquee 36s linear infinite",
           }}
         >
           {track.map((item, i) => (
@@ -36,12 +94,12 @@ export default function ServicesTickerSection() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 24,
-                padding: "0 24px",
+                gap: 36,
+                padding: "0 36px",
                 whiteSpace: "nowrap",
-                fontSize: 11.5,
+                fontSize: 14,
                 fontWeight: 500,
-                letterSpacing: "0.12em",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 color: "var(--text-3)",
               }}
@@ -50,8 +108,8 @@ export default function ServicesTickerSection() {
               <span
                 aria-hidden="true"
                 style={{
-                  width: 4,
-                  height: 4,
+                  width: 5,
+                  height: 5,
                   borderRadius: "50%",
                   background: "var(--clr-accent)",
                   flexShrink: 0,
@@ -113,9 +171,8 @@ export default function ServicesTickerSection() {
             style={{
               fontSize: "clamp(16px,1.3vw,19px)",
               color: "var(--text-2)",
-              marginTop: 16,
-              lineHeight: 1.5,
               margin: "16px 0 0",
+              lineHeight: 1.5,
             }}
           >
             We help define, build, and scale.

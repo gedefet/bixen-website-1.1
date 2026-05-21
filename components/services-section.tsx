@@ -26,7 +26,7 @@ const SERVICES = [
     tagline: "Creation beyond convention.",
     body: "Exploratory R&D for problems without an off-the-shelf answer. Frontier models, novel architectures, rigorous experimentation — partnered with your team and our academic network.",
     tags: ["Research", "Foundation Models", "Prototyping", "Academic Partners"],
-    img: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=85&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&q=85&auto=format&fit=crop",
   },
   {
     num: "04",
@@ -74,19 +74,15 @@ export default function ServicesSection() {
           <article
             key={s.num}
             id={s.id}
-            className="reveal relative flex flex-col overflow-hidden"
+            className="reveal relative flex flex-col overflow-hidden group"
             style={{ background: "var(--bg)", padding: "clamp(40px,4vw,64px)", gap: 18, minHeight: 680, isolation: "isolate", transition: "background-color .3s ease" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "var(--surface-1)")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg)")}
           >
-            <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: `url('${s.img}')`, opacity: 0.14, filter: "contrast(1.05) saturate(.85)" }} />
+            <div className="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.14] transition-[transform,opacity] duration-700 ease-out group-hover:scale-110 group-hover:opacity-[0.30]" style={{ backgroundImage: `url('${s.img}')`, filter: "contrast(1.05) saturate(.85)" }} />
 
             <div aria-hidden="true" style={{ fontSize: "clamp(120px,14vw,240px)", fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1, margin: "-8px 0 auto -6px", color: "var(--text-4)", userSelect: "none" }}>
               {s.num}
-            </div>
-
-            <div style={{ fontSize: "11.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)" }}>
-              {s.kicker}
             </div>
 
             <h3 style={{ fontSize: "clamp(30px,3vw,44px)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.05, margin: 0, color: "var(--text)" }}>
