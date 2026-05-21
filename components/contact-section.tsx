@@ -1,69 +1,89 @@
 "use client"
 
-import { Mail, MapPin } from "lucide-react"
-
 export default function ContactSection() {
   return (
-    <div className="container px-4 md:px-6">
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-        <div className="space-y-4">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">Get in Touch</h2>
+    <section id="contact" style={{ padding: "var(--section-pad-y) 0" }}>
+      <div className="container-bixen">
+        <div
+          className="reveal grid contact-grid gap-12"
+          style={{ gridTemplateColumns: "1fr 1fr", alignItems: "start" }}
+        >
+          {/* Left: contact details */}
+          <div>
+            <div className="eyebrow">Get in touch</div>
+            <h2
+              className="h-section"
+              style={{ fontSize: "clamp(40px,5vw,80px)", marginTop: 18, marginBottom: 24 }}
+            >
+              Ready to create something <em>extraordinary?</em>
+            </h2>
+            <p style={{ fontSize: "clamp(18px,1.4vw,22px)", color: "var(--text-2)", lineHeight: 1.45, margin: "0 0 48px", maxWidth: 440 }}>
+              Let&apos;s talk about your project — or explore how we might partner.
+            </p>
 
-            <p className="text-white md:text-xl">Ready to create something extraordinary? Let's talk.</p>
-          </div>
-          <div className="space-y-4 mt-16">
-            <div className="flex items-start gap-4">
-              <MapPin className="h-6 w-6 text-[#01F9C6] shrink-0 mt-1" />
+            <div className="flex flex-col gap-8">
               <div>
-                <h3 className="font-bold text-white">Our Location</h3>
-                <p className="text-white">Ing. Enrique Butty 275 Capital Federal, C1001 AFA, Buenos Aires</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Mail className="h-6 w-6 text-[#01F9C6] shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold text-white">Email Us</h3>
-                <p className="text-white">contact@bixen.ai</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 aspect-video w-full rounded-xl overflow-hidden bg-[#004953] relative">
-            {/* OpenStreetMap iframe which doesn't require an API key */}
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-58.37631%2C-34.60297%2C-58.36631%2C-34.59297&amp;layer=mapnik&amp;marker=-34.59797%2C-58.37131"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Bixen Location"
-              className="absolute inset-0"
-            ></iframe>
-          </div>
-        </div>
-        <div id="contact-form" className="bg-[#004953]/80 backdrop-blur-sm p-8 rounded-xl border border-[#008794]/30">
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <div className="text-center">
-              <h3 className="text-2xl font-medium text-white mb-4">Send us an email</h3>
-              <p className="text-white/80 text-lg mb-8">
-                To discuss your project or explore partnership opportunities, please send an email to our team at:
-              </p>
-              <div className="flex justify-center mb-4">
+                <div style={{ fontSize: 11, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 6 }}>Email</div>
                 <a
                   href="mailto:contact@bixen.ai?subject=Inquiry from Bixen Website"
-                  className="bg-white/10 px-6 py-4 rounded-lg border border-[#01F9C6]/30 hover:bg-white/20 transition-colors"
+                  style={{ fontSize: "clamp(22px,2vw,28px)", fontWeight: 700, letterSpacing: "-0.012em", color: "var(--text)", lineHeight: 1.2, transition: "color .15s ease" }}
+                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--clr-accent)")}
+                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
                 >
-                  <p className="text-[#01F9C6] text-xl font-medium">contact@bixen.ai</p>
+                  contact@bixen.ai
+                </a>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 6 }}>Office</div>
+                <div style={{ fontSize: "clamp(22px,2vw,28px)", fontWeight: 700, letterSpacing: "-0.012em", color: "var(--text)", lineHeight: 1.2 }}>
+                  Ing. Enrique Butty 275<br />Buenos Aires, Argentina
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 6 }}>Follow</div>
+                <a
+                  href="https://www.linkedin.com/company/bixen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: "clamp(22px,2vw,28px)", fontWeight: 700, letterSpacing: "-0.012em", color: "var(--text)", lineHeight: 1.2, transition: "color .15s ease" }}
+                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--clr-accent)")}
+                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
+                >
+                  LinkedIn ↗
                 </a>
               </div>
             </div>
+          </div>
 
-            <p className="text-white/60 text-center text-sm">We'll get back to you as soon as possible.</p>
+          {/* Right: map */}
+          <div
+            className="relative overflow-hidden"
+            style={{ aspectRatio: "4/5", background: "var(--surface-2)", border: "1px solid var(--bdr)", borderRadius: 2 }}
+          >
+            <div
+              className="absolute top-4 left-4 z-10"
+              style={{
+                background: "var(--bg)",
+                padding: "8px 14px",
+                border: "1px solid var(--bdr-strong)",
+                borderRadius: "999px",
+                fontSize: "10.5px",
+                letterSpacing: "var(--tracking-eyebrow)",
+                textTransform: "uppercase",
+                color: "var(--text)",
+              }}
+            >
+              Buenos Aires
+            </div>
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-58.37631%2C-34.60297%2C-58.36631%2C-34.59297&layer=mapnik&marker=-34.59797%2C-58.37131"
+              loading="lazy"
+              title="Bixen office"
+              style={{ width: "100%", height: "100%", border: 0, filter: "invert(.92) hue-rotate(180deg) contrast(.85)" }}
+            />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

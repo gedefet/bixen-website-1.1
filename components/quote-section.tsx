@@ -1,17 +1,55 @@
-import { Quote } from "lucide-react"
-
 export default function QuoteSection() {
   return (
-    <div className="container px-4 md:px-6" id="quote">
-      <div className="max-w-[800px] mx-auto text-center">
-        <Quote className="h-12 w-12 mx-auto mb-6 text-[#01F9C6]" />
-        <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed mb-6 text-white">
-          "If you look closely, most overnight successes took a long time."
+    <section
+      id="quote"
+      className="text-center"
+      style={{
+        padding: "clamp(96px,12vw,180px) var(--section-pad-x)",
+        borderTop: "1px solid var(--bdr)",
+        borderBottom: "1px solid var(--bdr)",
+        background: "var(--surface-1)",
+      }}
+    >
+      <div style={{ maxWidth: 880, margin: "0 auto" }}>
+        <div
+          aria-hidden="true"
+          style={{
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(96px,12vw,180px)",
+            lineHeight: 0.6,
+            color: "var(--clr-accent)",
+            opacity: 0.8,
+            margin: 0,
+          }}
+        >
+          &ldquo;
+        </div>
+        <blockquote
+          style={{
+            fontWeight: 700,
+            fontSize: "clamp(28px,4vw,56px)",
+            letterSpacing: "-0.025em",
+            lineHeight: 1.15,
+            color: "var(--text)",
+            margin: "32px auto",
+            maxWidth: 880,
+          }}
+        >
+          If you look closely, most{" "}
+          <em style={{ fontStyle: "normal", color: "var(--clr-accent)" }}>overnight successes</em>
+          <br />took a long time.
         </blockquote>
-        <div>
-          <p className="font-bold text-white">Steve Jobs</p>
+        <div
+          style={{
+            fontSize: 11,
+            letterSpacing: "var(--tracking-eyebrow)",
+            textTransform: "uppercase",
+            color: "var(--text-3)",
+          }}
+        >
+          — <strong style={{ color: "var(--text)", fontWeight: 500 }}>Steve Jobs</strong>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

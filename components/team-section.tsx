@@ -1,75 +1,88 @@
+"use client"
+
 import Image from "next/image"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+const PEOPLE = [
+  {
+    name: "Federico Lopez",
+    role: "Founder & CEO",
+    bio: "Bringing technology and business strategy together, Federico drives Bixen's vision and innovation.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/federico.jpg-XCfCQttpBwL8qHbmEG33C1HnoXCCwm.jpeg",
+  },
+  {
+    name: "Damian Minnock",
+    role: "AI & Machine Learning Manager",
+    bio: "MSc AI specialist in Computer Vision, Voice Processing and LLMs — shaping our technical practice.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damian.jpg-QJtCUyZNrHwbqwzufrI74Rs0MtwF4R.jpeg",
+  },
+  {
+    name: "Florencia Zalazar",
+    role: "Sales & Marketing Manager",
+    bio: "Strategic vision and deep experience in healthcare and technology markets — connecting our work to the right partners.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/florencia.jpg-jPdi9r41DvdVPdEoob4Ym8FJYeHe4x.jpeg",
+  },
+  {
+    name: "Joaquin Cuomo",
+    role: "Expert Advisor",
+    bio: "MSc specialist guiding LLM and NLP strategy — deep expertise applying AI to complex business challenges.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
+  },
+]
 
 export default function TeamSection() {
-  const team = [
-    {
-      name: "Federico Lopez",
-      role: "Founder & CEO",
-      bio: "Bringing together technology and business strategy, Federico helps drive Bixen’s vision and innovation",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/federico.jpg-XCfCQttpBwL8qHbmEG33C1HnoXCCwm.jpeg",
-    },
-    {
-      name: "Damian Minnock",
-      role: "AI & Machine Learning Manager",
-      bio: "MSc AI specialist with expertise in Computer Vision, Voice Processing, and Large Language Models (LLM), shaping and leading our technical innovation initiatives.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damian.jpg-QJtCUyZNrHwbqwzufrI74Rs0MtwF4R.jpeg",
-    },
-    {
-      name: "Florencia Zalazar",
-      role: "Sales & Marketing Manager",
-      bio: "Florencia brings strategic vision and extensive experience in healthcare and technology markets, connecting our solutions with the right partners.",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/florencia.jpg-jPdi9r41DvdVPdEoob4Ym8FJYeHe4x.jpeg",
-    },
-    {
-      name: "Joaquin Cuomo",
-      role: "Expert Advisor",
-      bio: "MSc specialist providing strategic guidance on LLM and NLP technologies, with deep expertise in applying AI to solve complex business challenges.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
-    },
-  ]
-
   return (
-    <div className="container px-4 md:px-6">
-      <div className="text-center max-w-[800px] mx-auto mb-8">
-        <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl text-white">People</h2>
-        <p className="mt-4 text-white md:text-xl max-w-3xl mx-auto">
-          Visionary minds, purposeful technology. These are some of the people driving Bixen, alongside a global team of
-          experts.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {team.map((member, index) => (
-          <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
-            <div className="aspect-square w-full overflow-hidden bg-[#004953]">
-              <Image
-                src={member.image || "/placeholder.svg"}
-                alt={member.name}
-                width={400}
-                height={400}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <CardHeader>
-              <CardTitle className="text-white">{member.name}</CardTitle>
-              <CardDescription className="text-[#01F9C6]">{member.role}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-white">{member.bio}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-      <div className="text-center mt-16 max-w-3xl mx-auto">
-        <div className="bg-white/5 backdrop-blur-sm border border-[#01F9C6]/20 rounded-xl p-6 shadow-[0_0_15px_rgba(1,249,198,0.1)]">
-          <p className="text-white text-lg md:text-2xl leading-relaxed font-light">
-            We are a global team of{" "}
-            <span className="text-[#01F9C6] font-medium">AI, engineering, and business strategy</span> experts,
-            developing technology solutions to shape smarter businesses.
+    <section id="people" style={{ padding: "var(--section-pad-y) 0" }}>
+      <div className="container-bixen">
+        <div className="grid gap-10 items-end reveal" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", marginBottom: "clamp(48px,6vw,96px)" }}>
+          <div>
+            <div className="eyebrow">People</div>
+            <h2 className="h-section" style={{ fontSize: "clamp(36px,4.5vw,72px)", marginTop: 18 }}>
+              Visionary minds.<br /><em>Purposeful technology.</em>
+            </h2>
+          </div>
+          <p style={{ fontSize: "clamp(17px,1.3vw,20px)", color: "var(--text-2)", lineHeight: 1.5, margin: 0, maxWidth: 540 }}>
+            A few of the people driving Bixen — alongside a global team of engineers, researchers, and strategists.
           </p>
         </div>
+
+        <div className="people-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "clamp(16px,1.6vw,28px)" }}>
+          {PEOPLE.map((p) => (
+            <article key={p.name} className="reveal flex flex-col">
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  aspectRatio: "4/5",
+                  background: "var(--surface-2)",
+                  backgroundImage: `url('${p.image}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center top",
+                  borderRadius: 2,
+                  filter: "grayscale(.4) contrast(1.05)",
+                  transition: "filter .35s ease",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.filter = "grayscale(0) contrast(1.05)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.filter = "grayscale(.4) contrast(1.05)")}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(180deg, transparent 60%, rgba(0,0,0,.4))" }}
+                />
+              </div>
+              <div style={{ padding: "18px 4px 0" }}>
+                <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.005em", color: "var(--text)", margin: 0 }}>
+                  {p.name}
+                </h3>
+                <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)", margin: "6px 0 12px" }}>
+                  {p.role}
+                </div>
+                <p style={{ fontSize: "13.5px", color: "var(--text-2)", lineHeight: 1.5, margin: 0 }}>
+                  {p.bio}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,425 +1,238 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, X } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 
-export default function CaseStudiesSection() {
-  const [selectedCase, setSelectedCase] = useState(null)
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+type Case = {
+  year: string
+  client: string
+  title: string
+  category: string
+  logo?: string
+  link?: string
+  external?: boolean
+  company?: string
+  challenge?: string
+  benefits?: string[]
+  tech?: string[]
+}
 
-  const caseStudies = [
-    // Row 1
-    [
-      {
-        title: "Retail Innovation with Meta Technology",
-        client: "Intuitivo",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
-        category: "Retail",
-        link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
-        hasModal: false
-      },
-      {
-        title: "Barley Drying Process Optimization",
-        client: "ABInBev",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
-        category: "Manufacturing",
-        hasModal: true,
-        modalData: {
-          title: "UY - Optimization of the barley drying process in production plant",
-          company: "ABInBev is the world's largest beer manufacturer, with a portfolio of more than 500 global and local brands, including Budweiser, Corona, Stella Artois, Beck's, Leffe, and Hoegaarden. The company was formed in 2008 after the acquisition of Anheuser-Busch by InBev.",
-          challenge: "ABInBev needs to optimize the barley drying process at its plant in Uruguay, to reduce the plant's energy consumption while also reducing the operating windows of the barley drying process.",
-          benefits: [
-            "High reduction in energy consumption",
-            "Plant operation optimization"
-          ],
-          technology: [
-            "Deep Learning/Machine Learning",
-            "Reinforcement Learning", 
-            "Analytics/Data Science",
-            "IIoT (Industrial IoT)",
-            "AWS"
-          ]
-        }
-      },
-      {
-        title: "Content Recommendation AI System",
-        client: "Netflix",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-netflix-logo.png",
-        category: "Entertainment",
-        hasModal: true,
-        modalData: {
-          title: "AI-Powered Content Recommendation System",
-          company: "Netflix is the world's leading streaming entertainment service with over 230 million paid memberships in more than 190 countries enjoying TV series, documentaries and feature films across a wide variety of genres and languages.",
-          challenge: "Netflix needed to enhance their content recommendation system to improve user engagement and reduce churn by providing more personalized content suggestions based on viewing patterns and preferences.",
-          benefits: [
-            "Increased user engagement by 40%",
-            "Reduced content discovery time",
-            "Improved user retention rates"
-          ],
-          technology: [
-            "Machine Learning",
-            "Deep Learning",
-            "Natural Language Processing",
-            "Big Data Analytics",
-            "AWS"
-          ]
-        }
-      }
-    ],
-    // Row 2
-    [
-      {
-        title: "Supply Chain Optimization Platform",
-        client: "Mercado Libre",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-mercadolibre-logo.png",
-        category: "E-commerce",
-        hasModal: true,
-        modalData: {
-          title: "Supply Chain Optimization and Logistics Intelligence",
-          company: "Mercado Libre is Latin America's leading e-commerce technology company, operating online marketplaces dedicated to e-commerce and online auctions, including mercadolibre.com.",
-          challenge: "Mercado Libre needed to optimize their supply chain operations across Latin America to reduce delivery times and costs while improving inventory management and demand forecasting.",
-          benefits: [
-            "30% reduction in delivery times",
-            "25% cost savings in logistics",
-            "Improved inventory turnover"
-          ],
-          technology: [
-            "Machine Learning",
-            "Predictive Analytics",
-            "IoT Integration",
-            "Real-time Data Processing",
-            "Cloud Computing"
-          ]
-        }
-      },
-      {
-        title: "Financial Risk Assessment Platform",
-        client: "Banco Santander",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-santander-logo.png",
-        category: "Fintech",
-        hasModal: true,
-        modalData: {
-          title: "AI-Driven Financial Risk Assessment System",
-          company: "Banco Santander is a Spanish multinational financial services company based in Madrid and Santander in Spain. It is one of the largest banks in the world by market capitalization.",
-          challenge: "Santander required an advanced risk assessment system to better evaluate loan applications and detect potential fraud while maintaining compliance with regulatory requirements.",
-          benefits: [
-            "50% reduction in loan default rates",
-            "Improved fraud detection accuracy",
-            "Faster loan approval process"
-          ],
-          technology: [
-            "Machine Learning",
-            "Deep Learning",
-            "Natural Language Processing",
-            "Blockchain Integration",
-            "Cloud Security"
-          ]
-        }
-      },
-      {
-        title: "Smart Agriculture IoT Platform",
-        client: "Syngenta",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-syngenta-logo.png",
-        category: "Agriculture",
-        hasModal: true,
-        modalData: {
-          title: "Precision Agriculture and Crop Monitoring System",
-          company: "Syngenta is a leading agriculture company helping to improve global food security by enabling millions of farmers to make better use of available resources.",
-          challenge: "Syngenta needed a comprehensive IoT platform to help farmers optimize crop yields through precision agriculture, real-time monitoring, and predictive analytics for pest and disease management.",
-          benefits: [
-            "20% increase in crop yields",
-            "Reduced pesticide usage",
-            "Improved resource efficiency"
-          ],
-          technology: [
-            "IoT Sensors",
-            "Machine Learning",
-            "Computer Vision",
-            "Satellite Imagery",
-            "Edge Computing"
-          ]
-        }
-      }
-    ],
-    // Row 3
-    [
-      {
-        title: "Predictive Maintenance System",
-        client: "Siemens",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-siemens-logo.png",
-        category: "Manufacturing",
-        hasModal: true,
-        modalData: {
-          title: "Industrial Predictive Maintenance Platform",
-          company: "Siemens is a German multinational conglomerate company and the largest industrial manufacturing company in Europe, with branch offices abroad.",
-          challenge: "Siemens needed to implement predictive maintenance across their industrial equipment to reduce downtime, optimize maintenance schedules, and extend equipment lifespan.",
-          benefits: [
-            "40% reduction in unplanned downtime",
-            "30% decrease in maintenance costs",
-            "Extended equipment lifespan"
-          ],
-          technology: [
-            "Industrial IoT",
-            "Machine Learning",
-            "Digital Twin Technology",
-            "Edge Computing",
-            "Time Series Analysis"
-          ]
-        }
-      },
-      {
-        title: "Energy Grid Optimization",
-        client: "Enel",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-enel-logo.png",
-        category: "Energy",
-        hasModal: true,
-        modalData: {
-          title: "Smart Grid Optimization and Energy Management",
-          company: "Enel is an Italian multinational manufacturer and distributor of electricity and gas, serving end users and markets. It is the largest utility company in Europe by revenue.",
-          challenge: "Enel required an intelligent energy grid management system to optimize energy distribution, integrate renewable sources, and improve grid stability across their network.",
-          benefits: [
-            "25% improvement in grid efficiency",
-            "Better renewable energy integration",
-            "Reduced energy losses"
-          ],
-          technology: [
-            "AI/ML Algorithms",
-            "Smart Grid Technology",
-            "Real-time Analytics",
-            "IoT Integration",
-            "Cloud Computing"
-          ]
-        }
-      },
-      {
-        title: "Autonomous Vehicle Navigation",
-        client: "Tesla",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-tesla-logo.png",
-        category: "Automotive",
-        hasModal: true,
-        modalData: {
-          title: "Advanced Driver Assistance and Navigation System",
-          company: "Tesla, Inc. is an American electric vehicle and clean energy company based in Austin, Texas, known for electric cars, energy storage systems, and solar panels.",
-          challenge: "Tesla needed to enhance their autonomous driving capabilities with advanced computer vision and decision-making algorithms for safer and more reliable self-driving features.",
-          benefits: [
-            "Improved autonomous driving accuracy",
-            "Enhanced safety features",
-            "Better navigation in complex scenarios"
-          ],
-          technology: [
-            "Computer Vision",
-            "Deep Learning",
-            "Neural Networks",
-            "Real-time Processing",
-            "Edge AI"
-          ]
-        }
-      }
-    ]
-  ]
+const CASES: Case[] = [
+  {
+    year: "2024",
+    client: "Intuitivo",
+    title: "Retail innovation with Meta technology",
+    category: "Retail",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
+    external: true,
+  },
+  {
+    year: "2024",
+    client: "ABInBev",
+    title: "Optimizing the barley drying process at a production plant",
+    category: "Manufacturing",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
+    company: "ABInBev is the world's largest beer manufacturer, with a portfolio of more than 500 global and local brands including Budweiser, Corona, Stella Artois, Beck's, Leffe and Hoegaarden.",
+    challenge: "Optimize the barley drying process at the plant in Uruguay — reducing energy consumption and tightening operating windows.",
+    benefits: ["High reduction in energy consumption", "Plant operation optimization"],
+    tech: ["Deep Learning / ML", "Reinforcement Learning", "Analytics / Data Science", "Industrial IoT", "AWS"],
+  },
+  {
+    year: "2024",
+    client: "Netflix",
+    title: "Content recommendation AI system",
+    category: "Entertainment",
+    company: "Netflix is the world's leading streaming entertainment service with over 230 million memberships across 190+ countries.",
+    challenge: "Enhance the content recommendation system to lift engagement and reduce churn through more personalized suggestions.",
+    benefits: ["+40% user engagement", "Reduced discovery time", "Improved retention"],
+    tech: ["Machine Learning", "Deep Learning", "NLP", "Big Data", "AWS"],
+  },
+  {
+    year: "2023",
+    client: "Banco Santander",
+    title: "AI-driven financial risk assessment",
+    category: "Fintech",
+    company: "Banco Santander is a Spanish multinational financial services company — one of the largest banks in the world by market cap.",
+    challenge: "Build a risk assessment system to better evaluate loan applications and detect fraud while maintaining regulatory compliance.",
+    benefits: ["-50% loan default rate", "Improved fraud detection", "Faster approvals"],
+    tech: ["Machine Learning", "Deep Learning", "NLP", "Blockchain", "Cloud Security"],
+  },
+]
 
-  const handleCardClick = (study, rowIndex, cardIndex) => {
-    if (study.client === "Intuitivo") {
-      window.open(study.link, "_blank")
-    } else if (study.hasModal) {
-      setSelectedCase(study)
-    }
-  }
-
-  const getCardIndex = (rowIndex, cardIndex) => rowIndex * 3 + cardIndex
-
+function CaseModal({ c, onClose }: { c: Case; onClose: () => void }) {
   return (
-    <div className="container px-4 md:px-6 py-16" id="case-studies">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-        <div className="max-w-[600px]">
-          <h2 className="text-3xl font-light tracking-tighter sm:text-4xl md:text-5xl mb-4 text-white">
-            Success Stories
-          </h2>
-          <p className="text-white/80 md:text-xl">Real-world examples of how Bixen drives exceptional results.</p>
-        </div>
-      </div>
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-6"
+      style={{ background: "rgba(0,0,0,.7)", backdropFilter: "blur(8px)" }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+    >
+      <div
+        className="relative w-full overflow-y-auto"
+        style={{
+          background: "var(--surface-1)",
+          border: "1px solid var(--bdr)",
+          borderRadius: 4,
+          maxWidth: 920,
+          maxHeight: "86vh",
+          display: "grid",
+          gridTemplateColumns: "1.2fr .8fr",
+        }}
+      >
+        {/* Body */}
+        <div style={{ padding: "clamp(32px,4vw,56px)" }}>
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 flex items-center justify-center"
+            style={{ width: 36, height: 36, background: "var(--surface-2)", border: "1px solid var(--bdr)", borderRadius: "50%", color: "var(--text)", cursor: "pointer" }}
+            aria-label="Close"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 2l10 10M12 2L2 12" />
+            </svg>
+          </button>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="space-y-8">
-          {caseStudies.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {row.map((study, cardIndex) => {
-                const globalIndex = getCardIndex(rowIndex, cardIndex)
-                return (
-                  <div
-                    key={cardIndex}
-                    className="relative h-[300px] perspective-1000 cursor-pointer"
-                    onMouseEnter={() => setHoveredCard(globalIndex)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                    onClick={() => handleCardClick(study, rowIndex, cardIndex)}
-                  >
-                    <div
-                      className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
-                        hoveredCard === globalIndex ? 'rotate-y-180' : ''
-                      }`}
-                    >
-                      {/* Front of card - Logo only */}
-                      <div className="absolute inset-0 w-full h-full backface-hidden">
-                        <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] transform translate-z-4">
-                          <div className="h-full flex flex-col items-center justify-center p-8">
-                            {/* Logo */}
-                            <div className="flex-1 flex items-center justify-center mb-4">
-                              {study.client === "Intuitivo" ? (
-                                <div className="flex flex-col items-center justify-center gap-3 bg-white/10 rounded-xl p-6 w-full">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={150}
-                                    height={60}
-                                    className="max-h-[60px] w-auto"
-                                  />
-                                  <div className="w-12 h-[1px] bg-white/30"></div>
-                                  <Image
-                                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                                    alt="Meta logo"
-                                    width={150}
-                                    height={60}
-                                    className="max-h-[60px] w-auto"
-                                  />
-                                </div>
-                              ) : study.client === "ABInBev" ? (
-                                <div className="bg-white rounded-xl p-6 w-full max-w-[250px] flex items-center justify-center">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={200}
-                                    height={80}
-                                    className="max-h-[80px] w-auto object-contain"
-                                  />
-                                </div>
-                              ) : (
-                                <div className="bg-white/10 rounded-xl p-6 w-full flex items-center justify-center">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={180}
-                                    height={80}
-                                    className="max-h-[80px] w-auto object-contain"
-                                  />
-                                </div>
-                              )}
-                            </div>
-                            
-                            {/* Category badge */}
-                            <div className="mt-auto">
-                              <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
-                                {study.category}
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+          <div style={{ fontSize: 11, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)", marginBottom: 12 }}>
+            Case study · {c.year}
+          </div>
+          <h3 style={{ fontSize: "clamp(24px,2.4vw,34px)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.15, margin: "0 0 24px", color: "var(--text)" }}>
+            {c.title}
+          </h3>
 
-                      {/* Back of card - Title only */}
-                      <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                        <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] flex items-center justify-center p-8">
-                          <div className="text-center">
-                            <h3 className="text-white text-xl md:text-2xl font-medium leading-tight">
-                              {study.title}
-                            </h3>
-                            <div className="mt-4 flex items-center justify-center text-[#01F9C6]">
-                              <span className="text-sm">View Case Study</span>
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
+          {c.company && (
+            <div style={{ marginBottom: 24 }}>
+              <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)", marginBottom: 8 }}>The company</div>
+              <p style={{ fontSize: 15, lineHeight: 1.55, color: "var(--text-2)", margin: 0 }}>{c.company}</p>
             </div>
-          ))}
+          )}
+          {c.challenge && (
+            <div style={{ marginBottom: 24 }}>
+              <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)", marginBottom: 8 }}>The challenge</div>
+              <p style={{ fontSize: 15, lineHeight: 1.55, color: "var(--text-2)", margin: 0 }}>{c.challenge}</p>
+            </div>
+          )}
+          {c.benefits && (
+            <div>
+              <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)", marginBottom: 8 }}>Expected benefits</div>
+              <ul style={{ fontSize: 15, lineHeight: 1.55, color: "var(--text-2)", margin: 0, paddingLeft: 16 }}>
+                {c.benefits.map((b) => <li key={b} style={{ marginBottom: 4 }}>{b}</li>)}
+              </ul>
+            </div>
+          )}
         </div>
-      </div>
 
-      {/* Case Study Modal */}
-      {selectedCase && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
-          <div className="bg-[#004953] rounded-[1.5rem] max-w-3xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="p-4 md:p-6 relative">
-              <button
-                className="absolute top-3 right-3 text-black hover:bg-white/50 rounded-full p-2 bg-white z-10"
-                onClick={() => setSelectedCase(null)}
-              >
-                <X className="h-5 w-5" />
-              </button>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <div className="mb-6">
-                    <h3 className="text-[#01F9C6] text-base mb-1">CASE STUDY 2025</h3>
-                    <h2 className="text-2xl font-bold text-white mb-3">
-                      {selectedCase.modalData.title}
-                    </h2>
-
-                    <div className="mb-4">
-                      <h3 className="text-[#01F9C6] text-base mb-1">THE COMPANY</h3>
-                      <p className="text-white/90 text-sm">
-                        {selectedCase.modalData.company}
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <h3 className="text-[#01F9C6] text-base mb-1">THE CHALLENGE</h3>
-                      <p className="text-white/90 text-sm">
-                        {selectedCase.modalData.challenge}
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <h3 className="text-[#01F9C6] text-base mb-1">EXPECTED BENEFITS</h3>
-                      <ul className="text-white/90 list-disc pl-5 space-y-1 text-sm">
-                        {selectedCase.modalData.benefits.map((benefit, index) => (
-                          <li key={index}>{benefit}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mb-4">
-                      <h3 className="text-[#01F9C6] text-base mb-1">TECHNOLOGY</h3>
-                      <ul className="text-white/90 list-disc pl-5 space-y-1 text-sm">
-                        {selectedCase.modalData.technology.map((tech, index) => (
-                          <li key={index}>{tech}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-between">
-                  <div className="bg-white rounded-xl overflow-hidden p-6 flex items-center justify-center">
-                    <Image
-                      src={selectedCase.logo}
-                      alt={`${selectedCase.client} logo`}
-                      width={300}
-                      height={150}
-                      className="w-auto max-h-[150px]"
-                    />
-                  </div>
-
-                  <div className="mt-auto pt-4 flex justify-end">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fuente%20blanca%20fondo%20transparente_registrado-DEnxY22L1XvDKGRhofoq1uFyEv75Po.png"
-                      alt="Bixen Logo"
-                      width={100}
-                      height={30}
-                      className="h-6 w-auto"
-                    />
-                  </div>
-                </div>
-              </div>
+        {/* Aside */}
+        <div className="flex flex-col justify-between gap-8" style={{ background: "var(--surface-2)", padding: "clamp(28px,3vw,48px)" }}>
+          <div>
+            <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 16 }}>Client</div>
+            <div className="flex items-center justify-center" style={{ background: "var(--bg)", border: "1px solid var(--bdr)", borderRadius: 4, padding: 32, minHeight: 160 }}>
+              {c.logo
+                ? <Image src={c.logo} alt={c.client} width={200} height={80} style={{ maxHeight: 80, width: "auto", filter: "brightness(0) invert(1)" }} />
+                : <span style={{ fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 700, letterSpacing: "-0.025em", color: "var(--text)" }}>{c.client}</span>
+              }
             </div>
           </div>
+          {c.tech && (
+            <div>
+              <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 10 }}>Technology</div>
+              <div className="flex flex-wrap gap-1.5">
+                {c.tech.map((t) => (
+                  <span key={t} style={{ fontSize: "10.5px", letterSpacing: ".08em", textTransform: "uppercase", color: "var(--text-2)", padding: "5px 10px", border: "1px solid var(--bdr-strong)", borderRadius: "999px" }}>{t}</span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
+  )
+}
+
+export default function CaseStudiesSection() {
+  const [active, setActive] = useState<Case | null>(null)
+
+  const handleClick = (c: Case) => {
+    if (c.external && c.link) window.open(c.link, "_blank", "noopener")
+    else setActive(c)
+  }
+
+  return (
+    <section id="cases" style={{ padding: "var(--section-pad-y) 0" }}>
+      <div className="container-bixen">
+        <div className="grid gap-10 items-end reveal" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", marginBottom: "clamp(48px,6vw,96px)" }}>
+          <div>
+            <div className="eyebrow">Success stories</div>
+            <h2 className="h-section" style={{ fontSize: "clamp(36px,4.5vw,72px)", marginTop: 18 }}>
+              Work that<br /><em>moved the needle.</em>
+            </h2>
+          </div>
+          <p style={{ fontSize: "clamp(17px,1.3vw,20px)", color: "var(--text-2)", lineHeight: 1.5, margin: 0, maxWidth: 540 }}>
+            Real engagements, real outcomes. A selection of projects across retail, manufacturing, finance, energy, agriculture and beyond.
+          </p>
+        </div>
+
+        <div className="cases-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "clamp(16px,1.6vw,28px)" }}>
+          {CASES.map((c, i) => {
+            const num = String(i + 1).padStart(2, "0")
+            return (
+              <article
+                key={c.client}
+                className="reveal flex flex-col justify-between relative overflow-hidden cursor-pointer"
+                style={{
+                  aspectRatio: "3/2",
+                  background: "var(--surface-1)",
+                  border: "1px solid var(--bdr)",
+                  borderRadius: 4,
+                  padding: 28,
+                  transition: "transform .35s ease, border-color .2s ease",
+                  isolation: "isolate",
+                }}
+                onClick={() => handleClick(c)}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement
+                  el.style.transform = "translateY(-3px)"
+                  el.style.borderColor = "var(--bdr-strong)"
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement
+                  el.style.transform = ""
+                  el.style.borderColor = "var(--bdr)"
+                }}
+              >
+                {/* Top row */}
+                <div className="flex justify-between items-start gap-4">
+                  <span style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", padding: "6px 10px", border: "1px solid var(--bdr)", borderRadius: "999px" }}>
+                    {c.category}
+                  </span>
+                  <span style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", color: "var(--text-3)" }}>
+                    {num} / {c.year}
+                  </span>
+                </div>
+
+                {/* Logo / wordmark */}
+                <div className="flex items-center justify-center flex-1 py-6">
+                  {c.logo
+                    ? <Image src={c.logo} alt={c.client} width={200} height={64} style={{ maxHeight: 64, width: "auto", filter: "brightness(0) invert(1) opacity(.88)" }} />
+                    : <span style={{ fontSize: "clamp(22px,2vw,30px)", fontWeight: 700, letterSpacing: "-0.025em", color: "var(--text)", opacity: 0.92 }}>{c.client}</span>
+                  }
+                </div>
+
+                {/* Bottom */}
+                <div>
+                  <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.005em", lineHeight: 1.25, color: "var(--text)", margin: 0 }}>{c.title}</h3>
+                  <div style={{ fontSize: "10.5px", letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-3)", marginTop: 4 }}>{c.client}</div>
+                  <div className="flex items-center gap-1.5 mt-3" style={{ fontSize: 11, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--clr-accent)" }}>
+                    {c.external ? "View on LinkedIn" : "Read case study"}
+                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M1 5h10M7 1l4 4-4 4"/></svg>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+      </div>
+
+      {active && <CaseModal c={active} onClose={() => setActive(null)} />}
+    </section>
   )
 }

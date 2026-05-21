@@ -1,67 +1,52 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 
 export default function VisionSection() {
-  const compassRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries
-        setIsVisible(entry.isIntersecting)
-      },
-      {
-        threshold: 0.3,
-      },
-    )
-
-    if (compassRef.current) {
-      observer.observe(compassRef.current)
-    }
-
-    return () => {
-      if (compassRef.current) {
-        observer.unobserve(compassRef.current)
-      }
-    }
-  }, [])
-
   return (
-    <div className="container px-4 md:px-6 py-16">
-      <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-          <div className="order-2 lg:order-1 flex justify-center">
+    <section id="vision" style={{ padding: "var(--section-pad-y) 0" }}>
+      <div className="container-bixen">
+        <div
+          className="reveal grid vision-grid items-center"
+          style={{ gridTemplateColumns: "1fr 1fr", gap: "clamp(48px,6vw,120px)" }}
+        >
+          {/* Compass */}
+          <div className="relative flex items-center justify-center" style={{ aspectRatio: "1" }}>
             <div
-              ref={compassRef}
-              className={`transition-all duration-1000 ${isVisible ? "animate-compass" : "opacity-0"}`}
-            >
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-clplEe8dg1jWWCQCsrjcMCuKQyl3aT.png"
-                alt="Compass"
-                width={400}
-                height={400}
-                className="w-72 h-72 md:w-96 md:h-96"
-                priority
-              />
-            </div>
+              className="absolute inset-0 rounded-full"
+              style={{ inset: "12%", border: "1px solid var(--bdr)" }}
+            />
+            <div
+              className="absolute rounded-full"
+              style={{ inset: "28%", border: "1px dashed var(--bdr)" }}
+            />
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-clplEe8dg1jWWCQCsrjcMCuKQyl3aT.png"
+              alt="Compass"
+              width={400}
+              height={400}
+              className="animate-spin-slow"
+              style={{
+                width: "64%",
+                height: "auto",
+                filter: "drop-shadow(0 0 60px rgba(1,249,198,.15))",
+              }}
+            />
           </div>
-          <div className="space-y-4 order-1 lg:order-2">
-            <h2 className="text-3xl font-light sm:text-4xl md:text-5xl text-white">
-              Your business vision is <span className="italic">our compass</span>
+
+          {/* Text */}
+          <div>
+            <div className="eyebrow">Our compass</div>
+            <h2 className="h-section" style={{ fontSize: "clamp(36px,4.5vw,64px)", marginTop: 18 }}>
+              Your business vision is <em>our compass.</em>
             </h2>
-            <p className="text-white/80 text-xl md:text-2xl mb-6">
-              At Bixen, we develop projects with a strong technical and scientific focus, always guided by our clients'
-              business vision.
+            <p style={{ fontSize: "clamp(17px,1.3vw,20px)", color: "var(--text-2)", marginTop: 24, lineHeight: 1.5, maxWidth: 480 }}>
+              At Bixen, we develop projects with a strong technical and scientific focus, always guided by our clients&apos; business vision.
             </p>
-            <p className="text-white/80 text-xl md:text-2xl">
+            <p style={{ fontSize: "clamp(17px,1.3vw,20px)", color: "var(--text-2)", marginTop: 16, lineHeight: 1.5, maxWidth: 480 }}>
               We combine cutting-edge technology with deep industry knowledge to create solutions that truly matter.
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
