@@ -2,7 +2,6 @@ import HeroHeaderContainer from "@/components/hero-header-container"
 import ServicesTickerSection from "@/components/services-ticker-section"
 import CaseStudiesSection from "@/components/case-studies-section"
 import AiStatement from "@/components/ai-statement"
-import StatsSection from "@/components/stats-section"
 import ServicesSection from "@/components/services-section"
 import WhyBixenSection from "@/components/why-bixen-section"
 import PartnersCarousel from "@/components/partners-carousel"
@@ -17,7 +16,6 @@ export default function Home() {
       <ServicesTickerSection />
       <CaseStudiesSection />
       <AiStatement />
-      <StatsSection />
       <ServicesSection />
       <WhyBixenSection />
       <PartnersCarousel />
