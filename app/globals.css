@@ -172,6 +172,11 @@
   50%       { transform: translateY(4px); }
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ── Responsive grid overrides ──────────────────────────────── */
 @media (max-width: 880px) {
   /* Stats: 4 → 2 cols */
