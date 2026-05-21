@@ -7,7 +7,7 @@ const PEOPLE = [
     name: "Federico Lopez",
     role: "Founder & CEO",
     bio: "Bringing technology and business strategy together, Federico drives Bixen's vision and innovation.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/federico.jpg-XCfCQttpBwL8qHbmEG33C1HnoXCCwm.jpeg",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQFkzHTdG0MCEw/profile-displayphoto-scale_400_400/B4DZ0rrgsGH4Ag-/0/1774554330475?e=1781136000&v=beta&t=ob8oQae76YetEfh8nmEX_9aAWbce_cyToOi9-WTWBSM",
   },
   {
     name: "Damian Minnock",
@@ -26,6 +26,12 @@ const PEOPLE = [
     role: "Expert Advisor",
     bio: "MSc specialist guiding LLM and NLP strategy — deep expertise applying AI to complex business challenges.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
+  },
+  {
+    name: "Alejandro Sagula",
+    role: "Corporate Architecture and Automation Expert",
+    bio: "Alejandro brings over 30 years of experience in large-scale IT organizations, helping companies scale products and systems efficiently. As an advisor to Bixen, he contributes his expertise in automation and enterprise architecture with a focus on operational excellence.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alesagula-1gDy7EWJAz339nREa6XP184LtGKXRd.jpeg",
   },
 ]
 
