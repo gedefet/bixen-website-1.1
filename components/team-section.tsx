@@ -51,9 +51,14 @@ export default function TeamSection() {
           </p>
         </div>
 
-        <div className="people-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "clamp(16px,1.6vw,28px)" }}>
-          {PEOPLE.map((p) => (
-            <article key={p.name} className="reveal flex flex-col">
+        <div className="people-grid" style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: "clamp(16px,1.6vw,28px)" }}>
+          {PEOPLE.map((p, i) => {
+            const spanClass =
+              i === 3 ? "people-span-start-2" :
+              i === 4 ? "people-span-start-4" :
+              "people-span-2"
+            return (
+            <article key={p.name} className={`reveal flex flex-col ${spanClass}`}>
               <div
                 className="relative overflow-hidden"
                 style={{
@@ -86,7 +91,8 @@ export default function TeamSection() {
                 </p>
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

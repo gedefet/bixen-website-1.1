@@ -144,6 +144,11 @@
   .reveal, .reveal.in { transition: none; opacity: 1; transform: none; }
 }
 
+/* ── Team grid span helpers ──────────────────────────────────── */
+.people-span-2       { grid-column: span 2; }
+.people-span-start-2 { grid-column: 2 / span 2; }
+.people-span-start-4 { grid-column: 4 / span 2; }
+
 /* ── Layout helpers ─────────────────────────────────────────── */
 .container-bixen {
   width: 100%;
@@ -189,8 +194,9 @@
   .partners-grid { grid-template-columns: repeat(3,1fr) !important; }
   /* Cases: 2 → 1 col */
   .cases-grid { grid-template-columns: 1fr !important; }
-  /* People: 4 → 2 cols */
-  .people-grid { grid-template-columns: repeat(2,1fr) !important; }
+  /* People: 6-col → 3 cols, reset spans */
+  .people-grid { grid-template-columns: repeat(3,1fr) !important; }
+  .people-span-2, .people-span-start-2, .people-span-start-4 { grid-column: span 1 !important; }
   /* Contact: 2 → 1 col */
   .contact-grid { grid-template-columns: 1fr !important; }
   /* Footer: 3 → 1 col */
@@ -204,8 +210,9 @@
 @media (max-width: 540px) {
   /* Partners: 3 → 2 cols */
   .partners-grid { grid-template-columns: repeat(2,1fr) !important; }
-  /* People: 2 → 1 col */
+  /* People: → 1 col */
   .people-grid { grid-template-columns: 1fr !important; }
+  .people-span-2, .people-span-start-2, .people-span-start-4 { grid-column: span 1 !important; }
 }
 
 @media (max-width: 600px) {
