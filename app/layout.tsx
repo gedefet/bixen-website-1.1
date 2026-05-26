@@ -16,12 +16,8 @@ export const metadata: Metadata = {
   title: "Bixen | Helping businesses thrive through AI",
   description:
     "Helping businesses thrive through AI. Leveraging cutting-edge technology and AI expertise to drive innovation.",
+  viewport: "width=device-width, initial-scale=1",
     generator: 'v0.dev'
-}
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
 }
 
 export default function RootLayout({
