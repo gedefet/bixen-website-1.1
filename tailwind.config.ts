@@ -59,8 +59,9 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        sans: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        slogan: ["Plus Jakarta Sans", "var(--font-space-grotesk)", "system-ui", "sans-serif"],
       },
       animation: {
         "spin-slow": "spin-slow 8s linear infinite",
