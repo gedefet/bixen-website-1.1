@@ -7,12 +7,8 @@ export default function HeroSection() {
     <div className="container px-4 md:px-6 relative z-10 pt-16 overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
         <AnimatedSection direction="left">
-          <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light w-full">
-            <span className="inline-block w-full px-2 py-0 mb-2 text-white font-bold leading-tight">CREATION </span>
-            <br />
-            <span className="inline-block w-full px-2 py-0 mb-2 text-white italic leading-tight">BEYOND </span>
-            <br />
-            <span className="inline-block w-full px-2 py-0 text-white leading-tight">CONVENTION </span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-medium tracking-tight leading-[1.05] text-white">
+            Helping businesses thrive through AI.
           </h1>
         </AnimatedSection>
 

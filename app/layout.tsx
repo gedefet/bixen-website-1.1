@@ -13,9 +13,9 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "Bixen | Creation Beyond Convention",
+  title: "Bixen | Helping businesses thrive through AI",
   description:
-    "Unconventional solutions for forward-thinking people. Leveraging cutting-edge technology and AI expertise to drive innovation.",
+    "Helping businesses thrive through AI. Leveraging cutting-edge technology and AI expertise to drive innovation.",
   viewport: "width=device-width, initial-scale=1",
     generator: 'v0.dev'
 }

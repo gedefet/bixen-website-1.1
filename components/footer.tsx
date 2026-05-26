@@ -18,7 +18,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-white/60 text-xs mt-1">Creation beyond convention</p>
+            <p className="text-white/60 text-xs mt-1">Helping businesses thrive through AI</p>
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-3 mt-2 md:mt-0">
