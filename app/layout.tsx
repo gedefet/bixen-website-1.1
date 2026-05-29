@@ -1,28 +1,23 @@
 import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Plus_Jakarta_Sans } from "next/font/google"
+import type { Metadata } from "next"
+import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
 
 // Optimize font loading
-const plusJakartaSans = Plus_Jakarta_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta-sans",
+  variable: "--font-space-grotesk",
   display: "swap",
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
 })
 
 export const metadata: Metadata = {
   title: "Bixen | Creation Beyond Convention",
   description:
     "Unconventional solutions for forward-thinking people. Leveraging cutting-edge technology and AI expertise to drive innovation.",
-  generator: "v0.dev",
-}
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
+  viewport: "width=device-width, initial-scale=1",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -32,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
+      <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
         {children}
         <Footer />
         <ScrollToTop />
