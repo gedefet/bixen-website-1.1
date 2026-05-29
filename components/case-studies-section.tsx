@@ -13,15 +13,7 @@ export default function CaseStudiesSection() {
     // Row 1
     [
       {
-        title: "Retail Innovation with Meta Technology",
-        client: "Intuitivo",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
-        category: "Retail",
-        link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
-        hasModal: false
-      },
-      {
-        title: "Barley Drying Process Optimization",
+        title: "Ongoing conversations - ABInBev Process Optimization",
         client: "ABInBev",
         logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yhR4SR5hnlCjbhOcXVdmY6jj7udXYS.png",
         category: "Manufacturing",
@@ -32,195 +24,118 @@ export default function CaseStudiesSection() {
           challenge: "ABInBev needs to optimize the barley drying process at its plant in Uruguay, to reduce the plant's energy consumption while also reducing the operating windows of the barley drying process.",
           benefits: [
             "High reduction in energy consumption",
-            "Plant operation optimization"
+            "Plant operation optimization",
           ],
           technology: [
             "Deep Learning/Machine Learning",
-            "Reinforcement Learning", 
+            "Reinforcement Learning",
             "Analytics/Data Science",
             "IIoT (Industrial IoT)",
-            "AWS"
-          ]
-        }
+            "AWS",
+          ],
+        },
       },
       {
-        title: "Content Recommendation AI System",
-        client: "Netflix",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-netflix-logo.png",
-        category: "Entertainment",
+        title: "Retail Innovation with Meta Technology",
+        client: "Intuitivo",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TuK32bXVvmAAw659TF3txwThsJdaoI.png",
+        category: "Retail",
+        link: "https://www.linkedin.com/feed/update/urn:li:activity:7205978275846713346",
+        hasModal: false,
+      },
+      {
+        title: "3D Body Scan Validation",
+        client: null,
+        logo: null,
+        category: "Healthcare",
         hasModal: true,
         modalData: {
-          title: "AI-Powered Content Recommendation System",
-          company: "Netflix is the world's leading streaming entertainment service with over 230 million paid memberships in more than 190 countries enjoying TV series, documentaries and feature films across a wide variety of genres and languages.",
-          challenge: "Netflix needed to enhance their content recommendation system to improve user engagement and reduce churn by providing more personalized content suggestions based on viewing patterns and preferences.",
+          title: "3D Body Scan Validation System",
+          company: "Confidential client in the healthcare sector.",
+          challenge: "Develop an AI-based validation system for detecting and classifying deficient body scans using a database of 29,000 scans across different body parts.",
           benefits: [
-            "Increased user engagement by 40%",
-            "Reduced content discovery time",
-            "Improved user retention rates"
+            "98.4% precision in health parameter detection",
+            "250% growth in first year",
           ],
           technology: [
-            "Machine Learning",
             "Deep Learning",
-            "Natural Language Processing",
-            "Big Data Analytics",
-            "AWS"
-          ]
-        }
-      }
+            "Computer Vision",
+            "Classification Models",
+            "Data Science",
+          ],
+        },
+      },
     ],
     // Row 2
     [
       {
-        title: "Supply Chain Optimization Platform",
-        client: "Mercado Libre",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-mercadolibre-logo.png",
-        category: "E-commerce",
+        title: "Customer Service Center Reduction",
+        client: null,
+        logo: null,
+        category: "Logistics",
         hasModal: true,
         modalData: {
-          title: "Supply Chain Optimization and Logistics Intelligence",
-          company: "Mercado Libre is Latin America's leading e-commerce technology company, operating online marketplaces dedicated to e-commerce and online auctions, including mercadolibre.com.",
-          challenge: "Mercado Libre needed to optimize their supply chain operations across Latin America to reduce delivery times and costs while improving inventory management and demand forecasting.",
+          title: "Intelligent Customer Service System (IVR)",
+          company: "Confidential client in the logistics sector.",
+          challenge: "Design and implement an intelligent voice assistant (IVA) system for call flow management, with proprietary algorithms for elderly voice recognition.",
           benefits: [
-            "30% reduction in delivery times",
-            "25% cost savings in logistics",
-            "Improved inventory turnover"
+            "45% improvement in voice recognition for people over 75 years",
+            "60% reduction in operational costs",
           ],
           technology: [
-            "Machine Learning",
-            "Predictive Analytics",
-            "IoT Integration",
-            "Real-time Data Processing",
-            "Cloud Computing"
-          ]
-        }
-      },
-      {
-        title: "Financial Risk Assessment Platform",
-        client: "Banco Santander",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-santander-logo.png",
-        category: "Fintech",
-        hasModal: true,
-        modalData: {
-          title: "AI-Driven Financial Risk Assessment System",
-          company: "Banco Santander is a Spanish multinational financial services company based in Madrid and Santander in Spain. It is one of the largest banks in the world by market capitalization.",
-          challenge: "Santander required an advanced risk assessment system to better evaluate loan applications and detect potential fraud while maintaining compliance with regulatory requirements.",
-          benefits: [
-            "50% reduction in loan default rates",
-            "Improved fraud detection accuracy",
-            "Faster loan approval process"
-          ],
-          technology: [
-            "Machine Learning",
-            "Deep Learning",
             "Natural Language Processing",
-            "Blockchain Integration",
-            "Cloud Security"
-          ]
-        }
+            "Voice Processing",
+            "IVA System",
+            "Proprietary Algorithms",
+          ],
+        },
       },
       {
-        title: "Smart Agriculture IoT Platform",
-        client: "Syngenta",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-syngenta-logo.png",
-        category: "Agriculture",
+        title: "Banking Assistant Evolution",
+        client: null,
+        logo: null,
+        category: "Banking",
         hasModal: true,
         modalData: {
-          title: "Precision Agriculture and Crop Monitoring System",
-          company: "Syngenta is a leading agriculture company helping to improve global food security by enabling millions of farmers to make better use of available resources.",
-          challenge: "Syngenta needed a comprehensive IoT platform to help farmers optimize crop yields through precision agriculture, real-time monitoring, and predictive analytics for pest and disease management.",
+          title: "Banking Assistant Evolution",
+          company: "Confidential banking client.",
+          challenge: "Enhance IBM Watson performance through a custom NLP pipeline and root word identification technology to improve conversational accuracy.",
           benefits: [
-            "20% increase in crop yields",
-            "Reduced pesticide usage",
-            "Improved resource efficiency"
+            "Watson accuracy improved from 60% to 82%",
           ],
           technology: [
-            "IoT Sensors",
-            "Machine Learning",
-            "Computer Vision",
-            "Satellite Imagery",
-            "Edge Computing"
-          ]
-        }
-      }
+            "Natural Language Processing",
+            "IBM Watson",
+            "Custom NLP Pipeline",
+            "Root Word Identification",
+          ],
+        },
+      },
+      {
+        title: "Internal Process Automation",
+        client: null,
+        logo: null,
+        category: "Telecommunications",
+        hasModal: true,
+        modalData: {
+          title: "Internal Process Automation",
+          company: "Confidential telecommunications client.",
+          challenge: "Implement a robotic process automation (RPA) cell for internal company processes to facilitate operator tasks and optimize human resource allocation.",
+          benefits: [
+            "Reduced 27 personnel dedicated to portability processes",
+            "Optimized corporate travel validation processes",
+          ],
+          technology: [
+            "Robotic Process Automation (RPA)",
+            "Process Optimization",
+            "Workflow Automation",
+          ],
+        },
+      },
     ],
-    // Row 3
-    [
-      {
-        title: "Predictive Maintenance System",
-        client: "Siemens",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-siemens-logo.png",
-        category: "Manufacturing",
-        hasModal: true,
-        modalData: {
-          title: "Industrial Predictive Maintenance Platform",
-          company: "Siemens is a German multinational conglomerate company and the largest industrial manufacturing company in Europe, with branch offices abroad.",
-          challenge: "Siemens needed to implement predictive maintenance across their industrial equipment to reduce downtime, optimize maintenance schedules, and extend equipment lifespan.",
-          benefits: [
-            "40% reduction in unplanned downtime",
-            "30% decrease in maintenance costs",
-            "Extended equipment lifespan"
-          ],
-          technology: [
-            "Industrial IoT",
-            "Machine Learning",
-            "Digital Twin Technology",
-            "Edge Computing",
-            "Time Series Analysis"
-          ]
-        }
-      },
-      {
-        title: "Energy Grid Optimization",
-        client: "Enel",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-enel-logo.png",
-        category: "Energy",
-        hasModal: true,
-        modalData: {
-          title: "Smart Grid Optimization and Energy Management",
-          company: "Enel is an Italian multinational manufacturer and distributor of electricity and gas, serving end users and markets. It is the largest utility company in Europe by revenue.",
-          challenge: "Enel required an intelligent energy grid management system to optimize energy distribution, integrate renewable sources, and improve grid stability across their network.",
-          benefits: [
-            "25% improvement in grid efficiency",
-            "Better renewable energy integration",
-            "Reduced energy losses"
-          ],
-          technology: [
-            "AI/ML Algorithms",
-            "Smart Grid Technology",
-            "Real-time Analytics",
-            "IoT Integration",
-            "Cloud Computing"
-          ]
-        }
-      },
-      {
-        title: "Autonomous Vehicle Navigation",
-        client: "Tesla",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-tesla-logo.png",
-        category: "Automotive",
-        hasModal: true,
-        modalData: {
-          title: "Advanced Driver Assistance and Navigation System",
-          company: "Tesla, Inc. is an American electric vehicle and clean energy company based in Austin, Texas, known for electric cars, energy storage systems, and solar panels.",
-          challenge: "Tesla needed to enhance their autonomous driving capabilities with advanced computer vision and decision-making algorithms for safer and more reliable self-driving features.",
-          benefits: [
-            "Improved autonomous driving accuracy",
-            "Enhanced safety features",
-            "Better navigation in complex scenarios"
-          ],
-          technology: [
-            "Computer Vision",
-            "Deep Learning",
-            "Neural Networks",
-            "Real-time Processing",
-            "Edge AI"
-          ]
-        }
-      }
-    ]
   ]
 
-  const handleCardClick = (study, rowIndex, cardIndex) => {
+  const handleCardClick = (study) => {
     if (study.client === "Intuitivo") {
       window.open(study.link, "_blank")
     } else if (study.hasModal) {
@@ -253,61 +168,56 @@ export default function CaseStudiesSection() {
                     className="relative h-[300px] perspective-1000 cursor-pointer"
                     onMouseEnter={() => setHoveredCard(globalIndex)}
                     onMouseLeave={() => setHoveredCard(null)}
-                    onClick={() => handleCardClick(study, rowIndex, cardIndex)}
+                    onClick={() => handleCardClick(study)}
                   >
                     <div
                       className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
-                        hoveredCard === globalIndex ? 'rotate-y-180' : ''
+                        hoveredCard === globalIndex ? "rotate-y-180" : ""
                       }`}
                     >
-                      {/* Front of card - Logo only */}
+                      {/* Front of card */}
                       <div className="absolute inset-0 w-full h-full backface-hidden">
                         <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] transform translate-z-4">
                           <div className="h-full flex flex-col items-center justify-center p-8">
-                            {/* Logo */}
-                            <div className="flex-1 flex items-center justify-center mb-4">
-                              {study.client === "Intuitivo" ? (
-                                <div className="flex flex-col items-center justify-center gap-3 bg-white/10 rounded-xl p-6 w-full">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={150}
-                                    height={60}
-                                    className="max-h-[60px] w-auto"
-                                  />
-                                  <div className="w-12 h-[1px] bg-white/30"></div>
-                                  <Image
-                                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                                    alt="Meta logo"
-                                    width={150}
-                                    height={60}
-                                    className="max-h-[60px] w-auto"
-                                  />
-                                </div>
-                              ) : study.client === "ABInBev" ? (
-                                <div className="bg-white rounded-xl p-6 w-full max-w-[250px] flex items-center justify-center">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={200}
-                                    height={80}
-                                    className="max-h-[80px] w-auto object-contain"
-                                  />
-                                </div>
+                            <div className="flex-1 flex items-center justify-center mb-4 w-full">
+                              {study.logo ? (
+                                study.client === "ABInBev" ? (
+                                  <div className="bg-white rounded-xl p-6 w-full max-w-[250px] flex items-center justify-center">
+                                    <Image
+                                      src={study.logo}
+                                      alt={`${study.client} logo`}
+                                      width={200}
+                                      height={80}
+                                      className="max-h-[80px] w-auto object-contain"
+                                    />
+                                  </div>
+                                ) : (
+                                  <div className="flex flex-col items-center justify-center gap-3 bg-white/10 rounded-xl p-6 w-full">
+                                    <Image
+                                      src={study.logo}
+                                      alt={`${study.client} logo`}
+                                      width={150}
+                                      height={60}
+                                      className="max-h-[60px] w-auto"
+                                    />
+                                    <div className="w-12 h-[1px] bg-white/30" />
+                                    <Image
+                                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                                      alt="Meta logo"
+                                      width={150}
+                                      height={60}
+                                      className="max-h-[60px] w-auto"
+                                    />
+                                  </div>
+                                )
                               ) : (
                                 <div className="bg-white/10 rounded-xl p-6 w-full flex items-center justify-center">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={180}
-                                    height={80}
-                                    className="max-h-[80px] w-auto object-contain"
-                                  />
+                                  <p className="text-white/70 text-center text-sm font-medium leading-snug">
+                                    {study.title}
+                                  </p>
                                 </div>
                               )}
                             </div>
-                            
-                            {/* Category badge */}
                             <div className="mt-auto">
                               <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
                                 {study.category}
@@ -317,7 +227,7 @@ export default function CaseStudiesSection() {
                         </div>
                       </div>
 
-                      {/* Back of card - Title only */}
+                      {/* Back of card */}
                       <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
                         <div className="h-full bg-gradient-to-br from-[#01F9C6]/30 to-[#008794]/30 backdrop-blur-sm border border-[#01F9C6]/50 rounded-[1.5rem] flex items-center justify-center p-8">
                           <div className="text-center">
@@ -325,7 +235,9 @@ export default function CaseStudiesSection() {
                               {study.title}
                             </h3>
                             <div className="mt-4 flex items-center justify-center text-[#01F9C6]">
-                              <span className="text-sm">View Case Study</span>
+                              <span className="text-sm">
+                                {study.client === "Intuitivo" ? "View on LinkedIn" : "View Case Study"}
+                              </span>
                               <ArrowRight className="ml-2 h-4 w-4" />
                             </div>
                           </div>
@@ -340,7 +252,7 @@ export default function CaseStudiesSection() {
         </div>
       </div>
 
-      {/* Case Study Modal */}
+      {/* Modal */}
       {selectedCase && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
           <div className="bg-[#004953] rounded-[1.5rem] max-w-3xl w-full max-h-[80vh] overflow-y-auto">
@@ -362,16 +274,12 @@ export default function CaseStudiesSection() {
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">THE COMPANY</h3>
-                      <p className="text-white/90 text-sm">
-                        {selectedCase.modalData.company}
-                      </p>
+                      <p className="text-white/90 text-sm">{selectedCase.modalData.company}</p>
                     </div>
 
                     <div className="mb-4">
                       <h3 className="text-[#01F9C6] text-base mb-1">THE CHALLENGE</h3>
-                      <p className="text-white/90 text-sm">
-                        {selectedCase.modalData.challenge}
-                      </p>
+                      <p className="text-white/90 text-sm">{selectedCase.modalData.challenge}</p>
                     </div>
 
                     <div className="mb-4">
@@ -395,15 +303,23 @@ export default function CaseStudiesSection() {
                 </div>
 
                 <div className="flex flex-col justify-between">
-                  <div className="bg-white rounded-xl overflow-hidden p-6 flex items-center justify-center">
-                    <Image
-                      src={selectedCase.logo}
-                      alt={`${selectedCase.client} logo`}
-                      width={300}
-                      height={150}
-                      className="w-auto max-h-[150px]"
-                    />
-                  </div>
+                  {selectedCase.logo ? (
+                    <div className="bg-white rounded-xl overflow-hidden p-6 flex items-center justify-center">
+                      <Image
+                        src={selectedCase.logo}
+                        alt={`${selectedCase.client} logo`}
+                        width={300}
+                        height={150}
+                        className="w-auto max-h-[150px]"
+                      />
+                    </div>
+                  ) : (
+                    <div className="bg-white/10 rounded-xl p-6 flex items-center justify-center">
+                      <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-sm px-4 py-2">
+                        {selectedCase.category}
+                      </Badge>
+                    </div>
+                  )}
 
                   <div className="mt-auto pt-4 flex justify-end">
                     <Image
