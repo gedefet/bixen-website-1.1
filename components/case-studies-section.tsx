@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { ArrowRight, X } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 
 export default function CaseStudiesSection() {
@@ -185,45 +184,34 @@ export default function CaseStudiesSection() {
                     >
                       {/* Front of card */}
                       <div className="absolute inset-0 w-full h-full backface-hidden">
-                        <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/20 rounded-[1.5rem] transform translate-z-4">
-                          <div className="h-full flex flex-col items-center justify-center p-8">
-                            <div className="flex-1 flex items-center justify-center mb-4 w-full">
-                              {study.client === "Intuitivo" ? (
-                                <div className="flex flex-col items-center justify-center gap-3 bg-white/10 rounded-xl p-6 w-full">
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={150}
-                                    height={60}
-                                    className="max-h-[60px] w-auto"
-                                  />
-                                  <div className="w-12 h-[1px] bg-white/30" />
-                                  <Image
-                                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
-                                    alt="Meta logo"
-                                    width={150}
-                                    height={60}
-                                    className="max-h-[60px] w-auto"
-                                  />
-                                </div>
-                              ) : (
-                                <div className={`${getLogoBgClass(study.logoBg)} rounded-xl p-6 w-full ${study.client === "ABInBev" ? "max-w-[250px]" : ""} flex items-center justify-center`}>
-                                  <Image
-                                    src={study.logo}
-                                    alt={`${study.client} logo`}
-                                    width={200}
-                                    height={80}
-                                    className="max-h-[80px] w-auto object-contain"
-                                  />
-                                </div>
-                              )}
+                        <div className={`absolute inset-0 ${study.client === "Intuitivo" ? "bg-white/10 backdrop-blur-sm" : getLogoBgClass(study.logoBg)} border border-white/20 rounded-[1.5rem] overflow-hidden flex items-center justify-center`}>
+                          {study.client === "Intuitivo" ? (
+                            <div className="flex flex-col items-center justify-center gap-3 p-8 w-full h-full">
+                              <Image
+                                src={study.logo}
+                                alt={`${study.client} logo`}
+                                width={150}
+                                height={60}
+                                className="max-h-[80px] w-auto"
+                              />
+                              <div className="w-12 h-[1px] bg-white/30" />
+                              <Image
+                                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-knYRYz3jiSN6JoRImKNt306xaJdeci.png"
+                                alt="Meta logo"
+                                width={150}
+                                height={60}
+                                className="max-h-[80px] w-auto"
+                              />
                             </div>
-                            <div className="mt-auto">
-                              <Badge variant="secondary" className="bg-[#01F9C6]/80 text-[#004953] text-xs">
-                                {study.category}
-                              </Badge>
-                            </div>
-                          </div>
+                          ) : (
+                            <Image
+                              src={study.logo}
+                              alt={`${study.client} logo`}
+                              width={400}
+                              height={300}
+                              className="w-full h-full object-contain p-8"
+                            />
+                          )}
                         </div>
                       </div>
 
