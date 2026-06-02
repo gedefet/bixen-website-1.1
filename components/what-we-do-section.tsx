@@ -7,43 +7,43 @@ export default function WhatWeDoSection() {
       icon: (
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-eKacwtw2TeFpTAjxA4LVAeOMMKCvuO.png"
-          alt="Product Ideation and Design"
+          alt="Product Strategy & Design"
           width={48}
           height={48}
           className="h-12 w-12 object-contain"
         />
       ),
-      title: "Product Ideation and Design",
+      title: "Product Strategy & Design",
       description:
-        "We help you design and craft your product, focusing on an exceptional user experience and ensuring it's ready for a successful market launch.",
+        "We co-create your product vision, crafting prototypes and experiences that solve real business problems. From ideation to validation, we help you build the right thing — before you build it right.",
     },
     {
       icon: (
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-FuiRvimTgSgStRvIhFUF5nSXxhEN2Z.png"
-          alt="Product Growth and Scale"
+          alt="AI Solutions & Delivery"
           width={48}
           height={48}
           className="h-12 w-12 object-contain"
         />
       ),
-      title: "Product Growth and Scale",
+      title: "AI Solutions & Delivery",
       description:
-        "If you already have a running product, we enhance, scale, and adapt your existing technology to your specific needs.",
+        "From chatbots to computer vision, we build applied AI that delivers measurable impact. With over a decade of experience, we integrate AI into your stack, not just your slides.",
     },
     {
       icon: (
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-iwSNTj0NWUsK8nBIFhgA8FydCiAiA5.png"
-          alt="Innovation Together"
+          alt="Curated Humans™ by Bixen"
           width={48}
           height={48}
           className="h-12 w-12 object-contain"
         />
       ),
-      title: "Innovation Together",
+      title: "Curated Humans™ by Bixen",
       description:
-        "Bring your visionary ideas to life without impacting your core team's workload, leveraging our expertise to explore, innovate, and build.",
+        "We select, assess, and certify top-tier professionals in artificial intelligence, with proven experience. Our certified AI professionals are ready to join your team from day one, backed by a rigorous validation process.",
     },
   ]
 
