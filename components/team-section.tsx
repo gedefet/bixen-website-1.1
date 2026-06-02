@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function TeamSection() {
+  // Layout: 3 arriba + 2 centradas (5 miembros, grilla de 6 columnas). Un 6º miembro rompe el 3+2 centrado.
   const team = [
     {
       name: "Federico Lopez",
@@ -28,6 +29,12 @@ export default function TeamSection() {
       bio: "MSc specialist providing strategic guidance on LLM and NLP technologies, with deep expertise in applying AI to solve complex business challenges.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joaquin.jpg-96rpwQDiOQcEwd3svKiVRDN9SS7Eyc.jpeg",
     },
+    {
+      name: "Alejandro Sagula",
+      role: "Corporate Architecture and Automation Expert",
+      bio: "Alejandro brings over 30 years of experience in large-scale IT organizations, helping companies scale products and systems efficiently. As an advisor to Bixen, he contributes his expertise in automation and enterprise architecture with a focus on operational excellence.",
+      image: "/images/ale.png",
+    },
   ]
 
   return (
@@ -39,9 +46,9 @@ export default function TeamSection() {
           experts.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
         {team.map((member, index) => (
-          <Card key={index} className="overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30">
+          <Card key={index} className={`overflow-hidden bg-[#004953]/80 backdrop-blur-sm border-[#008794]/30 md:col-span-2 ${index === 3 ? "md:col-start-2" : ""}`}>
             <div className="aspect-square w-full overflow-hidden bg-[#004953]">
               <Image
                 src={member.image || "/placeholder.svg"}
