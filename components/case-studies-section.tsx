@@ -8,6 +8,7 @@ export default function CaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState(null)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
+  // Layout: row 1 = 3 cards, row 2 = 2 cards centered (via 6-col grid). Adding a 6th case breaks the 3+2 alignment.
   const caseStudies = [
     // Row 1
     [
@@ -45,31 +46,6 @@ export default function CaseStudiesSection() {
         hasModal: false,
       },
       {
-        title: "3D Body Scan Validation",
-        client: "Netflix",
-        logo: "/images/netflix-logo.png",
-        logoBg: "black" as const,
-        category: "Healthcare",
-        hasModal: true,
-        modalData: {
-          title: "3D Body Scan Validation System",
-          company: "A healthcare technology company was experiencing difficulties with their scans, due to failures both in their quality and in the subject being measured, which made it difficult for them to implement at scale.",
-          challenge: "The company needed to improve the quality and reliability of their 3D body scanning technology to enable large-scale deployment.",
-          benefits: [
-            "98.4% precision in the detection of people's health parameters",
-            "The product was launched massively in California",
-            "250% growth in the first year",
-          ],
-          technology: [
-            "Computer Vision (AI - Deep Learning)",
-            "Data Science",
-          ],
-        },
-      },
-    ],
-    // Row 2
-    [
-      {
         title: "Customer Service Center Reduction",
         client: "US Logistics",
         logo: "/images/logistics-truck-logo.png",
@@ -91,6 +67,9 @@ export default function CaseStudiesSection() {
           ],
         },
       },
+    ],
+    // Row 2
+    [
       {
         title: "Banking Assistant Evolution",
         client: "Banking Institution",
@@ -166,13 +145,13 @@ export default function CaseStudiesSection() {
       <div className="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-xl">
         <div className="space-y-8">
           {caseStudies.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-6 gap-6">
               {row.map((study, cardIndex) => {
                 const globalIndex = getCardIndex(rowIndex, cardIndex)
                 return (
                   <div
                     key={cardIndex}
-                    className="relative h-[300px] perspective-1000 cursor-pointer"
+                    className={`relative h-[300px] perspective-1000 cursor-pointer md:col-span-2 ${row.length === 2 && cardIndex === 0 ? "md:col-start-2" : ""}`}
                     onMouseEnter={() => setHoveredCard(globalIndex)}
                     onMouseLeave={() => setHoveredCard(null)}
                     onClick={() => handleCardClick(study)}
