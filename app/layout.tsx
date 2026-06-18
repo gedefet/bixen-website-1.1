@@ -17,10 +17,9 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Bixen | Helping businesses thrive through AI",
+  title: "Bixen | AI Solutions & Engineering Talent — Buenos Aires, LatAm",
   description:
-    "Helping businesses thrive through AI. Leveraging cutting-edge technology and AI expertise to drive innovation.",
-  generator: "v0.dev",
+    "Helping organizations thrive through AI. Unconventional AI solutions and curated engineering talent from Buenos Aires for forward-thinking companies.",
 }
 
 export default function RootLayout({
